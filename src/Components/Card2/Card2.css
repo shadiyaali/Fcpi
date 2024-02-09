@@ -1,0 +1,7 @@
+@media screen and (max-width: 768px) {
+    .grid-cols-1 {
+        grid-template-columns: 1.5fr 2fr;  
+    }
+}
+ 
+ 

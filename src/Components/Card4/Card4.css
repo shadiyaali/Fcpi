@@ -1,0 +1,12 @@
+/* Card4.css */
+
+@media screen and (max-width: 768px) {
+    .flex-col {
+      flex-direction: column !important;
+    }
+    
+    .grid-cols-3 {
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)) !important;
+    }
+  }
+  

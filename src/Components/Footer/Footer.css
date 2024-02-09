@@ -1,0 +1,41 @@
+.location {
+    width : 45px;
+    height: 45px;
+   
+    border-radius: 100%;
+    background-color: #303031;
+    padding: 12px;
+}
+
+.text {
+    width: 249px;
+} 
+
+.location_footer {
+    width : 38px;
+    height: 38px;
+   
+    border-radius: 100%;
+    background-color: #303031;
+    padding: 12px;
+}
+
+.grid-cols-custom {
+    display: grid;
+    grid-template-columns: auto 1.5fr 0.5fr 1fr; 
+    gap: 0.5rem;
+    justify-content: space-between;
+}
+
+ 
+@media screen and (max-width: 768px) {
+    .grid-cols-custom {
+        grid-template-columns: 1fr;  
+    }
+    
+    .text {
+        width: 100%;  
+    }
+}
+
+ 
