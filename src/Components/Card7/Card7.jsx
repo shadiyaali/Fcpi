@@ -15,7 +15,7 @@ const Card7 = () => {
                             <p className="text-[#222] pt-4 text-[34px] not-italic font-semibold leading-[normal]">Newsletters</p>
                             <p className="text-[#58585A] pt-8 text-[18px] not-italic font-normal leading-[28px]">It is a long established fact that a reader will be distracted by <br />the readable content of a page when looking at its layout.<br /> The point of using Lorem Ipsum is that it has a more-or-less <br /> normal distribution of letters, as opposed to using</p>
                         </div>
-                        <div className=" relative p-6 pl-44">
+                        <div className=" relative p-6 pl-48">
                             <img src={Logoa} alt="Logo" className=" rounded-[30px]" />
                             <div className="absolute right-4 top-16 transform -translate-y-1/2">
         <img src={rightArrowImage} alt="Left Arrow" className="rounded-[30px]" />

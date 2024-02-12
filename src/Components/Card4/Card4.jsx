@@ -42,9 +42,11 @@ const Card4 = () => {
 
                                 <p className="text-[#222] text-start p-8 text-[21px] not-italic font-semibold leading-[normal]" style={{ fontFamily: "Inter" }}>How Refine Labs rewrote the<br />
                                     book on culture</p>
-                                <div className="w-full flex justify-start ml-8 ">
-                                    <div className="w-[77%] border border-dashed items-center border-[#EEE]"></div>
-                                </div>
+                                 <div className="w-full flex justify-start ml-8 ">
+                                 <hr className=" w-[77%]    border border-[#EEE]" />
+                                    {/* <div className="w-[77%] border border-dashed items-center border-[#EEE]"></div> */}
+                                </div>  
+                               
 
                                 <div className="inline-flex items-center p-8">
                                     <img src={Logo12} alt="Logo" className=" rounded-[30px]" />
@@ -76,9 +78,10 @@ const Card4 = () => {
                                 </div>
                                 <p className="text-[#222] text-start p-8 text-[21px] not-italic font-semibold leading-[normal]" style={{ fontFamily: "Inter" }}>How Refine Labs rewrote the<br />
                                     book on culture</p>
-                                <div className="w-full flex justify-start ml-8 ">
-                                    <div className="w-[77%] border border-dashed items-center border-[#EEE]"></div>
-                                </div>
+                                    <div className="w-full flex justify-start ml-8 ">
+                                 <hr className=" w-[77%]    border border-[#EEE]" />
+                                    {/* <div className="w-[77%] border border-dashed items-center border-[#EEE]"></div> */}
+                                </div> 
 
                                 <div className="inline-flex items-center p-8">
                                     <img src={Logo12} alt="Logo" className=" rounded-[30px]" />
@@ -110,9 +113,10 @@ const Card4 = () => {
                                 </div>
                                 <p className="text-[#222] text-start p-8 text-[21px] not-italic font-semibold leading-[normal]" style={{ fontFamily: "Inter" }}>How Refine Labs rewrote the<br />
                                     book on culture</p>
-                                <div className="w-full flex justify-start ml-8 ">
-                                    <div className="w-[77%] border border-dashed items-center border-[#EEE]"></div>
-                                </div>
+                                    <div className="w-full flex justify-start ml-8 ">
+                                 <hr className=" w-[77%]    border border-[#EEE]" />
+                                    {/* <div className="w-[77%] border border-dashed items-center border-[#EEE]"></div> */}
+                                </div> 
 
                                 <div className="inline-flex items-center p-8">
                                     <img src={Logo12} alt="Logo" className=" rounded-[30px]" />

@@ -9,10 +9,13 @@ module.exports = {
         'home-background': "url('/src/assets/images/bg.png')",
         'cover-background': "url('/src/assets/images/Ellipse 1977.png')",
         'card1-background': "url('/src/assets/images/image1.png')",
+        'card2-background': "url('/src/assets/images/Rectangle 1.svg')",
+
+     
       },
-      backgroundColor:{
-        'custom-blue': 'rgba(197, 229, 255, 0.5)',
-      },
+    // colors :{
+    //   'gradient-color': "linear-gradient(to right, #FAF1A7, #F6EBCE)",  
+    // }  
     },
   },
   plugins: [],

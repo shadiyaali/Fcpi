@@ -1,0 +1,8 @@
+.sliding-image {
+    transition: transform 0.5s ease; /* Add smooth transition */
+  }
+  
+  .sliding-image.slide-out {
+    transform: translateX(-100%); /* Move the image leftward */
+  }
+  
