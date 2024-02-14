@@ -4,6 +4,8 @@ import Logo25 from "../../../src/assets/images/Frame 10.svg";
 import Logo26 from "../../../src/assets/images/Frame 82.svg";
 import Logo2 from "../../../src/assets/images/Ellipse 1992.png";
 import SliderImage from "../../../src/assets/images/slider.png";
+import { Carousel } from "@material-tailwind/react";
+
 import "./Card1.css"; 
 
 const Card1 = () => {
@@ -18,7 +20,6 @@ const Card1 = () => {
 
     return () => clearInterval(interval);
   }, []);
-
   return (
     <div className="w-full h-full bg-[#f4f4f4]">
       <div className="container">

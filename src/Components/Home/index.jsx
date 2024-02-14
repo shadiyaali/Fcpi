@@ -7,6 +7,7 @@ import './index.css'
 
 const Home = () => {
   const [hovered, setHovered] = useState(false);
+  const [showAboutList, setShowAboutList] = useState(false); // State to manage visibility of about list
 
   const handleMouseEnter = () => {
     setHovered(true);
@@ -14,6 +15,10 @@ const Home = () => {
 
   const handleMouseLeave = () => {
     setHovered(false);
+  };
+
+  const toggleAboutList = () => {
+    setShowAboutList(!showAboutList);
   };
 
   return (
@@ -28,21 +33,22 @@ const Home = () => {
               <div className="justify-center items-center px-2 py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
                 <p className="text-[14px] not-italic font-normal leading-[normal]" style={{ fontFamily: "Inter" }}>Home</p>
               </div>
-              <div className="justify-center items-center px-2 py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
+              <div className="justify-center items-center px-2 py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white" onClick={toggleAboutList}>
                 <p className="text-[14px] not-italic font-normal leading-[normal]" style={{ fontFamily: "Inter" }}>About Us</p>
               </div>
-              <div className="justify-center items-center px-2 py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
-                <p className="text-[14px] not-italic font-normal leading-[normal]" style={{ fontFamily: "Inter" }}>Specialty Forums</p>
-              </div>
-              <div className="justify-center items-center px-2 py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
-                <p className="text-[14px] not-italic font-normal leading-[normal]" style={{ fontFamily: "Inter" }}>Events</p>
-              </div>
-              <div className="justify-center items-center px-2 py-[14px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
-                <p className="text-[14px] not-italic font-normal leading-[normal]" style={{ fontFamily: "Inter" }}>Blogs</p>
-              </div>
-              <div className="justify-center items-center px-3 py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
-                <p className="text-[14px] not-italic font-normal leading-[normal]" style={{ fontFamily: "Inter" }}>Contact Us </p>
-              </div>
+              <div className=" justify-center items-center   px-2   py-[16px]  rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
+                  <p className="  text-[14px] not-italic font-normal leading-[normal]" style={{ fontFamily: "Inter" }}>Specialty Forums</p>
+               </div>
+               <div className="   justify-center items-center px-2  py-[16px]  rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
+                  <p className="  text-[14px] not-italic font-normal leading-[normal]" style={{ fontFamily: "Inter" }}>Events</p>
+               </div>
+               <div className=" justify-center items-center  px-2  py-[14px]  rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
+                  <p className="  text-[14px] not-italic font-normal leading-[normal]" style={{ fontFamily: "Inter" }}>Blogs</p>
+               </div>
+               <div className="  justify-center items-center  px-3  py-[16px]  rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
+                  <p className=" text-[14px] not-italic font-normal leading-[normal]" style={{ fontFamily: "Inter" }}>Contact Us </p>
+               </div>
+           
             </div>
           </div>
           <div className="pl-14 pt-6">
@@ -67,6 +73,27 @@ const Home = () => {
           </div>
         </div>
       </div>
+      {showAboutList && (
+      <div className={`about-list ${showAboutList ? "show" : ""}`}>
+        <ul className="drop-menu">
+          <li className=" ">
+            <a href="/about-fcpi">
+              <p className="text-[14px] not-italic font-normal leading-[normal]" style={{ fontFamily: "Inter", padding: "6px", display: "block" }}>About FCPI</p>
+            </a>
+          </li>
+          <li className=" ">
+            <a href="/board-of-directors">
+              <p className="text-[14px] not-italic font-normal leading-[normal]" style={{ fontFamily: "Inter", padding: "6px",  display: "block" }}>Board of Directors</p>
+            </a>
+          </li>
+          <li className="">
+            <a href="/forum-members">
+              <p className="text-[14px] not-italic font-normal leading-[normal]" style={{ fontFamily: "Inter", padding: "6px", display: "block" }}>Forum Members</p>
+            </a>
+          </li>
+        </ul>
+      </div>
+    )}
     </div>
   );
 };

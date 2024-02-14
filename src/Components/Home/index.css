@@ -1,20 +1,116 @@
 .header {
     display: flex;
-    align-items: center; 
+    align-items: center;
 }
 
 .container {
     margin: auto;
 }
 
- 
+
 @media screen and (max-width: 767px) {
     .header {
-        flex-direction: column; 
+        flex-direction: column;
     }
 
     .grid-cols-6 {
-        grid-template-columns: repeat(2, minmax(0, 1fr)); 
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
- 
+
 }
+
+/* index.css */
+.about-list {
+    position: absolute;
+    top: 70px;  
+    left: 40.5%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    z-index:10;
+    border-radius: 15px;
+    box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.10);
+
+    padding: 20px;
+    display: none;
+  }
+  
+  .about-list.show {
+    display: block;
+  }
+ 
+
+.about-us-button {
+    cursor: pointer;
+}
+.drop-menu li {
+    font-weight: normal;
+    padding: 10px 25px;
+}
+
+a {
+    -webkit-transition: all 0.5s ease-out 0s;
+    -moz-transition: all 0.5s ease-out 0s;
+    -ms-transition: all 0.5s ease-out 0s;
+    -o-transition: all 0.5s ease-out 0s;
+    transition: all 0.5s ease-out 0s;
+    color: var(--pbmit-link-color-normal);
+    text-decoration: none;
+}
+
+.drop-menu li a {
+    font-size: 12px;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    /* text-transform: uppercase; */
+    letter-spacing: 0.3px;
+    color:  #262527;
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -ms-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;
+
+ 
+
+}
+.drop-menu li a:before {
+    position: absolute;
+    content: "";
+    left: 0;
+    right: auto;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+    
+    height: 1px;
+    background-color:#181a17;  
+    transition: all 0.3s ease-out 0s;
+    
+} 
+
+.drop-menu li:hover a:before {
+    width:12px ; 
+    
+}
+
+.drop-menu li a:hover {
+    padding-left: 12px;
+      -webkit-transition: all 300ms ease;
+     -moz-transition: all 300ms ease;
+     -ms-transition: all 300ms ease;
+     -o-transition: all 300ms ease;
+     transition: all 300ms ease;
+     
+}
+
+.drop-menu  {
+    min-width: 280PX;
+    -webkit-transition: all 300ms ease;
+    -moz-transition: all 300ms ease;
+    -ms-transition: all 300ms ease;
+    -o-transition: all 300ms ease;
+    transition: all 300ms ease;
+} 

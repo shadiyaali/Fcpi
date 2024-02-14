@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Logo5 from "../../../src/assets/images/image2.png";
 import Logo6 from "../../../src/assets/images/image3.png";
 import Logo7 from "../../../src/assets/images/eclips.png";
@@ -13,10 +13,17 @@ const Card2 = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
     const images = [Logo5, Logo16, Logo17];  
     
+    useEffect(() => {
+        const interval = setInterval(() => {
+            setCurrentImageIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
+        }, 3000); // Change image every 3 seconds
+        
+        return () => clearInterval(interval);
+    }, [images.length]);
+    
     const handleNext = () => {
         setCurrentImageIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
     };
-
     const handlePrevious = () => {
         setCurrentImageIndex((prevIndex) => (prevIndex === 0 ? images.length - 1 : prevIndex - 1));
     };

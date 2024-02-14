@@ -1,7 +1,7 @@
 import React from "react";
 import Logoa from "../../../src/assets/images/c9b148186761267 2.png";
-import rightArrowImage from "../../../src/assets/images/arrow.svg";
-import leftArrowImage from "../../../src/assets/images/Frame 78.svg";
+import rightArrowImage from "../../../src/assets/images/Frame 13333.svg";
+import leftArrowImage from "../../../src/assets/images/Frame 113.svg";
 import './Card7.css';  
 
 const Card7 = () => {
@@ -17,7 +17,7 @@ const Card7 = () => {
                         </div>
                         <div className=" relative p-6 pl-48">
                             <img src={Logoa} alt="Logo" className=" rounded-[30px]" />
-                            <div className="absolute right-4 top-16 transform -translate-y-1/2">
+                            <div className="absolute right-8 top-16 transform -translate-y-1/2">
         <img src={rightArrowImage} alt="Left Arrow" className="rounded-[30px]" />
     </div>
     <div className="absolute right-20 top-16  transform -translate-y-1/2">
