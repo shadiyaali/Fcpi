@@ -48,51 +48,51 @@ const Forum = () => {
 
                             </div>
                             {/* .................................................................. */}
-                            <div className="flex-col">
-                            <div className="flex pl-8 gap-14 ">
-                            <div className=" pr-20 pb-8 shrink-0 rounded-[8px] pl-10 pt-8 border-b-4 border-[#00549A]
-  bg-[#F0FAFF]">
+                            <div className="flex-col ">
+                            <div className="flex pl-8 gap-14">
+                            <div className=" shrink-0 rounded-[8px] pl-10 pt-8 pr-20 pb-8 border-b-4 border-[#2DCA72]
+  bg-[#EAFBF1]">
                                 <div className="  ">
-                                    <img src={Logo24} alt="Image" className="rounded-[150px]" />
+                                    <img src={Logo25} alt="Image" className="rounded-[150px]" />
 
                                 </div>
                                 <p className="text-black pt-6 text-start text-[21px] not-italic font-semibold leading-[normal]
- "style={{ fontFamily: "Inter" }}>Grace Mary John</p>
-                                <p className="text-black pt-2 text-start text-[16px] not-italic font-normal leading-[normal]">PharmD., BCIDP</p>
+ "style={{ fontFamily: "Inter" }}>Mammen Paul</p>
+                                <p className="text-black pt-2 text-start text-[16px] not-italic font-normal leading-[normal]">PharmD</p>
 
                             </div>
-                            <div className=" shrink-0 rounded-[8px] pl-10 pt-8 pr-20 pb-8 border-b-4 border-[#00549A]
-  bg-[#F0FAFF]">
-                            <div className="  ">
-                                <img src={Logo28} alt="Image" className="rounded-[150px]" />
-
-                            </div>
-                            <p className="text-black pt-6 text-start text-[21px] not-italic font-semibold leading-[normal]
- "style={{ fontFamily: "Inter" }}>Mohamed Hisham</p>
-                            <p className="text-black pt-2 text-start text-[16px] not-italic font-normal leading-[normal]">PharmD., BCCCP., BCIDP</p>
-
-                        </div>
                             <div className="  shrink-0 rounded-[8px] pl-10 pt-8 pr-20 pb-8 border-b-4 border-[#00549A]
   bg-[#F0FAFF]">
                                 <div className="  ">
-                                    <img src={Logo22} alt="Image" className="rounded-[150px]" />
+                                    <img src={Logo26} alt="Image" className="rounded-[150px]" />
 
                                 </div>
                                 <p className="text-black pt-6 text-start text-[21px] not-italic font-semibold leading-[normal]
- "style={{ fontFamily: "Inter" }}>Saidulu Ganta</p>
-                                <p className="text-black pt-2 text-start text-[16px] not-italic font-normal leading-[normal]">PharmD</p>
+ "style={{ fontFamily: "Inter" }}>Mohammed Afsal</p>
+                                <p className="text-black pt-2 text-start text-[16px] not-italic font-normal leading-[normal]">MPharm</p>
+
+                            </div>
+                            <div className="  shrink-0 rounded-[8px] pl-10 pt-8 pr-20 pb-8 border-b-4 border-[#FF7D52]
+  bg-[#FFF2EE]">
+                                <div className="  ">
+                                    <img src={Logo27} alt="Image" className="rounded-[150px]" />
+
+                                </div>
+                                <p className="text-black pt-6 text-start text-[21px] not-italic font-semibold leading-[normal]
+ "style={{ fontFamily: "Inter" }}>Mohammed Faisal</p>
+                                <p className="text-black pt-2 text-start text-[16px] not-italic font-normal leading-[normal]">MPharm., CPQIH</p>
                                 </div>
                             </div>
                           {/* ......................................................................................... */}
-                            <div className="flex pl-8 pt-14 gap-14">
-                            <div className=" shrink-0 rounded-[8px] pl-10 pt-8 pr-20 pb-8 border-b-4 border-[#00549A]
- bg-[#F0FAFF]">
+                          <div className="flex pl-8 pt-14 gap-14">
+                            <div className=" shrink-0 rounded-[8px] pl-10 pt-8 pr-20 pb-8 border-b-4 border-[#2DCA72]
+  bg-[#EAFBF1]">
                                 <div className="  ">
-                                    <img src={Logo222} alt="Image" className="rounded-[150px]" />
+                                    <img src={Logo25} alt="Image" className="rounded-[150px]" />
 
                                 </div>
                                 <p className="text-black pt-6 text-start text-[21px] not-italic font-semibold leading-[normal]
- "style={{ fontFamily: "Inter" }}>Vrinda Nampoothiri</p>
+ "style={{ fontFamily: "Inter" }}>Mammen Paul</p>
                                 <p className="text-black pt-2 text-start text-[16px] not-italic font-normal leading-[normal]">PharmD</p>
 
                             </div>
