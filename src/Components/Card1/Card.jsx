@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
 import Logo3 from "../../../src/assets/images/logo.png";
+import SliderImage from "../../../src/assets/images/slider.png";
+import { Carousel } from "flowbite-react";
+// import "react-responsive-carousel/lib/styles/carousel.min.css";
 import Logo25 from "../../../src/assets/images/Frame 10.svg";
 import Logo26 from "../../../src/assets/images/Frame 82.svg";
-import Logo2 from "../../../src/assets/images/Ellipse 1992.png";
-import SliderImage from "../../../src/assets/images/slider.png";
-import { Carousel } from "@material-tailwind/react";
-
 import "./Card1.css"; 
+ 
 
 const Card1 = () => {
   const [selectedImage, setSelectedImage] = useState(Logo3);
@@ -20,6 +20,7 @@ const Card1 = () => {
 
     return () => clearInterval(interval);
   }, []);
+
   return (
     <div className="w-full h-full bg-[#f4f4f4]">
       <div className="container">
@@ -34,16 +35,20 @@ const Card1 = () => {
                 The Federation of Clinical Pharmacists in India (FCPI) is a non-profitable,<br /> professional pharmacy organization composed of a bunch of passionate <br /> pharmacists involved in diverse clinical pharmacy...
               </p>
             </div>
-            <div className={`relative pt-6 ${selectedImage === SliderImage ? 'slide-out' : ''}`}>
-  <img src={selectedImage} alt="Logo" className="w-[100%] h-[98%] rounded-[30px] sliding-image" />
-</div>
-
+           <div className="mt-6">
+            <Carousel>
+                <div className="">
+                  <img src={Logo3} alt="Slide 1" className=" w-[100%] rounded-[30px]" />
+              
+                </div>
+                <div>
+                  <img src={SliderImage} alt="Slide 2" className=" w-[100%]  rounded-[30px]" />
+                </div>
+              </Carousel>
+              </div>
           </div>
           <div className="flex flex-col w-[99%] h-[100%] rounded-[30px] aspect-[2] bg-card1-background bg-cover responsive-card">
-            <div
-              className="aspect-[2] bg-card2-background bg-cover w-[42%] ml-auto mr-6 mt-auto mb-6 h-[63%] backdrop-blur-2xl rounded-[23px]   " 
-
-            >
+            <div className="aspect-[2] bg-card2-background bg-cover w-[42%] ml-auto mr-6 mt-auto mb-6 h-[63%] backdrop-blur-2xl rounded-[23px]   ">
               <div className="flex pl-7">
                 <p className="text-[#00549A] pt-8 text-[24px] not-italic font-semibold leading-[normal]" style={{ fontFamily: "Inter" }}>Event Calendar</p>
                 <div className="pl-8 pt-6 ">

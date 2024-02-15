@@ -8,6 +8,7 @@ import leftArrowImage from "../../../src/assets/images/Frame 78.svg";
 import Logo16 from "../../../src/assets/images/logo2.png";
 import Logo17 from "../../../src/assets/images/kamran-abdullayev-9V1cYW4JIfQ-unsplash 1.png";
 import './Card2.css'; 
+import { Carousel } from "flowbite-react";
 
 const Card2 = () => {
     const [currentImageIndex, setCurrentImageIndex] = useState(0);
@@ -16,7 +17,7 @@ const Card2 = () => {
     useEffect(() => {
         const interval = setInterval(() => {
             setCurrentImageIndex((prevIndex) => (prevIndex === images.length - 1 ? 0 : prevIndex + 1));
-        }, 3000); // Change image every 3 seconds
+        }, 3000);  
         
         return () => clearInterval(interval);
     }, [images.length]);
