@@ -18,21 +18,21 @@ const Board = () => {
             <div className="container">
                 <div className="pt-6">
                     <div className="  bg-white rounded-[30px]  ">
-                        <div className="grid grid-cols-2 p-[5rem] pt-20 gap-20">
-                            <div className="text-start pt-44">
-                                <p className="text-[#222] text-[32px] not-italic font-semibold leading-[normal]
+                        <div className="grid grid-cols-2 pt-24 gap-20">
+                            <div className="text-start pt-36 pl-12">
+                                <p className="text-[#222] text-[38px] not-italic font-semibold leading-[normal]
  "style={{ fontfamily: "Inter" }}> Board of Directors</p>
-                                <p className="text-[#58585A] pt-8 text-[17px] not-italic font-normal leading-[28px]" style={{ fontfamily: "Inter" }}>The Federation of Clinical Pharmacists in India (FCPI) is a non- <br />profitable, professional pharmacy organization composed of a bunch<br /> of passionate pharmacists involved in diverse clinical pharmacy<br /> responsibilities in India and across the globe. We have come<br /> together voluntarily with the undeterred goal of enhancing the<br /> clinical pharmacy profession, empowering the clinical pharmacists<br /> and thereby delivering high quality patient care.</p>
+                                <p className="text-[#58585A] pt-8 text-[18px] not-italic font-normal leading-[31px]" style={{ fontfamily: "Inter" }}>The Federation of Clinical Pharmacists in India (FCPI) is a non- <br />profitable, professional pharmacy organization composed of a bunch<br /> of passionate pharmacists involved in diverse clinical pharmacy<br /> responsibilities in India and across the globe. We have come<br /> together voluntarily with the undeterred goal of enhancing the<br /> clinical pharmacy profession, empowering the clinical pharmacists<br /> and thereby delivering high quality patient care.</p>
                             </div>
-                            <div className="pt-72">
+                            <div className="pt-80 pl-8">
                                 <div className="relative   ">
                                     <img src={Logo23} alt="Image" className="" />
-                                    <img src={Page1} alt="Left Arrow" className="absolute  right-32 -top-20 transform -translate-y-1/2   rounded-[30px] " />
+                                    <img src={Page1} alt="Left Arrow" className="absolute  right-36 -top-20 transform -translate-y-1/2   rounded-[30px] " />
 
                                 </div>
                             </div>
                         </div>
-                        <div className=" grid grid-cols-4 p-[5rem] gap-14   justify-between  ">
+                        <div className=" grid grid-cols-4 pl-12 pr-12 pt-32 gap-12   justify-between  ">
                             <div className=" pr-20 pb-8 shrink-0 rounded-[8px] pl-10 pt-8 border-b-4 border-[#F75FDE]
   bg-[#feecfb]">
                                 <div className="  ">
@@ -79,7 +79,8 @@ const Board = () => {
                             </div>
 
                         </div>
-                        <div className=" grid grid-cols-4 p-[5rem] pt-1 gap-14">
+                        {/* ......................................................................... */}
+                        <div className=" grid grid-cols-4  pl-14 pr-14 pt-12 pb-12 gap-12">
                         <div className=" shrink-0 rounded-[8px] pl-10 pt-8 pr-20 pb-8 border-b-4 border-[#9452FF]
   bg-[#EEF0FF]">
                             <div className="  ">

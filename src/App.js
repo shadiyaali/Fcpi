@@ -7,6 +7,7 @@ import PrivateRoute from './Components/PrivateRouter';
 import AboutBoardPage from './Pages/User/About/AboutBoardPage';
 import AboutForumPage from './Pages/User/About/AboutForumPage';
 import Carousel from './Components/Carousel/eg';
+import SpecialityForum from './Pages/User/SpecialityForum/SpecialityPage';
  
 
 function App() {
@@ -21,7 +22,8 @@ function App() {
           <Route Component= {AboutfcpiPage} path='/about-fcpi'/>
           <Route Component= {AboutBoardPage} path='/board-of-directors'/>
           <Route Component= {AboutForumPage} path='/forum-members'/>
-          <Route Component= {Carousel} path='/carousel'/>
+          <Route Component={SpecialityForum} path='/speciality-forum'/>
+
         </Routes>
 
       </Router>
