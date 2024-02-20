@@ -93,7 +93,7 @@ const Forum = () => {
                                 ))
                             ) : (
                                 criticalCareMedicalItems.map((item, index) => (
-                                    <div key={index} className="flex-col pl-16">
+                                    <div key={index} className="flex-col pl-16 pt-28">
                                         <div className="flex  ">
                                             <div className="shrink-0 rounded-[8px] pl-10 pt-8 pr-20 pb-8 border-b-4 border-[#2DCA72] bg-[#EAFBF1]">
                                                 <img src={item.src} alt="Image" className="rounded-[150px]" />
