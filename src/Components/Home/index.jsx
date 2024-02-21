@@ -46,13 +46,13 @@ const Home = () => {
 
               <div className="justify-center items-center px-11   py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
                 <Link to="/">
-                  <p className="text-[14px] not-italic font-normal leading-[normal]" style={{ fontFamily: "Inter" }}>Home</p>
+                  <p className="text-[16px] not-italic font-normal leading-[normal]" style={{ fontFamily: "Inter" }}>Home</p>
                 </Link>
 
               </div>
               <div className="justify-center items-center px-11 py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white about-us-button"   onMouseEnter={handleAboutMouseEnter}
   onMouseLeave={handleAboutMouseLeave}>
-                <p className="text-[14px] not-italic font-normal leading-[normal]" style={{ fontFamily: "Inter" }}>About Us</p>
+                <p className="text-[16px] not-italic font-normal leading-[normal]" style={{ fontFamily: "Inter" }}>About Us</p>
                 {isAboutDropdownHovered && (
     <div
       className={`about-list show`}
@@ -82,19 +82,21 @@ const Home = () => {
               </div>
               <div className="justify-center items-center px-11 py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
               <Link to="/speciality-forum">
-                <p className="text-[14px] not-italic font-normal leading-[normal]" style={{ fontFamily: "Inter" }}>Specialty Forums</p>
+                <p className="text-[16px] not-italic font-normal leading-[normal]" style={{ fontFamily: "Inter" }}>Specialty Forums</p>
                 </Link>
               </div>
               <div className="justify-center items-center px-11 py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
               <Link to="/events">
-                <p className="text-[14px] not-italic font-normal leading-[normal]" style={{ fontFamily: "Inter" }}>Events</p>
+                <p className="text-[16px] not-italic font-normal leading-[normal]" style={{ fontFamily: "Inter" }}>Events</p>
                 </Link>
                 </div>
               <div className="justify-center items-center px-11 py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
-                <p className="text-[14px] not-italic font-normal leading-[normal]" style={{ fontFamily: "Inter" }}>Blogs</p>
+              <Link to="/blogs">
+                <p className="text-[16px] not-italic font-normal leading-[normal]" style={{ fontFamily: "Inter" }}>Blogs</p>
+                </Link>
               </div>
               <div className="justify-center items-center px-11 py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
-                <p className="text-[14px] not-italic font-normal leading-[normal]" style={{ fontFamily: "Inter" }}>Contact Us </p>
+                <p className="text-[16px] not-italic font-normal leading-[normal]" style={{ fontFamily: "Inter" }}>Contact Us </p>
               </div>
             </div>
           </div>

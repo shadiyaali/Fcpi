@@ -18,7 +18,7 @@ const Card2 = () => {
   };
 
   const handleUpcomingEventsClick = () => {
-    setCurrentIndex(1); // Change the index according to the image you want to display
+    setCurrentIndex(1); 
   };
   const items = Array.from({ length: 4 }, (_, index) => (
     <div key={index} className="flex items-start pt-6 ">

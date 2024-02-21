@@ -1,17 +1,19 @@
 import react from "react";
 import Home from "../../../Components/Home/index";
-import Member from "../../../Components/User/About/MemberProfile";  
+import Detail from "../../../Components/User/Events/Eventdetail";  
+import Card2 from "../../../Components/User/Events/Card2";  
 import Footer from  "../../../Components/Footer/Footer";
 
 
-const MemberPage = () => {
+const DetailPage = () => {
 
     return (
         <div>
     <Home/>
-    <Member/>
+    <Detail/>
+    <Card2/>
   <Footer/> 
     </div>
     )
 }
-export default MemberPage;
+export default DetailPage;

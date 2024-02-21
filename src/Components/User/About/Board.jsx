@@ -7,16 +7,18 @@ import Logo26 from "../../../assets/images/afsal.png";
 import Logo27 from "../../../assets/images/faisal.png";
 import Logo28 from "../../../assets/images/hisham.png";
 import Logo29 from "../../../assets/images/rashid.png";
+import { Link } from "react-router-dom";
 
 const Board = () => {
     const boardMembers = [
-        { src: Logo24, name: "Grace Mary John", degree: "PharmD., BCIDP", borderColor: '#F75FDE', bgColor: "#feecfb" },
-        { src: Logo25, name: "Mammen Paul", degree: "PharmD", borderColor: "#2DCA72", bgColor: "#EAFBF1" },
-        { src: Logo26, name: "Mohammed Afsal", degree: "MPharm", borderColor: "#00549A", bgColor: "#F0FAFF" },
-        { src: Logo27, name: "Mohammed Faisal", degree: "MPharm., CPQIH", borderColor: "#FF7D52", bgColor: "#FFF2EE" },
-        { src: Logo28, name: "Mohamed Hisham", degree: "PharmD., BCCCP., BCIDP", borderColor: "#9452FF", bgColor: "#EEF0FF" },
-        { src: Logo29, name: "Muhammed Rashid", degree: "MPharm", borderColor: "#B1B1B1", bgColor: "#F2F2F2" }
+        { id: 1, src: Logo24, name: "Grace Mary John", degree: "PharmD., BCIDP", borderColor: '#F75FDE', bgColor: "#feecfb" },
+        { id: 2, src: Logo25, name: "Mammen Paul", degree: "PharmD", borderColor: "#2DCA72", bgColor: "#EAFBF1" },
+        { id: 3, src: Logo26, name: "Mohammed Afsal", degree: "MPharm", borderColor: "#00549A", bgColor: "#F0FAFF" },
+        { id: 4, src: Logo27, name: "Mohammed Faisal", degree: "MPharm., CPQIH", borderColor: "#FF7D52", bgColor: "#FFF2EE" },
+        { id: 5, src: Logo28, name: "Mohamed Hisham", degree: "PharmD., BCCCP., BCIDP", borderColor: "#9452FF", bgColor: "#EEF0FF" },
+        { id: 6, src: Logo29, name: "Muhammed Rashid", degree: "MPharm", borderColor: "#B1B1B1", bgColor: "#F2F2F2" }
     ];
+    
 
     return (
         <div className="w-full h-full bg-[#f4f4f4]">
@@ -36,15 +38,16 @@ const Board = () => {
                             </div>
                         </div>
                         <div className="grid grid-cols-4 pl-16 pr-16 pt-32 gap-14 pb-14 justify-between">
-                            {boardMembers.map((member, index) => (
-                               <div key={index} className="shrink-0 rounded-[8px] pl-10 pt-8 pr-20 pb-8" style={{ borderBottom: `4px solid ${member.borderColor}`, backgroundColor: member.bgColor }}>
-                               <div>
-                                   <img src={member.src} alt="Image" className="rounded-[150px]" />
-                               </div>
-                               <p className="text-black pt-6 text-start text-[21px] not-italic font-semibold leading-[normal]" style={{ fontFamily: "Inter" }}>{member.name}</p>
-                               <p className="text-black pt-2 text-start text-[16px] not-italic font-normal leading-[normal]">{member.degree}</p>
-                           </div>
-                           
+                        {boardMembers.map((member) => (
+                                <Link to={`/details/${member.id}`} key={member.id}> 
+                                    <div className="shrink-0 rounded-[8px] pl-10 pt-8 pr-20 pb-8" style={{ borderBottom: `4px solid ${member.borderColor}`, backgroundColor: member.bgColor }}>
+                                        <div>
+                                            <img src={member.src} alt="Image" className="rounded-[150px]" />
+                                        </div>
+                                        <p className="text-black pt-6 text-start text-[21px] not-italic font-semibold leading-[normal]" style={{ fontFamily: "Inter" }}>{member.name}</p>
+                                        <p className="text-black pt-2 text-start text-[16px] not-italic font-normal leading-[normal]">{member.degree}</p>
+                                    </div>
+                                </Link>
                             ))}
                         </div>
                     </div>

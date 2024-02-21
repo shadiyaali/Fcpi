@@ -5,13 +5,14 @@ import Logo18 from "../../../assets/images/event-3.png";
 import Logoa from "../../../assets/images/add.png"; 
 import Logo from "../../../assets/images/event-4.png"; 
 import Log1 from "../../../assets/images/cancel.png"; 
+import { Link } from 'react-router-dom';
 
 const Events = () => {
     const [liveEventsVisible, setLiveEventsVisible] = useState(false);
     const [upcomingEventsVisible, setUpcomingEventsVisible] = useState(false);
     const [completedEventsVisible, setCompletedEventsVisible] = useState(false);
     const [dropdownVisible, setDropdownVisible] = useState(false); 
- 
+    const [addButtonClicked, setAddButtonClicked] = useState(false);
     
     const toggleLiveEvents = () => {
         setLiveEventsVisible(!liveEventsVisible);
@@ -30,11 +31,11 @@ const Events = () => {
         setLiveEventsVisible(false);
         setUpcomingEventsVisible(false);
     };
+  
     const toggleImageVisible = () => {
-        setDropdownVisible(!dropdownVisible );
-        
+        // Toggle dropdown visibility
+        setDropdownVisible(!dropdownVisible);
     };
-
   
     
 
@@ -76,6 +77,23 @@ const Events = () => {
                         <img src={Logoa} alt="Logo17" className="rounded-[30px]" onClick={toggleImageVisible} />
                         </button>
                         </div>
+                        {dropdownVisible && (
+            <div className='pl-2'>
+                <div className='pt-4'>
+                    <div className='flex gap-[16rem]'>
+                        <p className='text-[#58585A] pt-2 text-start text-[19px] not-italic font-normal leading-[normal]' style={{fontFamily:"Inter"}}>Infectious Diseases Forum</p>
+                    </div>
+                    <div className='flex gap-10'>
+                        <p className='text-[#58585A] pt-4 text-[17px] not-italic font-normal leading-[normal]' style={{fontFamily:"Inter"}}>2022-09-22 9:00 AM to 11:00 AM</p>
+                        <button className='bg-[#1AB78D] rounded-[105px] px-5 py-2'>
+                            <Link to='/event-detail'>
+                            <p className='text-white text-[16px] not-italic font-semibold leading-[normal]' style={{fontFamily:"Inter"}}>click</p>
+                            </Link>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        )}
                         <hr className='mt-4'/>
                     </div>
                     <div className='pt-4'>
@@ -85,6 +103,21 @@ const Events = () => {
                         <img src={Logoa} alt="Logo17" className="rounded-[30px]"onClick={toggleImageVisible}  />
                         </button>
                         </div>
+                        {dropdownVisible && (
+            <div className='pl-2'>
+                <div className='pt-4'>
+                    <div className='flex gap-[16rem]'>
+                        <p className='text-[#58585A] pt-2 text-start text-[19px] not-italic font-normal leading-[normal]' style={{fontFamily:"Inter"}}>Infectious Diseases Forum</p>
+                    </div>
+                    <div className='flex gap-10'>
+                        <p className='text-[#58585A] pt-4 text-[17px] not-italic font-normal leading-[normal]' style={{fontFamily:"Inter"}}>2022-09-22 9:00 AM to 11:00 AM</p>
+                        <button className='bg-[#1AB78D] rounded-[105px] px-5 py-2'>
+                            <p className='text-white text-[16px] not-italic font-semibold leading-[normal]' style={{fontFamily:"Inter"}}>click</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        )}
                         <hr className='mt-4'/>
                     </div>
                     <div className='pt-4'>
@@ -94,6 +127,21 @@ const Events = () => {
                         <img src={Logoa} alt="Logo17" className="rounded-[30px]" onClick={toggleImageVisible} />
                         </button>
                         </div>
+                        {dropdownVisible && (
+            <div className='pl-2'>
+                <div className='pt-4'>
+                    <div className='flex gap-[16rem]'>
+                        <p className='text-[#58585A] pt-2 text-start text-[19px] not-italic font-normal leading-[normal]' style={{fontFamily:"Inter"}}>Infectious Diseases Forum</p>
+                    </div>
+                    <div className='flex gap-10'>
+                        <p className='text-[#58585A] pt-4 text-[17px] not-italic font-normal leading-[normal]' style={{fontFamily:"Inter"}}>2022-09-22 9:00 AM to 11:00 AM</p>
+                        <button className='bg-[#1AB78D] rounded-[105px] px-5 py-2'>
+                            <p className='text-white text-[16px] not-italic font-semibold leading-[normal]' style={{fontFamily:"Inter"}}>click</p>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        )}
                         
                     </div>
                   
@@ -106,46 +154,47 @@ const Events = () => {
                             </div>
                         )}
 
-                        {upcomingEventsVisible && (
-                            <div className='flex pt-12 gap-4'>
-                                <div className='flex pt-12  gap-4 '>
-                    <div className='pl-2'>
-                         <div className='pt-4'>
-                        <div className='flex gap-[16rem]'>
-                        <p className='text-[#222]  text-[19px] not-italic font-medium leading-[30px]' style={{fontFamily:"Inter"}}>Basic Module in Infectious Diseases (Presentation-01)</p>
-                        <button className='px-4 py-4 bg-[#C5E5FF] rounded-[30px]'>
-                        <img src={Logoa} alt="Logo17" className="rounded-[30px]"onClick={toggleImageVisible}  />
+{upcomingEventsVisible && (
+    <div className='flex pt-12 gap-4'>
+        <div className='flex pt-12 gap-4'>
+            <div className='pl-2'>
+                <div className='pt-4'>
+                    <div className='flex gap-[16rem]'>
+                        <p className='text-[#222] text-[19px] not-italic font-medium leading-[30px]' style={{fontFamily:"Inter"}}>Basic Module in Infectious Diseases (Presentation-01)</p>
+                        <button className='px-4 py-4 bg-[#C5E5FF] rounded-[30px]' onClick={toggleImageVisible}>
+                            <img src={Logoa} alt="Logo17" className="rounded-[30px]" />
                         </button>
-                        </div>
-                        <hr className='mt-4'/>
                     </div>
-                    <div className='pt-4'>
-                        <div className='flex gap-[16rem]'>
+                    <hr className='mt-4'/>
+                </div>
+                <div className='pt-4'>
+                    <div className='flex gap-[16rem]'>
                         <p className='text-[#222] pt-2 text-[19px] not-italic font-medium leading-[30px]' style={{fontFamily:"Inter"}}>Basic Module in Infectious Diseases (Presentation-01)</p>
-                        <button className='px-4 py-4 bg-[#C5E5FF] rounded-[30px]'>
-                        <img src={Logoa} alt="Logo17" className="rounded-[30px]"onClick={toggleImageVisible}  />
+                        <button className='px-4 py-4 bg-[#C5E5FF] rounded-[30px]' onClick={toggleImageVisible}>
+                            <img src={Logoa} alt="Logo17" className="rounded-[30px]" />
                         </button>
-                        </div>
-                        <hr className='mt-4'/>
                     </div>
-                    <div className='pt-4'>
-                        <div className='flex gap-[16rem]'>
+                    
+                    <hr className='mt-4'/>
+                </div>
+                <div className='pt-4'>
+                    <div className='flex gap-[16rem]'>
                         <p className='text-[#222] pt-2 text-[19px] not-italic font-medium leading-[30px]' style={{fontFamily:"Inter"}}>Basic Module in Infectious Diseases (Presentation-01)</p>
-                        <button className='px-4 py-4 bg-[#C5E5FF] rounded-[30px]'>
-                        <img src={Logoa} alt="Logo17" className="rounded-[30px]" onClick={toggleImageVisible} />
+                        <button className='px-4 py-4 bg-[#C5E5FF] rounded-[30px]' onClick={toggleImageVisible}>
+                            <img src={Logoa} alt="Logo17" className="rounded-[30px]" />
                         </button>
-                        </div>
-                        
                     </div>
-                  
-                    </div>
-                    <div className='pl-20'>
-                 <img src={Logo} alt="Logo17" className="rounded-[30px] w-[540px]" />
-                 </div>
-                  
-                 </div>
-                            </div>
-                        )}
+                </div>
+            </div>
+            <div className='pl-20'>
+                <img src={Logo} alt="Logo17" className="rounded-[30px] w-[540px]" />
+            </div>
+        </div>
+        {/* Dropdown */}
+       
+    </div>
+)}
+
 
                         {completedEventsVisible && (
                             <div className='flex pt-12 gap-4'>
@@ -189,26 +238,7 @@ const Events = () => {
                 
                             </div>
                         )}
-                         {dropdownVisible && (
-                             <div>
-                                <div className='flex gap-[16rem]'>
-                                   
-                                
-                                <p className='text-[#58585A] pt-2 text-start text-[19px] not-italic font-normal leading-[normal]'style={{fontFamily:"Inter"}}>Infectious Diseases Forum</p>
-                               
-                                <button className='px-4 py-6 bg-[#00549A] rounded-[30px]'>
-                        <img src={Log1} alt="Logo17" className="rounded-[30px]" />
-                        </button>
-                            </div>
-                           
-                            <div className='flex gap-10'>
-                                <p className='text-[#58585A] pt-4 text-[17px] not-italic font-normal leading-[normal]'style={{fontFamily:"Inter"}}>2022-09-22 9:00 AM to 11:00 AM</p>
-                                <button className='bg-[#1AB78D] rounded-[105px] px-5 py-2'>
-                                    <p className='text-white text-[16px] not-italic font-semibold leading-[normal]'style={{fontFamily:"Inter"}}>click</p>
-                                </button>
-                            </div>
-                            </div>
-                         )}
+                         
                     </div>
                 
                 </div>

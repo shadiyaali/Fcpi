@@ -10,6 +10,7 @@ module.exports = {
         'cover-background': "url('/src/assets/images/Ellipse 1977.png')",
         'card1-background': "url('/src/assets/images/image1.png')",
         'card2-background': "url('/src/assets/images/Rectangle 1.svg')",
+        'card3-background': "url('/src/assets/images/event.png')",
 
      
       },
