@@ -32,14 +32,14 @@ const Speciality = () => {
                   style={{ width: 'auto', backgroundColor: currentIndex === 0 ? '#1ab78d' : '', }}
                   onClick={handlePastEventsClick}
                 >
-                  <p className="text-white text-[14px] font-semibold" style={{ fontFamily: 'Inter' }}>Past Events</p>
+                  <p className="text-white text-[14px] font-semibold"  >Past Events</p>
                 </button>
                 <button 
                   className="justify-center items-center ml-3 px-7 py-3 rounded-[105px] border    " 
                   style={{ width: 'auto', backgroundColor: currentIndex === 1 ? '#1ab78d' : '' }}  
                   onClick={handleUpcomingEventsClick}
                 >
-                  <p className="text-white text-[14px] font-semibold" style={{ fontFamily: 'Inter' }}>Upcoming Events</p>
+                  <p className="text-white text-[14px] font-semibold" >Upcoming Events</p>
                 </button>
               </div>
               <div className="ml-auto pr-4 pt-3">
@@ -69,15 +69,15 @@ const Speciality = () => {
         <img src={red} alt="Red" className="rounded-[30px]"/>
         </div>
         <div className='pt-10 text-start'>
-            <p className='text-black text-start pl-8 text-[20px] not-italic font-semibold leading-[30px]'style={{ fontFamily: "Inter"}} >Acidity Problems? 14 Home Remedies That Can Help</p>
+            <p className='text-black text-start pl-8 text-[20px] not-italic font-semibold leading-[30px]'  >Acidity Problems? 14 Home Remedies That Can Help</p>
              <hr  className='mt-4 '/>
              <div className='flex pt-10 pl-8'>
   <div className='inline-flex justify-center items-center gap-[10px] px-[9px] py-[2px] rounded-[4px] bg-[#c5e5ff]'>
-    <p className='text-[#00549A] text-[14px] not-italic font-medium leading-[24px]' style={{ fontFamily: "Inter" }}>Health Today</p>
+    <p className='text-[#00549A] text-[14px] not-italic font-medium leading-[24px]'  >Health Today</p>
   </div>
-  <p className='text-[#58585A] pl-12 text-[14px] not-italic font-medium leading-[24px]' style={{ fontFamily: "Inter" }}>By Dr Prachi Garg</p>
+  <p className='text-[#58585A] pl-12 text-[14px] not-italic font-medium leading-[24px]'  >By Dr Prachi Garg</p>
   <div className="flex-grow"></div>
-  <p className='text-[#58585A]  pr-8 text-[14px] not-italic font-normal leading-[24px]' style={{ fontFamily: "Inter" }}>1 day ago</p>
+  <p className='text-[#58585A]  pr-8 text-[14px] not-italic font-normal leading-[24px]' >1 day ago</p>
 </div>
 
         </div>

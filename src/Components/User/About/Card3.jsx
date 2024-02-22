@@ -13,8 +13,8 @@ const AboutCard3 = () => {
                     <div className="grid grid-cols-2 gap-6">
                    
         <div className="bg-white text-start rounded-[30px] p-16 pl-16 pt-16 ">
-  <p className="text-[#222] text-[32px] not-italic font-semibold leading-[normal]" style={{ fontFamily: "Inter" }}>Our Mission</p>
-  <p className="text-[#58585A] pt-8 text-[24px] not-italic font-normal leading-[38px]" style={{ fontFamily: "Inter" }}>
+  <p className="text-[#222] text-[36px] not-italic font-semibold leading-[normal]"  >Our Mission</p>
+  <p className="text-[#58585A] pt-8 text-[28px] not-italic font-normal leading-[38px]"  >
   To enhance high-quality patient- centered <br/>care by supporting clinical pharmacists to<br/> practice at the top of their <span style={{ color: "#00549A" }}>expertise thereby<br/> uplifting the clinical pharmacy</span> profession to<br/> best serve our patients and our society.
   </p>
 </div>

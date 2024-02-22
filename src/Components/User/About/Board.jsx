@@ -27,8 +27,8 @@ const Board = () => {
                     <div className="bg-white rounded-[30px]">
                     <div className="grid grid-cols-2  px-16 pt-64 gap-20">
                             <div className="text-start ">
-                                <p className="text-[#222] pt-14 text-[34px] not-italic font-semibold leading-[normal]" style={{ fontFamily: "Inter" }}>Board of Directors</p>
-                                <p className="text-[#58585A] pt-8 text-[19px] not-italic font-normal leading-[28px]" style={{ fontFamily: "Inter" }}>The Federation of Clinical Pharmacists in India (FCPI) is a non- <br />profitable, professional pharmacy organization composed of a bunch<br /> of passionate pharmacists involved in diverse clinical pharmacy<br /> responsibilities in India and across the globe. We have come<br /> together voluntarily with the undeterred goal of enhancing the<br /> clinical pharmacy profession, empowering the clinical pharmacists<br /> and thereby delivering high quality patient care.</p>
+                                <p className="text-[#222] pt-14 text-[34px] not-italic font-semibold leading-[normal]"  >Board of Directors</p>
+                                <p className="text-[#58585A] pt-8 text-[19px] not-italic font-normal leading-[28px]"  >The Federation of Clinical Pharmacists in India (FCPI) is a non- <br />profitable, professional pharmacy organization composed of a bunch<br /> of passionate pharmacists involved in diverse clinical pharmacy<br /> responsibilities in India and across the globe. We have come<br /> together voluntarily with the undeterred goal of enhancing the<br /> clinical pharmacy profession, empowering the clinical pharmacists<br /> and thereby delivering high quality patient care.</p>
                             </div>
                             <div className="pt-48">
                                 <div className="relative">
@@ -44,7 +44,7 @@ const Board = () => {
                                         <div>
                                             <img src={member.src} alt="Image" className="rounded-[150px]" />
                                         </div>
-                                        <p className="text-black pt-6 text-start text-[21px] not-italic font-semibold leading-[normal]" style={{ fontFamily: "Inter" }}>{member.name}</p>
+                                        <p className="text-black pt-6 text-start text-[21px] not-italic font-semibold leading-[normal]"  >{member.name}</p>
                                         <p className="text-black pt-2 text-start text-[16px] not-italic font-normal leading-[normal]">{member.degree}</p>
                                     </div>
                                 </Link>

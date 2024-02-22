@@ -46,13 +46,13 @@ const Home = () => {
 
               <div className="justify-center items-center px-11   py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
                 <Link to="/">
-                  <p className="text-[16px] not-italic font-normal leading-[normal]" style={{ fontFamily: "Inter" }}>Home</p>
+                  <p className="text-[16px] not-italic font-normal leading-[normal]"  >Home</p>
                 </Link>
 
               </div>
-              <div className="justify-center items-center px-11 py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white about-us-button"   onMouseEnter={handleAboutMouseEnter}
+              <div className="justify-center items-center px-8 py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white about-us-button"   onMouseEnter={handleAboutMouseEnter}
   onMouseLeave={handleAboutMouseLeave}>
-                <p className="text-[16px] not-italic font-normal leading-[normal]" style={{ fontFamily: "Inter" }}>About Us</p>
+                <p className="text-[16px] not-italic font-normal leading-[normal]"  >About Us</p>
                 {isAboutDropdownHovered && (
     <div
       className={`about-list show`}
@@ -63,17 +63,17 @@ const Home = () => {
                     <ul className="drop-menu">
                       <li className=" ">
                         <Link to="/about-fcpi">
-                          <p className="text-[14px] not-italic px-3 py-1    font-normal leading-[normal]" style={{ fontFamily: "Inter", display: "block" }}>About FCPI</p>
+                          <p className="text-[14px] not-italic px-3 py-1    font-normal leading-[normal]" style={{   display: "block" }}>About FCPI</p>
                         </Link>
                       </li>
                       <li className=" ">
                         <Link to="/board-of-directors">
-                          <p className="text-[14px] not-italic px-3 py-1 font-normal leading-[normal]" style={{ fontFamily: "Inter",  display: "block" }}>Board of Directors</p>
+                          <p className="text-[14px] not-italic px-3 py-1 font-normal leading-[normal]" style={{    display: "block" }}>Board of Directors</p>
                         </Link>
                       </li>
                       <li className="">
                         <Link to="/forum-members">
-                          <p className="text-[14px] not-italic px-3 py-1 font-normal leading-[normal]" style={{ fontFamily: "Inter", display: "block" }}>Forum Members</p>
+                          <p className="text-[14px] not-italic px-3 py-1 font-normal leading-[normal]" style={{  display: "block" }}>Forum Members</p>
                         </Link>
                       </li>
                     </ul>
@@ -82,40 +82,44 @@ const Home = () => {
               </div>
               <div className="justify-center items-center px-11 py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
               <Link to="/speciality-forum">
-                <p className="text-[16px] not-italic font-normal leading-[normal]" style={{ fontFamily: "Inter" }}>Specialty Forums</p>
+                <p className="text-[16px] not-italic font-normal leading-[normal]" >Specialty Forums</p>
                 </Link>
               </div>
               <div className="justify-center items-center px-11 py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
               <Link to="/events">
-                <p className="text-[16px] not-italic font-normal leading-[normal]" style={{ fontFamily: "Inter" }}>Events</p>
+                <p className="text-[16px] not-italic font-normal leading-[normal]" >Events</p>
                 </Link>
                 </div>
               <div className="justify-center items-center px-11 py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
               <Link to="/blogs">
-                <p className="text-[16px] not-italic font-normal leading-[normal]" style={{ fontFamily: "Inter" }}>Blogs</p>
+                <p className="text-[16px] not-italic font-normal leading-[normal]"  >Blogs</p>
                 </Link>
               </div>
               <div className="justify-center items-center px-11 py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
-                <p className="text-[16px] not-italic font-normal leading-[normal]" style={{ fontFamily: "Inter" }}>Contact Us </p>
+                <Link to="/contact">
+                <p className="text-[16px] not-italic font-normal leading-[normal]"  >Contact Us </p>
+                </Link>
               </div>
             </div>
           </div>
 
           <div className="pl-5 pt-6">
             <div
-              className="flex justify-center items-center px-[25px] py-[8px] bg-[#f4f4f4] hover:bg-[#1AB78D] text-[#00549A] hover:text-white rounded-[105px] border hover:border-none border-[#00549A]"
+              className="flex justify-center items-center px-[27px] py-[8px] bg-[#f4f4f4] hover:bg-[#1AB78D] text-[#00549A] hover:text-white rounded-[105px] border hover:border-none border-[#00549A]"
               onMouseEnter={() => setHoveredLogin(true)}
               onMouseLeave={() => setHoveredLogin(false)}
             >
-              <p className="text-[14px] not-italic font-medium leading-[normal]" style={{ fontFamily: "Inter" }}>Login</p>
-              <div className="pl-3">
+              <p className="text-[14px] not-italic font-medium leading-[normal]"  >Login</p>
+              <div className="pl-4">
                 <img src={hoveredLogin  ? logo3 : logo1} alt="Logo" className="" />
               </div>
             </div>
           </div>
           <div className="pl-5 pt-6">
             <div className="flex justify-center items-center px-[30px] py-[10px] rounded-[105px] bg-[#1AB78D] hover:bg-[#00549A]">
-              <p className="text-[#FFF] text-[14px] not-italic font-normal leading-[normal]" style={{ fontFamily: "Inter" }}>Join FCPI</p>
+              <Link to="/register">
+              <p className="text-[#FFF] text-[14px] not-italic font-normal leading-[normal]" >Join FCPI</p>
+              </Link >
               <div className=" ">
                 <img src={logo2} alt="Logo" className="ml-4" />
               </div>

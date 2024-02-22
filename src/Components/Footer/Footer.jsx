@@ -39,15 +39,15 @@ const Footer = () => {
                             </p>
                         </div>
                     </div>
-                    <div className="text-[#C5C5C5] text-start lg:pt-36 pl-32   text-[26px] not-italic font-semibold leading-[normal]"style={{fontFamily: "Inter"}}>
+                    <div className="text-[#C5C5C5] text-start lg:pt-36 pl-32   text-[26px] not-italic font-semibold leading-[normal]" >
                         Subscribe for update<br /> and newsletter.
                         <div className="  mt-6 relative">
-                            <input type className=" rounded-[105px] bg-[#303031] px-[20px] py-[13px] text-[#969696] text-[14px] not-italic font-normal leading-[normal]" placeholder="Enter your email address"style={{fontFamily: "Inter"}}/>
-                            <button className="ml-20 absolute top-0 right-32 -mt-0 rounded-[105px] bg-[#00549a] px-[20px] py-[13px] text-white text-[14px] not-italic font-normal leading-[normal]"style={{fontFamily: "Inter"}} >
+                            <input type className=" rounded-[105px] bg-[#303031] px-[32px] py-[13px] text-[#969696] text-[16px] not-italic font-normal leading-[normal]" placeholder="Enter your email address" />
+                            <button className="ml-20 absolute top-0 right-28 -mt-0 rounded-[105px] bg-[#00549a] px-[24px] py-[13px] text-white text-[16px] not-italic font-normal leading-[normal]" >
                                 Get Started
                             </button>
                         </div>
-                        <p className= " pt-52 p-12 pl-44  text-[#969696] text-[12px] not-italic font-normal leading-[24px] tracking-[0.6px]"style={{fontFamily: "Inter"}}>Powered by Hoztox.com</p>
+                        <p className= " pt-52 p-12 pl-44  text-[#969696] text-[16px] not-italic font-normal leading-[24px] tracking-[0.6px]" >Powered by Hoztox.com</p>
                     </div>
                     <div className="text-start lg:pt-36">
                         <p className="text-[#969696] text-[16px] not-italic  font-normal leading-[26px]">Home</p>
@@ -78,7 +78,7 @@ const Footer = () => {
                         </div>
                         <div className="pr-16 mt-8">
                             <div className="rounded-[105px] bg-[#1AB78D] py-[10px] px-[60px] flex items-center">
-                                <p className="text-[#FFF] text-[14px] not-italic font-normal leading-[normal]"style={{fontFamily: "Inter"}}
+                                <p className="text-[#FFF] text-[14px] not-italic font-normal leading-[normal] "
                                 >Join FCPI</p>
                                 <div className="ml-4">
                                     <img src={logo20} alt="Logo" />

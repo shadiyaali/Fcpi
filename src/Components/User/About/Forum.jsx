@@ -35,8 +35,8 @@ const Forum = () => {
                     <div className="bg-white rounded-[30px]">
                         <div className="grid grid-cols-2  px-16 pt-64 gap-20">
                             <div className="text-start ">
-                                <p className="text-[#222] pt-14 text-[34px] not-italic font-semibold leading-[normal]" style={{ fontFamily: "Inter" }}>Forum Members</p>
-                                <p className="text-[#58585A] pt-8 text-[19px] not-italic font-normal leading-[28px]" style={{ fontFamily: "Inter" }}>The Federation of Clinical Pharmacists in India (FCPI) is a non-profitable, professional pharmacy organization composed of a bunch of passionate pharmacists involved in diverse clinical pharmacy responsibilities in India and across the globe. We have come together voluntarily with the undeterred goal of enhancing the clinical pharmacy profession, empowering the clinical pharmacists and thereby delivering high-quality patient care.</p>
+                                <p className="text-[#222] pt-14 text-[34px] not-italic font-semibold leading-[normal]" >Forum Members</p>
+                                <p className="text-[#58585A] pt-8 text-[19px] not-italic font-normal leading-[28px]"  >The Federation of Clinical Pharmacists in India (FCPI) is a non-profitable, professional pharmacy organization composed of a bunch of passionate pharmacists involved in diverse clinical pharmacy responsibilities in India and across the globe. We have come together voluntarily with the undeterred goal of enhancing the clinical pharmacy profession, empowering the clinical pharmacists and thereby delivering high-quality patient care.</p>
                             </div>
                             <div className="pt-48">
                                 <div className="relative">
@@ -51,12 +51,12 @@ const Forum = () => {
 
                                     <div className="pt-4">
                                     <button onClick={() => handleForumChange("Infectious Diseases")} className={`justify-center items-center ml-3 px-7 py-3 rounded-[105px] border border-blue-600 ${selectedForum === "Infectious Diseases" ? 'bg-blue-100' : 'hover:bg-blue-100'}`} style={{ width: "auto" }}>
-                                            <p className="text-red-300 text-[14px] font-semibold" style={{ fontFamily: "Inter" }}>Infectious Diseases Forum</p>
+                                            <p className="text-red-300 text-[14px] font-semibold"  >Infectious Diseases Forum</p>
                                         </button>
                                     </div>
                                     <div className="pb-6 pt-6">
                                     <button onClick={() => handleForumChange("Critical Care Medical")} className={`justify-center items-center ml-3 px-6 py-3 rounded-[105px] border border-blue-600 ${selectedForum === "Critical Care Medical" ? 'bg-blue-100' : 'hover:bg-blue-100'}`} style={{ width: "auto" }}>
-                                            <p className="text-red-300 text-[14px] font-semibold" style={{ fontFamily: "Inter" }}>Critical Care Medicine Forum</p>
+                                            <p className="text-red-300 text-[14px] font-semibold"  >Critical Care Medicine Forum</p>
                                         </button>
                                     </div>
 
@@ -70,21 +70,21 @@ const Forum = () => {
                                         <div className="flex ">
                                             <div className="shrink-0 rounded-[8px] pl-10 pt-8 pr-20 pb-8 border-b-4 border-[#2DCA72] bg-[#EAFBF1]">
                                                 <img src={item.src} alt="Image" className="rounded-[150px]" />
-                                                <p className="text-black pt-6 text-start text-[21px] not-italic font-semibold leading-[normal]" style={{ fontFamily: "Inter" }}>{item.name}</p>
+                                                <p className="text-black pt-6 text-start text-[21px] not-italic font-semibold leading-[normal]"  >{item.name}</p>
                                                 <p className="text-black pt-2 text-start text-[16px] not-italic font-normal leading-[normal]">{item.degree}</p>
                                             </div>
                                         </div>
                                         <div className="flex pt-14">
                                             <div className="shrink-0 rounded-[8px] pl-10 pt-8 pr-20 pb-8 border-b-4 border-[#2DCA72] bg-[#EAFBF1]">
                                                 <img src={item.src} alt="Image" className="rounded-[150px]" />
-                                                <p className="text-black pt-6 text-start text-[21px] not-italic font-semibold leading-[normal]" style={{ fontFamily: "Inter" }}>{item.name}</p>
+                                                <p className="text-black pt-6 text-start text-[21px] not-italic font-semibold leading-[normal]"  >{item.name}</p>
                                                 <p className="text-black pt-2 text-start text-[16px] not-italic font-normal leading-[normal]">{item.degree}</p>
                                             </div>
                                         </div>
                                         <div className="flex pt-14 pb-14">
                                             <div className="shrink-0 rounded-[8px] pl-10 pt-8 pr-20 pb-8 border-b-4 border-[#2DCA72] bg-[#EAFBF1]">
                                                 <img src={item.src} alt="Image" className="rounded-[150px]" />
-                                                <p className="text-black pt-6 text-start text-[21px] not-italic font-semibold leading-[normal]" style={{ fontFamily: "Inter" }}>{item.name}</p>
+                                                <p className="text-black pt-6 text-start text-[21px] not-italic font-semibold leading-[normal]"  >{item.name}</p>
                                                 <p className="text-black pt-2 text-start text-[16px] not-italic font-normal leading-[normal]">{item.degree}</p>
                                             </div>
                                         </div>
@@ -97,21 +97,21 @@ const Forum = () => {
                                         <div className="flex  ">
                                             <div className="shrink-0 rounded-[8px] pl-10 pt-8 pr-20 pb-8 border-b-4 border-[#2DCA72] bg-[#EAFBF1]">
                                                 <img src={item.src} alt="Image" className="rounded-[150px]" />
-                                                <p className="text-black pt-6 text-start text-[21px] not-italic font-semibold leading-[normal]" style={{ fontFamily: "Inter" }}>{item.name}</p>
+                                                <p className="text-black pt-6 text-start text-[21px] not-italic font-semibold leading-[normal]"  >{item.name}</p>
                                                 <p className="text-black pt-2 text-start text-[16px] not-italic font-normal leading-[normal]">{item.degree}</p>
                                             </div>
                                         </div>
                                         <div className="flex pt-14">
                                             <div className="shrink-0 rounded-[8px] pl-10 pt-8 pr-20 pb-8 border-b-4 border-[#2DCA72] bg-[#EAFBF1]">
                                                 <img src={item.src} alt="Image" className="rounded-[150px]" />
-                                                <p className="text-black pt-6 text-start text-[21px] not-italic font-semibold leading-[normal]" style={{ fontFamily: "Inter" }}>{item.name}</p>
+                                                <p className="text-black pt-6 text-start text-[21px] not-italic font-semibold leading-[normal]"  >{item.name}</p>
                                                 <p className="text-black pt-2 text-start text-[16px] not-italic font-normal leading-[normal]">{item.degree}</p>
                                             </div>
                                         </div>
                                         <div className="flex pt-14 pb-14">
                                             <div className="shrink-0 rounded-[8px] pl-10 pt-8 pr-20 pb-8 border-b-4 border-[#2DCA72] bg-[#EAFBF1]">
                                                 <img src={item.src} alt="Image" className="rounded-[150px]" />
-                                                <p className="text-black pt-6 text-start text-[21px] not-italic font-semibold leading-[normal]" style={{ fontFamily: "Inter" }}>{item.name}</p>
+                                                <p className="text-black pt-6 text-start text-[21px] not-italic font-semibold leading-[normal]"  >{item.name}</p>
                                                 <p className="text-black pt-2 text-start text-[16px] not-italic font-normal leading-[normal]">{item.degree}</p>
                                             </div>
                                         </div>

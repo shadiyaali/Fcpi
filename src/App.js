@@ -9,6 +9,9 @@ import DetailPage from './Pages/User/Events/EventDetailPage';
 import SpecialityForum from './Pages/User/SpecialityForum/SpecialityPage';
 import MemberPage from './Pages/User/About/MemberPage';
 import BlogsPage from './Pages/User/Blogs/BlogsPage';
+import BlogDetailPage from './Pages/User/Blogs/BlogDetailPage';
+import ContactPage from './Pages/User/Contact/ContactPage';
+import RegisterPage from './Pages/User/Register/RegisterPage';
 
 function App() {
   return (
@@ -24,6 +27,9 @@ function App() {
           <Route path='/details/:id' element={<MemberPage />} />
           <Route path='/event-detail' element={<DetailPage/>} />
           <Route path='/blogs' element={<BlogsPage/>} />
+          <Route path='/blogs-detail' element={<BlogDetailPage/>} />
+          <Route path='/contact' element={<ContactPage/>} />
+          <Route path='/register' element={<RegisterPage/>} />
         </Routes>
       </Router>
     </div>

@@ -1,18 +1,18 @@
 import react from "react";
 import Home from "../../../Components/Home/index"; 
 import Footer from  "../../../Components/Footer/Footer";
-import Blogs from "../../../Components/User/Blogs/Blogs";
+import Contacts from "../../../Components/User/Contact/Contacts";
  
 
-const BlogPage = () => {
+const ContactPage = () => {
 
     return (
         <div>
     <Home/>
-    <Blogs/>
+    <Contacts/>
      
     <Footer/> 
     </div>
     )
 }
-export default BlogPage;
+export default ContactPage;

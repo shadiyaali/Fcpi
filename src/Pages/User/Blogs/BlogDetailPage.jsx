@@ -1,18 +1,17 @@
 import react from "react";
 import Home from "../../../Components/Home/index"; 
 import Footer from  "../../../Components/Footer/Footer";
-import Blogs from "../../../Components/User/Blogs/Blogs";
+import BlogDetail from "../../../Components/User/Blogs/BlogDetail";
  
 
-const BlogPage = () => {
+const  BlogDetailPage = () => {
 
     return (
         <div>
     <Home/>
-    <Blogs/>
-     
+    <BlogDetail/> 
     <Footer/> 
     </div>
     )
 }
-export default BlogPage;
+export default BlogDetailPage;

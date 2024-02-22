@@ -13,8 +13,8 @@ const Card7 = () => {
                 <div className="pt-6">
                     <div className="grid grid-cols-1 lg:grid-cols-2 bg-white rounded-[30px]">
                         <div className="text-start p-8 pl-12">
-                            <p className="text-[#222] pt-12 text-[34px] not-italic font-semibold leading-[normal]" style={{ fontFamily: "Inter" }}>Newsletters</p>
-                            <p className="text-[#58585A] pt-8 text-[18px] not-italic font-normal leading-[28px]" style={{ fontFamily: "Inter" }}>It is a long established fact that a reader will be distracted by <br />the readable content of a page when looking at its layout.<br /> The point of using Lorem Ipsum is that it has a more-or-less <br /> normal distribution of letters, as opposed to using</p>
+                            <p className="text-[#222] pt-12 text-[34px] not-italic font-semibold leading-[normal]" >Newsletters</p>
+                            <p className="text-[#58585A] pt-8 text-[18px] not-italic font-normal leading-[28px]"  >It is a long established fact that a reader will be distracted by <br />the readable content of a page when looking at its layout.<br /> The point of using Lorem Ipsum is that it has a more-or-less <br /> normal distribution of letters, as opposed to using</p>
                         </div>
                         <div className="p-8 rounded-[30px]">
                             <Carousel indicators={false} className="h-[340px] rounded-[30px] ">

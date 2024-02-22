@@ -23,7 +23,7 @@ const Card2 = () => {
   const items = Array.from({ length: 4 }, (_, index) => (
     <div key={index} className="flex items-start pt-6 ">
         <img src={Logo6} alt="Logo" className="" />
-        <p className="text-[#58585A] text-start pl-4 text-[18px]  not-italic font-normal leading-[26px]" style={{ fontFamily: "Inter" }}>
+        <p className="text-[#58585A] text-start pl-4 text-[18px]  not-italic font-normal leading-[26px]"  >
             Many desktop publishing packages and web page editors now use Lorem <br />
             Ipsum as their default model text, and a search
         </p>
@@ -38,18 +38,18 @@ const Card2 = () => {
             <div className="flex pl-5 rounded-[30px]">
               <div className="pt-6">
                 <button 
-                  className="justify-center items-center px-7 py-3 rounded-[105px] border border-white  " 
+                    className={`justify-center items-center px-7 py-3 rounded-[105px] border ${currentIndex === 0 ? 'border-transparent' : 'border-white'}`} 
                   style={{ width: 'auto', backgroundColor: currentIndex === 0 ? '#1ab78d' : '', }}
                   onClick={handlePastEventsClick}
                 >
-                  <p className="text-white text-[14px] font-semibold" style={{ fontFamily: 'Inter' }}>Past Events</p>
+                  <p className="text-white text-[14px] font-semibold"  >Past Events</p>
                 </button>
                 <button 
-                  className="justify-center items-center ml-3 px-7 py-3 rounded-[105px] border    " 
+                   className={`justify-center items-center ml-3 px-7 py-3 rounded-[105px] border ${currentIndex === 1 ? 'border-transparent' : ''}`}  
                   style={{ width: 'auto', backgroundColor: currentIndex === 1 ? '#1ab78d' : '' }}
                   onClick={handleUpcomingEventsClick}
                 >
-                  <p className="text-white text-[14px] font-semibold" style={{ fontFamily: 'Inter' }}>Upcoming Events</p>
+                  <p className="text-white text-[14px] font-semibold"  >Upcoming Events</p>
                 </button>
               </div>
               <div className="ml-auto pr-4 pt-3">
@@ -58,26 +58,27 @@ const Card2 = () => {
             </div>
             <div>
               <div className=" flex justify-center  items-center">
-                {currentIndex === 0 ? (
-                  <Carousel indicators={false} className='h-[320px] mt-6 w-[90%]' index={currentIndex}>
-                    <img src={Logo5} alt="Logo5" className="rounded-[30px]"/>
-                    <img src={Logo16} alt="Logo16" className="rounded-[30px]"/>
-                    <img src={Logo17} alt="Logo17" className="rounded-[30px]"/>
-                  </Carousel>
-                ) : (
-                    <Carousel indicators={false} className='h-[320px] mt-6 w-[90%]' index={currentIndex}>
-                    <img src={Logoa} alt="Logo5" className="rounded-[30px]"/>
-                    <img src={Logoa} alt="Logo16" className="rounded-[30px]"/>
-                    <img src={Logoa} alt="Logo17" className="rounded-[30px]"/>
-                  </Carousel>
-                )}
+              {currentIndex === 0 ? (
+  <Carousel indicators={false} showArrows={false} className='h-[320px] mt-6 w-[90%]' index={currentIndex}>
+    <img src={Logo5} alt="Logo5" className="rounded-[30px]"/>
+    <img src={Logo16} alt="Logo16" className="rounded-[30px]"/>
+    <img src={Logo17} alt="Logo17" className="rounded-[30px]"/>
+  </Carousel>
+) : (
+  <Carousel indicators={false} className='h-[320px] mt-6 w-[90%]' index={currentIndex}>
+    <img src={Logoa} alt="Logo5" className="rounded-[30px]"/>
+    <img src={Logoa} alt="Logo16" className="rounded-[30px]"/>
+    <img src={Logoa} alt="Logo17" className="rounded-[30px]"/>
+  </Carousel>
+)}
+
               </div>
             </div>
           </div>
           <div className="w-[64%] ">
             <div className="justify-center rounded-[30px] bg-white">
               <div className="flex justify-between items-center ">
-                <p className="pt-12 text-[#222] text-start text-[32px] pl-20 not-italic font-semibold leading-[normal]" style={{ fontFamily: 'Inter' }}>
+                <p className="pt-12 text-[#222] text-start text-[32px] pl-20 not-italic font-semibold leading-[normal]"  >
                   What’s New
                 </p>
                 <div className="pr-4">

@@ -49,33 +49,33 @@ const Detail = () => {
                         <div className='overflow-hidden relative rounded-[30px]'>
                             <div className=' aspect-[4] bg-card3-background bg-cover  to-slate-900  bg-opacity-40 gradient responsive-card rounded-[30px]' >
                                 <div className='flex relative z-10 pl-12 pt-32'>
-                                    <p className='text-white text-[49px] not-italic font-bold leading-[56px] uppercase ' style={{ fontFamily: "Inter" }}>FCPI Virtual ID Week</p>
-                                    <p className='text-white text-[26px] pt-1 pl-4 not-italic font-medium leading-[56px]' style={{ fontFamily: "Inter" }}>(Day-3)</p>
+                                    <p className='text-white text-[49px] not-italic font-bold leading-[56px] uppercase ' >FCPI Virtual ID Week</p>
+                                    <p className='text-white text-[26px] pt-1 pl-4 not-italic font-medium leading-[56px]'  >(Day-3)</p>
                                 </div>
                                 <p className='text-white pl-12 text-[30px] relative z-10 not-italic font-normal leading-[normal]'>Infectious Diseases Forum</p>
                                 <hr className='mt-8 w-[95%] ml-9 relative z-10' />
                                 <div className='flex relative z-10 p-10 pl-12 gap-8'>
                                     <div className='flex gap-4'>
                                         <img src={Logo1} alt="Logo" className=" " />
-                                        <p className=' text-white text-[19px] not-italic font-medium leading-[18px]' style={{ fontFamily: "Inter" }}>2023-06-21 , <br />
+                                        <p className=' text-white text-[19px] not-italic font-medium leading-[18px]'  >2023-06-21 , <br />
                                             From 5:00 PM to 7:00 PM</p>
                                     </div>
                                     <div className='flex gap-4'>
                                         <img src={Logo2} alt="Logo" className=" " />
-                                        <p className='  text-white text-[19px] not-italic font-medium leading-[18px]' style={{ fontFamily: "Inter" }}>The Venetian | The Palazzo<br />
+                                        <p className='  text-white text-[19px] not-italic font-medium leading-[18px]' >The Venetian | The Palazzo<br />
                                             Booth #1756</p>
                                     </div>
                                     <div className='flex gap-4'>
                                         <img src={Logo3} alt="Logo" className=" " />
-                                        <p className=' pt-2 text-white text-[19px] not-italic font-medium leading-[18px]' style={{ fontFamily: "Inter" }}>fcpiofficial@gmail.com</p>
+                                        <p className=' pt-2 text-white text-[19px] not-italic font-medium leading-[18px]'  >fcpiofficial@gmail.com</p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div className='pl-12 pr-12 pt-16'>
-                            <p className='text-[#222] text-[35px] not-italic font-semibold leading-[normal]' style={{ fontFamily: "Inter" }}>Speaker Desk</p>
+                            <p className='text-[#222] text-[35px] not-italic font-semibold leading-[normal]'  >Speaker Desk</p>
                             <div className='flex gap-[30rem]'>
-                                <p className='text-[#58585A] pt-10 text-[19px] not-italic font-normal leading-[28px]' style={{ fontFamily: "Inter" }}>Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web <br />sites still in their infancy. Various versions have evolved</p>
+                                <p className='text-[#58585A] pt-10 text-[19px] not-italic font-normal leading-[28px]' >Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web <br />sites still in their infancy. Various versions have evolved</p>
                                 <div className='text-end pt-6'>
 
                                     <button onClick={goToPrevPage} disabled={currentPage === 1}>
@@ -90,7 +90,7 @@ const Detail = () => {
                                 {currentSpeakers.map(speaker => (
                                     <div key={speaker.id} className='bg-[#F4F4F4] rounded-[10px] '>
                                         <img src={speaker.image} alt={speaker.name} className=" w-[100%] rounded-[10px]  " />
-                                        <p className='text-black text-center pt-8 pb-8 text-[18px] not-italic font-semibold leading-[18px]' style={{ fontFamily: "Inter" }}>{speaker.name}</p>
+                                        <p className='text-black text-center pt-8 pb-8 text-[18px] not-italic font-semibold leading-[18px]'  >{speaker.name}</p>
                                     </div>
                                 ))}
                             </div>
@@ -98,23 +98,23 @@ const Detail = () => {
                         </div>
                         <div className='p-12'>
                             <div className='bg-[#F0FAFF] rounded-[10px] text-center w-[50%] p-10'>
-                                <p className='text-[#222] text-[36px] not-italic font-semibold leading-[normal]' style={{ fontFamily: "Inter" }}>If you are not Logged In FCPI Please</p>
+                                <p className='text-[#222] text-[36px] not-italic font-semibold leading-[normal]'  >If you are not Logged In FCPI Please</p>
                                
                                 <div className='flex pt-6 pl-12'>
 
             <div
-                className={`flex justify-center items-center px-[25px] py-[6px] bg-[#f4f4f4] hover:bg-[#1AB78D] text-[#00549A] hover:text-white rounded-[105px] border hover:border-none border-[#00549A] ${hoveredLogin ? 'shadow-md' : ''}`}
+                className={`flex justify-center items-center px-[29px] py-[7px]   hover:bg-[#1AB78D] text-[#00549A] hover:text-white rounded-[105px] border hover:border-none border-[#00549A] ${hoveredLogin ? 'shadow-md' : ''}`}
                 onMouseEnter={() => setHoveredLogin(true)}
                 onMouseLeave={() => setHoveredLogin(false)}
             >
-                <p className="text-[14px] not-italic font-medium leading-[normal]" style={{ fontFamily: "Inter" }}>Login</p>
+                <p className="text-[14px] not-italic font-medium leading-[normal]" >Login</p>
                 <div className="pl-3">
                     <img src={hoveredLogin ? logo3 : logo1} alt="Logo" className="" />
                 </div>
             </div>
             <div className="pl-5">
                 <div className="flex justify-center items-center px-[30px] py-[10px] rounded-[105px] bg-[#1AB78D] hover:bg-[#00549A]">
-                    <p className="text-[#FFF] text-[14px] not-italic font-normal leading-[normal]" style={{ fontFamily: "Inter" }}>Join FCPI</p>
+                    <p className="text-[#FFF] text-[14px] not-italic font-normal leading-[normal]"  >Join FCPI</p>
                     <div className="">
                         <img src={logo2} alt="Logo" className="ml-4" />
                     </div>
