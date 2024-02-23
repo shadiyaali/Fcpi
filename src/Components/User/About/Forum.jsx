@@ -8,7 +8,7 @@ import Logo27 from "../../../assets/images/faisal.png";
 import Logo28 from "../../../assets/images/hisham.png";
 import Logo22 from "../../../assets/images/saidulu.png";
 import Logo222 from "../../../assets/images/vrinda.png";
-
+import { Link } from "react-router-dom";
 const Forum = () => {
     const [selectedForum, setSelectedForum] = useState("Infectious Diseases");
 
@@ -28,6 +28,7 @@ const Forum = () => {
         setSelectedForum(forum);
     };
 
+ 
     return (
         <div className="w-full h-full bg-[#f4f4f4]">
             <div className="container">
@@ -46,18 +47,20 @@ const Forum = () => {
                             </div>
                         </div>
                         <div className="flex ">
-                            <div className="pt-28 w-[29%] ">
+                            <div className="pt-28 w-[29%] pl-16 ">
                                 <div className="inline-flex flex-col  w-[310px] items-start  border rounded-[12px] border-solid border-[#00549A]">
 
-                                    <div className="pt-4">
-                                    <button onClick={() => handleForumChange("Infectious Diseases")} className={`justify-center items-center ml-3 px-7 py-3 rounded-[105px] border border-blue-600 ${selectedForum === "Infectious Diseases" ? 'bg-blue-100' : 'hover:bg-blue-100'}`} style={{ width: "auto" }}>
-                                            <p className="text-red-300 text-[14px] font-semibold"  >Infectious Diseases Forum</p>
-                                        </button>
+                                    <div className="pt-4 pl-4">
+                                    <button onClick={() => handleForumChange("Infectious Diseases")} className={`justify-center items-center ml-3 px-8 py-3 rounded-[105px] border ${selectedForum === "Infectious Diseases" ? 'bg-[#00549A] text-white' : 'text-[#222] bg-white'}`} style={{ width: "auto" }}>
+    <p className="text-[14px] font-semibold">Infectious Diseases Forum</p>
+</button>
+
                                     </div>
-                                    <div className="pb-6 pt-6">
-                                    <button onClick={() => handleForumChange("Critical Care Medical")} className={`justify-center items-center ml-3 px-6 py-3 rounded-[105px] border border-blue-600 ${selectedForum === "Critical Care Medical" ? 'bg-blue-100' : 'hover:bg-blue-100'}`} style={{ width: "auto" }}>
-                                            <p className="text-red-300 text-[14px] font-semibold"  >Critical Care Medicine Forum</p>
-                                        </button>
+                                    <div className="pb-6 pt-6 pl-4">
+                                    <button onClick={() => handleForumChange("Critical Care Medical")} className={`justify-center items-center ml-3 px-6 py-3 rounded-[105px] border ${selectedForum === "Critical Care Medical" ? 'bg-[#00549A] text-white' : 'text-[#222] bg-white'}`} style={{ width: "auto" }}>
+    <p className="text-[14px] font-semibold">Critical Care Medicine Forum</p>
+</button>
+
                                     </div>
 
                                 </div>

@@ -5,7 +5,8 @@ import Logo3 from "../../../assets/images/mail-edit.png";
 import Logo4 from "../../../assets/images/Dr Neeraj Sidharthan.png";
 import "./Event.css"
 import { Carousel } from "flowbite-react";
-import arrow from "../../../assets/images/arrow.svg"
+import arrow1 from "../../../assets/images/ev.png"
+import arrow2 from "../../../assets/images/ev-1.png"
 import logo1 from "../../../assets/images/user-story.png";
 import logo2 from "../../../assets/images/user-add--01.png";
 import logo3 from "../../../assets/images/user-story.svg";
@@ -75,18 +76,18 @@ const Detail = () => {
                         <div className='pl-12 pr-12 pt-16'>
                             <p className='text-[#222] text-[35px] not-italic font-semibold leading-[normal]'  >Speaker Desk</p>
                             <div className='flex gap-[30rem]'>
-                                <p className='text-[#58585A] pt-10 text-[19px] not-italic font-normal leading-[28px]' >Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web <br />sites still in their infancy. Various versions have evolved</p>
-                                <div className='text-end pt-6'>
+                                <p className='text-[#58585A] pt-10 text-[17px] not-italic font-normal leading-[28px]' >Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web <br />sites still in their infancy. Various versions have evolved</p>
+                                <div className='text-end pt-16  '>
 
                                     <button onClick={goToPrevPage} disabled={currentPage === 1}>
-                                        <img src={arrow} alt="Previous Page" />
+                                        <img src={arrow1} alt="Previous Page " className='pl-32'/>
                                     </button>
                                     <button onClick={goToNextPage} disabled={indexOfLastSpeaker >= speakers.length}>
-                                        <img src={arrow} alt="Next Page" />
+                                        <img src={arrow2} alt="Next Page"className='pl-2' />
                                     </button>
                                 </div>
                             </div>
-                            <div className="grid grid-cols-4 pb-8  gap-8">
+                            <div className="grid grid-cols-4 pb-8 pt-8 gap-8">
                                 {currentSpeakers.map(speaker => (
                                     <div key={speaker.id} className='bg-[#F4F4F4] rounded-[10px] '>
                                         <img src={speaker.image} alt={speaker.name} className=" w-[100%] rounded-[10px]  " />

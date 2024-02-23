@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import cap from "../../../assets/images/Cap.svg";
+import cap from "../../../assets/images/Line 7 (1).svg";
 import blog from "../../../assets/images/blog.png";
 import arrow from "../../../assets/images/arrow-right-01-round.png";
 import blog1 from "../../../assets/images/blog-1.png";
@@ -19,12 +19,12 @@ const Blogs = () => {
                         <div className="bg-[#00549A] h-[573px] rounded-t-[30px]">
                             <p className="text-white absolute left-48 top-36 transform -translate-y-1/2 text-[32px] not-italic font-semibold leading-[normal]"  >Blogs</p>
                             <div className="relative pl-[40rem]">
-                                <img src={cap} alt="cap" className="" />
+                                <img src={cap} alt="cap" className="w-[1789px] h-[567px]" />
 
-                                <img src={blog} alt="Left Arrow" className=" pt-12 absolute left-0 -bottom-[17rem] transform -translate-y-1/2 rounded-tr-[30px]" />
+                                <img src={blog} alt="Left Arrow" className="w-[740px] pt-12 absolute left-0 -bottom-[17rem] transform -translate-y-1/2 rounded-tr-[30px]" />
 
                             </div>
-                            <div className="text start absolute right-60 top-[24rem] transform -translate-y-1/2">
+                            <div className="text start absolute right-[30rem] top-[26rem] transform -translate-y-1/2">
                                 <p className="text-[#FFC233] text-[23px] pt-28 not-italic font-medium leading-[normal]"  >FEATURED</p>
                                 <p className="text-white text-[42px] pt-4 not-italic font-normal leading-[51px]"  >Looking back at
                                     2023</p>

@@ -8,31 +8,38 @@ import './index.css'
 
 const Home = () => {
   const [showAboutList, setShowAboutList] = useState(false);
-  const [hoveredLogin, setHoveredLogin] = useState(false);
-  const [hoveredAbout, setHoveredAbout] = useState(false);
-  const [hoveredDropdown, setHoveredDropdown] = useState(false);
+  const [hoveredLogin, setHoveredLogin] = useState(false); 
   const [isAboutDropdownHovered, setIsAboutDropdownHovered] = useState(false);
+ 
+
+  const handleLoginMouseEnter = () => {
+    setHoveredLogin(true);
+  };
+
+  const handleLoginMouseLeave = () => {
+    setHoveredLogin(false);
+  };
 
   const handleAboutMouseEnter = () => {
     setIsAboutDropdownHovered(true);
   };
-  
+
   const handleAboutMouseLeave = () => {
     setIsAboutDropdownHovered(false);
   };
-  
+
   const handleDropdownMouseEnter = () => {
     setIsAboutDropdownHovered(true);
   };
-  
+
   const handleDropdownMouseLeave = () => {
     setIsAboutDropdownHovered(false);
   };
-  
 
-  const toggleAboutList = () => {
-    setShowAboutList(!showAboutList);
-  };
+
+  // const toggleAboutList = () => {
+  //   setShowAboutList(!showAboutList);
+  // };
 
   return (
     <div className="w-100% h-100% bg-[#f4f4f4]">
@@ -50,30 +57,30 @@ const Home = () => {
                 </Link>
 
               </div>
-              <div className="justify-center items-center px-8 py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white about-us-button"   onMouseEnter={handleAboutMouseEnter}
-  onMouseLeave={handleAboutMouseLeave}>
+              <div className="justify-center items-center px-8 py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white about-us-button" onMouseEnter={handleAboutMouseEnter}
+                onMouseLeave={handleAboutMouseLeave}>
                 <p className="text-[16px] not-italic font-normal leading-[normal]"  >About Us</p>
                 {isAboutDropdownHovered && (
-    <div
-      className={`about-list show`}
-      onMouseEnter={handleDropdownMouseEnter}
-      onMouseLeave={handleDropdownMouseLeave}
-    >
-                 
+                  <div
+                    className={`about-list show`}
+                    onMouseEnter={handleDropdownMouseEnter}
+                    onMouseLeave={handleDropdownMouseLeave}
+                  >
+
                     <ul className="drop-menu">
                       <li className=" ">
                         <Link to="/about-fcpi">
-                          <p className="text-[14px] not-italic px-3 py-1    font-normal leading-[normal]" style={{   display: "block" }}>About FCPI</p>
+                          <p className="text-[14px] not-italic px-3 py-1    font-normal leading-[normal]" style={{ display: "block" }}>About FCPI</p>
                         </Link>
                       </li>
                       <li className=" ">
                         <Link to="/board-of-directors">
-                          <p className="text-[14px] not-italic px-3 py-1 font-normal leading-[normal]" style={{    display: "block" }}>Board of Directors</p>
+                          <p className="text-[14px] not-italic px-3 py-1 font-normal leading-[normal]" style={{ display: "block" }}>Board of Directors</p>
                         </Link>
                       </li>
                       <li className="">
                         <Link to="/forum-members">
-                          <p className="text-[14px] not-italic px-3 py-1 font-normal leading-[normal]" style={{  display: "block" }}>Forum Members</p>
+                          <p className="text-[14px] not-italic px-3 py-1 font-normal leading-[normal]" style={{ display: "block" }}>Forum Members</p>
                         </Link>
                       </li>
                     </ul>
@@ -81,50 +88,62 @@ const Home = () => {
                 )}
               </div>
               <div className="justify-center items-center px-11 py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
-              <Link to="/speciality-forum">
-                <p className="text-[16px] not-italic font-normal leading-[normal]" >Specialty Forums</p>
+                <Link to="/speciality-forum">
+                  <p className="text-[16px] not-italic font-normal leading-[normal]" >Specialty Forums</p>
                 </Link>
               </div>
               <div className="justify-center items-center px-11 py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
-              <Link to="/events">
-                <p className="text-[16px] not-italic font-normal leading-[normal]" >Events</p>
+                <Link to="/events">
+                  <p className="text-[16px] not-italic font-normal leading-[normal]" >Events</p>
                 </Link>
-                </div>
+              </div>
               <div className="justify-center items-center px-11 py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
-              <Link to="/blogs">
-                <p className="text-[16px] not-italic font-normal leading-[normal]"  >Blogs</p>
+                <Link to="/blogs">
+                  <p className="text-[16px] not-italic font-normal leading-[normal]"  >Blogs</p>
                 </Link>
               </div>
               <div className="justify-center items-center px-11 py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
                 <Link to="/contact">
-                <p className="text-[16px] not-italic font-normal leading-[normal]"  >Contact Us </p>
+                  <p className="text-[16px] not-italic font-normal leading-[normal]"  >Contact Us </p>
                 </Link>
               </div>
             </div>
           </div>
 
           <div className="pl-5 pt-6">
+            <Link to="/otp">
             <div
-              className="flex justify-center items-center px-[27px] py-[8px] bg-[#f4f4f4] hover:bg-[#1AB78D] text-[#00549A] hover:text-white rounded-[105px] border hover:border-none border-[#00549A]"
-              onMouseEnter={() => setHoveredLogin(true)}
-              onMouseLeave={() => setHoveredLogin(false)}
+              className={`flex justify-center items-center px-[27px] py-[8px] bg-${hoveredLogin ? '1AB78D' : 'f4f4f4'} text-${hoveredLogin ? 'white' : '00549A'} rounded-[105px] border border-[#00549A] hover:border-none hover:bg-[#1AB78D]`}
+              onMouseEnter={handleLoginMouseEnter}
+              onMouseLeave={handleLoginMouseLeave}
+              onClick={() => {
+                document.activeElement.blur();
+              }}
             >
-              <p className="text-[14px] not-italic font-medium leading-[normal]"  >Login</p>
+              <p className="text-[14px] not-italic font-medium leading-[normal]">Login</p>
               <div className="pl-4">
-                <img src={hoveredLogin  ? logo3 : logo1} alt="Logo" className="" />
+                <img src={hoveredLogin ? logo3 : logo1} alt="Logo" className="" />
               </div>
             </div>
+            </Link>
           </div>
+
           <div className="pl-5 pt-6">
-            <div className="flex justify-center items-center px-[30px] py-[10px] rounded-[105px] bg-[#1AB78D] hover:bg-[#00549A]">
-              <Link to="/register">
-              <p className="text-[#FFF] text-[14px] not-italic font-normal leading-[normal]" >Join FCPI</p>
-              </Link >
-              <div className=" ">
-                <img src={logo2} alt="Logo" className="ml-4" />
+            <Link
+              to="/register"
+              className="flex justify-center items-center px-[30px] py-[10px] rounded-[105px] bg-[#1AB78D] hover:bg-[#00549A]"
+              onClick={() => {
+                document.activeElement.blur();
+              }}
+            >
+              <p className="text-[14px] not-italic font-normal leading-[normal] text-white">Join FCPI</p>
+              <div className="ml-4">
+                <img src={logo2} alt="Logo" />
               </div>
-            </div>
+            </Link>
+           
           </div>
+
         </div>
       </div>
 

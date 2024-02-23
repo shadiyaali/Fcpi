@@ -7,15 +7,22 @@ const Card2 = () => {
 
     const handleDayClick = (day) => {
         if (activeDay === day) {
-          
             setShowDropdown(!showDropdown);
         } else {
-            setActiveDay(day);  
-            setShowDropdown(true);  
+            setActiveDay(day);
+            setShowDropdown(true);
+        }
+        // Check if the clicked day is already active, if so, reset the active day
+        if (activeDay === day) {
+            setActiveDay(null);
+        } else {
+            setActiveDay(day);
         }
     };
+    
+    
+    
 
-     
     const scheduleContent = [
         {
             day: 1,
@@ -25,7 +32,18 @@ const Card2 = () => {
             highlights: [
                 "Introduction to Gram-negative Bacteria",
                 "Introduction to Antibiotics",
-        
+                "Characteristics",
+                "A short insight on to the resistant strains",
+            ],
+        },
+        {
+            day: 1,
+            time: "6:00 PM - 6:30 PM",
+            title: "New Program Title",
+            speaker: "Speaker Name",
+            highlights: [
+                "Highlight 1",
+                "Highlight 2",
             ]
         },
         {
@@ -36,7 +54,6 @@ const Card2 = () => {
             highlights: [
                 "Introduction to Fungal Infections",
                 "Management of Multi-drug Resistant Infections",
-               
             ]
         },
         {
@@ -47,7 +64,6 @@ const Card2 = () => {
             highlights: [
                 "Emerging Infectious Diseases",
                 "Infection Control Practices",
-              
             ]
         },
         
@@ -62,15 +78,16 @@ const Card2 = () => {
                             <p className='text-[#222] text-[32px] not-italic font-semibold leading-[normal]' >Program Schedule</p>
                             <div className='flex gap-20 pt-8'>
                           
-                                {[1, 2, 3].map(day => (
-                                    <button 
-                                        key={day}
-                                        className={`bg-white py-2 px-10 ${activeDay === day && 'border-b-2 border-[#00549A]'}`}
-                                        onClick={() => handleDayClick(day)}  
-                                    >
-                                        <p className={`text-[#00549A] text-center text-[23px] not-italic font-semibold leading-[21px] tracking-[0.25px] ${activeDay === day && 'text-blue-500'}`}  >{`DAY - ${day}`}</p>
-                                    </button>
-                                ))}
+               {[1, 2, 3].map(day => (
+    <button 
+        key={day}
+        className={`bg-white py-2 px-10 ${activeDay === day ? 'border-b-2 border-[#00549A] text-blue-900' : 'text-blue-500'}`}
+        onClick={() => handleDayClick(day)}  
+    >
+        <p className={`text-center text-[23px] not-italic font-semibold leading-[21px] tracking-[0.25px] ${activeDay === day ? 'text-blue-900' : 'text-blue-500'}`}>{`DAY - ${day}`}</p>
+    </button>
+))}
+
                             </div>
                          
                             {showDropdown && (

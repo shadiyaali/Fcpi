@@ -33,7 +33,7 @@ const Card1 = () => {
         setShowYearDropdown({ '2024': false, '2023': false, '2022': false, '2021': false });
     };
 
-    
+
 
     const toggleEventDropdown = (index) => {
         const updatedShowEventDropdown = [...showEventDropdown];
@@ -45,13 +45,13 @@ const Card1 = () => {
         setShowYearDropdown({ ...showYearDropdown, [year]: !showYearDropdown[year] });
     };
     const toggleDropdown1 = (button) => {
-        setActiveButton1(button);  
+        setActiveButton1(button);
         setDropdownVisible((prevState) => ({
             ...Object.fromEntries(Object.keys(prevState).map(key => [key, key === button ? !prevState[key] : false])),
         }));
     };
-    
-    
+
+
 
 
 
@@ -78,26 +78,39 @@ const Card1 = () => {
                                     </p>
                                 </button>
                                 <button
-                                    className={`bg-[#f4f4f4] ${activeButton === 'blog' ? 'border-b-2  border-blue-500' : ''}`}
+                                    className={`bg-[#f4f4f4] ${activeButton === 'blog' ? 'border-b-2 border-blue-500' : ''}`}
                                     style={{ color: activeButton === 'blog' ? '#00549A' : '#000' }}
                                     onClick={() => toggleDropdown('blog')}
                                 >
-                                    <p className='text-[#000] text-[16px] not-italic font-semibold leading-[normal]'  >Blog archives</p>
+                                    <p className='text-[16px] not-italic font-semibold leading-normal'>
+                                        Blog archives
+                                    </p>
                                 </button>
+
+
+
+
                                 <button
                                     className={`bg-[#f4f4f4] ${activeButton === 'newsletter' ? 'border-b-2 border-blue-500' : ''}`}
                                     style={{ color: activeButton === 'newsletter' ? '#00549A' : '#000' }}
                                     onClick={() => toggleDropdown('newsletter')}
                                 >
-                                    <p className='text-[#000] text-[16px] not-italic font-semibold leading-[normal]' >Newsletter archives</p>
+                                    <p className='text-[16px] not-italic font-semibold leading-normal'>
+                                        Newsletter archives
+                                    </p>
                                 </button>
+
                                 <button
                                     className={`bg-[#f4f4f4] rounded-r-lg ${activeButton === 'podcast' ? 'border-b-2 border-blue-500' : ''}`}
                                     style={{ color: activeButton === 'podcast' ? '#00549A' : '#000' }}
                                     onClick={() => toggleDropdown('podcast')}
                                 >
-                                    <p className='text-[#000] text-[16px] not-italic font-semibold leading-[normal]' >Podcast archives</p>
+                                    <p className={`text-${activeButton === 'podcast' ? 'blue' : 'black'} text-[16px] not-italic font-semibold leading-[normal]`}>
+                                        Podcast archives
+                                    </p>
                                 </button>
+
+
 
                             </div>
                             {activeButton && (
@@ -108,11 +121,11 @@ const Card1 = () => {
                                                 <p
                                                     className="p-6 cursor-pointer text-[#333] font-semibold"
                                                     onClick={() => handleYearSelect(year)}
-                                                    
+
                                                 >
                                                     {year}
                                                 </p>
-                                                <p className="text-[16px] pt-6 not-italic font-semibold text-[#626262] leading-[normal] ml-auto"  onClick={() => toggleYearDropdown(year)}>
+                                                <p className="text-[16px] pt-6 not-italic font-semibold text-[#626262] leading-[normal] ml-auto" onClick={() => toggleYearDropdown(year)}>
                                                     {showYearDropdown[year] ? <FaAngleUp /> : <FaAngleDown />}
                                                 </p>
                                             </div>
@@ -124,10 +137,10 @@ const Card1 = () => {
                                                                 className="flex justify-between"
                                                                 onClick={() => toggleEventDropdown(index)}
                                                             >
-                                                                <p className="pt-8 pb-4 text-[16px] not-italic font-semibold leading-[normal]"  ref={eventRefs.current[index]}>
+                                                                <p className="pt-8 pb-4 text-[16px] not-italic font-semibold leading-[normal]" ref={eventRefs.current[index]}>
                                                                     {event}
                                                                 </p>
-                                                                <p className="pb-8 pt-6 text-[16px] not-italic font-semibold leading-[normal] ml-auto"   onClick={() => toggleEventDropdown(index)}>
+                                                                <p className="pb-8 pt-6 text-[16px] not-italic font-semibold leading-[normal] ml-auto" onClick={() => toggleEventDropdown(index)}>
                                                                     {showEventDropdown[index] ? <FaAngleUp /> : <FaAngleDown />}
                                                                 </p>
                                                             </div>
@@ -190,12 +203,12 @@ const Card1 = () => {
 
 
                                     {dropdownVisible.today && (
-                                        <div className='flex   pt-5'>
+                                        <div className='flex   pt-6'>
                                             <div className=''>
                                                 <div className='flex  pl-5 '>
-                                                    <div className='px-6 py-3 p-4 rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
-                                                        <p className=' text-[23px] not-italic font-semibold leading-[normal]' >8 </p>
-                                                        <p className='text-[#1AB78D] text-[16px] not-italic font-normal leading-[normal]'  >Jan</p>
+                                                    <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
+                                                        <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
+                                                        <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
                                                     </div>
                                                     <div className='flex flex-col pl-4 5'>
                                                         <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]'  >Infectious Diseases Forum</p>
@@ -215,9 +228,9 @@ const Card1 = () => {
                                                 <hr className='w-full mt-4' />
                                                 <div className=''>
                                                     <div className='flex  pl-5 pt-6'>
-                                                        <div className='px-6 py-3 p-4 rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
-                                                            <p className=' text-[23px] not-italic font-semibold leading-[normal]'  >8 </p>
-                                                            <p className='text-[#1AB78D] text-[16px] not-italic font-normal leading-[normal]'  >Jan</p>
+                                                        <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
+                                                            <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
+                                                            <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
                                                         </div>
                                                         <div className='flex flex-col pl-4 pr-5'>
                                                             <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]'  >Infectious Diseases Forum</p>
@@ -237,9 +250,9 @@ const Card1 = () => {
                                                     <hr className='w-full mt-4' />
                                                     <div className=''>
                                                         <div className='flex  pl-5 pt-6'>
-                                                            <div className='px-6 py-3 p-4 rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
-                                                                <p className=' text-[23px] not-italic font-semibold leading-[normal]' >8 </p>
-                                                                <p className='text-[#1AB78D] text-[16px] not-italic font-normal leading-[normal]'  >Jan</p>
+                                                            <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
+                                                                <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
+                                                                <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
                                                             </div>
                                                             <div className='flex flex-col pl-4 pr-5'>
                                                                 <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]'  >Infectious Diseases Forum</p>
@@ -269,9 +282,9 @@ const Card1 = () => {
                                         <div className='flex   pt-6'>
                                             <div className=''>
                                                 <div className='flex  pl-5 '>
-                                                    <div className='px-4 py-1 p-4 rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
-                                                        <p className=' text-[23px] not-italic font-semibold leading-[normal]'  >8 </p>
-                                                        <p className='text-[#1AB78D] text-[16px] not-italic font-normal leading-[normal]'  >Jan</p>
+                                                    <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
+                                                        <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
+                                                        <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
                                                     </div>
                                                     <div className='flex flex-col pl-4 pr-5'>
                                                         <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]'  >Infectious Diseases Forum</p>
@@ -291,9 +304,9 @@ const Card1 = () => {
                                                 <hr className='w-full mt-4' />
                                                 <div className=''>
                                                     <div className='flex  pl-5 pt-6'>
-                                                        <div className='px-4 py-1 p-4 rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
-                                                            <p className=' text-[23px] text-center not-italic font-semibold leading-[normal]' >8 </p>
-                                                            <p className='text-[#1AB78D] text-[16px] not-italic font-normal leading-[normal]'  >Jan</p>
+                                                        <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
+                                                            <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
+                                                            <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
                                                         </div>
                                                         <div className='flex flex-col pl-4 pr-5'>
                                                             <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]' >Infectious Diseases Forum</p>
@@ -313,9 +326,9 @@ const Card1 = () => {
                                                     <hr className='w-full mt-4' />
                                                     <div className=''>
                                                         <div className='flex  pl-5 pt-6'>
-                                                            <div className='px-4 py-1 p-4 rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
-                                                                <p className=' text-[23px] text-center not-italic font-semibold leading-[normal]' >8 </p>
-                                                                <p className='text-[#1AB78D] text-[16px] not-italic font-normal leading-[normal]'  >Jan</p>
+                                                            <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
+                                                                <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
+                                                                <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
                                                             </div>
                                                             <div className='flex flex-col pl-4 pr-5'>
                                                                 <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]'  >Infectious Diseases Forum</p>
@@ -343,9 +356,9 @@ const Card1 = () => {
                                         <div className='flex   pt-6'>
                                             <div className=''>
                                                 <div className='flex  pl-5 '>
-                                                    <div className='px-6 py-3 p-4 rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
-                                                        <p className=' text-[23px] text-center not-italic font-semibold leading-[normal]'  >8 </p>
-                                                        <p className='text-[#1AB78D] text-[16px] not-italic font-normal leading-[normal]'  >Jan</p>
+                                                    <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
+                                                        <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
+                                                        <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
                                                     </div>
                                                     <div className='flex flex-col pl-4 pr-5'>
                                                         <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]'  >Infectious Diseases Forum</p>
@@ -365,9 +378,9 @@ const Card1 = () => {
                                                 <hr className='w-full mt-4' />
                                                 <div className=''>
                                                     <div className='flex  pl-5 pt-6'>
-                                                        <div className='px-6 py-3 p-4 rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
-                                                            <p className=' text-[23px] text-center not-italic font-semibold leading-[normal]'  >8 </p>
-                                                            <p className='text-[#1AB78D] text-[16px] not-italic font-normal leading-[normal]'  >Jan</p>
+                                                        <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
+                                                            <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
+                                                            <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
                                                         </div>
                                                         <div className='flex flex-col pl-4 pr-5'>
                                                             <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]'  >Infectious Diseases Forum</p>
@@ -387,9 +400,9 @@ const Card1 = () => {
                                                     <hr className='w-full mt-4' />
                                                     <div className=''>
                                                         <div className='flex  pl-5 pt-6'>
-                                                            <div className='px-6 py-3 p-4 rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
-                                                                <p className=' text-[23px] text-center not-italic font-semibold leading-[normal]' >8 </p>
-                                                                <p className='text-[#1AB78D] text-[16px] not-italic font-normal leading-[normal]'  >Jan</p>
+                                                            <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
+                                                                <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
+                                                                <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
                                                             </div>
                                                             <div className='flex flex-col pl-4 pr-5'>
                                                                 <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]'  >Infectious Diseases Forum</p>
@@ -417,9 +430,9 @@ const Card1 = () => {
                                         <div className='flex   pt-6'>
                                             <div className=''>
                                                 <div className='flex  pl-5 '>
-                                                    <div className='px-6 py-3 p-4 rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
-                                                        <p className=' text-[23px] text-center not-italic font-semibold leading-[normal]'  >8 </p>
-                                                        <p className='text-[#1AB78D] text-[16px] not-italic font-normal leading-[normal]'  >Jan</p>
+                                                    <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
+                                                        <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
+                                                        <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
                                                     </div>
                                                     <div className='flex flex-col pl-4 pr-5'>
                                                         <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]'  >Infectious Diseases Forum</p>
@@ -439,9 +452,9 @@ const Card1 = () => {
                                                 <hr className='w-full mt-4' />
                                                 <div className=''>
                                                     <div className='flex  pl-5 pt-6'>
-                                                        <div className='px-6 py-3 p-4 rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
-                                                            <p className=' text-[23px] text-center not-italic font-semibold leading-[normal]' >8 </p>
-                                                            <p className='text-[#1AB78D] text-[16px] not-italic font-normal leading-[normal]'  >Jan</p>
+                                                        <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
+                                                            <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
+                                                            <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
                                                         </div>
                                                         <div className='flex flex-col pl-4 pr-5'>
                                                             <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]' >Infectious Diseases Forum</p>
@@ -461,9 +474,9 @@ const Card1 = () => {
                                                     <hr className='w-full mt-4' />
                                                     <div className=''>
                                                         <div className='flex  pl-5 pt-6'>
-                                                            <div className='px-6 py-3 p-4 rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
-                                                                <p className=' text-[23px] text-center not-italic font-semibold leading-[normal]'  >8 </p>
-                                                                <p className='text-[#1AB78D] text-[16px] not-italic font-normal leading-[normal]'  >Jan</p>
+                                                            <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
+                                                                <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
+                                                                <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
                                                             </div>
                                                             <div className='flex flex-col pl-4'>
                                                                 <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]' >Infectious Diseases Forum</p>

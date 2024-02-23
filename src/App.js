@@ -12,6 +12,7 @@ import BlogsPage from './Pages/User/Blogs/BlogsPage';
 import BlogDetailPage from './Pages/User/Blogs/BlogDetailPage';
 import ContactPage from './Pages/User/Contact/ContactPage';
 import RegisterPage from './Pages/User/Register/RegisterPage';
+import Otp from './Components/User/Dashboard/Otp'
 
 function App() {
   return (
@@ -30,6 +31,9 @@ function App() {
           <Route path='/blogs-detail' element={<BlogDetailPage/>} />
           <Route path='/contact' element={<ContactPage/>} />
           <Route path='/register' element={<RegisterPage/>} />
+{/* ........................................................................... */}
+           <Route path='/otp' element={<Otp/>} />
+
         </Routes>
       </Router>
     </div>

@@ -8,18 +8,30 @@ import Logo28 from "../../../assets/images/hisham.png";
 import Logo29 from "../../../assets/images/rashid.png";
 import dot from "../../../assets/images/dot.png";
 
+import { useParams } from "react-router-dom";
 
 
 
 const Member = () => {
-    const boardMembers = [
-        { id: 1, src: Logo24, name: "Grace Mary John",   },
-        { id: 2, src: Logo25, name: "Mammen Paul" },
-        { id: 3, src: Logo26, name: "Mohammed Afsal",  },
-        { id: 4, src: Logo27, name: "Mohammed Faisal"  },
-        { id: 5, src: Logo28, name: "Mohamed Hisham"  },
-        { id: 6, src: Logo29, name: "Muhammed Rashid" }
-    ];
+    const { id } = useParams();
+ 
+    let member;
+    if (id === "1") {
+      member = { id: 1, src: Logo24, name: "Grace Mary John", degree: "PharmD., BCIDP" };
+    } else if (id === "2") {
+      member = { id: 2, src: Logo25, name: "Mammen Paul", degree: "PharmD" };
+    } else if (id === "3") {
+      member = { id: 3, src: Logo26, name: "Mohammed Afsal", degree: "MPharm" };
+    } else if (id === "4") {
+      member = { id: 4, src: Logo27, name: "Mohammed Faisal", degree: "MPharm., CPQIH" };
+    } else if (id === "5") {
+      member = { id: 5, src: Logo28, name: "Mohamed Hisham", degree: "PharmD., BCCCP., BCIDP" };
+    } else if (id === "6") {
+      member = { id: 6, src: Logo29, name: "Muhammed Rashid", degree: "MPharm" };
+    } else {
+ 
+      return <div>Member not found</div>;
+    }
     return (
         <div className="w-full h-full bg-[#f4f4f4]">
             <div className="container">
@@ -27,9 +39,9 @@ const Member = () => {
                     <div className="bg-white rounded-[30px]">
                         <div className="bg-[#EAFBF1] rounded-t-[30px] "> 
                         <div className="flex gap-16 p-20">
-                                    <img src={Logo24} alt="Image" className="rounded-[400px] w-[18%]" />
+                                    <img src={member.src} alt="Image" className="rounded-[400px] w-[18%]" />
                                     <div className="pt-16">
-                                     <p className="text-[#00549A] text-[42px] not-italic font-bold leading-[140%] tracking-[0.42px] " >Grace Mary John</p>
+                                     <p className="text-[#00549A] text-[42px] not-italic font-bold leading-[140%] tracking-[0.42px] " >{member.name}</p>
                                      <p className="text-[#222] pt-2 text-[24px] not-italic font-medium leading-[140%]" >BCIDP – Board Certified Infectious Disease Pharmacist</p>
                                      </div>
                                 </div>
