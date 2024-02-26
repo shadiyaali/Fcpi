@@ -2,23 +2,15 @@ import React, { useState } from 'react';
 import blue from "../../../assets/images/blue.png";
 
 const Card2 = () => {
-    const [activeDay, setActiveDay] = useState(1);  
+    const [activeDay, setActiveDay] = useState(null);  
     const [showDropdown, setShowDropdown] = useState(false);  
 
     const handleDayClick = (day) => {
-        if (activeDay === day) {
-            setShowDropdown(!showDropdown);
-        } else {
-            setActiveDay(day);
-            setShowDropdown(true);
-        }
-        // Check if the clicked day is already active, if so, reset the active day
-        if (activeDay === day) {
-            setActiveDay(null);
-        } else {
-            setActiveDay(day);
-        }
+        setShowDropdown(activeDay !== day || !showDropdown);  
+        setActiveDay((prevActiveDay) => (prevActiveDay !== day ? day : null));  
     };
+    
+    
     
     
     

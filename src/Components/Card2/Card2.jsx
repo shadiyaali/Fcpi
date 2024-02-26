@@ -33,7 +33,7 @@ const Card2 = () => {
   return (
     <div className="w-full h-full bg-[#f4f4f4]">
       <div className="container">
-        <div className=" flex  gap-6">
+        <div className=" flex pt-6 gap-6">
           <div className="justify-center  w-[35%] rounded-[30px] bg-[#00549a]">
             <div className="flex pl-5 rounded-[30px]">
               <div className="pt-6">
@@ -59,7 +59,7 @@ const Card2 = () => {
             <div>
               <div className=" flex justify-center  items-center">
               {currentIndex === 0 ? (
-  <Carousel indicators={false} showArrows={false} className='h-[320px] mt-6 w-[90%]' index={currentIndex}>
+  <Carousel indicators={false}   className='h-[320px] mt-6 w-[90%]' index={currentIndex}>
     <img src={Logo5} alt="Logo5" className="rounded-[30px]"/>
     <img src={Logo16} alt="Logo16" className="rounded-[30px]"/>
     <img src={Logo17} alt="Logo17" className="rounded-[30px]"/>

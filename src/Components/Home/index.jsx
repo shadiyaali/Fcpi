@@ -113,7 +113,7 @@ const Home = () => {
           <div className="pl-5 pt-6">
             <Link to="/otp">
             <div
-              className={`flex justify-center items-center px-[27px] py-[8px] bg-${hoveredLogin ? '1AB78D' : 'f4f4f4'} text-${hoveredLogin ? 'white' : '00549A'} rounded-[105px] border border-[#00549A] hover:border-none hover:bg-[#1AB78D]`}
+              className={`flex justify-center items-center px-[27px] py-[8px] bg-${hoveredLogin ? '1AB78D' : 'f4f4f4'} text-${hoveredLogin ? 'white' : '00549A'} rounded-[105px] border border-[#00549A] hover:border-[#1AB78D] hover:bg-[#1AB78D]`}
               onMouseEnter={handleLoginMouseEnter}
               onMouseLeave={handleLoginMouseLeave}
               onClick={() => {
@@ -128,7 +128,7 @@ const Home = () => {
             </Link>
           </div>
 
-          <div className="pl-5 pt-6">
+          <div className=" pl-5 pt-6">
             <Link
               to="/register"
               className="flex justify-center items-center px-[30px] py-[10px] rounded-[105px] bg-[#1AB78D] hover:bg-[#00549A]"

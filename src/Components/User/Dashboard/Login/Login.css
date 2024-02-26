@@ -1,0 +1,39 @@
+.password-input-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .input-wrapper {
+    position: relative;
+    margin-bottom: 20px;
+  }
+  
+ 
+  .password-input {
+    width: 100%;
+    padding-right: 30px;  
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 40px;  
+    line-height: 40px; 
+    background-color: white; 
+  }
+ 
+  
+  .password-toggle-icon {
+    position: absolute;
+    top: 50%;
+    right: 5px;
+    transform: translateY(-50%);
+    width: 20px;  
+    cursor: pointer;
+  }
+  
+  .password-toggle-icon {
+    z-index: 1;  
+  }
+ 
+ 
+input[type='password']  {
+    background-color: white;  
+}

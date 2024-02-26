@@ -27,19 +27,20 @@ const Speciality = () => {
                     <div className="justify-center   rounded-[30px] bg-[#00549a]">
             <div className="flex pl-9 rounded-[30px]">
               <div className="pt-8">
-                <button 
-                  className="justify-center items-center px-7 py-3 rounded-[105px] border border-white  " 
+              <button 
+                    className={`justify-center items-center px-7 py-3 rounded-[105px] border ${currentIndex === 0 ? 'border-transparent' : 'border-white'}`} 
                   style={{ width: 'auto', backgroundColor: currentIndex === 0 ? '#1ab78d' : '', }}
                   onClick={handlePastEventsClick}
                 >
                   <p className="text-white text-[14px] font-semibold"  >Past Events</p>
                 </button>
+                
                 <button 
-                  className="justify-center items-center ml-3 px-7 py-3 rounded-[105px] border    " 
-                  style={{ width: 'auto', backgroundColor: currentIndex === 1 ? '#1ab78d' : '' }}  
+                   className={`justify-center items-center ml-3 px-7 py-3 rounded-[105px] border ${currentIndex === 1 ? 'border-transparent' : ''}`}  
+                  style={{ width: 'auto', backgroundColor: currentIndex === 1 ? '#1ab78d' : '' }}
                   onClick={handleUpcomingEventsClick}
                 >
-                  <p className="text-white text-[14px] font-semibold" >Upcoming Events</p>
+                  <p className="text-white text-[14px] font-semibold"  >Upcoming Events</p>
                 </button>
               </div>
               <div className="ml-auto pr-4 pt-3">

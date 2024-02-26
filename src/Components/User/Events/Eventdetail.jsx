@@ -104,7 +104,7 @@ const Detail = () => {
                                 <div className='flex pt-6 pl-12'>
 
             <div
-                className={`flex justify-center items-center px-[29px] py-[7px]   hover:bg-[#1AB78D] text-[#00549A] hover:text-white rounded-[105px] border hover:border-none border-[#00549A] ${hoveredLogin ? 'shadow-md' : ''}`}
+                className={`flex justify-center items-center px-[29px] py-[7px]   hover:bg-[#1AB78D] text-[#00549A] hover:text-white rounded-[105px] border hover:border-[#1AB78D] border-[#00549A] ${hoveredLogin ? 'shadow-md' : ''}`}
                 onMouseEnter={() => setHoveredLogin(true)}
                 onMouseLeave={() => setHoveredLogin(false)}
             >

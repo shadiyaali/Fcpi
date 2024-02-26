@@ -64,8 +64,8 @@ const Card1 = () => {
                 <div className="pt-6">
                     <div className='flex gap-24  pt-6 p-8  bg-white rounded-[30px]'>
                         <div className='text-start p-8'>
-                            <p className="text-[#222] text-[32px] not-italic font-semibold leading-[normal]" >Events</p>
-                            <p className='text-[#58585A] pt-6 text-[16px] not-italic font-normal leading-[28px]'  >The Federation of Clinical Pharmacists in India (FCPI) is a non-profitable, professional <br />pharmacy organization composed of a bunch of passionate pharmacists involved in diverse<br /> clinical pharmacy responsibilities in India and across the globe. We have come together<br /> voluntarily with the undeterred goal of enhancing the clinical pharmacy profession,<br /> empowering the clinical pharmacists and thereby delivering high quality patient care.</p>
+                            <p className="text-[#222] text-[34px] not-italic font-semibold leading-[normal]" >Events</p>
+                            <p className='text-[#58585A] pt-6 text-[18px] not-italic font-normal leading-[28px]'  >The Federation of Clinical Pharmacists in India (FCPI) is a non-profitable, professional <br />pharmacy organization composed of a bunch of passionate pharmacists involved in diverse<br /> clinical pharmacy responsibilities in India and across the globe. We have come together<br /> voluntarily with the undeterred goal of enhancing the clinical pharmacy profession,<br /> empowering the clinical pharmacists and thereby delivering high quality patient care.</p>
                             <div className='grid grid-cols-4 pt-8'>
 
                                 <button
@@ -73,7 +73,7 @@ const Card1 = () => {
                                     style={{ color: activeButton === 'webinar' ? '#00549A' : '#000' }}
                                     onClick={() => toggleDropdown('webinar')}
                                 >
-                                    <p className="text-[16px] not-italic font-semibold leading-[normal]" >
+                                    <p className="text-[17px] not-italic font-semibold leading-[normal]" >
                                         Webinar archives
                                     </p>
                                 </button>
@@ -82,7 +82,7 @@ const Card1 = () => {
                                     style={{ color: activeButton === 'blog' ? '#00549A' : '#000' }}
                                     onClick={() => toggleDropdown('blog')}
                                 >
-                                    <p className='text-[16px] not-italic font-semibold leading-normal'>
+                                    <p className='text-[17px] not-italic font-semibold leading-normal'>
                                         Blog archives
                                     </p>
                                 </button>
@@ -95,7 +95,7 @@ const Card1 = () => {
                                     style={{ color: activeButton === 'newsletter' ? '#00549A' : '#000' }}
                                     onClick={() => toggleDropdown('newsletter')}
                                 >
-                                    <p className='text-[16px] not-italic font-semibold leading-normal'>
+                                    <p className='text-[17px] not-italic font-semibold leading-normal'>
                                         Newsletter archives
                                     </p>
                                 </button>
@@ -105,7 +105,7 @@ const Card1 = () => {
                                     style={{ color: activeButton === 'podcast' ? '#00549A' : '#000' }}
                                     onClick={() => toggleDropdown('podcast')}
                                 >
-                                    <p className={`text-${activeButton === 'podcast' ? 'blue' : 'black'} text-[16px] not-italic font-semibold leading-[normal]`}>
+                                    <p className={`text-${activeButton === 'podcast' ? 'blue' : 'black'} text-[17px] not-italic font-semibold leading-[normal]`}>
                                         Podcast archives
                                     </p>
                                 </button>
@@ -203,22 +203,22 @@ const Card1 = () => {
 
 
                                     {dropdownVisible.today && (
-                                        <div className='flex   pt-6'>
+                                        <div className='flex  '>
                                             <div className=''>
-                                                <div className='flex  pl-5 '>
+                                                <div className='flex  pl-5 gap-2 pt-4'>
                                                     <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
                                                         <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
                                                         <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
                                                     </div>
-                                                    <div className='flex flex-col pl-4 5'>
+                                                    <div className='flex flex-col pl-4 '>
                                                         <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]'  >Infectious Diseases Forum</p>
 
                                                         <div className='flex gap-4 pt-2'>
                                                             <button className='bg-[#F0F0F0] rounded-[74px] px-4 py-2'>
-                                                                <p className='text-[#58585A] text-[16px] not-italic font-normal leading-[normal]' >FCPI Launch (Recorded video)</p>
+                                                                <p className='text-[#58585A] text-[17px] not-italic font-normal leading-[normal]' >FCPI Launch (Recorded video)</p>
                                                             </button>
                                                             <button className='bg-[#C5E5FF] rounded-[74px] px-4 py-2 '>
-                                                                <p className='text-[#00549A] text-[16px] not-italic font-normal leading-[normal]'  >08-01-24</p>
+                                                                <p className='text-[#00549A] text-[17px] not-italic font-normal leading-[normal]'  >08-01-24</p>
                                                             </button>
                                                         </div>
 
@@ -227,47 +227,47 @@ const Card1 = () => {
                                                 <p className='text-[#58585A] text-start pt-4 pl-8 text-[16px] not-italic font-normal leading-[23px]'>Lorem Ipsum has been the industry's standard dummy text ever<br /> since the 1500s,  when an unknown  printer took a galley of type <br /> and scrambled </p>
                                                 <hr className='w-full mt-4' />
                                                 <div className=''>
-                                                    <div className='flex  pl-5 pt-6'>
-                                                        <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
-                                                            <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
-                                                            <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
-                                                        </div>
-                                                        <div className='flex flex-col pl-4 pr-5'>
-                                                            <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]'  >Infectious Diseases Forum</p>
-
-                                                            <div className='flex gap-4 pt-2'>
-                                                                <button className='bg-[#F0F0F0] rounded-[74px] px-4 py-2'>
-                                                                    <p className='text-[#58585A] text-[16px] not-italic font-normal leading-[normal]'  >FCPI Launch (Recorded video)</p>
-                                                                </button>
-                                                                <button className='bg-[#C5E5FF] rounded-[74px] px-4 py-2 '>
-                                                                    <p className='text-[#00549A] text-[16px] not-italic font-normal leading-[normal]'  >08-01-24</p>
-                                                                </button>
-                                                            </div>
-
-                                                        </div>
+                                                <div className='flex  pl-5 gap-2 pt-4'>
+                                                    <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
+                                                        <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
+                                                        <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
                                                     </div>
+                                                    <div className='flex flex-col pl-4 '>
+                                                        <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]'  >Infectious Diseases Forum</p>
+
+                                                        <div className='flex gap-4 pt-2'>
+                                                            <button className='bg-[#F0F0F0] rounded-[74px] px-4 py-2'>
+                                                                <p className='text-[#58585A] text-[17px] not-italic font-normal leading-[normal]' >FCPI Launch (Recorded video)</p>
+                                                            </button>
+                                                            <button className='bg-[#C5E5FF] rounded-[74px] px-4 py-2 '>
+                                                                <p className='text-[#00549A] text-[17px] not-italic font-normal leading-[normal]'  >08-01-24</p>
+                                                            </button>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
                                                     <p className='text-[#58585A] text-start pt-4 pl-8 text-[16px] not-italic font-normal leading-[23px]'>Lorem Ipsum has been the industry's standard dummy text ever<br /> since the 1500s,  when an unknown  printer took a galley of type <br /> and scrambled </p>
                                                     <hr className='w-full mt-4' />
                                                     <div className=''>
-                                                        <div className='flex  pl-5 pt-6'>
-                                                            <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
-                                                                <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
-                                                                <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
-                                                            </div>
-                                                            <div className='flex flex-col pl-4 pr-5'>
-                                                                <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]'  >Infectious Diseases Forum</p>
+                                                    <div className='flex  pl-5 gap-2 pt-4'>
+                                                    <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
+                                                        <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
+                                                        <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
+                                                    </div>
+                                                    <div className='flex flex-col pl-4'>
+                                                        <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]'  >Infectious Diseases Forum</p>
 
-                                                                <div className='flex gap-4 pt-2'>
-                                                                    <button className='bg-[#F0F0F0] rounded-[74px] px-4 py-2'>
-                                                                        <p className='text-[#58585A] text-[16px] not-italic font-normal leading-[normal]'  >FCPI Launch (Recorded video)</p>
-                                                                    </button>
-                                                                    <button className='bg-[#C5E5FF] rounded-[74px] px-4 py-2 '>
-                                                                        <p className='text-[#00549A] text-[16px] not-italic font-normal leading-[normal]' >08-01-24</p>
-                                                                    </button>
-                                                                </div>
-
-                                                            </div>
+                                                        <div className='flex gap-4 pt-2'>
+                                                            <button className='bg-[#F0F0F0] rounded-[74px] px-4 py-2'>
+                                                                <p className='text-[#58585A] text-[17px] not-italic font-normal leading-[normal]' >FCPI Launch (Recorded video)</p>
+                                                            </button>
+                                                            <button className='bg-[#C5E5FF] rounded-[74px] px-4 py-2 '>
+                                                                <p className='text-[#00549A] text-[17px] not-italic font-normal leading-[normal]'  >08-01-24</p>
+                                                            </button>
                                                         </div>
+
+                                                    </div>
+                                                </div>
                                                         <p className='text-[#58585A] text-start pt-4 pl-8 text-[16px] not-italic font-normal leading-[23px]'>Lorem Ipsum has been the industry's standard dummy text ever<br /> since the 1500s,  when an unknown  printer took a galley of type <br /> and scrambled </p>
                                                         <hr className='w-full mt-4' />
                                                     </div>
@@ -279,22 +279,22 @@ const Card1 = () => {
 
                                     )}
                                     {dropdownVisible.thisWeek && (
-                                        <div className='flex   pt-6'>
+                                        <div className='flex   '>
                                             <div className=''>
-                                                <div className='flex  pl-5 '>
+                                            <div className='flex  pl-5 gap-2 pt-4'>
                                                     <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
                                                         <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
                                                         <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
                                                     </div>
-                                                    <div className='flex flex-col pl-4 pr-5'>
+                                                    <div className='flex flex-col pl-4 '>
                                                         <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]'  >Infectious Diseases Forum</p>
 
                                                         <div className='flex gap-4 pt-2'>
                                                             <button className='bg-[#F0F0F0] rounded-[74px] px-4 py-2'>
-                                                                <p className='text-[#58585A] text-[16px] not-italic font-normal leading-[normal]'  >FCPI Launch (Recorded video)</p>
+                                                                <p className='text-[#58585A] text-[17px] not-italic font-normal leading-[normal]' >FCPI Launch (Recorded video)</p>
                                                             </button>
                                                             <button className='bg-[#C5E5FF] rounded-[74px] px-4 py-2 '>
-                                                                <p className='text-[#00549A] text-[16px] not-italic font-normal leading-[normal]'  >08-01-24</p>
+                                                                <p className='text-[#00549A] text-[17px] not-italic font-normal leading-[normal]'  >08-01-24</p>
                                                             </button>
                                                         </div>
 
@@ -303,47 +303,47 @@ const Card1 = () => {
                                                 <p className='text-[#58585A] text-start pt-4 pl-8 text-[16px] not-italic font-normal leading-[23px]'>Lorem Ipsum has been the industry's standard dummy text ever<br /> since the 1500s,  when an unknown  printer took a galley of type <br /> and scrambled </p>
                                                 <hr className='w-full mt-4' />
                                                 <div className=''>
-                                                    <div className='flex  pl-5 pt-6'>
-                                                        <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
-                                                            <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
-                                                            <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
-                                                        </div>
-                                                        <div className='flex flex-col pl-4 pr-5'>
-                                                            <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]' >Infectious Diseases Forum</p>
-
-                                                            <div className='flex gap-4 pt-2'>
-                                                                <button className='bg-[#F0F0F0] rounded-[74px] px-4 py-2'>
-                                                                    <p className='text-[#58585A] text-[16px] not-italic font-normal leading-[normal]' >FCPI Launch (Recorded video)</p>
-                                                                </button>
-                                                                <button className='bg-[#C5E5FF] rounded-[74px] px-4 py-2 '>
-                                                                    <p className='text-[#00549A] text-[16px] not-italic font-normal leading-[normal]'  >08-01-24</p>
-                                                                </button>
-                                                            </div>
-
-                                                        </div>
+                                                <div className='flex  pl-5 gap-2 pt-4 '>
+                                                    <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
+                                                        <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
+                                                        <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
                                                     </div>
+                                                    <div className='flex flex-col pl-4 '>
+                                                        <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]'  >Infectious Diseases Forum</p>
+
+                                                        <div className='flex gap-4 pt-2'>
+                                                            <button className='bg-[#F0F0F0] rounded-[74px] px-4 py-2'>
+                                                                <p className='text-[#58585A] text-[17px] not-italic font-normal leading-[normal]' >FCPI Launch (Recorded video)</p>
+                                                            </button>
+                                                            <button className='bg-[#C5E5FF] rounded-[74px] px-4 py-2 '>
+                                                                <p className='text-[#00549A] text-[17px] not-italic font-normal leading-[normal]'  >08-01-24</p>
+                                                            </button>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
                                                     <p className='text-[#58585A] text-start pt-4 pl-8 text-[16px] not-italic font-normal leading-[23px]'>Lorem Ipsum has been the industry's standard dummy text ever<br /> since the 1500s,  when an unknown  printer took a galley of type <br /> and scrambled </p>
                                                     <hr className='w-full mt-4' />
                                                     <div className=''>
-                                                        <div className='flex  pl-5 pt-6'>
-                                                            <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
-                                                                <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
-                                                                <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
-                                                            </div>
-                                                            <div className='flex flex-col pl-4 pr-5'>
-                                                                <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]'  >Infectious Diseases Forum</p>
+                                                    <div className='flex  pl-5 gap-2 pt-4 '>
+                                                    <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
+                                                        <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
+                                                        <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
+                                                    </div>
+                                                    <div className='flex flex-col pl-4 '>
+                                                        <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]'  >Infectious Diseases Forum</p>
 
-                                                                <div className='flex gap-4 pt-2'>
-                                                                    <button className='bg-[#F0F0F0] rounded-[74px] px-4 py-2'>
-                                                                        <p className='text-[#58585A] text-[16px] not-italic font-normal leading-[normal]'  >FCPI Launch (Recorded video)</p>
-                                                                    </button>
-                                                                    <button className='bg-[#C5E5FF] rounded-[74px] px-4 py-2 '>
-                                                                        <p className='text-[#00549A] text-[16px] not-italic font-normal leading-[normal]' >08-01-24</p>
-                                                                    </button>
-                                                                </div>
-
-                                                            </div>
+                                                        <div className='flex gap-4 pt-2'>
+                                                            <button className='bg-[#F0F0F0] rounded-[74px] px-4 py-2'>
+                                                                <p className='text-[#58585A] text-[17px] not-italic font-normal leading-[normal]' >FCPI Launch (Recorded video)</p>
+                                                            </button>
+                                                            <button className='bg-[#C5E5FF] rounded-[74px] px-4 py-2 '>
+                                                                <p className='text-[#00549A] text-[17px] not-italic font-normal leading-[normal]'  >08-01-24</p>
+                                                            </button>
                                                         </div>
+
+                                                    </div>
+                                                </div>
                                                         <p className='text-[#58585A] text-start pt-4 pl-8 text-[16px] not-italic font-normal leading-[23px]'>Lorem Ipsum has been the industry's standard dummy text ever<br /> since the 1500s,  when an unknown  printer took a galley of type <br /> and scrambled </p>
                                                         <hr className='w-full mt-4' />
                                                     </div>
@@ -353,22 +353,22 @@ const Card1 = () => {
                                         </div>
                                     )}
                                     {dropdownVisible.thisMonth && (
-                                        <div className='flex   pt-6'>
+                                        <div className='flex  '>
                                             <div className=''>
-                                                <div className='flex  pl-5 '>
+                                            <div className='flex  pl-5 gap-2 pt-4'>
                                                     <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
                                                         <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
                                                         <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
                                                     </div>
-                                                    <div className='flex flex-col pl-4 pr-5'>
+                                                    <div className='flex flex-col pl-4 '>
                                                         <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]'  >Infectious Diseases Forum</p>
 
                                                         <div className='flex gap-4 pt-2'>
                                                             <button className='bg-[#F0F0F0] rounded-[74px] px-4 py-2'>
-                                                                <p className='text-[#58585A] text-[16px] not-italic font-normal leading-[normal]'  >FCPI Launch (Recorded video)</p>
+                                                                <p className='text-[#58585A] text-[17px] not-italic font-normal leading-[normal]' >FCPI Launch (Recorded video)</p>
                                                             </button>
                                                             <button className='bg-[#C5E5FF] rounded-[74px] px-4 py-2 '>
-                                                                <p className='text-[#00549A] text-[16px] not-italic font-normal leading-[normal]'  >08-01-24</p>
+                                                                <p className='text-[#00549A] text-[17px] not-italic font-normal leading-[normal]'  >08-01-24</p>
                                                             </button>
                                                         </div>
 
@@ -377,47 +377,47 @@ const Card1 = () => {
                                                 <p className='text-[#58585A] text-start pt-4 pl-8 text-[16px] not-italic font-normal leading-[23px]'>Lorem Ipsum has been the industry's standard dummy text ever<br /> since the 1500s,  when an unknown  printer took a galley of type <br /> and scrambled </p>
                                                 <hr className='w-full mt-4' />
                                                 <div className=''>
-                                                    <div className='flex  pl-5 pt-6'>
-                                                        <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
-                                                            <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
-                                                            <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
-                                                        </div>
-                                                        <div className='flex flex-col pl-4 pr-5'>
-                                                            <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]'  >Infectious Diseases Forum</p>
-
-                                                            <div className='flex gap-4 pt-2'>
-                                                                <button className='bg-[#F0F0F0] rounded-[74px] px-4 py-2'>
-                                                                    <p className='text-[#58585A] text-[16px] not-italic font-normal leading-[normal]'  >FCPI Launch (Recorded video)</p>
-                                                                </button>
-                                                                <button className='bg-[#C5E5FF] rounded-[74px] px-4 py-2 '>
-                                                                    <p className='text-[#00549A] text-[16px] not-italic font-normal leading-[normal]'  >08-01-24</p>
-                                                                </button>
-                                                            </div>
-
-                                                        </div>
+                                                <div className='flex  pl-5 gap-2 pt-4'>
+                                                    <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
+                                                        <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
+                                                        <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
                                                     </div>
+                                                    <div className='flex flex-col pl-4 '>
+                                                        <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]'  >Infectious Diseases Forum</p>
+
+                                                        <div className='flex gap-4 pt-2'>
+                                                            <button className='bg-[#F0F0F0] rounded-[74px] px-4 py-2'>
+                                                                <p className='text-[#58585A] text-[17px] not-italic font-normal leading-[normal]' >FCPI Launch (Recorded video)</p>
+                                                            </button>
+                                                            <button className='bg-[#C5E5FF] rounded-[74px] px-4 py-2 '>
+                                                                <p className='text-[#00549A] text-[17px] not-italic font-normal leading-[normal]'  >08-01-24</p>
+                                                            </button>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
                                                     <p className='text-[#58585A] text-start pt-4 pl-8 text-[16px] not-italic font-normal leading-[23px]'>Lorem Ipsum has been the industry's standard dummy text ever<br /> since the 1500s,  when an unknown  printer took a galley of type <br /> and scrambled </p>
                                                     <hr className='w-full mt-4' />
                                                     <div className=''>
-                                                        <div className='flex  pl-5 pt-6'>
-                                                            <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
-                                                                <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
-                                                                <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
-                                                            </div>
-                                                            <div className='flex flex-col pl-4 pr-5'>
-                                                                <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]'  >Infectious Diseases Forum</p>
+                                                    <div className='flex  pl-5 gap-2 pt-4'>
+                                                    <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
+                                                        <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
+                                                        <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
+                                                    </div>
+                                                    <div className='flex flex-col pl-4 '>
+                                                        <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]'  >Infectious Diseases Forum</p>
 
-                                                                <div className='flex gap-4 pt-2'>
-                                                                    <button className='bg-[#F0F0F0] rounded-[74px] px-4 py-2'>
-                                                                        <p className='text-[#58585A] text-[16px] not-italic font-normal leading-[normal]'  >FCPI Launch (Recorded video)</p>
-                                                                    </button>
-                                                                    <button className='bg-[#C5E5FF] rounded-[74px] px-4 py-2 '>
-                                                                        <p className='text-[#00549A] text-[16px] not-italic font-normal leading-[normal]' >08-01-24</p>
-                                                                    </button>
-                                                                </div>
-
-                                                            </div>
+                                                        <div className='flex gap-4 pt-2'>
+                                                            <button className='bg-[#F0F0F0] rounded-[74px] px-4 py-2'>
+                                                                <p className='text-[#58585A] text-[17px] not-italic font-normal leading-[normal]' >FCPI Launch (Recorded video)</p>
+                                                            </button>
+                                                            <button className='bg-[#C5E5FF] rounded-[74px] px-4 py-2 '>
+                                                                <p className='text-[#00549A] text-[17px] not-italic font-normal leading-[normal]'  >08-01-24</p>
+                                                            </button>
                                                         </div>
+
+                                                    </div>
+                                                </div>
                                                         <p className='text-[#58585A] text-start pt-4 pl-8 text-[16px] not-italic font-normal leading-[23px]'>Lorem Ipsum has been the industry's standard dummy text ever<br /> since the 1500s,  when an unknown  printer took a galley of type <br /> and scrambled </p>
                                                         <hr className='w-full mt-4' />
                                                     </div>
@@ -427,22 +427,22 @@ const Card1 = () => {
                                         </div>
                                     )}
                                     {dropdownVisible.thisYear && (
-                                        <div className='flex   pt-6'>
+                                        <div className='flex  '>
                                             <div className=''>
-                                                <div className='flex  pl-5 '>
+                                            <div className='flex  pl-5 gap-2 pt-4'>
                                                     <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
                                                         <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
                                                         <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
                                                     </div>
-                                                    <div className='flex flex-col pl-4 pr-5'>
+                                                    <div className='flex flex-col pl-4 '>
                                                         <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]'  >Infectious Diseases Forum</p>
 
                                                         <div className='flex gap-4 pt-2'>
                                                             <button className='bg-[#F0F0F0] rounded-[74px] px-4 py-2'>
-                                                                <p className='text-[#58585A] text-[16px] not-italic font-normal leading-[normal]'  >FCPI Launch (Recorded video)</p>
+                                                                <p className='text-[#58585A] text-[17px] not-italic font-normal leading-[normal]' >FCPI Launch (Recorded video)</p>
                                                             </button>
                                                             <button className='bg-[#C5E5FF] rounded-[74px] px-4 py-2 '>
-                                                                <p className='text-[#00549A] text-[16px] not-italic font-normal leading-[normal]'  >08-01-24</p>
+                                                                <p className='text-[#00549A] text-[17px] not-italic font-normal leading-[normal]'  >08-01-24</p>
                                                             </button>
                                                         </div>
 
@@ -451,47 +451,47 @@ const Card1 = () => {
                                                 <p className='text-[#58585A] text-start pt-4 pl-8 text-[16px] not-italic font-normal leading-[23px]'>Lorem Ipsum has been the industry's standard dummy text ever<br /> since the 1500s,  when an unknown  printer took a galley of type <br /> and scrambled </p>
                                                 <hr className='w-full mt-4' />
                                                 <div className=''>
-                                                    <div className='flex  pl-5 pt-6'>
-                                                        <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
-                                                            <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
-                                                            <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
-                                                        </div>
-                                                        <div className='flex flex-col pl-4 pr-5'>
-                                                            <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]' >Infectious Diseases Forum</p>
-
-                                                            <div className='flex gap-4 pt-2'>
-                                                                <button className='bg-[#F0F0F0] rounded-[74px] px-4 py-2'>
-                                                                    <p className='text-[#58585A] text-[16px] not-italic font-normal leading-[normal]'  >FCPI Launch (Recorded video)</p>
-                                                                </button>
-                                                                <button className='bg-[#C5E5FF] rounded-[74px] px-4 py-2 '>
-                                                                    <p className='text-[#00549A] text-[16px] not-italic font-normal leading-[normal]' >08-01-24</p>
-                                                                </button>
-                                                            </div>
-
-                                                        </div>
+                                                <div className='flex pt-4 pl-5 gap-2 '>
+                                                    <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
+                                                        <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
+                                                        <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
                                                     </div>
+                                                    <div className='flex flex-col pl-4 '>
+                                                        <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]'  >Infectious Diseases Forum</p>
+
+                                                        <div className='flex gap-4 pt-2'>
+                                                            <button className='bg-[#F0F0F0] rounded-[74px] px-4 py-2'>
+                                                                <p className='text-[#58585A] text-[17px] not-italic font-normal leading-[normal]' >FCPI Launch (Recorded video)</p>
+                                                            </button>
+                                                            <button className='bg-[#C5E5FF] rounded-[74px] px-4 py-2 '>
+                                                                <p className='text-[#00549A] text-[17px] not-italic font-normal leading-[normal]'  >08-01-24</p>
+                                                            </button>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
                                                     <p className='text-[#58585A] text-start pt-4 pl-8 text-[16px] not-italic font-normal leading-[23px]'>Lorem Ipsum has been the industry's standard dummy text ever<br /> since the 1500s,  when an unknown  printer took a galley of type <br /> and scrambled </p>
                                                     <hr className='w-full mt-4' />
                                                     <div className=''>
-                                                        <div className='flex  pl-5 pt-6'>
-                                                            <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
-                                                                <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
-                                                                <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
-                                                            </div>
-                                                            <div className='flex flex-col pl-4'>
-                                                                <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]' >Infectious Diseases Forum</p>
+                                                    <div className='flex pt-4 pl-5 gap-2 '>
+                                                    <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
+                                                        <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
+                                                        <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
+                                                    </div>
+                                                    <div className='flex flex-col pl-4 5'>
+                                                        <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]'  >Infectious Diseases Forum</p>
 
-                                                                <div className='flex gap-4 pt-2'>
-                                                                    <button className='bg-[#F0F0F0] rounded-[74px] px-4 py-2'>
-                                                                        <p className='text-[#58585A] text-[16px] not-italic font-normal leading-[normal]'  >FCPI Launch (Recorded video)</p>
-                                                                    </button>
-                                                                    <button className='bg-[#C5E5FF] rounded-[74px] px-4 py-2 '>
-                                                                        <p className='text-[#00549A] text-[16px] not-italic font-normal leading-[normal]' >08-01-24</p>
-                                                                    </button>
-                                                                </div>
-
-                                                            </div>
+                                                        <div className='flex gap-4 pt-2'>
+                                                            <button className='bg-[#F0F0F0] rounded-[74px] px-4 py-2'>
+                                                                <p className='text-[#58585A] text-[17px] not-italic font-normal leading-[normal]' >FCPI Launch (Recorded video)</p>
+                                                            </button>
+                                                            <button className='bg-[#C5E5FF] rounded-[74px] px-4 py-2 '>
+                                                                <p className='text-[#00549A] text-[17px] not-italic font-normal leading-[normal]'  >08-01-24</p>
+                                                            </button>
                                                         </div>
+
+                                                    </div>
+                                                </div>
                                                         <p className='text-[#58585A] text-start pt-4 pl-8 text-[16px] not-italic font-normal leading-[23px]'>Lorem Ipsum has been the industry's standard dummy text ever<br /> since the 1500s,  when an unknown  printer took a galley of type <br /> and scrambled </p>
                                                         <hr className='w-full mt-4' />
                                                     </div>

@@ -7,6 +7,7 @@ import con3 from "../../../assets/images/con3.png";
 import con4 from "../../../assets/images/con-4.png";
 import con5 from "../../../assets/images/con5.png";
 import con6 from "../../../assets/images/con-6.png";
+import "./Contact.css";
 
 
 const Contact = () => {
@@ -62,19 +63,19 @@ const Contact = () => {
     <p className="text-[#58585A] pt-6 text-[18px] not-italic font-normal leading-[28px]">Lorem Ipsum as their default model text, and a search<br />for 'lorem ipsum' will uncover many web sites still in<br />their infancy. Various versions have evolved</p>
     
     <div className="pt-6">
-        <input type="text" className="border border-gray-300 rounded-[30px] px-[30px] py-4 w-full bg-[#F4F4F4]  " placeholder="Name" />
+        <input type="text" className="border border-gray-400 rounded-[30px] px-[30px] py-4 w-full bg-[#F4F4F4]  " placeholder="Name" />
     </div>
     
     <div className="pt-4">
-        <input type="text" className="border border-gray-300 rounded-[30px] px-[30px] py-4 w-full bg-[#F4F4F4]  " placeholder="Email" />
+        <input type="text" className="border  rounded-[30px] px-[30px] py-4 w-full bg-[#F4F4F4]  " placeholder="Email" />
     </div>
     
     <div className="pt-4">
-        <input type="text" className="border border-gray-300 rounded-[30px] px-[30px] py-4 w-full bg-[#F4F4F4]  " placeholder="Phone" />
+        <input type="text" className="border  rounded-[30px] px-[30px] py-4 w-full bg-[#F4F4F4]  " placeholder="Phone" />
     </div>
     
     <div className="pt-4">
-        <textarea className="border border-gray-300 rounded-[10px] px-[30px] py-4 pb-24 w-full bg-[#F4F4F4]  " placeholder="Your message"></textarea>
+        <textarea className="border  rounded-[10px] px-[30px] py-4 pb-24 w-full bg-[#F4F4F4]  " placeholder="Your message"></textarea>
     </div>
 </div>
 
