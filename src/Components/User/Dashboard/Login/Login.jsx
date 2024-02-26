@@ -3,10 +3,16 @@ import Log from "../../../../assets/images/login.png";
 import './Login.css';
 
 const Login = () => {
+    const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [displayedPassword, setDisplayedPassword] = useState('');
 
-    const handleChange = (event) => {
+    const handleEmailChange = (event) => {
+        const value = event.target.value;
+        setEmail(value);
+    };
+
+    const handlePasswordChange = (event) => {
         const value = event.target.value;
         setPassword(value);
         setDisplayedPassword('★'.repeat(value.length));
@@ -23,18 +29,25 @@ const Login = () => {
                         <div className="bg-[#f4f4f4] rounded-[30px] w-[45%] p-8 pl-12 pr-12 ">
                             <div className="text-start">
                                 <p className="text-[#222] text-[38px] not-italic font-bold leading-[normal]">Login</p>
-                                <p className="text-[#444150] pt-4 text-[18px] not-italic font-semibold leading-[24px]">Email*</p>
+                                <p className="text-gray-600  pt-4 text-[18px] not-italic font-semibold leading-[24px]">Email*</p>
                                 <div className="pt-4">
-                                    <input type="input" className="border  rounded-[10px] px-[30px] py-4 w-full bg-white" placeholder="Email" />
+                                    <input
+                                        type="email"
+                                        value={email}
+                                        onChange={handleEmailChange}
+                                        className=" border rounded-[10px] px-[30px] py-4 w-full  bg-white"
+                                        placeholder="Email address"
+                                    />
                                 </div>
                                 <p className="text-[#444150] pt-4 text-[18px] not-italic font-semibold leading-[24px]">Password*</p>
                                 <div className="relative pt-4">
                                     <input
                                         type="password"
                                         value={password}
-                                        onChange={handleChange}
-                                        className="border rounded-[10px] px-[30px] py-4 w-full bg-white"
+                                        onChange={handlePasswordChange}
+                                        className="border rounded-[10px] px-[30px] py-4 w-full pt-6 bg-white"
                                         style={{ font: 'normal 1em Arial' }}
+                                        placeholder="************"
                                     />
                                 </div>
 

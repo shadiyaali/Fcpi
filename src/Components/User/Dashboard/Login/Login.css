@@ -11,6 +11,15 @@
  
   .password-input {
     width: 100%;
+    padding-right: 30px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    height: 40px;  
+    line-height: 40px; 
+    background-color: white; 
+  }
+  .email-input {
+    width: 100%;
     padding-right: 30px;  
     border: 1px solid #ccc;
     border-radius: 5px;
@@ -18,7 +27,6 @@
     line-height: 40px; 
     background-color: white; 
   }
- 
   
   .password-toggle-icon {
     position: absolute;
@@ -35,5 +43,8 @@
  
  
 input[type='password']  {
+    background-color: white;  
+}
+input[type='email']  {
     background-color: white;  
 }

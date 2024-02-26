@@ -84,7 +84,7 @@ const Card2 = () => {
                          
                             {showDropdown && (
                                 <div className='flex gap-16 pr-4 pt-8'>
-                                    <div className='bg-[#F4F4F4] rounded-[10px] w-[60%]'>
+                                    <div className='bg-[#F4F4F4] rounded-[10px] w-[60%]'style={{ backgroundColor: '#F4F4F4' }}>
                                       
                                         {scheduleContent.filter(item => item.day === activeDay).map((item, index) => (
                                             <div key={index} className='pl-6 pr-6 pt-6'>
@@ -96,7 +96,7 @@ const Card2 = () => {
                                         ))}
                                     </div>
                                      
-                                    <div className='bg-[#F4F4F4] rounded-[10px] w-[45%]'>
+                                    <div className='bg-[#F4F4F4] rounded-[10px] w-[45%]'style={{ backgroundColor: '#F4F4F4' }}>
                                         <div className='p-10 pl-10 '>
                                             <p className='text-[#222] text-[25px] not-italic font-semibold leading-[normal]'  >Highlights</p>
                                           

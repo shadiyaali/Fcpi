@@ -44,9 +44,6 @@ const Events = () => {
         });
     };
 
-    const getButtonText = (dropdownName) => {
-        return dropdownVisible[dropdownName] ? 'Cancel Image' : 'Add Image';
-    };
     const getButtonColor = (dropdownName) => {
         return dropdownVisible[dropdownName] ? '#00549A' : '#1A237E';  
     };
@@ -54,7 +51,55 @@ const Events = () => {
     const getImageSrc = (dropdownName) => {
         return dropdownVisible[dropdownName] ? Log1 : Logoa;
     };
+    const liveEventsData = [
+        {
+            title: "Basic Module in Infectious Diseases (Presentation-01)",
+            forum: "Infectious Diseases Forum",
+            date: "2022-09-22",
+            time: "9:00 AM to 11:00 AM"
+        },
+        {
+            title: "Event 2 Title",
+            forum: "Event 2 Forum",
+            date: "2022-09-23",
+            time: "10:00 AM to 12:00 PM"
+        },
+        // Add more live events data as needed
+    ];
 
+    // Upcoming Events Data
+    const upcomingEventsData = [
+        {
+            title: "Upcoming Event 1",
+            forum: "Upcoming Event 1 Forum",
+            date: "2022-10-10",
+            time: "1:00 PM to 3:00 PM"
+        },
+        {
+            title: "Upcoming Event 2",
+            forum: "Upcoming Event 2 Forum",
+            date: "2022-10-15",
+            time: "2:00 PM to 4:00 PM"
+        },
+        // Add more upcoming events data as needed
+    ];
+
+    // Completed Events Data
+    const completedEventsData = [
+        {
+            title: "Completed Event 1",
+            forum: "Completed Event 1 Forum",
+            date: "2022-08-30",
+            time: "3:00 PM to 5:00 PM"
+        },
+        {
+            title: "Completed Event 2",
+            forum: "Completed Event 2 Forum",
+            date: "2022-09-05",
+            time: "4:00 PM to 6:00 PM"
+        },
+        // Add more completed events data as needed
+    ];
     return (
         <div className="w-full h-full bg-[#f4f4f4]">
             <div className="container">
@@ -88,7 +133,7 @@ const Events = () => {
                         {/* Live Events Dropdown */}
                         {liveEventsVisible && (
                             <div className='flex pt-12 gap-4'>
-                                <div className='flex pt-12  gap-4 '>
+                                <div className='flex pt-12   '>
                                     <div className='pl-2'>
                                         <div className='pt-4'>
                                             <div className='flex gap-[16rem]'>
@@ -165,7 +210,7 @@ const Events = () => {
                                             <hr className='mt-4' />
                                         </div>
                                     </div>
-                                    <div className='pl-20'>
+                                    <div className='pl-32'>
                                         <img src={Logo} alt="Logo17" className="rounded-[30px] w-[540px]" />
                                     </div>
                                 </div>
