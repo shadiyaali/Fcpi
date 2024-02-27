@@ -14,6 +14,7 @@ import ContactPage from './Pages/User/Contact/ContactPage';
 import RegisterPage from './Pages/User/Register/RegisterPage';
 import Otp from './Components/User/Dashboard/Otp';
 import LoginPage from './Pages/User/Dashboard/Login/LoginPage';
+import  UserDashboardPage from './Pages/User/Dashboard/UserDashbordPage';
 
 function App() {
   return (
@@ -35,7 +36,7 @@ function App() {
 {/* ........................................................................... */}
            <Route path='/otp' element={<Otp/>} />
            <Route path='/login' element={<LoginPage/>} />
-
+           <Route path='/dashboard' element={<UserDashboardPage/>} />
         </Routes>
       </Router>
     </div>

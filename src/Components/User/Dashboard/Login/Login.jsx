@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import Log from "../../../../assets/images/login.png";
 import './Login.css';
+import { Link } from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState('');
@@ -52,9 +53,11 @@ const Login = () => {
                                 </div>
 
                                 <div className='pt-8'>
-                                    <button className='bg-[#00549A] rounded-[10px] w-full py-4'>
-                                        <p className='text-white  text-center text-[20px] not-italic font-semibold leading-[normal]'>Sign In</p>
+<Link to="/dashboard">
+                                    <button className='bg-[#00549A] rounded-[10px] w-full py-4'  >
+                                        <p className='text-white  text-center text-[20px] not-italic font-semibold leading-[normal]'  >Sign In</p>
                                     </button>
+                                    </Link>
                                 </div>
                                 <div className='flex items-center gap-6 pt-6'>
                                     <p className='text-black   text-[15px] not-italic font-medium leading-[24px] underline'>Forget Password</p>

@@ -1,0 +1,22 @@
+.button {
+    background-color: #fff;
+ 
+    
+}
+
+.button:hover {
+    background-color: #00549A !important;
+}
+
+.button:hover .button-text {
+    color: #fff;  
+}
+
+.dashboard-image {
+    filter: grayscale(100%);
+    transition: filter 0.3s;
+}
+
+.button:hover .dashboard-image {
+    filter: none;
+}
