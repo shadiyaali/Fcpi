@@ -1,10 +1,10 @@
 import React from "react";
 import Sidebar from "../../../Components/User/Dashboard/Sidebar/Sidebar";
 import Navbar from "../../../Components/User/Dashboard/Navbar/Navbar"; 
-import UserDashboard from "../../../Components/User/Dashboard/UseDashboard/UserDashboard"; 
+import Profile from "../../../Components/User/Dashboard/UseDashboard/MyProfile"; 
 import "./Dashboard.css";
 
-const PasswordPage = () => {
+const MyProfilePage = () => {
     return (
        
         <div className="">
@@ -14,7 +14,7 @@ const PasswordPage = () => {
 
             <div className="navdiv pos">          
             <Navbar />
-            <UserDashboard />
+            <Profile/>
             </div>
                   
                   
@@ -28,4 +28,4 @@ const PasswordPage = () => {
     );
 }
 
-export default PasswordPage;
+export default MyProfilePage;

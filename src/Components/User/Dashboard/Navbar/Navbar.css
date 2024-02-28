@@ -1,0 +1,110 @@
+.account-list {
+    position: absolute;
+    top: 57px;  
+    left: 35%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    z-index: 100;
+    border-radius: 10px;
+    box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.10);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    width: 290px;
+}
+
+.account-list.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.about-us-button {
+    cursor: pointer;
+}
+
+.drop-menu li {
+    font-weight: normal;
+    padding: 10px 25px;
+}
+
+a {
+    -webkit-transition: all 0.5s ease-out 0s;
+    -moz-transition: all 0.5s ease-out 0s;
+    -ms-transition: all 0.5s ease-out 0s;
+    -o-transition: all 0.5s ease-out 0s;
+    transition: all 0.5s ease-out 0s;
+    color: var(--pbmit-link-color-normal);
+    text-decoration: none;
+}
+
+.drop-menu li a {
+    font-size: 12px;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.3px;
+    color:  #262527;
+    
+}
+
+.drop-menu li a:before {
+    position: absolute;
+    content: "";
+    left: 0;
+    right: auto;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+    height: 1px;
+    background-color:#181a17;  
+    transition: all 0.3s ease-out 0s;
+}
+
+.drop-menu li:hover a:before {
+    width: 12px; 
+}
+
+.drop-menu li a:hover {
+    padding-left: 12px;
+}
+
+.drop-menu {
+    min-width: 280px;
+}
+.account-list .drop-menu li a:hover {
+    padding-left: 20px;
+}
+.account-list .drop-menu li:hover a:before {
+    width: 12px; 
+}
+
+.account-list .drop-menu li a:before {
+    position: absolute;
+    content: "";
+    left: 0;
+    right: auto;
+    top: 50%;
+    bottom: auto;
+    transform: translateY(-50%);
+    height: 1px;
+    background-color:#181a17;  
+    transition: all 0.3s ease-out 0s;
+}
+
+.account-list .drop-menu li a {
+    font-size: 12px;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    letter-spacing: 0.3px;
+    color:  #262527;
+    
+}
+.account-list .drop-menu li {
+    font-weight: normal;
+    padding: 10px 25px;
+}

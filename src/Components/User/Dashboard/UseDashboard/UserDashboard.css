@@ -2,3 +2,7 @@
     content: "•";  
     margin-right: 5px;  
 }
+.shadow-equal {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1) !important;
+  }
+  

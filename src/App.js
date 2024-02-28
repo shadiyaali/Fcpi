@@ -15,6 +15,9 @@ import RegisterPage from './Pages/User/Register/RegisterPage';
 import Otp from './Components/User/Dashboard/Otp';
 import LoginPage from './Pages/User/Dashboard/Login/LoginPage';
 import  UserDashboardPage from './Pages/User/Dashboard/UserDashbordPage';
+import  MyProfilePage from './Pages/User/Dashboard/MyProfilePage';
+import  PasswordPage from './Pages/User/Dashboard/ChangePasswordPage';
+import  MyPointsPage from './Pages/User/Dashboard/MyPointsPage';
 
 function App() {
   return (
@@ -37,6 +40,9 @@ function App() {
            <Route path='/otp' element={<Otp/>} />
            <Route path='/login' element={<LoginPage/>} />
            <Route path='/dashboard' element={<UserDashboardPage/>} />
+           <Route path='/profile' element={<MyProfilePage/>} />
+           <Route path='/password' element={<PasswordPage/>} />
+           <Route path='/points' element={<MyPointsPage/>} />
         </Routes>
       </Router>
     </div>
