@@ -35,7 +35,7 @@ const Card1 = () => {
               </p>
             </div>
            
-            <Carousel indicators={false} showPrevNext={false} className="h-[230px] pt-6">
+            <Carousel indicators={false} showPrevNext={false} className="h-[230px] pt-6 ">
   <div className="">
     <img
       src={Logo3}
@@ -44,7 +44,7 @@ const Card1 = () => {
       style={{ aspectRatio: "16/9" }}  
     />
   </div>
-  <div>
+  <div className="rounded-[60px]">
     <img
       src={SliderImage}
       alt="Slide 2"

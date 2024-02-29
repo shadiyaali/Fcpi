@@ -28,7 +28,7 @@ const Forum = () => {
         setSelectedForum(forum);
     };
 
- 
+
     return (
         <div className="w-full h-full bg-[#f4f4f4]">
             <div className="container">
@@ -51,25 +51,25 @@ const Forum = () => {
                                 <div className="inline-flex flex-col  w-[310px] items-start  border rounded-[12px] border-solid border-[#00549A]">
 
                                     <div className="pt-4 pl-4">
-                                    <button onClick={() => handleForumChange("Infectious Diseases")} className={`justify-center items-center ml-3 px-8 py-3 rounded-[105px] border ${selectedForum === "Infectious Diseases" ? 'bg-[#00549A] text-white' : 'text-[#222] bg-white'}`} style={{ width: "auto" }}>
-    <p className="text-[14px] font-semibold">Infectious Diseases Forum</p>
-</button>
+                                        <button onClick={() => handleForumChange("Infectious Diseases")} className={`justify-center items-center ml-3 px-8 py-3 rounded-[105px] border ${selectedForum === "Infectious Diseases" ? 'bg-[#00549A] text-white' : 'text-[#222] bg-white'}`} style={{ width: "auto" }}>
+                                            <p className="text-[14px] font-semibold">Infectious Diseases Forum</p>
+                                        </button>
 
                                     </div>
                                     <div className="pb-6 pt-6 pl-4">
-                                    <button onClick={() => handleForumChange("Critical Care Medical")} className={`justify-center items-center ml-3 px-6 py-3 rounded-[105px] border ${selectedForum === "Critical Care Medical" ? 'bg-[#00549A] text-white' : 'text-[#222] bg-white'}`} style={{ width: "auto" }}>
-    <p className="text-[14px] font-semibold">Critical Care Medicine Forum</p>
-</button>
+                                        <button onClick={() => handleForumChange("Critical Care Medical")} className={`justify-center items-center ml-3 px-6 py-3 rounded-[105px] border ${selectedForum === "Critical Care Medical" ? 'bg-[#00549A] text-white' : 'text-[#222] bg-white'}`} style={{ width: "auto" }}>
+                                            <p className="text-[14px] font-semibold">Critical Care Medicine Forum</p>
+                                        </button>
 
                                     </div>
 
                                 </div>
                             </div>
-                         
+
                             {selectedForum === "Infectious Diseases" ? (
                                 infectiousDiseasesItems.map((item, index) => (
-                                
-                                    <div key={index} className="flex-col pl-16 pt-28">
+
+                                    <div key={index} className="flex-col pl-16 pt-28 ">
                                         <div className="flex ">
                                             <div className="shrink-0 rounded-[8px] pl-10 pt-8 pr-20 pb-8 border-b-4 border-[#2DCA72] bg-[#EAFBF1]">
                                                 <img src={item.src} alt="Image" className="rounded-[150px]" />
@@ -77,14 +77,14 @@ const Forum = () => {
                                                 <p className="text-black pt-2 text-start text-[16px] not-italic font-normal leading-[normal]">{item.degree}</p>
                                             </div>
                                         </div>
-                                        <div className="flex pt-14">
+                                        <div className="flex pt-16">
                                             <div className="shrink-0 rounded-[8px] pl-10 pt-8 pr-20 pb-8 border-b-4 border-[#2DCA72] bg-[#EAFBF1]">
                                                 <img src={item.src} alt="Image" className="rounded-[150px]" />
                                                 <p className="text-black pt-6 text-start text-[21px] not-italic font-semibold leading-[normal]"  >{item.name}</p>
                                                 <p className="text-black pt-2 text-start text-[16px] not-italic font-normal leading-[normal]">{item.degree}</p>
                                             </div>
                                         </div>
-                                        <div className="flex pt-14 pb-14">
+                                        <div className="flex pt-16 pb-14">
                                             <div className="shrink-0 rounded-[8px] pl-10 pt-8 pr-20 pb-8 border-b-4 border-[#2DCA72] bg-[#EAFBF1]">
                                                 <img src={item.src} alt="Image" className="rounded-[150px]" />
                                                 <p className="text-black pt-6 text-start text-[21px] not-italic font-semibold leading-[normal]"  >{item.name}</p>
@@ -92,7 +92,7 @@ const Forum = () => {
                                             </div>
                                         </div>
                                     </div>
-                                  
+
                                 ))
                             ) : (
                                 criticalCareMedicalItems.map((item, index) => (
@@ -104,14 +104,14 @@ const Forum = () => {
                                                 <p className="text-black pt-2 text-start text-[16px] not-italic font-normal leading-[normal]">{item.degree}</p>
                                             </div>
                                         </div>
-                                        <div className="flex pt-14">
+                                        <div className="flex pt-16">
                                             <div className="shrink-0 rounded-[8px] pl-10 pt-8 pr-20 pb-8 border-b-4 border-[#2DCA72] bg-[#EAFBF1]">
                                                 <img src={item.src} alt="Image" className="rounded-[150px]" />
                                                 <p className="text-black pt-6 text-start text-[21px] not-italic font-semibold leading-[normal]"  >{item.name}</p>
                                                 <p className="text-black pt-2 text-start text-[16px] not-italic font-normal leading-[normal]">{item.degree}</p>
                                             </div>
                                         </div>
-                                        <div className="flex pt-14 pb-14">
+                                        <div className="flex pt-16 pb-14">
                                             <div className="shrink-0 rounded-[8px] pl-10 pt-8 pr-20 pb-8 border-b-4 border-[#2DCA72] bg-[#EAFBF1]">
                                                 <img src={item.src} alt="Image" className="rounded-[150px]" />
                                                 <p className="text-black pt-6 text-start text-[21px] not-italic font-semibold leading-[normal]"  >{item.name}</p>
@@ -121,10 +121,10 @@ const Forum = () => {
                                     </div>
                                 ))
                             )}
-</div>
                         </div>
                     </div>
-             
+                </div>
+
             </div>
         </div>
     );

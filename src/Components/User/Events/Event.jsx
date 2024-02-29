@@ -99,7 +99,7 @@ const Events = () => {
                         <p className='text-[#222] text-start text-[32px] not-italic font-semibold leading-[normal]'>Events</p>
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 pt-8">
                             {/* Live Events */}
-                            <div className={`bg-[${getButtonColor1('liveEvents')}] rounded-[30px] hover:bg-[#1AB78D]`} onClick={toggleLiveEvents}>
+                            <div className={`bg-[${getButtonColor1('liveEvents')}] bg-gray-400 rounded-[30px] hover:bg-[#1AB78D]`} onClick={toggleLiveEvents}>
                                 <div className="relative">
                                     <img src={Logo17} alt="Logo" className="w-full rounded-[30px]" />
                                 </div>

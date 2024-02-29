@@ -62,8 +62,8 @@ const Card1 = () => {
         <div className="w-full h-full bg-[#f4f4f4]">
             <div className="container">
                 <div className="pt-6">
-                    <div className='flex gap-24  pt-6 p-8  bg-white rounded-[30px]'>
-                        <div className='text-start p-8'>
+                    <div className='flex gap-[7rem]  pt-4 p-6  bg-white rounded-[30px]'>
+                        <div className='text-start p-6'>
                             <p className="text-[#222] text-[34px] not-italic font-semibold leading-[normal]" >Events</p>
                             <p className='text-[#58585A] pt-6 text-[18px] not-italic font-normal leading-[28px]'  >The Federation of Clinical Pharmacists in India (FCPI) is a non-profitable, professional <br />pharmacy organization composed of a bunch of passionate pharmacists involved in diverse<br /> clinical pharmacy responsibilities in India and across the globe. We have come together<br /> voluntarily with the undeterred goal of enhancing the clinical pharmacy profession,<br /> empowering the clinical pharmacists and thereby delivering high quality patient care.</p>
                             <div className='grid grid-cols-4 pt-8'>
@@ -164,7 +164,7 @@ const Card1 = () => {
                                 </>
                             )}
                         </div>
-                        <div className='p-6 pl-10'>
+                        <div className='p-6 pl-16  '>
                             <p className='text-[#222] text-start text-[32px] not-italic font-semibold leading-[normal] ' >Event Calendar
                             </p>
                             <div className='pt-6'>

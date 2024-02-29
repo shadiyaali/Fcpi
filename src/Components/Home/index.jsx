@@ -50,13 +50,14 @@ const Home = () => {
           </div>
           <div className="pt-6 pl-16 ">
             <div className=" flex bg-white   rounded-[150px]">
-
+            <Link to="/">
               <div className="justify-center items-center px-11   py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
-                <Link to="/">
+               
                   <p className="text-[16px] not-italic font-normal leading-[normal]"  >Home</p>
-                </Link>
+               
 
               </div>
+              </Link>
               <div className="justify-center items-center px-8 py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white about-us-button" onMouseEnter={handleAboutMouseEnter}
                 onMouseLeave={handleAboutMouseLeave}>
                 <p className="text-[16px] not-italic font-normal leading-[normal]"  >About Us</p>
@@ -87,26 +88,34 @@ const Home = () => {
                   </div>
                 )}
               </div>
+              <Link to="/speciality-forum">
               <div className="justify-center items-center px-11 py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
-                <Link to="/speciality-forum">
+               
                   <p className="text-[16px] not-italic font-normal leading-[normal]" >Specialty Forums</p>
-                </Link>
+             
               </div>
+              </Link>
+              <Link to="/events">
               <div className="justify-center items-center px-11 py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
-                <Link to="/events">
+               
                   <p className="text-[16px] not-italic font-normal leading-[normal]" >Events</p>
-                </Link>
+              
               </div>
+              </Link>
+              <Link to="/blogs">
               <div className="justify-center items-center px-11 py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
-                <Link to="/blogs">
+              
                   <p className="text-[16px] not-italic font-normal leading-[normal]"  >Blogs</p>
-                </Link>
+             
               </div>
+              </Link>
+              <Link to="/contact">
               <div className="justify-center items-center px-11 py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
-                <Link to="/contact">
+               
                   <p className="text-[16px] not-italic font-normal leading-[normal]"  >Contact Us </p>
-                </Link>
+            
               </div>
+              </Link>
             </div>
           </div>
 
