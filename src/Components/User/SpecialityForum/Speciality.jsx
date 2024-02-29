@@ -74,11 +74,11 @@ const Speciality = () => {
              <hr  className='mt-4 '/>
              <div className='flex pt-10 pl-8'>
   <div className='inline-flex justify-center items-center gap-[10px] px-[9px] py-[2px] rounded-[4px] bg-[#c5e5ff]'>
-    <p className='text-[#00549A] text-[14px] not-italic font-medium leading-[24px]'  >Health Today</p>
+    <p className='text-[#00549A] text-[16px] not-italic font-medium leading-[24px]'  >Health Today</p>
   </div>
-  <p className='text-[#58585A] pl-12 text-[14px] not-italic font-medium leading-[24px]'  >By Dr Prachi Garg</p>
+  <p className='text-[#58585A] pl-4 text-[16px] not-italic font-medium leading-[24px]'  >By Dr Prachi Garg</p>
   <div className="flex-grow"></div>
-  <p className='text-[#58585A]  pr-8 text-[14px] not-italic font-normal leading-[24px]' >1 day ago</p>
+  <p className='text-[#58585A]  pr-8 text-[16px] not-italic font-normal leading-[24px]' >1 day ago</p>
 </div>
 
         </div>

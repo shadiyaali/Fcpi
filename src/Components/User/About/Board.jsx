@@ -25,19 +25,19 @@ const Board = () => {
             <div className="container">
                 <div className="pt-6">
                     <div className="bg-white rounded-[30px]">
-                    <div className="grid grid-cols-2  px-16 pt-64 gap-20">
-                            <div className="text-start ">
+                    <div className="grid grid-cols-2  px-16 pt-52 gap-[14rem]">
+                            <div className="text-start pt-4">
                                 <p className="text-[#222] pt-14 text-[34px] not-italic font-semibold leading-[normal]"  >Board of Directors</p>
                                 <p className="text-[#58585A] pt-8 text-[19px] not-italic font-normal leading-[28px]"  >The Federation of Clinical Pharmacists in India (FCPI) is a non- <br />profitable, professional pharmacy organization composed of a bunch<br /> of passionate pharmacists involved in diverse clinical pharmacy<br /> responsibilities in India and across the globe. We have come<br /> together voluntarily with the undeterred goal of enhancing the<br /> clinical pharmacy profession, empowering the clinical pharmacists<br /> and thereby delivering high quality patient care.</p>
                             </div>
                             <div className="pt-48">
                                 <div className="relative">
-                                    <img src={Logo23} alt="Image" />
-                                    <img src={Page1} alt="Left Arrow" className="absolute right-24 -top-20 transform -translate-y-1/2 rounded-[30px]" />
+                                    <img src={Logo23} alt="Image" className=""/>
+                                    <img src={Page1} alt="Left Arrow" className="absolute right-8 -top-20 transform -translate-y-1/2 rounded-[30px]" />
                                 </div>
                             </div>
                         </div>
-                        <div className="grid grid-cols-4 pl-16 pr-16 pt-32 gap-14 pb-14 justify-between">
+                        <div className="grid grid-cols-4 pl-16 pr-16 pt-32 gap-12 pb-14 justify-between">
                         {boardMembers.map((member) => (
                                 <Link to={`/details/${member.id}`} key={member.id}> 
                                     <div className="shrink-0 rounded-[8px] pl-10 pt-8 pr-20 pb-8" style={{ borderBottom: `4px solid ${member.borderColor}`, backgroundColor: member.bgColor }}>

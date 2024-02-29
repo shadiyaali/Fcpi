@@ -1,19 +1,23 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import blue from "../../../assets/images/blue.png";
+import "./Event.css";
 
 const Card2 = () => {
-    const [activeDay, setActiveDay] = useState(null);  
-    const [showDropdown, setShowDropdown] = useState(false);  
+    const [activeDay, setActiveDay] = useState(1);
+    const [showDropdown, setShowDropdown] = useState(false);
 
     const handleDayClick = (day) => {
-        setShowDropdown(activeDay !== day || !showDropdown);  
-        setActiveDay((prevActiveDay) => (prevActiveDay !== day ? day : null));  
+        setShowDropdown(activeDay !== day || !showDropdown);
+        setActiveDay((prevActiveDay) => (prevActiveDay !== day ? day : null));
     };
-    
-    
-    
-    
-    
+
+    useEffect(() => {
+        setActiveDay(1);  // Set initial active day to 1
+        setShowDropdown(true);  // Show dropdown initially
+    }, []);
+
+
+
 
     const scheduleContent = [
         {
@@ -58,7 +62,7 @@ const Card2 = () => {
                 "Infection Control Practices",
             ]
         },
-        
+
     ];
 
     return (
@@ -69,23 +73,24 @@ const Card2 = () => {
                         <div className='p-10 pl-12'>
                             <p className='text-[#222] text-[32px] not-italic font-semibold leading-[normal]' >Program Schedule</p>
                             <div className='flex gap-20 pt-8'>
-                          
-               {[1, 2, 3].map(day => (
-    <button 
-        key={day}
-        className={`bg-white py-2 px-10 ${activeDay === day ? 'border-b-2 border-[#00549A] text-blue-900' : 'text-blue-500'}`}
-        onClick={() => handleDayClick(day)}  
-    >
-        <p className={`text-center text-[23px] not-italic font-semibold leading-[21px] tracking-[0.25px] ${activeDay === day ? 'text-blue-900' : 'text-blue-500'}`}>{`DAY - ${day}`}</p>
-    </button>
-))}
+
+                                {[1, 2, 3].map(day => (
+                                    <button
+                                        key={day}
+                                        className={`bg-white py-2 px-10 ${activeDay === day ? 'border-b-2 border-[#00549A] text-blue-900' : 'text-custom-color'}`}
+                                        onClick={() => handleDayClick(day)}
+                                    >
+                                        <p className={`text-center text-[23px] not-italic font-semibold leading-[21px] tracking-[0.25px] ${activeDay === day ? 'text-blue-900' : 'text-custom-color'}`}>{`DAY - ${day}`}</p>
+
+                                    </button>
+                                ))}
 
                             </div>
-                         
+
                             {showDropdown && (
-                                <div className='flex gap-16 pr-4 pt-8'>
-                                    <div className='bg-[#F4F4F4] rounded-[10px] w-[60%]'style={{ backgroundColor: '#F4F4F4' }}>
-                                      
+                                <div className='flex gap-10 pr-4 pt-8'>
+                                    <div className='bg-[#F4F4F4] rounded-[10px] w-[75%]' style={{ backgroundColor: '#F4F4F4' }}>
+
                                         {scheduleContent.filter(item => item.day === activeDay).map((item, index) => (
                                             <div key={index} className='pl-6 pr-6 pt-6'>
                                                 <div className='bg-white rounded-[10px] p-4'>
@@ -95,19 +100,22 @@ const Card2 = () => {
                                             </div>
                                         ))}
                                     </div>
-                                     
-                                    <div className='bg-[#F4F4F4] rounded-[10px] w-[45%]'style={{ backgroundColor: '#F4F4F4' }}>
-                                        <div className='p-10 pl-10 '>
+
+                                    <div className='bg-[#F4F4F4] rounded-[10px] w-[50%]' style={{ backgroundColor: '#F4F4F4' }}>
+                                        <div className='p-7 pl-10 '>
                                             <p className='text-[#222] text-[25px] not-italic font-semibold leading-[normal]'  >Highlights</p>
-                                          
+                                                    <div className='pt-6'>
                                             {scheduleContent.find(item => item.day === activeDay).highlights.map((highlight, index) => (
-                                                <div key={index} className='flex gap-4 pt-5'>
-                                                    <div className='pt-1'>
+                                                  
+                                                <div key={index} className='flex gap-4 pt-4'>
+                                                    <div className='pt-2'>
                                                         <img src={blue} alt="{blue}" className='reounded-[30px]' />
                                                     </div>
-                                                    <p className='text-black text-[19px] not-italic font-normal leading-[normal]'  >{highlight}</p>
+                                                    <p className='text-black text-[17px] not-italic font-normal leading-[normal]'  >{highlight}</p>
                                                 </div>
+                                              
                                             ))}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>

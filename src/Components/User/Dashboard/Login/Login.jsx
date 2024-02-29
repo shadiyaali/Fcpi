@@ -24,8 +24,10 @@ const Login = () => {
             <div className="container">
                 <div className="pt-6">
                     <div className="flex bg-white rounded-[30px] p-12 gap-6">
-                        <div className="">
+                        <div className="relative">
                             <img src={Log} alt="" className="rounded-[30px] w-[764px]" />
+                            <p className='absolute left-10 bottom-10 text-[color:var(--White,#FFF)] text-[34px] not-italic font-semibold leading-[36px]'>Towards Clinical<br/> 
+Pharmacy Excellence</p>
                         </div>
                         <div className="bg-[#f4f4f4] rounded-[30px] w-[45%] p-8 pl-12 pr-12 ">
                             <div className="text-start">
@@ -36,7 +38,7 @@ const Login = () => {
                                         type="email"
                                         value={email}
                                         onChange={handleEmailChange}
-                                        className=" border rounded-[10px] px-[30px] py-4 w-full  bg-white"
+                                        className=" border rounded-[10px] px-[20px] py-4 w-full  bg-white"
                                         placeholder="Email address"
                                     />
                                 </div>
@@ -46,17 +48,17 @@ const Login = () => {
                                         type="password"
                                         value={password}
                                         onChange={handlePasswordChange}
-                                        className="border rounded-[10px] px-[30px] py-4 w-full pt-6 bg-white"
+                                        className="border rounded-[10px] px-[20px] py-4 w-full pt-6 bg-white"
                                         style={{ font: 'normal 1em Arial' }}
                                         placeholder="************"
                                     />
                                 </div>
 
                                 <div className='pt-8'>
-<Link to="/dashboard">
-                                    <button className='bg-[#00549A] rounded-[10px] w-full py-4'  >
-                                        <p className='text-white  text-center text-[20px] not-italic font-semibold leading-[normal]'  >Sign In</p>
-                                    </button>
+                                    <Link to="/dashboard">
+                                        <button className='bg-[#00549A] rounded-[10px] w-full py-4'  >
+                                            <p className='text-white  text-center text-[20px] not-italic font-semibold leading-[normal]'  >Sign In</p>
+                                        </button>
                                     </Link>
                                 </div>
                                 <div className='flex items-center gap-6 pt-6'>

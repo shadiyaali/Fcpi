@@ -20,8 +20,20 @@ select {
     border-width: 1px;  
     border-style: solid;  
 }
+[type='email']:focus, 
+[type='text']:focus, 
+[type='password']:focus, 
+textarea:focus, 
+select:focus {
+    appearance: none;
+    background-color: transparent;
+    border-color:#00549A !important;  
+    border-width: 1px;  
+    border-style: solid;  
+}
 
  
 .bg-\[\#F4F4F4\] {
     background-color: transparent;
 }
+ 

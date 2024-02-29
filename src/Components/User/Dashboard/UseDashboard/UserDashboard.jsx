@@ -6,25 +6,49 @@ import logo5 from "../../../../assets/images/circle.png";
 
 
 const UserDashboard = () => {
- 
-    const [upcomingActive, setUpcomingActive] = useState(false)
-    const [PastActive, setPastActive] = useState(false)
 
+    const [upcomingActive, setUpcomingActive] = useState(true)
+    const [PastActive, setPastActive] = useState(false)
+    const [activeButton1, setActiveButton1] = useState('today');
+    const [activeButton, setActiveButton] = useState('');
+    const [isOpen, setIsOpen] = useState(true);
+    const [isRotated, setIsRotated] = useState(false);
+    const [activePerson, setActivePerson] = useState(false);
+
+    const handleIconClick = () => {
+        setIsRotated(!isRotated);
+    };
+    
+    const togglePerson = () => {
+        setActivePerson(!activePerson)
+    }
     const toggleUpcoming = () => {
         setUpcomingActive(!upcomingActive);
-       
+
         if (!upcomingActive) {
             setPastActive(false);
         }
     };
-    const togglePast  = () => {
+    const togglePast = () => {
         setPastActive(!PastActive);
-      
+
         if (!PastActive) {
             setUpcomingActive(false);
         }
     };
-    
+    const [dropdownVisible, setDropdownVisible] = useState({
+        today: true,
+        thisWeek: false,
+        thisMonth: false,
+        thisYear: false,
+    });
+    const toggleDropdown1 = (button) => {
+        setActiveButton1(button);
+        setDropdownVisible((prevState) => ({
+            ...Object.fromEntries(Object.keys(prevState).map(key => [key, key === button ? !prevState[key] : false])),
+        }));
+    };
+
     const dropdownContent = [
         {
             title: 'FCPI ID Forum Year in Review 2023',
@@ -53,6 +77,11 @@ const UserDashboard = () => {
             speaker: 'Sangita Sudhir',
             time: '6:00 PM - 7:00 PM Microbiology and Antimicrobial Resistance',
         },
+        {
+            title: 'Basic Module in Infectious Diseases',
+            speaker: 'Sangita Sudhir',
+            time: '6:00 PM - 7:00 PM Microbiology and Antimicrobial Resistance',
+        },
 
     ];
     return (
@@ -65,10 +94,10 @@ const UserDashboard = () => {
                 <p className='text-[color:var(--Gray,#58585A)] text-[14px] not-italic font-normal leading-[24px]'>Your FCPI Dashboard for today</p>
                 <hr className='mt-6' />
                 <div className='flex   pt-8'>
-                    <div>
-                        <img src={log} alt="" className='h-[192px]' />
+                    <div className='h-[230px] w-[230px]'>
+                        <img src={log} alt="" className='rounded-[8px] rounded-r-none' />
                     </div>
-                    <div className='bg-[#f4f4f4] w-[100%] pl-8 rounded-[8px] rounded-l-none h-[192px] p-8'>
+                    <div className='bg-[#f4f4f4] w-[100%]   rounded-[8px] rounded-l-none h-[192px] p-8 '>
                         <div>
                             <div className='flex pt-3 gap-8'>
                                 <p className='text-[color:var(--Black,#222)] text-[20px] not-italic font-semibold leading-[normal]'>Mammen Paul</p>
@@ -103,29 +132,29 @@ const UserDashboard = () => {
                 </div>
 
                 <div className='flex pt-6 gap-6'>
-                    <div className=' w-[847px] p-6   bg-white shadow-equal rounded-[8px] pt-6 '>
+                    <div className=' w-[847px]  p-6  bg-white shadow-equal h-[530px] rounded-[8px] pt-6 '>
                         <div className='flex justify-between'>
                             <p className='text-[color:var(--Black,#222)] text-[27px] not-italic font-semibold leading-[25px] tracking-[-0.12px]'>Events</p>
                             <div>
-                             <button className={`relative p-8 ${upcomingActive ? 'border-b-2 border-[#00549A]' : ''}`} onClick={toggleUpcoming}>
-                            <div className='flex gap-3'>
-                           
-                            <p className={`text-center text-[18px] not-italic font-normal leading-[20px] ${upcomingActive ? 'text-[#00549A]' : 'text-gray-600'}`}>Upcoming Event</p>
-                            
+                                <button className={`relative p-3 px-4  rounded-[4px] ${upcomingActive ? ' bg-[#00549A]' : 'bg-gray-100'}`} onClick={toggleUpcoming}>
+                                    <div className='flex gap-3'>
+
+                                        <p className={`text-center text-[18px] not-italic font-normal leading-[20px] ${upcomingActive ? 'text-white' : 'text-gray-600'}`}>Upcoming Event</p>
+
+                                    </div>
+                                </button>
+                                <button className={`relative p-3 px-4 rounded-[4px] ${PastActive ? ' bg-[#00549A]' : 'bg-gray-100'}`} onClick={togglePast}>
+                                    <div className='flex gap-3'>
+
+                                        <p className={`text-center text-[18px] not-italic font-normal leading-[20px] ${PastActive ? 'text-white' : 'text-gray-600'}`}>Past Event</p>
+
+                                    </div>
+                                </button>
                             </div>
-                        </button> 
-                        <button className={`relative p-8 ${PastActive ? 'border-b-2 border-[#00549A]' : ''}`} onClick={togglePast}>
-                            <div className='flex gap-3'>
-                           
-                            <p className={`text-center text-[18px] not-italic font-normal leading-[20px] ${PastActive ? 'text-[#00549A]' : 'text-gray-600'}`}>Past Event</p>
-                            
-                            </div>
-                        </button> 
-                            </div>
-                           
+
 
                         </div>
-                        { upcomingActive && (
+                        {upcomingActive && (
                             <div className="dropdown-content mt-4">
                                 {dropdownContent.map((item, index) => (
                                     <React.Fragment key={index}>
@@ -133,14 +162,14 @@ const UserDashboard = () => {
                                             <img src={logo1} alt="" className='rounded-[8px]' />
                                             <div className='pl-4'>
                                                 <p className='text-[color:var(--Black,#222)] text-[18px] not-italic font-semibold leading-[normal]'>{item.title}</p>
-                                                <p className='text-[color:var(--Green,#1AB78D)] pt-3 text-[19px] not-italic font-medium leading-[20px]'>{item.speaker}</p>
-                                                <p className='text-[color:var(--Gray,#58585A)] pt-2 text-[17px] not-italic font-normal leading-[20px]'>{item.time}</p>
+                                                <p className='text-[color:var(--Green,#1AB78D)] pt-2 text-[19px] not-italic font-medium leading-[20px]'>{item.speaker}</p>
+                                                <p className='text-[color:var(--Gray,#58585A)] pt-1 text-[17px] not-italic font-normal leading-[20px]'>{item.time}</p>
                                             </div>
                                         </div>
                                         <hr className='mt-6' />
                                     </React.Fragment>
                                 ))}
-                                <div className='text-end pt-6'>
+                                <div className='text-end pt-4'>
                                     <button className='bg-gray-100 px-4 py-2 rounded-[4px]'>
                                         <p className='text-[color:var(--Blue,#00549A)] text-[14px] not-italic font-medium leading-[normal]'>View all</p>
                                     </button>
@@ -155,14 +184,14 @@ const UserDashboard = () => {
                                             <img src={logo1} alt="" className='rounded-[8px]' />
                                             <div className='pl-4'>
                                                 <p className='text-[color:var(--Black,#222)] text-[18px] not-italic font-semibold leading-[normal]'>{item.title}</p>
-                                                <p className='text-[color:var(--Green,#1AB78D)] pt-3 text-[19px] not-italic font-medium leading-[20px]'>{item.speaker}</p>
-                                                <p className='text-[color:var(--Gray,#58585A)] pt-2 text-[17px] not-italic font-normal leading-[20px]'>{item.time}</p>
+                                                <p className='text-[color:var(--Green,#1AB78D)] pt-2 text-[19px] not-italic font-medium leading-[20px]'>{item.speaker}</p>
+                                                <p className='text-[color:var(--Gray,#58585A)] pt-1 text-[17px] not-italic font-normal leading-[20px]'>{item.time}</p>
                                             </div>
                                         </div>
                                         <hr className='mt-6' />
                                     </React.Fragment>
                                 ))}
-                                <div className='text-end pt-6'>
+                                <div className='text-end pt-4'>
                                     <button className='bg-gray-100 px-4 py-2 rounded-[4px]'>
                                         <p className='text-[color:var(--Blue,#00549A)] text-[14px] not-italic font-medium leading-[normal]'>View all</p>
                                     </button>
@@ -176,7 +205,7 @@ const UserDashboard = () => {
 
 
                     </div>
-                    <div className='p-4 bg-white shadow-equal rounded-[8px] w-[542px] pt-6 pb-6'>
+                    <div className='p-4 bg-white shadow-equal rounded-[8px] w-[530px] h-[530px] pt-6 '>
                         <div className='flex justify-between'>
                             <p className='text-[color:var(--Black,#222)] text-[26px] not-italic font-semibold leading-[25px] tracking-[-0.12px]'>Event Calendar</p>
                             <div className=' '>
@@ -187,76 +216,269 @@ const UserDashboard = () => {
                         </div>
                         <hr className='mt-4' />
                         <div className='flex gap-3 pt-4'>
-                            <button className='bg-white border hover:bg-[#DFF9F2] hover:border-[#DFF9F2]  border-[#CBCBCB] px-5 py-2 rounded-[106px]'>
-                                <p className='text-[#58585A] hover:text-[#1AB78D] text-[16px] not-italic font-normal leading-[normal]'>Today</p>
+                            <button
+                                className={`border border-[#CBCBCB] rounded-[102px] px-5 py-2 ${activeButton1 === 'today' ? 'border-none bg-[#DFF9F2]' : ''}`}
+                                onClick={() => toggleDropdown1('today')}
+                            >
+                                <p className={`text-[#58585A] text-[17px] not-italic font-normal leading-[normal] ${activeButton === 'today' ? 'text-[#1AB78D]' : ''}`}>Today</p>
                             </button>
-                            <button className='bg-white border hover:bg-[#DFF9F2] hover:border-[#DFF9F2]  border-[#CBCBCB] px-6  py-2 rounded-[106px]'>
-                                <p className='text-[#58585A] hover:text-[#1AB78D] text-[16px] not-italic font-normal leading-[normal]'>Tomorrow</p>
+                            <button
+                                className={`border border-[#CBCBCB] rounded-[102px] px-6 py-2 ${activeButton1 === 'thisWeek' ? 'border-none bg-[#DFF9F2]' : ''}`}
+                                onClick={() => toggleDropdown1('thisWeek')}>
+                                <p className={`text-[#58585A] text-[17px] not-italic font-normal leading-[normal] ${activeButton === 'thisWeek' ? 'text-[#1AB78D]' : ''}`}>This Week</p>
                             </button>
-                            <button className='bg-white border hover:bg-[#DFF9F2] hover:border-[#DFF9F2]  border-[#CBCBCB] px-5  py-2 rounded-[106px]'>
-                                <p className='text-[#58585A] hover:text-[#1AB78D] text-[16px] not-italic font-normal leading-[normal]'>This Week</p>
+                            <button
+                                className={`border border-[#CBCBCB] rounded-[102px] px-6 py-2 ${activeButton1 === 'thisMonth' ? 'border-none bg-[#DFF9F2]' : ''}`}
+                                onClick={() => toggleDropdown1('thisMonth')}>
+                                <p className={`text-[#58585A] text-[17px] not-italic font-normal leading-[normal] ${activeButton === 'thisMonth' ? 'text-[#1AB78D]' : ''}`}>This Month</p>
                             </button>
-                            <button className='bg-white border hover:bg-[#DFF9F2] hover:border-[#DFF9F2]  border-[#CBCBCB] px-6  py-2 rounded-[106px]'>
-                                <p className='text-[#58585A] hover:text-[#1AB78D] text-[16px] not-italic font-normal leading-[normal]'>This Month</p>
+                            <button
+                                className={`border border-[#CBCBCB] rounded-[102px] px-5 py-2 ${activeButton1 === 'thisYear' ? 'border-none bg-[#DFF9F2]' : ''}`}
+                                onClick={() => toggleDropdown1('thisYear')}>
+                                <p className={`text-[#58585A] text-[17px] not-italic font-normal leading-[normal] ${activeButton === 'thisYear' ? 'text-[#1AB78D]' : ''}`}>This Year</p>
                             </button>
                         </div>
                         <hr className='mt-4' />
-                        <div className='pt-4'>
-                            <div className='bg-white shadow-equal p-7'>
+                        {dropdownVisible.today && (
+                            <div className=' '>
+                                <div className='pt-5'>
+                                    <div className='bg-white shadow-equal p-5'>
 
-                                <div className='flex  gap-5'>
-                                    <div className='bg-[#DFF9F2] px-5    rounded-[30px]'>
-                                        <p className='text-[#1AB78D] pt-1 text-[22px] text-center  not-italic font-semibold leading-[normal]'>8</p>
-                                        <p className='text-[#1AB78D]  text-[16px] not-italic font-normal leading-[normal]'>Jan</p>
-                                    </div>
-                                    <div>
-                                        <p className=' text-[#222] text-[20px] not-italic font-medium leading-[normal]'>Infectious Diseases Forum</p>
-                                        <div className='pt-2 flex gap-4'>
-                                            <button className='bg-[#F0F0F0] rounded-[74px] px-5 py-1'>
-                                                <p className='text-[#58585A] text-[14px] not-italic font-normal leading-[normal]'>FCPI Launch (Recorded video)</p>
-                                            </button>
+                                        <div className='flex  gap-5'>
+                                            <div className='bg-[#DFF9F2] px-5    rounded-[30px]'>
+                                                <p className='text-[#1AB78D] pt-1 text-[22px] text-center  not-italic font-semibold leading-[normal]'>8</p>
+                                                <p className='text-[#1AB78D]  text-[16px] not-italic font-normal leading-[normal]'>Jan</p>
+                                            </div>
+                                            <div>
+                                                <p className=' text-[#222] text-[20px] not-italic font-medium leading-[normal]'>Infectious Diseases Forum</p>
+                                                <div className='pt-2 flex gap-4'>
+                                                    <button className='bg-[#F0F0F0] rounded-[74px] px-5 py-1'>
+                                                        <p className='text-[#58585A] text-[16px] not-italic font-normal leading-[normal]'>FCPI Launch (Recorded video)</p>
+                                                    </button>
 
-                                            <button className='bg-[#C5E5FF] rounded-[74px] px-5 py-1'>
-                                                <p className='text-[#00549A] text-[16px] not-italic font-normal leading-[normal]'>08-01-24</p>
-                                            </button>
+                                                    <button className='bg-[#C5E5FF] rounded-[74px] px-5 py-1'>
+                                                        <p className='text-[#00549A] text-[16px] not-italic font-normal leading-[normal]'>08-01-24</p>
+                                                    </button>
 
-                                        </div>
+                                                </div>
 
-                                    </div>
-
-                                </div>
-                                <p className='pt-4    text-[#58585A] text-[14px] not-italic font-normal leading-[20px]'>Lorem Ipsum has been the industry's standard dummy text ever
-                                    since <br />the 1500s, when an unknown printer took</p>
-                            </div>
-                        </div>
-                        <div className='pt-4'>
-                            <div className='bg-white shadow-equal p-7 '>
-
-                                <div className='flex  gap-5'>
-                                    <div className='bg-[#DFF9F2] px-5    rounded-[30px]'>
-                                        <p className='text-[#1AB78D] pt-1 text-[22px] text-center  not-italic font-semibold leading-[normal]'>8</p>
-                                        <p className='text-[#1AB78D]  text-[16px] not-italic font-normal leading-[normal]'>Jan</p>
-                                    </div>
-                                    <div>
-                                        <p className=' text-[#222] text-[20px] not-italic font-medium leading-[normal]'>Infectious Diseases Forum</p>
-                                        <div className='pt-2 flex gap-4'>
-                                            <button className='bg-[#F0F0F0] rounded-[74px] px-5 py-1'>
-                                                <p className='text-[#58585A] text-[14px] not-italic font-normal leading-[normal]'>FCPI Launch (Recorded video)</p>
-                                            </button>
-
-                                            <button className='bg-[#C5E5FF] rounded-[74px] px-5 py-1'>
-                                                <p className='text-[#00549A] text-[16px] not-italic font-normal leading-[normal]'>08-01-24</p>
-                                            </button>
+                                            </div>
 
                                         </div>
-
+                                        <p className='pt-4    text-[#58585A] text-[14px] not-italic font-normal leading-[20px]'>Lorem Ipsum has been the industry's standard dummy text ever
+                                            since <br />the 1500s, when an unknown printer took</p>
                                     </div>
-
                                 </div>
-                                <p className='pt-4    text-[#58585A] text-[14px] not-italic font-normal leading-[20px]'>Lorem Ipsum has been the industry's standard dummy text ever
-                                    since <br />the 1500s, when an unknown printer took</p>
+                                <div className='pt-5'>
+                                    <div className='bg-white shadow-equal p-5 '>
+
+                                        <div className='flex  gap-5'>
+                                            <div className='bg-[#DFF9F2] px-5    rounded-[30px]'>
+                                                <p className='text-[#1AB78D] pt-1 text-[22px] text-center  not-italic font-semibold leading-[normal]'>8</p>
+                                                <p className='text-[#1AB78D]  text-[16px] not-italic font-normal leading-[normal]'>Jan</p>
+                                            </div>
+                                            <div>
+                                                <p className=' text-[#222] text-[20px] not-italic font-medium leading-[normal]'>Infectious Diseases Forum</p>
+                                                <div className='pt-2 flex gap-4'>
+                                                    <button className='bg-[#F0F0F0] rounded-[74px] px-5 py-1'>
+                                                        <p className='text-[#58585A] text-[16px] not-italic font-normal leading-[normal]'>FCPI Launch (Recorded video)</p>
+                                                    </button>
+
+                                                    <button className='bg-[#C5E5FF] rounded-[74px] px-5 py-1'>
+                                                        <p className='text-[#00549A] text-[16px] not-italic font-normal leading-[normal]'>08-01-24</p>
+                                                    </button>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        <p className='pt-4    text-[#58585A] text-[14px] not-italic font-normal leading-[20px]'>Lorem Ipsum has been the industry's standard dummy text ever
+                                            since <br />the 1500s, when an unknown printer took</p>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
+                        )}
+                        {dropdownVisible.thisWeek && (
+                            <div className=' '>
+                                <div className='pt-5'>
+                                    <div className='bg-white shadow-equal p-5'>
+
+                                        <div className='flex  gap-5'>
+                                            <div className='bg-[#DFF9F2] px-5    rounded-[30px]'>
+                                                <p className='text-[#1AB78D] pt-1 text-[22px] text-center  not-italic font-semibold leading-[normal]'>8</p>
+                                                <p className='text-[#1AB78D]  text-[16px] not-italic font-normal leading-[normal]'>Jan</p>
+                                            </div>
+                                            <div>
+                                                <p className=' text-[#222] text-[20px] not-italic font-medium leading-[normal]'>Infectious Diseases Forum</p>
+                                                <div className='pt-2 flex gap-4'>
+                                                    <button className='bg-[#F0F0F0] rounded-[74px] px-5 py-1'>
+                                                        <p className='text-[#58585A] text-[16px] not-italic font-normal leading-[normal]'>FCPI Launch (Recorded video)</p>
+                                                    </button>
+
+                                                    <button className='bg-[#C5E5FF] rounded-[74px] px-5 py-1'>
+                                                        <p className='text-[#00549A] text-[16px] not-italic font-normal leading-[normal]'>08-01-24</p>
+                                                    </button>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        <p className='pt-4    text-[#58585A] text-[14px] not-italic font-normal leading-[20px]'>Lorem Ipsum has been the industry's standard dummy text ever
+                                            since <br />the 1500s, when an unknown printer took</p>
+                                    </div>
+                                </div>
+                                <div className='pt-5'>
+                                    <div className='bg-white shadow-equal p-5 '>
+
+                                        <div className='flex  gap-5'>
+                                            <div className='bg-[#DFF9F2] px-5    rounded-[30px]'>
+                                                <p className='text-[#1AB78D] pt-1 text-[22px] text-center  not-italic font-semibold leading-[normal]'>8</p>
+                                                <p className='text-[#1AB78D]  text-[16px] not-italic font-normal leading-[normal]'>Jan</p>
+                                            </div>
+                                            <div>
+                                                <p className=' text-[#222] text-[20px] not-italic font-medium leading-[normal]'>Infectious Diseases Forum</p>
+                                                <div className='pt-2 flex gap-4'>
+                                                    <button className='bg-[#F0F0F0] rounded-[74px] px-5 py-1'>
+                                                        <p className='text-[#58585A] text-[16px] not-italic font-normal leading-[normal]'>FCPI Launch (Recorded video)</p>
+                                                    </button>
+
+                                                    <button className='bg-[#C5E5FF] rounded-[74px] px-5 py-1'>
+                                                        <p className='text-[#00549A] text-[16px] not-italic font-normal leading-[normal]'>08-01-24</p>
+                                                    </button>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        <p className='pt-4    text-[#58585A] text-[14px] not-italic font-normal leading-[20px]'>Lorem Ipsum has been the industry's standard dummy text ever
+                                            since <br />the 1500s, when an unknown printer took</p>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                        {dropdownVisible.thisMonth && (
+                            <div className=' '>
+                                <div className='pt-5'>
+                                    <div className='bg-white shadow-equal p-5'>
+
+                                        <div className='flex  gap-5'>
+                                            <div className='bg-[#DFF9F2] px-5    rounded-[30px]'>
+                                                <p className='text-[#1AB78D] pt-1 text-[22px] text-center  not-italic font-semibold leading-[normal]'>8</p>
+                                                <p className='text-[#1AB78D]  text-[16px] not-italic font-normal leading-[normal]'>Jan</p>
+                                            </div>
+                                            <div>
+                                                <p className=' text-[#222] text-[20px] not-italic font-medium leading-[normal]'>Infectious Diseases Forum</p>
+                                                <div className='pt-2 flex gap-4'>
+                                                    <button className='bg-[#F0F0F0] rounded-[74px] px-5 py-1'>
+                                                        <p className='text-[#58585A] text-[16px] not-italic font-normal leading-[normal]'>FCPI Launch (Recorded video)</p>
+                                                    </button>
+
+                                                    <button className='bg-[#C5E5FF] rounded-[74px] px-5 py-1'>
+                                                        <p className='text-[#00549A] text-[16px] not-italic font-normal leading-[normal]'>08-01-24</p>
+                                                    </button>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        <p className='pt-4    text-[#58585A] text-[14px] not-italic font-normal leading-[20px]'>Lorem Ipsum has been the industry's standard dummy text ever
+                                            since <br />the 1500s, when an unknown printer took</p>
+                                    </div>
+                                </div>
+                                <div className='pt-5'>
+                                    <div className='bg-white shadow-equal p-5 '>
+
+                                        <div className='flex  gap-5'>
+                                            <div className='bg-[#DFF9F2] px-5    rounded-[30px]'>
+                                                <p className='text-[#1AB78D] pt-1 text-[22px] text-center  not-italic font-semibold leading-[normal]'>8</p>
+                                                <p className='text-[#1AB78D]  text-[16px] not-italic font-normal leading-[normal]'>Jan</p>
+                                            </div>
+                                            <div>
+                                                <p className=' text-[#222] text-[20px] not-italic font-medium leading-[normal]'>Infectious Diseases Forum</p>
+                                                <div className='pt-2 flex gap-4'>
+                                                    <button className='bg-[#F0F0F0] rounded-[74px] px-5 py-1'>
+                                                        <p className='text-[#58585A] text-[16px] not-italic font-normal leading-[normal]'>FCPI Launch (Recorded video)</p>
+                                                    </button>
+
+                                                    <button className='bg-[#C5E5FF] rounded-[74px] px-5 py-1'>
+                                                        <p className='text-[#00549A] text-[16px] not-italic font-normal leading-[normal]'>08-01-24</p>
+                                                    </button>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        <p className='pt-4    text-[#58585A] text-[14px] not-italic font-normal leading-[20px]'>Lorem Ipsum has been the industry's standard dummy text ever
+                                            since <br />the 1500s, when an unknown printer took</p>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
+                        {dropdownVisible.thisYear && (
+                            <div className=' '>
+                                <div className='pt-5'>
+                                    <div className='bg-white shadow-equal p-5'>
+
+                                        <div className='flex  gap-5'>
+                                            <div className='bg-[#DFF9F2] px-5    rounded-[30px]'>
+                                                <p className='text-[#1AB78D] pt-1 text-[22px] text-center  not-italic font-semibold leading-[normal]'>8</p>
+                                                <p className='text-[#1AB78D]  text-[16px] not-italic font-normal leading-[normal]'>Jan</p>
+                                            </div>
+                                            <div>
+                                                <p className=' text-[#222] text-[20px] not-italic font-medium leading-[normal]'>Infectious Diseases Forum</p>
+                                                <div className='pt-2 flex gap-4'>
+                                                    <button className='bg-[#F0F0F0] rounded-[74px] px-5 py-1'>
+                                                        <p className='text-[#58585A] text-[16px] not-italic font-normal leading-[normal]'>FCPI Launch (Recorded video)</p>
+                                                    </button>
+
+                                                    <button className='bg-[#C5E5FF] rounded-[74px] px-5 py-1'>
+                                                        <p className='text-[#00549A] text-[16px] not-italic font-normal leading-[normal]'>08-01-24</p>
+                                                    </button>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        <p className='pt-4    text-[#58585A] text-[14px] not-italic font-normal leading-[20px]'>Lorem Ipsum has been the industry's standard dummy text ever
+                                            since <br />the 1500s, when an unknown printer took</p>
+                                    </div>
+                                </div>
+                                <div className='pt-5'>
+                                    <div className='bg-white shadow-equal p-5 '>
+
+                                        <div className='flex  gap-5'>
+                                            <div className='bg-[#DFF9F2] px-5    rounded-[30px]'>
+                                                <p className='text-[#1AB78D] pt-1 text-[22px] text-center  not-italic font-semibold leading-[normal]'>8</p>
+                                                <p className='text-[#1AB78D]  text-[16px] not-italic font-normal leading-[normal]'>Jan</p>
+                                            </div>
+                                            <div>
+                                                <p className=' text-[#222] text-[20px] not-italic font-medium leading-[normal]'>Infectious Diseases Forum</p>
+                                                <div className='pt-2 flex gap-4'>
+                                                    <button className='bg-[#F0F0F0] rounded-[74px] px-5 py-1'>
+                                                        <p className='text-[#58585A] text-[16px] not-italic font-normal leading-[normal]'>FCPI Launch (Recorded video)</p>
+                                                    </button>
+
+                                                    <button className='bg-[#C5E5FF] rounded-[74px] px-5 py-1'>
+                                                        <p className='text-[#00549A] text-[16px] not-italic font-normal leading-[normal]'>08-01-24</p>
+                                                    </button>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+                                        <p className='pt-4    text-[#58585A] text-[14px] not-italic font-normal leading-[20px]'>Lorem Ipsum has been the industry's standard dummy text ever
+                                            since <br />the 1500s, when an unknown printer took</p>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
                     </div>
 
                 </div>
@@ -269,12 +491,14 @@ const UserDashboard = () => {
                                     <p className='text-[color:var(--Black,#222)] text-[21px] not-italic font-medium leading-[25px] tracking-[-0.105px]'>Personal Information</p>
                                 </button>
                             </div>
-                            <div className='pt-2 '>
+                            <div className={`pt-2 ${isRotated ? 'rotate-icon' : ''}`} onClick={handleIconClick}>
                                 <img src={logo5} alt="" />
                             </div>
 
                         </div>
                         <hr />
+                        
+                        <div>
                         <div className='flex justify-between pt-8'>
                             <div>
                                 <p className='text-[color:var(--Gray,#58585A)] text-[16px] not-italic font-normal leading-[22px] tracking-[-0.07px]'>Full Name:</p>
@@ -334,7 +558,7 @@ const UserDashboard = () => {
                             </div>
 
                         </div>
-
+                        </div>
                     </div>
                 </div>
                 <div className='pt-6'>
@@ -346,7 +570,7 @@ const UserDashboard = () => {
                                     <p className='text-[color:var(--Black,#222)] text-[21px] not-italic font-medium leading-[25px] tracking-[-0.105px]'>Mailing Address</p>
                                 </button>
                             </div>
-                            <div className='pt-2 '>
+                            <div className={`pt-2 ${isRotated ? 'rotate-icon' : ''}`} onClick={handleIconClick}>
                                 <img src={logo5} alt="" />
                             </div>
 

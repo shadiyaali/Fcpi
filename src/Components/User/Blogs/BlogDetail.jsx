@@ -102,7 +102,7 @@ const BlogDetail = () => {
                                     The Ultimate Solution
 
                                 </p>
-                                <div className="flex pt-8 pl-4 gap-52">
+                                <div className="flex pt-12 pl-4 gap-52">
                                     <p className="text-[#222] text-[16px] not-italic font-normal leading-[28px]"  >February 13, 2023</p>
                                     <img src={arrow3} alt="" />
                                 </div>
@@ -114,7 +114,7 @@ const BlogDetail = () => {
                                     The Ultimate Solution
 
                                 </p>
-                                <div className="flex pt-8 pl-4 gap-52">
+                                <div className="flex pt-12 pl-4 gap-52">
                                     <p className="text-[#222] text-[16px] not-italic font-normal leading-[28px]"  >February 13, 2023</p>
                                     <img src={arrow3} alt="" />
                                 </div>
@@ -126,7 +126,7 @@ const BlogDetail = () => {
                                     The Ultimate Solution
 
                                 </p>
-                                <div className="flex pt-8 pl-4 gap-52 ">
+                                <div className="flex pt-12 pl-4 gap-52 ">
                                     <p className="text-[#222] text-[16px] not-italic font-normal leading-[28px]" >February 13, 2023</p>
                                     <img src={arrow3} alt="" />
                                 </div>

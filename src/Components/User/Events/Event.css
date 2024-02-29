@@ -1,14 +1,19 @@
 .gradient::after {
-    background: rgb(2,0,36);
-background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(255,255,255,0) 100%);
-position: absolute;
-content: '';
-height: 100%;
-left: 0;
-right: 0;
-top: 0;
-bottom: 0;
-overflow: hidden;
+    background: rgb(2, 0, 36);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.00) 41.9%, rgba(0, 0, 0, 0.69) 97.66%);
+
+
+    position: absolute;
+    content: '';
+    height: 100%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    overflow: hidden;
 }
- 
- 
+
+.text-custom-color {
+    color: rgba(68, 128, 178, 0.6);
+  }
+  

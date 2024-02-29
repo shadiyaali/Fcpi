@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {Link} from "react-router-dom"
 import log1 from "../../../../assets/images/fcpi 1.png";
-import log2 from "../../../../assets/images/menu-02.png";
+import log2 from "../../../../assets/images/menu-02.svg";
 import dash from "../../../../assets/images/dashboard-circleblack.svg";
 import log3 from "../../../../assets/images/dashboard-circle.png";
 import "./Sidebar.css";

@@ -2,17 +2,17 @@ import React, { useState, useRef } from 'react';
 import { FaAngleUp, FaAngleDown } from 'react-icons/fa';
 
 const Card1 = () => {
-    const [activeButton, setActiveButton] = useState('');
-    const [activeButton1, setActiveButton1] = useState('');
+    const [activeButton, setActiveButton] = useState('webinar');
+    const [activeButton1, setActiveButton1] = useState('today');
     const [selectedYear, setSelectedYear] = useState('');
     const [showYearDropdown, setShowYearDropdown] = useState({
-        '2024': false,
+        '2024':false,
         '2023': false,
         '2022': false,
         '2021': false,
     });
     const [dropdownVisible, setDropdownVisible] = useState({
-        today: false,
+        today: true,
         thisWeek: false,
         thisMonth: false,
         thisYear: false,
@@ -206,10 +206,10 @@ const Card1 = () => {
                                         <div className='flex  '>
                                             <div className=''>
                                                 <div className='flex  pl-5 gap-2 pt-4'>
-                                                    <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
-                                                        <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
-                                                        <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
-                                                    </div>
+                                                    <button className=' px-6 py-1  text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
+                                                        <p className=' text-[23px] not-italic font-semibold leading-[normal]' >8 </p>
+                                                        <p className='text-[#1AB78D] text-[16px] not-italic font-normal leading-[normal]'  >Jan</p>
+                                                    </button>
                                                     <div className='flex flex-col pl-4 '>
                                                         <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]'  >Infectious Diseases Forum</p>
 

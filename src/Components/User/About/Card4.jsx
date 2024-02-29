@@ -16,7 +16,7 @@ const AboutCard4 = () => {
 " >Dedicated to  your <br /> <span style={{ fontWeight: "bold" }}>health and happiness</span>
                             <div className="text-left pt-6 ">
                                 <div className="inline-flex py-[10px] px-[60px] justify-center items-center gap-[10px] shrink-0   bg-[#1AB78D] rounded-[105px]">
-                                    <p className="text-[#FFF] text-[14px] not-italic font-normal leading-[normal]" sss
+                                    <p className="text-[#FFF] text-[16px] not-italic font-normal leading-[normal]"
                                     >Join FCPI</p>
                                     <div className="ml-2">
                                         <img src={logo20} alt="Logo" />

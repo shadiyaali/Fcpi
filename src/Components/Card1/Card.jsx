@@ -57,22 +57,22 @@ const Card1 = () => {
             
           </div>
           <div className="flex flex-col w-[99%] h-[550px] rounded-[30px] aspect-[2] bg-card1-background bg-cover responsive-card">
-            <div className="aspect-[2] bg-card2-background bg-cover w-[41%] ml-auto mr-6 mt-auto mb-6 h-[61%] backdrop-blur-xl rounded-[23px]   ">
-              <div className="flex pl-7">
-                <p className="text-[#00549A] pt-8 text-[24px] not-italic font-semibold leading-[normal]"  >Event Calendar</p>
+            <div className="aspect-[2] bg-card2-background bg-cover w-[301px] ml-auto mr-6 mt-auto mb-6 h-[318px] backdrop-blur-xl rounded-[23px]   ">
+              <div className="flex pl-6 pr-6">
+                <p className="text-[#00549A] pt-8 text-[26px] not-italic font-semibold leading-[normal]"  >Event Calendar</p>
                 <div className="pl-8 pt-6 ">
                   <img src={Logo25} alt="Logo" className="rounded-[30px]" />
                 </div>
               </div>
-              <div className="px-5 pt-8">
-                <div className="rounded-[180px] bg-[#FFF] ">
+              <div className="pl-7 pr-7 pt-8">
+                <div className="rounded-[180px] bg-[#FFF] w-[245px]">
                   <div className="flex ">
                     <div className="pt-3 pl-3 ">
                       <img src={Logo26} alt="Logo" className="rounded-[30px]" />
                     </div>
-                    <div className="p-2 ">
+                    <div className="p-1 ">
                       <p className="text-[#222] text-[16px] not-italic font-normal leading-[normal]" >Ischemic stroke (Part-3)</p>
-                      <div className="justify-start mr-28">
+                      <div className="justify-start mr-28 pt-1">
                         <button className="bg-blue-50 inline-flex gap-[10px] p-[3px] rounded-[14px] ">
                           <p className="text-[#00549A] text-[12px] not-italic font-normal leading-[normal]"  >12-01-2024</p>
                         </button>
@@ -81,15 +81,15 @@ const Card1 = () => {
                   </div>
                 </div>
               </div>
-              <div className="px-5 pt-3">
-                <div className="rounded-[180px] bg-[#FFF] ">
+              <div className="pl-7 pr-7 pt-3">
+                <div className="rounded-[180px] bg-[#FFF] w-[245px] ">
                   <div className="flex ">
                     <div className="pt-3 pl-3 ">
                       <img src={Logo26} alt="Logo" className="rounded-[30px]" />
                     </div>
-                    <div className="p-2 ">
+                    <div className="p-1 ">
                       <p className="text-[#222] text-[16px] not-italic font-normal leading-[normal]" >Ischemic stroke (Part-3)</p>
-                      <div className="justify-start mr-28">
+                      <div className="justify-start mr-28 pt-1">
                         <button className="bg-blue-50 inline-flex gap-[10px] p-[3px] rounded-[14px] ">
                           <p className="text-[#00549A] text-[12px] not-italic font-normal leading-[normal]" >12-01-2024</p>
                         </button>
@@ -98,15 +98,15 @@ const Card1 = () => {
                   </div>
                 </div>
               </div>
-              <div className="px-5  pt-3">
-                <div className="rounded-[180px] bg-[#FFF] ">
+              <div className="pl-7 pr-7  pt-3">
+                <div className="rounded-[180px] bg-[#FFF] w-[245px] ">
                   <div className="flex ">
                     <div className="pt-3 pl-3 ">
                       <img src={Logo26} alt="Logo" className="rounded-[30px]" />
                     </div>
-                    <div className="p-2 ">
+                    <div className="p-1">
                       <p className="text-[#222] text-[16px] not-italic font-normal leading-[normal]" >Ischemic stroke (Part-3)</p>
-                      <div className="justify-start mr-28">
+                      <div className="justify-start mr-28 pt-1">
                         <button className="bg-blue-50 inline-flex gap-[10px] p-[3px] rounded-[14px] ">
                           <p className="text-[#00549A] text-[12px] not-italic font-normal leading-[normal]" >12-01-2024</p>
                         </button>

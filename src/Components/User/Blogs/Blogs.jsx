@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import cap from "../../../assets/images/Line 7 (1).svg";
+import cap from "../../../assets/images/lineee.svg";
 import blog from "../../../assets/images/blog.png";
 import arrow from "../../../assets/images/arrow-right-01-round.png";
 import blog1 from "../../../assets/images/blog-1.png";
@@ -39,7 +39,7 @@ const Blogs = () => {
                             </div>
 
                         </div>
-                        <div className="p-12">
+                        <div className="p-12 pt-24">
                             <p className="text-[#222] text-[34px] not-italic font-semibold leading-[normal]" >Freshly squeezed</p>
                             <p className="text-[#58585A] text-[18px] pt-4 not-italic font-normal leading-[28px]"  >Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover<br /> many web sites still in their infancy. Various versions have evolved</p>
                         </div>
@@ -48,38 +48,38 @@ const Blogs = () => {
                         <Link to="/blogs-detail">
             <div className="bg-white hover:bg-[#f4f4f4] p-8 rounded-[10px]">
                 <img src={blog1} alt="" className="rounded-[30px] w-[99%]" />
-                <p className="text-[#222] pt-8 pl-4 text-[21px] not-italic font-medium leading-[28px]" >SaaS Billing Software:<br />
+                <p className="text-[#222] pt-8  text-[21px] not-italic font-medium leading-[28px]" >SaaS Billing Software:<br />
                     Lemon Squeezy,<br />
                     The Ultimate Solution
                 </p>
-                <div className="flex pt-8 pl-4 gap-52">
+                <div className="flex pt-12  gap-[12rem]">
                     <p className="text-[#222] text-[16px] not-italic font-normal leading-[28px]" >February 13, 2023</p>
-                    <img src={arrow3} alt="" />
+                    <img src={arrow3} alt="" className="pl-8"/>
                 </div>
             </div>
         </Link>
         <Link to="/blogs-detail">
             <div className="bg-white hover:bg-[#f4f4f4] p-8 rounded-[10px]">
                 <img src={blog1} alt="" className="rounded-[30px] w-[99%]" />
-                <p className="text-[#222] pt-8 pl-4 text-[21px] not-italic font-medium leading-[28px]" >SaaS Billing: How To <br/>
+                <p className="text-[#222] pt-8  text-[21px] not-italic font-medium leading-[28px]" >SaaS Billing: How To <br/>
 Get It Right<br />
                    
                 </p>
-                <div className="flex pt-8 pl-4 gap-52">
+                <div className="flex pt-20  gap-[12rem]">
                     <p className="text-[#222] text-[16px] not-italic font-normal leading-[28px]"  >February 13, 2023</p>
-                    <img src={arrow3} alt="" />
+                    <img src={arrow3} alt="" className="pl-8" />
                 </div>
             </div>
         </Link>
         <Link to="/blogs-detail">
             <div className="bg-white hover:bg-[#f4f4f4] p-8 rounded-[10px]">
                 <img src={blog1} alt="" className="rounded-[30px] w-[99%]" />
-                <p className="text-[#222] pt-8 pl-4 text-[21px] not-italic font-medium leading-[28px]"  >How to sell B2B SaaS in the <br/>European Union<br />
+                <p className="text-[#222] pt-8  text-[21px] not-italic font-medium leading-[28px]"  >How to sell B2B SaaS in the <br/>European Union<br />
                    
                 </p>
-                <div className="flex pt-8 pl-4 gap-52">
+                <div className="flex pt-20   gap-[12rem]">
                     <p className="text-[#222] text-[16px] not-italic font-normal leading-[28px]"  >February 13, 2023</p>
-                    <img src={arrow3} alt="" />
+                    <img src={arrow3} alt="" className="pl-8" />
                 </div>
             </div>
         </Link>

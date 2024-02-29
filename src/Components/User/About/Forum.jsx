@@ -32,9 +32,9 @@ const Forum = () => {
     return (
         <div className="w-full h-full bg-[#f4f4f4]">
             <div className="container">
-                <div className="pt-6">
+                <div className="pt-4">
                     <div className="bg-white rounded-[30px]">
-                        <div className="grid grid-cols-2  px-16 pt-64 gap-20">
+                        <div className="grid grid-cols-2  px-16 pt-52 gap-[14rem]">
                             <div className="text-start ">
                                 <p className="text-[#222] pt-14 text-[34px] not-italic font-semibold leading-[normal]" >Forum Members</p>
                                 <p className="text-[#58585A] pt-8 text-[19px] not-italic font-normal leading-[28px]"  >The Federation of Clinical Pharmacists in India (FCPI) is a non-profitable, professional pharmacy organization composed of a bunch of passionate pharmacists involved in diverse clinical pharmacy responsibilities in India and across the globe. We have come together voluntarily with the undeterred goal of enhancing the clinical pharmacy profession, empowering the clinical pharmacists and thereby delivering high-quality patient care.</p>
@@ -42,7 +42,7 @@ const Forum = () => {
                             <div className="pt-48">
                                 <div className="relative">
                                     <img src={Logo23} alt="Image" />
-                                    <img src={Page1} alt="Left Arrow" className="absolute right-24 -top-20 transform -translate-y-1/2 rounded-[30px]" />
+                                    <img src={Page1} alt="Left Arrow" className="absolute right-8 -top-20 transform -translate-y-1/2 rounded-[30px]" />
                                 </div>
                             </div>
                         </div>
@@ -51,7 +51,12 @@ const Forum = () => {
                                 <div className="inline-flex flex-col  w-[310px] items-start  border rounded-[12px] border-solid border-[#00549A]">
 
                                     <div className="pt-4 pl-4">
-                                        <button onClick={() => handleForumChange("Infectious Diseases")} className={`justify-center items-center ml-3 px-8 py-3 rounded-[105px] border ${selectedForum === "Infectious Diseases" ? 'bg-[#00549A] text-white' : 'text-[#222] bg-white'}`} style={{ width: "auto" }}>
+                                        <button onClick={() => handleForumChange("Infectious Diseases")} className={`justify-center items-center ml-3 px-8 py-3 rounded-[105px] ${selectedForum === "Infectious Diseases"
+                                                ? "bg-[#00549A] text-white border-none"  
+                                                : "text-[#222] bg-white border" 
+                                            }`}
+                                            style={{ width: "auto" }}
+                                        >
                                             <p className="text-[14px] font-semibold">Infectious Diseases Forum</p>
                                         </button>
 
@@ -69,23 +74,23 @@ const Forum = () => {
                             {selectedForum === "Infectious Diseases" ? (
                                 infectiousDiseasesItems.map((item, index) => (
 
-                                    <div key={index} className="flex-col pl-16 pt-28 ">
-                                        <div className="flex ">
-                                            <div className="shrink-0 rounded-[8px] pl-10 pt-8 pr-20 pb-8 border-b-4 border-[#2DCA72] bg-[#EAFBF1]">
+                                    <div key={index} className="flex-col gap-12   pt-28 ">
+                                        <div className="flex  pr-16 ">
+                                            <div className="shrink-0 rounded-[8px] pl-12 pt-8 pr-24 pb-8 border-b-4 border-[#2DCA72] bg-[#EAFBF1]">
                                                 <img src={item.src} alt="Image" className="rounded-[150px]" />
                                                 <p className="text-black pt-6 text-start text-[21px] not-italic font-semibold leading-[normal]"  >{item.name}</p>
                                                 <p className="text-black pt-2 text-start text-[16px] not-italic font-normal leading-[normal]">{item.degree}</p>
                                             </div>
                                         </div>
-                                        <div className="flex pt-16">
-                                            <div className="shrink-0 rounded-[8px] pl-10 pt-8 pr-20 pb-8 border-b-4 border-[#2DCA72] bg-[#EAFBF1]">
+                                        <div className="flex pt-12 pr-16 ">
+                                            <div className="shrink-0 rounded-[8px] pl-12 pt-8 pr-24 pb-8 border-b-4 border-[#2DCA72] bg-[#EAFBF1]">
                                                 <img src={item.src} alt="Image" className="rounded-[150px]" />
                                                 <p className="text-black pt-6 text-start text-[21px] not-italic font-semibold leading-[normal]"  >{item.name}</p>
                                                 <p className="text-black pt-2 text-start text-[16px] not-italic font-normal leading-[normal]">{item.degree}</p>
                                             </div>
                                         </div>
-                                        <div className="flex pt-16 pb-14">
-                                            <div className="shrink-0 rounded-[8px] pl-10 pt-8 pr-20 pb-8 border-b-4 border-[#2DCA72] bg-[#EAFBF1]">
+                                        <div className="flex pt-12 pr-16 pb-12">
+                                            <div className="shrink-0 rounded-[8px] pl-12 pt-8 pr-24 pb-8 border-b-4 border-[#2DCA72] bg-[#EAFBF1]">
                                                 <img src={item.src} alt="Image" className="rounded-[150px]" />
                                                 <p className="text-black pt-6 text-start text-[21px] not-italic font-semibold leading-[normal]"  >{item.name}</p>
                                                 <p className="text-black pt-2 text-start text-[16px] not-italic font-normal leading-[normal]">{item.degree}</p>
@@ -96,23 +101,23 @@ const Forum = () => {
                                 ))
                             ) : (
                                 criticalCareMedicalItems.map((item, index) => (
-                                    <div key={index} className="flex-col pl-16 pt-28">
-                                        <div className="flex  ">
-                                            <div className="shrink-0 rounded-[8px] pl-10 pt-8 pr-20 pb-8 border-b-4 border-[#2DCA72] bg-[#EAFBF1]">
+                                    <div key={index} className="flex-col gap-12   pt-28 ">
+                                        <div className="flex  pr-16 ">
+                                            <div className="shrink-0 rounded-[8px] pl-12 pt-8 pr-24 pb-8 border-b-4 border-[#2DCA72] bg-[#EAFBF1]">
                                                 <img src={item.src} alt="Image" className="rounded-[150px]" />
                                                 <p className="text-black pt-6 text-start text-[21px] not-italic font-semibold leading-[normal]"  >{item.name}</p>
                                                 <p className="text-black pt-2 text-start text-[16px] not-italic font-normal leading-[normal]">{item.degree}</p>
                                             </div>
                                         </div>
-                                        <div className="flex pt-16">
-                                            <div className="shrink-0 rounded-[8px] pl-10 pt-8 pr-20 pb-8 border-b-4 border-[#2DCA72] bg-[#EAFBF1]">
+                                        <div className="flex pt-12">
+                                            <div className="shrink-0 rounded-[8px] pl-12 pt-8 pr-24 pb-8 border-b-4 border-[#2DCA72] bg-[#EAFBF1]">
                                                 <img src={item.src} alt="Image" className="rounded-[150px]" />
                                                 <p className="text-black pt-6 text-start text-[21px] not-italic font-semibold leading-[normal]"  >{item.name}</p>
                                                 <p className="text-black pt-2 text-start text-[16px] not-italic font-normal leading-[normal]">{item.degree}</p>
                                             </div>
                                         </div>
-                                        <div className="flex pt-16 pb-14">
-                                            <div className="shrink-0 rounded-[8px] pl-10 pt-8 pr-20 pb-8 border-b-4 border-[#2DCA72] bg-[#EAFBF1]">
+                                        <div className="flex pt-12 pb-12">
+                                            <div className="shrink-0 rounded-[8px] pl-12 pt-8 pr-24 pb-8 border-b-4 border-[#2DCA72] bg-[#EAFBF1]">
                                                 <img src={item.src} alt="Image" className="rounded-[150px]" />
                                                 <p className="text-black pt-6 text-start text-[21px] not-italic font-semibold leading-[normal]"  >{item.name}</p>
                                                 <p className="text-black pt-2 text-start text-[16px] not-italic font-normal leading-[normal]">{item.degree}</p>
@@ -124,9 +129,9 @@ const Forum = () => {
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
+
     );
 };
 

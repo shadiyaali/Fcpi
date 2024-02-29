@@ -22,7 +22,7 @@ const Card2 = () => {
   };
   const items = Array.from({ length: 4 }, (_, index) => (
     <div key={index} className="flex items-start pt-6 ">
-        <img src={Logo6} alt="Logo" className="" />
+        <img src={Logo6} alt="Logo" className="mt-4" />
         <p className="text-[#58585A] text-start pl-4 text-[18px]  not-italic font-normal leading-[26px]"  >
             Many desktop publishing packages and web page editors now use Lorem <br />
             Ipsum as their default model text, and a search
@@ -78,15 +78,15 @@ const Card2 = () => {
           <div className="w-[64%] ">
             <div className="justify-center rounded-[30px] bg-white">
               <div className="flex justify-between items-center ">
-                <p className="pt-12 text-[#222] text-start text-[32px] pl-20 not-italic font-semibold leading-[normal]"  >
+                <p className="pt-12 text-[#222] text-start text-[32px] pl-12 not-italic font-semibold leading-[normal]"  >
                   What’s New
                 </p>
-                <div className="pr-4">
+                <div className="pr-4 ">
                   <img src={Logo26} alt="Logo" className="rounded-[30px]" />
                 </div>
               </div>
              
-              <div className="pl-20 pb-12">
+              <div className="pl-12 pb-12">
                 {items}
               </div>
             </div>

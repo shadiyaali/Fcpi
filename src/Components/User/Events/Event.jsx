@@ -8,7 +8,7 @@ import Log1 from "../../../assets/images/cancel.png";
 import { Link } from 'react-router-dom';
 
 const Events = () => {
-    const [liveEventsVisible, setLiveEventsVisible] = useState(false);
+    const [liveEventsVisible, setLiveEventsVisible] = useState(true);
     const [upcomingEventsVisible, setUpcomingEventsVisible] = useState(false);
     const [completedEventsVisible, setCompletedEventsVisible] = useState(false);
     const [dropdownVisible, setDropdownVisible] = useState(null);
@@ -19,34 +19,35 @@ const Events = () => {
         setCompletedEventsVisible(false);
         setDropdownVisible(null);
     };
-    
+
     const toggleUpcomingEvents = () => {
         setUpcomingEventsVisible(!upcomingEventsVisible);
         setLiveEventsVisible(false);
         setCompletedEventsVisible(false);
         setDropdownVisible(null);
     };
-    
+
     const toggleCompletedEvents = () => {
         setCompletedEventsVisible(!completedEventsVisible);
         setLiveEventsVisible(false);
         setUpcomingEventsVisible(false);
         setDropdownVisible(null);
     };
-    
+
     const getButtonColor1 = (dropdownName) => {
-        if ((dropdownName === 'liveEvents' && liveEventsVisible) || (dropdownName === 'upcomingEvents' && upcomingEventsVisible) || (dropdownName === 'completedEvents' && completedEventsVisible)) {
-            return '#1AB78D';  
-        } else if (dropdownVisible === dropdownName) {
-            return '#00549A';  
+        if ((dropdownName === 'liveEvents' && liveEventsVisible) ||
+            (dropdownName === 'upcomingEvents' && upcomingEventsVisible) ||
+            (dropdownName === 'completedEvents' && completedEventsVisible)) {
+            return '#1AB78D'; // Active color when dropdown is visible
+        } else {
+            return '#F4F4F4'; // Inactive color (gray-100)
         }
-        return '#F4F4F4';  
     };
-    
-    
-   
-    
-    
+
+
+
+
+
 
     const toggleImageVisible = (event) => {
         event.stopPropagation();
@@ -58,7 +59,7 @@ const Events = () => {
     const getButtonColor = (dropdownName) => {
         return dropdownVisible === dropdownName ? '#00549A' : '#C5E5FF';
     };
-    
+
 
 
     const liveEventsData = [
@@ -68,7 +69,7 @@ const Events = () => {
             date: "2022-09-22",
             time: "9:00 AM to 11:00 AM"
         },
-        
+
     ];
 
     const upcomingEventsData = [
@@ -78,7 +79,7 @@ const Events = () => {
             date: "2022-09-22",
             time: "9:00 AM to 11:00 AM"
         },
-         
+
     ];
 
     const completedEventsData = [
@@ -88,7 +89,7 @@ const Events = () => {
             date: "2022-09-22",
             time: "9:00 AM to 11:00 AM"
         },
-       
+
     ];
 
     return (
@@ -99,27 +100,27 @@ const Events = () => {
                         <p className='text-[#222] text-start text-[32px] not-italic font-semibold leading-[normal]'>Events</p>
                         <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 pt-8">
                             {/* Live Events */}
-                            <div className={`bg-[${getButtonColor1('liveEvents')}] bg-gray-400 rounded-[30px] hover:bg-[#1AB78D]`} onClick={toggleLiveEvents}>
-                                <div className="relative">
-                                    <img src={Logo17} alt="Logo" className="w-full rounded-[30px]" />
-                                </div>
-                                <p className={`text-[#222] p-7 text-start pl-8 hover:text-white ${liveEventsVisible ? 'text-white' : ''} text-[21px] not-italic font-semibold leading-[normal]`}>Live Events</p>
+                            {/* Live Events */}
+                            <div className={`rounded-[30px] ${liveEventsVisible ? 'bg-[#1AB78D] hover:bg-[#1AB78D] cursor-pointer' : 'bg-gray-100 hover:bg-[#1AB78D] cursor-pointer'}`} onClick={toggleLiveEvents}>
+                                <img src={Logo17} alt="Logo" className="w-full rounded-[30px]" />
+                                <p className={`text-[#222] p-7 text-start pl-8 hover:text-white ${liveEventsVisible ? 'text-white' : ''} text-[21px] not-italic font-semibold leading-[normal] `}>Live Events</p>
                             </div>
 
 
-                            {/* Upcoming Events */}
-                            <div className={`bg-[${getButtonColor1('upcomingEvents')}] rounded-[30px] hover:bg-[#1AB78D]`} onClick={toggleUpcomingEvents}>
-                                <div className="relative">
-                                    <img src={Logo17} alt="Logo" className="w-full rounded-[30px]" />
-                                </div>
-                                <p className={`text-[#222] p-7 text-start pl-8 hover:text-white ${upcomingEventsVisible ? 'text-white' : ''} text-[21px] not-italic font-semibold leading-[normal]`}>Upcoming Events</p>
+
+                            <div className={`rounded-[30px]  ${upcomingEventsVisible ? 'bg-[#1AB78D] hover:bg-[#1AB78D] cursor-pointer' : 'bg-gray-100 hover:bg-[#1AB78D] cursor-pointer'}`} onClick={toggleUpcomingEvents}>
+
+                                <img src={Logo17} alt="Logo" className="w-full rounded-[30px]" />
+
+                                <p className={`text-[#222] p-7 text-start pl-8 hover:text-white ${upcomingEventsVisible ? 'text-white' : ''} text-[21px] not-italic font-semibold leading-[normal]  `}>Upcoming Events</p>
                             </div>
+
                             {/* Completed Events */}
-                            <div className={`bg-[${getButtonColor1('completedEvents')}] rounded-[30px] hover:bg-[#1AB78D]`} onClick={toggleCompletedEvents}>
-                                <div className="relative">
-                                    <img src={Logo18} alt="Logo" className="w-full rounded-[30px]" />
-                                </div>
-                                <p className={`text-[#222] p-7 text-start pl-8 hover:text-white ${completedEventsVisible ? 'text-white' : ''} text-[21px] not-italic font-semibold leading-[normal]`}>Completed Events</p>
+                            <div className={`rounded-[30px]  ${completedEventsVisible ? 'bg-[#1AB78D] hover:bg-[#1AB78D] cursor-pointer' : 'bg-gray-100 hover:bg-[#1AB78D] cursor-pointer'}`} onClick={toggleCompletedEvents}>
+
+                                <img src={Logo18} alt="Logo" className="w-full rounded-[30px]" />
+
+                                <p className={`text-[#222] p-7 text-start pl-8 hover:text-white ${completedEventsVisible ? 'text-white' : ''} text-[21px] not-italic font-semibold leading-[normal]  `}>Completed Events</p>
                             </div>
                         </div>
 
@@ -168,7 +169,7 @@ const Events = () => {
                                 </div>
                             </div>
                         )}
-                       {upcomingEventsVisible && (
+                        {upcomingEventsVisible && (
                             <div className='flex pt-12 gap-4'>
                                 <div className='flex pt-12'>
                                     <div className='pl-2'>

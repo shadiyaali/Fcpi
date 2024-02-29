@@ -76,7 +76,7 @@ const Detail = () => {
                         <div className='pl-12 pr-12 pt-16'>
                             <p className='text-[#222] text-[35px] not-italic font-semibold leading-[normal]'  >Speaker Desk</p>
                             <div className='flex gap-[30rem]'>
-                                <p className='text-[#58585A] pt-10 text-[17px] not-italic font-normal leading-[28px]' >Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web <br />sites still in their infancy. Various versions have evolved</p>
+                                <p className='text-[#58585A] pt-7 text-[17px] not-italic font-normal leading-[28px]' >Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web <br />sites still in their infancy. Various versions have evolved</p>
                                 <div className='text-end pt-16  '>
 
                                     <button onClick={goToPrevPage} disabled={currentPage === 1}>
@@ -89,7 +89,7 @@ const Detail = () => {
                             </div>
                             <div className="grid grid-cols-4 pb-8 pt-8 gap-8">
                                 {currentSpeakers.map(speaker => (
-                                    <div key={speaker.id} className='bg-[#F4F4F4] rounded-[10px] '>
+                                    <div key={speaker.id} className='bg-gray-100 rounded-[10px] '>
                                         <img src={speaker.image} alt={speaker.name} className=" w-[100%] rounded-[10px]  " />
                                         <p className='text-black text-center pt-8 pb-8 text-[18px] not-italic font-semibold leading-[18px]'  >{speaker.name}</p>
                                     </div>
@@ -97,11 +97,11 @@ const Detail = () => {
                             </div>
 
                         </div>
-                        <div className='p-12'>
-                            <div className='bg-[#F0FAFF] rounded-[10px] text-center w-[50%] p-10'>
+                        <div className='p-12 pl-12'>
+                            <div className='  rounded-[10px] text-center w-[48%] p-10'style={{ backgroundColor: 'rgba(197, 229, 255, 0.50)'}}>
                                 <p className='text-[#222] text-[36px] not-italic font-semibold leading-[normal]'  >If you are not Logged In FCPI Please</p>
                                
-                                <div className='flex pt-6 pl-12'>
+                                <div className='flex pt-6 pl-2'>
 
             <div
                 className={`flex justify-center items-center px-[29px] py-[7px]   hover:bg-[#1AB78D] text-[#00549A] hover:text-white rounded-[105px] border hover:border-[#1AB78D] border-[#00549A] ${hoveredLogin ? 'shadow-md' : ''}`}
@@ -113,7 +113,7 @@ const Detail = () => {
                     <img src={hoveredLogin ? logo3 : logo1} alt="Logo" className="" />
                 </div>
             </div>
-            <div className="pl-5">
+            <div className="pl-4">
                 <div className="flex justify-center items-center px-[30px] py-[10px] rounded-[105px] bg-[#1AB78D] hover:bg-[#00549A]">
                     <p className="text-[#FFF] text-[14px] not-italic font-normal leading-[normal]"  >Join FCPI</p>
                     <div className="">

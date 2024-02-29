@@ -33,36 +33,89 @@ const Navbar = () => {
     const toggleAccountDropdown = () => {
         setIsAccountDropdownOpen(!isAccountDropdownOpen);
     };
-
+    const handleAboutMouseEnter = () => {
+        setIsAboutDropdownHovered(true);
+      };
+    
+      const handleAboutMouseLeave = () => {
+        setIsAboutDropdownHovered(false);
+      };
     return (
         <div className=''>
              <div className= " w-full h-full ">
                  <div className="flex p-4 bg-white pt-4 justify-end">
                     <div className='flex pr-14'>
 
-                        <div className="justify-center items-center px-11 py-4 bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
-                            <p className="text-[17px] not-italic font-normal leading-[normal]">Home</p>
-                        </div>
+                    <Link to="/">
+              <div className="justify-center items-center px-11   py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
+               
+                  <p className="text-[16px] not-italic font-normal leading-[normal]"  >Home</p>
+               
 
-                        <div className="justify-center items-center px-8 py-4 bg-white hover:bg-[#00549a] text-[#222] hover:text-white about-us-button" >
-                            <p className="text-[17px] not-italic font-normal leading-[normal]" >About Us</p>
-                        </div>
+              </div>
+              </Link>
 
-                        <div className="justify-center items-center px-11 py-4 bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
-                            <p className="text-[17px] not-italic font-normal leading-[normal]" >Specialty Forums</p>
-                        </div>
+              <div className="justify-center items-center px-8 py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white about-us-button" onMouseEnter={handleAboutMouseEnter}
+                onMouseLeave={handleAboutMouseLeave}>
+                <p className="text-[16px] not-italic font-normal leading-[normal]"  >About Us</p>
+                {isAboutDropdownHovered && (
+                  <div
+                    className={`about-list show`}
+                    onMouseEnter={handleDropdownMouseEnter}
+                    onMouseLeave={handleDropdownMouseLeave}
+                  >
 
-                        <div className="justify-center items-center px-11 py-4 bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
-                            <p className="text-[17px] not-italic font-normal leading-[normal]" >Events</p>
-                        </div>
+                    <ul className="drop-menu">
+                      <li className=" ">
+                        <Link to="/about-fcpi">
+                          <p className="text-[14px] not-italic px-3 py-1    font-normal leading-[normal]" style={{ display: "block" }}>About FCPI</p>
+                        </Link>
+                      </li>
+                      <li className=" ">
+                        <Link to="/board-of-directors">
+                          <p className="text-[14px] not-italic px-3 py-1 font-normal leading-[normal]" style={{ display: "block" }}>Board of Directors</p>
+                        </Link>
+                      </li>
+                      <li className="">
+                        <Link to="/forum-members">
+                          <p className="text-[14px] not-italic px-3 py-1 font-normal leading-[normal]" style={{ display: "block" }}>Forum Members</p>
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                )}
+              </div>
 
-                        <div className="justify-center items-center px-11 py-4 bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
-                            <p className="text-[17px] not-italic font-normal leading-[normal]" >Blogs</p>
-                        </div>
-                      
-                        <div className="justify-center items-center px-11 py-4 bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
-                            <p className="text-[17px] not-italic font-normal leading-[normal]" >Contact Us</p>
-                        </div>
+              <Link to="/speciality-forum">
+              <div className="justify-center items-center px-11 py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
+               
+                  <p className="text-[16px] not-italic font-normal leading-[normal]" >Specialty Forums</p>
+             
+              </div>
+              </Link>
+
+              <Link to="/events">
+              <div className="justify-center items-center px-11 py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
+               
+                  <p className="text-[16px] not-italic font-normal leading-[normal]" >Events</p>
+              
+              </div>
+              </Link>
+
+              <Link to="/blogs">
+              <div className="justify-center items-center px-11 py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
+              
+                  <p className="text-[16px] not-italic font-normal leading-[normal]"  >Blogs</p>
+             
+              </div>
+              </Link>
+              <Link to="/contact">
+              <div className="justify-center items-center px-11 py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
+               
+                  <p className="text-[16px] not-italic font-normal leading-[normal]"  >Contact Us </p>
+            
+              </div>
+              </Link>
                     </div>
 
                     <div className='pr-2 relative'> 
