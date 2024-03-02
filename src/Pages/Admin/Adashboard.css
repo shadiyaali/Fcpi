@@ -1,0 +1,11 @@
+
+.asidebardiv { width: 20%; float: left; }
+.anavdiv { width: 80%; float: left;}
+
+.apos {
+    position:relative;
+    left: 20%;
+} 
+.apos-side {
+    position:fixed
+} 

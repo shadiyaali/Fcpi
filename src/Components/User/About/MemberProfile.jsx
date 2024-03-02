@@ -49,7 +49,7 @@ const Member = () => {
                         <div className="p-20">
                         <div className="border-l-2 border-[#00549A] pl-10">
                             <p className="text-[#222]  text-[23px] not-italic font-semibold leading-[normal]" >Current/Recent job title:</p>
-                            <p className="text-[#58585A] text-[19px] pt-3 not-italic font-normal leading-[normal]" >Chief Clinical Pharmacist at Believers Church Medical College Hospital, India since 2016</p>
+                            <p className="text-[#58585A] text-[19px] pt-2 not-italic font-normal leading-[normal]" >Chief Clinical Pharmacist at Believers Church Medical College Hospital, India since 2016</p>
                         </div>
                         <div className="pt-5">
                         <img src={dot} alt="Image" className=" " />
@@ -57,7 +57,7 @@ const Member = () => {
                         <div className="pt-5">
                         <div className="border-l-2  border-[#00549A] pl-10 ">
                             <p className="text-[#222]  text-[23px] not-italic font-semibold leading-[normal]" >Additional Job Titles:</p>
-                            <p className="text-[#58585A] text-[19px] pt-3 not-italic font-normal leading-[normal]" >Assistant Professor – Department of Clinical Pharmacology and Clinical Pharmacy at Believers <br/>
+                            <p className="text-[#58585A] text-[19px] pt-2 not-italic font-normal leading-[normal]" >Assistant Professor – Department of Clinical Pharmacology and Clinical Pharmacy at Believers <br/>
 Church Medical College Hospital, India since 2022</p>
                         </div>
                         <div className="pt-5">
@@ -67,7 +67,7 @@ Church Medical College Hospital, India since 2022</p>
                         <div className="pt-5">
                         <div className="border-l-2  border-[#00549A] pl-10 ">
                             <p className="text-[#222]  text-[23px] not-italic font-semibold leading-[normal]" >Previous Work Experience apart from Current Job Title:</p>
-                            <p className="text-[#58585A] text-[19px] pt-3 not-italic font-normal leading-[normal]" >N/A</p>
+                            <p className="text-[#58585A] text-[19px] pt-2 not-italic font-normal leading-[normal]" >N/A</p>
                         </div>
                         <div className="pt-5">
                         <img src={dot} alt="Image" className=" " />
@@ -76,7 +76,7 @@ Church Medical College Hospital, India since 2022</p>
                         <div className="pt-5">
                         <div className="border-l-2  border-[#00549A] pl-10 ">
                             <p className="text-[#222]  text-[23px] not-italic font-semibold leading-[normal]" >Publications:</p>
-                            <p className="text-[#58585A] text-[19px] pt-3 not-italic font-normal leading-[normal]" >N/A</p>
+                            <p className="text-[#58585A] text-[19px] pt-2 not-italic font-normal leading-[normal]" >N/A</p>
                         </div>
                         <div className="pt-5">
                         <img src={dot} alt="Image" className=" " />
@@ -85,7 +85,7 @@ Church Medical College Hospital, India since 2022</p>
                         <div className="pt-5">
                         <div className="border-l-2  border-[#00549A] pl-10 ">
                             <p className="text-[#222]  text-[23px] not-italic font-semibold leading-[normal]" >Current research work(2022):</p>
-                            <p className="text-[#58585A] text-[19px] pt-3 not-italic font-normal leading-[normal]" >N/A</p>
+                            <p className="text-[#58585A] text-[19px] pt-2 not-italic font-normal leading-[normal]" >N/A</p>
                         </div>
                         <div className="pt-5">
                         <img src={dot} alt="Image" className=" " />
@@ -94,7 +94,7 @@ Church Medical College Hospital, India since 2022</p>
                         <div className="pt-5">
                         <div className="border-l-2  border-[#00549A] pl-10 ">
                             <p className="text-[#222]  text-[23px] not-italic font-semibold leading-[normal]"s >Conference Presentations and Invited Talks:</p>
-                            <p className="text-[#58585A]  text-[19px] pt-3 not-italic font-normal leading-[normal]" >N/A</p>
+                            <p className="text-[#58585A]  text-[19px] pt-2 not-italic font-normal leading-[normal]" >N/A</p>
                         </div>
                         <div className="pt-5">
                         <img src={dot} alt="Image" className=" " />
@@ -103,7 +103,7 @@ Church Medical College Hospital, India since 2022</p>
                         <div className="pt-5">
                         <div className="border-l-2  border-[#00549A] pl-10 ">
                             <p className="text-[#222]  text-[23px] not-italic font-semibold leading-[normal]" >Additional Information:</p>
-                            <p className="text-[#58585A] text-[19px] pt-3 not-italic font-normal leading-[normal]" >Society for Healthcare Epidemiology of America (SHEA) <br/>
+                            <p className="text-[#58585A] text-[19px] pt-2 not-italic font-normal leading-[normal]" >Society for Healthcare Epidemiology of America (SHEA) <br/>
 International Ambassador 2022 </p>
                         </div>
                         <div className="pt-5">
@@ -113,7 +113,7 @@ International Ambassador 2022 </p>
                         <div className="pt-5">
                         <div className="border-l-2  border-[#00549A] pl-10 ">
                             <p className="text-[#222]  text-[23px] not-italic font-semibold leading-[normal]" >Achievements and Awards:</p>
-                            <p className="text-[#58585A] text-[19px] pt-3 not-italic font-normal leading-[normal]" >Excellence award for outstanding contributions through dedicated and committed work issued<br/>
+                            <p className="text-[#58585A] text-[19px] pt-2 not-italic font-normal leading-[normal]" >Excellence award for outstanding contributions through dedicated and committed work issued<br/>
 by Believers Church Medical College Hospital in September 2019</p>
                         </div>
                         <div className="pt-5">
@@ -123,7 +123,7 @@ by Believers Church Medical College Hospital in September 2019</p>
                         <div className="pt-5">
                         <div className="border-l-2  border-[#00549A] pl-10 ">
                             <p className="text-[#222]  text-[23px] not-italic font-semibold leading-[normal]" >Areas of Interest:</p>
-                            <p className="text-[#58585A] text-[19px] pt-3 not-italic font-normal leading-[normal]" >Infectious Diseases, Critical care Medicine, Antimicrobial<br/>
+                            <p className="text-[#58585A] text-[19px] pt-2 not-italic font-normal leading-[normal]" >Infectious Diseases, Critical care Medicine, Antimicrobial<br/>
 stewardship, Clinical Research</p>
                         </div>
                        

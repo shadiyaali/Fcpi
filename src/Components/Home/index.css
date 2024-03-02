@@ -115,4 +115,36 @@ a {
 } 
 
 
+/* .button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 32px;
+    margin-right: 12px;  
+    border-radius: 105px;
+    background-color: white;
+    color: #222;
+    transition: background-color 0.4s, color 0.4s;
+  } */
+  
+  .button.active {
+    background-color: #00549a;
+    color: white;
+  }
+  
+  .button:hover {
+    background-color: #00549a;
+    color: white;
+  }
+/*   
+  .about-us-button {
+    justify-content: center;
+    align-items: center;
+    padding: 15px 34px;  
+    border-radius: 105px;
+    background-color: white;
+    color: #222;
+    transition: background-color 0.3s, color 0.3s;
+  }
+   */
  

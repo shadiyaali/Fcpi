@@ -1,17 +1,22 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link, useLocation ,NavLink, } from 'react-router-dom';
 import logo from "../../../src/assets/images/FCPI Logo 1.svg";
 import logo1 from "../../../src/assets/images/user-story.png";
 import logo2 from "../../../src/assets/images/user-add--01.png";
 import logo3 from "../../../src/assets/images/user-story.svg";
+ 
 import './index.css'
 
 const Home = () => {
+  const location = useLocation();
   const [showAboutList, setShowAboutList] = useState(false);
   const [hoveredLogin, setHoveredLogin] = useState(false); 
   const [isAboutDropdownHovered, setIsAboutDropdownHovered] = useState(false);
+  const [activeButton, setActiveButton] = useState("home");
  
-
+  const handleButtonClick = (buttonName) => {
+    setActiveButton(buttonName);
+  };
   const handleLoginMouseEnter = () => {
     setHoveredLogin(true);
   };
@@ -37,10 +42,6 @@ const Home = () => {
   };
 
 
-  // const toggleAboutList = () => {
-  //   setShowAboutList(!showAboutList);
-  // };
-
   return (
     <div className="w-100% h-100% bg-[#f4f4f4]">
       <div className="container">
@@ -50,14 +51,21 @@ const Home = () => {
           </div>
           <div className="pt-6 pl-16 ">
             <div className=" flex bg-white   rounded-[150px]">
-            <Link to="/">
-              <div className="justify-center items-center px-11   py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white">
-               
-                  <p className="text-[16px] not-italic font-normal leading-[normal]"  >Home</p>
-               
-
-              </div>
-              </Link>
+            <NavLink
+                to="/"
+                activeClassName="active"
+                onClick={() => handleButtonClick("home")}
+              >
+                <div
+                  className={`justify-center items-center px-11 py-[16px] rounded-[105px] bg-${
+                    activeButton === "home" ? "#00549a" : "white"
+                  } text-[#222] hover:text-white hover:bg-[#00549a]`}
+                >
+                  <p className="text-[16px] not-italic font-normal leading-[normal]">
+                    Home
+                  </p>
+                </div>
+              </NavLink>
               <div className="justify-center items-center px-8 py-[16px] rounded-[105px] bg-white hover:bg-[#00549a] text-[#222] hover:text-white about-us-button" onMouseEnter={handleAboutMouseEnter}
                 onMouseLeave={handleAboutMouseLeave}>
                 <p className="text-[16px] not-italic font-normal leading-[normal]"  >About Us</p>

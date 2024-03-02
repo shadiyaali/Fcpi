@@ -4,7 +4,7 @@ import imag1 from "../../../../assets/images/mail.png";
 import log from "../../../../assets/images/Frame.png"; 
 
 const Profile = () => {
-    const [personalInfoActive, setPersonalInfoActive] = useState(false);
+    const [personalInfoActive, setPersonalInfoActive] = useState(true);
     const [mailingAddressActive, setmailingAddressActive] = useState(false);
 
     const togglePersonalInfo = () => {

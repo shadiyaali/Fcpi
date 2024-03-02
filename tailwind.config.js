@@ -11,6 +11,8 @@ module.exports = {
         'card1-background': "url('/src/assets/images/image1.png')",
         'card2-background': "url('/src/assets/images/Card.png')",
         'card3-background': "url('/src/assets/images/event.png')",
+        'card4-background': "url('/src/assets/images/admin.png')",
+        
 
      
       },

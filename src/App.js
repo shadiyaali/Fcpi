@@ -18,6 +18,10 @@ import  UserDashboardPage from './Pages/User/Dashboard/UserDashbordPage';
 import  MyProfilePage from './Pages/User/Dashboard/MyProfilePage';
 import  PasswordPage from './Pages/User/Dashboard/ChangePasswordPage';
 import  MyPointsPage from './Pages/User/Dashboard/MyPointsPage';
+import  ALogin from './Components/Admin/AdminLogin/ALogin';
+import  Adashboard from './Pages/Admin/Adashboard';
+import  AforumPage from './Pages/Admin/AforumPage';
+import  SpeakerPage from './Pages/Admin/SpeakerPage';
 
 function App() {
   return (
@@ -43,6 +47,11 @@ function App() {
            <Route path='/profile' element={<MyProfilePage/>} />
            <Route path='/password' element={<PasswordPage/>} />
            <Route path='/points' element={<MyPointsPage/>} />
+           {/* /.................................................................................... */}
+           <Route path='/admin' element={<ALogin/>} />
+           <Route path='/admin-dashboard' element={<Adashboard/>} />
+           <Route path='/aforum' element={<AforumPage/>} />
+           <Route path='/speaker' element={<SpeakerPage/>} />
         </Routes>
       </Router>
     </div>
@@ -50,3 +59,4 @@ function App() {
 }
 
 export default App;
+ 
