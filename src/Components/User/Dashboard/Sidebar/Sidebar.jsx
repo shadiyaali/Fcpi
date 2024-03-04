@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Link} from "react-router-dom"
+import {Link,useLocation} from "react-router-dom"
 import log1 from "../../../../assets/images/fcpi 1.png";
 import log2 from "../../../../assets/images/menu-02.svg";
 import dash from "../../../../assets/images/dashboard-circleblack.svg";
@@ -27,6 +27,7 @@ const Sidebar = () => {
     const [hovered5Button, setHovered5Button] = useState(false);
     const [hovered6Button, setHovered6Button] = useState(false);
     const [hovered7Button, setHovered7Button] = useState(false);
+    const location = useLocation();
 
     return (
 
@@ -37,20 +38,20 @@ const Sidebar = () => {
                 <img src={log2} alt="" />
             </div>
             <div className='pt-16'>
-                <Link to="/dashboard">
-                <button
-                    className='button w-full py-3 rounded-[6px]'
-                    onMouseEnter={() => setHoveredButton(true)}
-                    onMouseLeave={() => setHoveredButton(false)}
-                >
-                    <div className='flex gap-4 items-center pl-4 '>
-                        <img src={hoveredButton ? log3 : dash} alt="Logo" className='dashboard-image' />
-                        <p className='button-text text-[18px]'>
-                            Dashboard
-                        </p>
-                    </div>
-                </button>
-                </Link>
+            <Link to="/dashboard">
+            <button
+                className={`button w-full py-3 rounded-[6px] ${location.pathname === '/dashboard' ? 'active' : ''}`}
+                onMouseEnter={() => setHoveredButton(true)}
+                onMouseLeave={() => setHoveredButton(false)}
+            >
+                <div className='flex gap-4 items-center pl-4 '>
+                    <img src={location.pathname === '/dashboard' ? log3 : dash} alt="Logo" className='dashboard-image' />
+                    <p className='button-text text-[18px]'>
+                        Dashboard
+                    </p>
+                </div>
+            </button>
+        </Link>
                 <div className='pt-2'>
                     <button
                         className='button  w-full py-3 rounded-[6px]'

@@ -12,13 +12,17 @@ const UserDashboard = () => {
     const [activeButton1, setActiveButton1] = useState('today');
     const [activeButton, setActiveButton] = useState('');
     const [isOpen, setIsOpen] = useState(true);
-    const [isRotated, setIsRotated] = useState(false);
+    const [isRotated, setIsRotated] = useState(true);
+    const [isRotated1, setIsRotated1] = useState(true);
     const [activePerson, setActivePerson] = useState(false);
 
     const handleIconClick = () => {
         setIsRotated(!isRotated);
     };
-    
+    const handleIconClick1 = () => {
+        setIsRotated1(!isRotated1);
+        
+    };
     const togglePerson = () => {
         setActivePerson(!activePerson)
     }
@@ -91,7 +95,7 @@ const UserDashboard = () => {
                 <p className='text-[color:var(--Black,#222)] text-[24px] not-italic font-semibold leading-[25px] tracking-[-0.12px]'>Welcome to FCPI Dashboard</p>
 
 
-                <p className='text-[color:var(--Gray,#58585A)] text-[14px] not-italic font-normal leading-[24px]'>Your FCPI Dashboard for today</p>
+                <p className='text-[color:var(--Gray,#58585A)] text-[16px] pt-1 not-italic font-normal leading-[24px]'>Your FCPI Dashboard for today</p>
                 <hr className='mt-6' />
                 <div className='flex   pt-8'>
                     <div className='h-[230px] w-[230px]'>
@@ -491,14 +495,18 @@ const UserDashboard = () => {
                                     <p className='text-[color:var(--Black,#222)] text-[21px] not-italic font-medium leading-[25px] tracking-[-0.105px]'>Personal Information</p>
                                 </button>
                             </div>
-                            <div className={`pt-2 ${isRotated ? 'rotate-icon' : ''}`} onClick={handleIconClick}>
+                            <div className={`pt-2 ${isRotated1 ? '' : 'rotate-icon'}`} onClick={handleIconClick1}>
                                 <img src={logo5} alt="" />
                             </div>
 
                         </div>
                         <hr />
+                        {isRotated1 && (
+                    <div className='flex pt-8'>
+                        {/* Dropdown content */}
                         
-                        <div>
+                           
+                            <div>
                         <div className='flex justify-between pt-8'>
                             <div>
                                 <p className='text-[color:var(--Gray,#58585A)] text-[16px] not-italic font-normal leading-[22px] tracking-[-0.07px]'>Full Name:</p>
@@ -559,6 +567,10 @@ const UserDashboard = () => {
 
                         </div>
                         </div>
+                        </div>
+                    
+                )}
+                        
                     </div>
                 </div>
                 <div className='pt-6'>
@@ -570,12 +582,19 @@ const UserDashboard = () => {
                                     <p className='text-[color:var(--Black,#222)] text-[21px] not-italic font-medium leading-[25px] tracking-[-0.105px]'>Mailing Address</p>
                                 </button>
                             </div>
-                            <div className={`pt-2 ${isRotated ? 'rotate-icon' : ''}`} onClick={handleIconClick}>
+                            <div className={`pt-2 ${isRotated ? '' : 'rotate-icon'}`} onClick={handleIconClick}>
                                 <img src={logo5} alt="" />
                             </div>
 
                         </div>
                         <hr />
+
+                        {isRotated && (
+                    <div className='flex pt-8'>
+                        {/* Dropdown content */}
+                        <div>
+                           
+                           
                         <div className='flex   pt-8'>
                             <div >
                                 <p className='text-[color:var(--Gray,#58585A)] text-[16px] not-italic font-normal leading-[22px] tracking-[-0.07px]'>Full Name:</p>
@@ -611,6 +630,11 @@ const UserDashboard = () => {
                             </div>
 
                         </div>
+                        </div>
+                    </div>
+                )}
+
+
 
                     </div>
                 </div>

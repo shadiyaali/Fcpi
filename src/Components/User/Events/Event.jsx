@@ -98,7 +98,7 @@ const Events = () => {
                 <div className='pt-6'>
                     <div className='bg-white rounded-[30px] p-10 pl-12 pr-12'>
                         <p className='text-[#222] text-start text-[32px] not-italic font-semibold leading-[normal]'>Events</p>
-                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-10 pt-8">
+                        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 pt-8">
                             {/* Live Events */}
                             {/* Live Events */}
                             <div className={`rounded-[30px] ${liveEventsVisible ? 'bg-[#1AB78D] hover:bg-[#1AB78D] cursor-pointer' : 'bg-gray-100 hover:bg-[#1AB78D] cursor-pointer'}`} onClick={toggleLiveEvents}>
@@ -126,8 +126,8 @@ const Events = () => {
 
                         {/* Live Events Dropdown */}
                         {liveEventsVisible && (
-                            <div className='flex pt-12 gap-4'>
-                                <div className='flex pt-12'>
+                            <div className='flex pt-16 gap-4'>
+                                <div className='flex  '>
                                     <div className='pl-2'>
                                         {liveEventsData.map((event, index) => (
                                             <div key={index}>
@@ -151,7 +151,7 @@ const Events = () => {
                                                             <div className='flex gap-10'>
                                                                 <p className='text-[#58585A] pt-4 text-[17px] not-italic font-normal leading-[normal]'>{event.date} {event.time}</p>
                                                                 <button className='bg-[#1AB78D] rounded-[105px] px-5 py-2'>
-                                                                    <Link to='/event-detail'>
+                                                                    <Link to='/events-detail'>
                                                                         <p className='text-white text-[16px] not-italic font-semibold leading-[normal]'>click</p>
                                                                     </Link>
                                                                 </button>
@@ -170,8 +170,8 @@ const Events = () => {
                             </div>
                         )}
                         {upcomingEventsVisible && (
-                            <div className='flex pt-12 gap-4'>
-                                <div className='flex pt-12'>
+                            <div className='flex pt-16 gap-4'>
+                                <div className='flex  '>
                                     <div className='pl-2'>
                                         {upcomingEventsData.map((event, index) => (
                                             <div key={index}>
@@ -195,7 +195,7 @@ const Events = () => {
                                                             <div className='flex gap-10'>
                                                                 <p className='text-[#58585A] pt-4 text-[17px] not-italic font-normal leading-[normal]'>{event.date} {event.time}</p>
                                                                 <button className='bg-[#1AB78D] rounded-[105px] px-5 py-2'>
-                                                                    <Link to='/event-detail'>
+                                                                    <Link to='/events-detail'>
                                                                         <p className='text-white text-[16px] not-italic font-semibold leading-[normal]'>click</p>
                                                                     </Link>
                                                                 </button>
@@ -214,8 +214,8 @@ const Events = () => {
                             </div>
                         )}
                         {completedEventsVisible && (
-                            <div className='flex pt-12 gap-4'>
-                                <div className='flex pt-12'>
+                            <div className='flex pt-16 gap-4'>
+                                <div className='flex  '>
                                     <div className='pl-2'>
                                         {completedEventsData.map((event, index) => (
                                             <div key={index}>
@@ -239,7 +239,7 @@ const Events = () => {
                                                             <div className='flex gap-10'>
                                                                 <p className='text-[#58585A] pt-4 text-[17px] not-italic font-normal leading-[normal]'>{event.date} {event.time}</p>
                                                                 <button className='bg-[#1AB78D] rounded-[105px] px-5 py-2'>
-                                                                    <Link to='/event-detail'>
+                                                                    <Link to='/events-detail'>
                                                                         <p className='text-white text-[16px] not-italic font-semibold leading-[normal]'>click</p>
                                                                     </Link>
                                                                 </button>

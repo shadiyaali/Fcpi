@@ -9,12 +9,15 @@ import click from "../../../assets/images/click.png";
 import pic from "../../../assets/images/Picture.png";
 import search from "../../../assets/images/search.png";
 import cls from "../../../assets/images/close.png";
+import icon from "../../../assets/images/icon.png";
+import icon1 from "../../../assets/images/icon1.png";
 
 const Speaker = () => {
     const [personalInfoActive, setPersonalInfoActive] = useState(true);
     const [mailingAddressActive, setmailingAddressActive] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
     const [error, setError] = useState(null);
+    const [clickedStates, setClickedStates] = useState(Array(3).fill(false)); // Adjust the array size according to the number of boxes
 
     const handleImageUpload = (event) => {
         const file = event.target.files[0];
@@ -30,12 +33,12 @@ const Speaker = () => {
         }
     };
 
-
-    const [clicked, setClicked] = useState(false);
-
-    const handleClick = () => {
-        setClicked(!clicked); // Toggle the clicked state
+    const handleClick = (index) => {
+        const newClickedStates = [...clickedStates]; // Copy the original array
+        newClickedStates[index] = !newClickedStates[index]; // Toggle the clicked state at the specified index
+        setClickedStates(newClickedStates); // Update the state with the new array
     };
+
     const togglePersonalInfo = () => {
         setPersonalInfoActive(!personalInfoActive);
 
@@ -43,6 +46,7 @@ const Speaker = () => {
             setmailingAddressActive(false);
         }
     };
+
     const togglemailingAddress = () => {
         setmailingAddressActive(!mailingAddressActive);
 
@@ -50,17 +54,17 @@ const Speaker = () => {
             setPersonalInfoActive(false);
         }
     };
+
     return (
         <div className='bg-[#f4f4f4] h-[100vh]  p-6 '>
             <div className='bg-white p-6 rounded-[8px]'>
                 <p className='text-[color:var(--Black,#222)] text-[24px] not-italic font-semibold leading-[25px] tracking-[-0.12px]'>Add Speaker</p>
-                <div className='flex pt-6 gap-20 p-6'>
+                <div className='flex pt-6 gap-[12rem] p-6'>
                     <div className='flex gap-3'>
                         <button className={`relative p-8 ${personalInfoActive ? 'border-b-2 border-[#00549A]' : ''}`} onClick={togglePersonalInfo}>
                             <div className='flex gap-3'>
                                 {personalInfoActive && <img src={imag} alt="" />}
                                 <p className={`text-center text-[18px] not-italic font-normal leading-[20px] ${personalInfoActive ? 'text-[#00549A]' : 'text-gray-600'}`}>Add Speaker</p>
-
                             </div>
                         </button>
                     </div>
@@ -69,12 +73,11 @@ const Speaker = () => {
                             <div className='flex gap-3'>
                                 {mailingAddressActive && <img src={imag1} alt="" />}
                                 <p className={`text-center text-[18px] not-italic font-normal leading-[20px] ${mailingAddressActive ? 'text-[#00549A]' : 'text-gray-600'}`}>Manage Speaker</p>
-
                             </div>
                         </button>
                     </div>
                 </div>
-                <hr />
+
                 {personalInfoActive && (
                     <div className='w-[40%]'>
 
@@ -121,7 +124,7 @@ const Speaker = () => {
                                         id="imageInput"
                                         accept="image/*"
                                         className="hidden"
-                                        onChange={handleImageUpload}  
+                                        onChange={handleImageUpload}
                                     />
                                     <label htmlFor="imageInput" className="absolute left-48 px-8 py-6 cursor-pointer">
                                         {selectedImage ? (
@@ -140,17 +143,17 @@ const Speaker = () => {
                                 </div>
                             </div>
 
-                           
+
 
                             <div className='pt-8'>
                                 <Link to="">
                                     <div className='flex gap-2 justify-end'>
-                                    <button className='  border border-gray-300 rounded-[10px] px-4  py-2'  >
-                                        <p className='text-[#1A1A1A]  text-center text-[16px] not-italic font-normal leading-[normal]'  >Submit</p>
-                                    </button>
-                                    <button className='bg-[#00549A] rounded-[10px] px-4 py-2'  >
-                                        <p className='text-white  text-center text-[16px] not-italic font-normal leading-[normal]'  >Cancel</p>
-                                    </button>
+                                        <button className='  border border-gray-300 rounded-[10px] px-4  py-2'  >
+                                            <p className='text-[#1A1A1A]  text-center text-[16px] not-italic font-normal leading-[normal]'  >Submit</p>
+                                        </button>
+                                        <button className='bg-[#00549A] rounded-[10px] px-4 py-2'  >
+                                            <p className='text-white  text-center text-[16px] not-italic font-normal leading-[normal]'  >Cancel</p>
+                                        </button>
                                     </div>
                                 </Link>
                             </div>
@@ -159,108 +162,58 @@ const Speaker = () => {
 
                     </div>
                 )}
+
                 {mailingAddressActive && (
-                   <div className='  items-center'>
-                  <div className=' '>
-                        <button className='border border-gray-300 px-4 py-3  w-[45%] rounded-[6px]'>
-                            <div className='flex gap-2'>
-                        <img src={search} alt="" className=''/>
-                        <p className='text-[color:var(--Gray,#58585A)] pl-2 text-[15px] not-italic font-normal leading-[normal]'>Search by data...</p>
-                        <img src={cls} alt="" className='pl-[17rem]'/>
+                    <div className='items-center'>
+                        <div>
+                            {/* Search bar */}
+                            <button className='border border-gray-300 px-4 py-3 w-[44%] rounded-[6px]'>
+                                <div className='flex justify-between'>
+                                    <div className='flex gap-2'>
+                                        <img src={search} alt="" />
+                                        <p className='text-[color:var(--Gray,#58585A)] pl-2 text-[15px] not-italic font-normal leading-[normal]'>Search by data...</p>
+                                    </div>
+                                    <div>
+                                        <img src={cls} alt="" className='pl-[20rem]' />
+                                    </div>
+                                </div>
+                            </button>
                         </div>
-                        </button>
-                        </div>
-               
-                        <div className='  py-4 w-full flex p-6'>
-                            <div
-                                style={{
-                                    width: '25px',
-                                    height: '25px',
-                                    cursor: 'pointer',
-                                    border: '1px solid #ccc',
-                                    borderRadius: '4px',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    backgroundColor: clicked ? '#424242' : 'transparent',
-                                    color: clicked ? '#fff' : '#000',
-                                }}
-                                onClick={handleClick}
-                            >
-                                <span style={{ color: clicked ? '#fff' : '#000' }}>{clicked && '✔'}</span>
-                            </div>
-                            <img src={click} alt="" className='pl-5' />
-                            <p className='text-[color:var(--Gray,#58585A)] pl-5 text-[16px] not-italic font-normal leading-[normal]'>Infectious Diseases Forum</p>
-                            <div>
-                                <img src={ed} alt="" className='pl-28' />
-                            </div>
-                            <div>
-                                <img src={del} alt="" className='pl-4' />
-                            </div>
-                        </div>
-                        <hr />
-                        <div className='  py-4 w-full flex p-6'>
-                            <div
-                                style={{
-                                    width: '25px',
-                                    height: '25px',
-                                    cursor: 'pointer',
-                                    border: '1px solid #ccc',
-                                    borderRadius: '4px',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    backgroundColor: clicked ? '#424242' : 'transparent',
-                                    color: clicked ? '#fff' : '#000',
-                                }}
-                                onClick={handleClick}
-                            >
-                                <span style={{ color: clicked ? '#fff' : '#000' }}>{clicked && '✔'}</span>
-                            </div>
-                            <img src={click} alt="" className='pl-5' />
-                            <p className='text-[color:var(--Gray,#58585A)] pl-5 text-[16px] not-italic font-normal leading-[normal]'>Infectious Diseases Forum</p>
-                            <div>
-                                <img src={ed} alt="" className='pl-28' />
-                            </div>
-                            <div>
-                                <img src={del} alt="" className='pl-4' />
-                            </div>
-                        </div>
-                        <hr />
-                        <div className='  py-4 w-full flex p-6'>
-                            <div
-                                style={{
-                                    width: '25px',
-                                    height: '25px',
-                                    cursor: 'pointer',
-                                    border: '1px solid #ccc',
-                                    borderRadius: '4px',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    backgroundColor: clicked ? '#424242' : 'transparent',
-                                    color: clicked ? '#fff' : '#000',
-                                }}
-                                onClick={handleClick}
-                            >
-                                <span style={{ color: clicked ? '#fff' : '#000' }}>{clicked && '✔'}</span>
-                            </div>
-                            <img src={click} alt="" className='pl-5' />
-                            <p className='text-[color:var(--Gray,#58585A)] pl-5 text-[16px] not-italic font-normal leading-[normal]'>Infectious Diseases Forum</p>
-                            <div>
-                                <img src={ed} alt="" className='pl-28' />
-                            </div>
-                            <div>
-                                <img src={del} alt="" className='pl-4' />
-                            </div>
+
+                        {/* Clickable boxes */}
+                        <div>
+                            {clickedStates.map((clicked, index) => (
+                                <div className='py-4 w-full flex p-6' key={index}>
+                                    <div
+                                        style={{
+                                            width: '25px',
+                                            height: '25px',
+                                            cursor: 'pointer',
+                                            border: '1px solid #ccc',
+                                            borderRadius: '4px',
+                                            display: 'flex',
+                                            alignItems: 'center',
+                                            justifyContent: 'center',
+                                            backgroundColor: clickedStates[index] ? '#424242' : 'transparent',
+                                        }}
+                                        onClick={() => handleClick(index)}
+                                    >
+                                        <img src={clickedStates[index] ?icon : icon1} alt="Tick Icon" style={{ width: '100%', height: '100%', display: clickedStates[index] ? 'block' : 'none' }} />
+                                    </div>
+                                    <img src={click} alt="" className='pl-5' />
+                                    <p className='text-[color:var(--Gray,#58585A)] pl-5 text-[16px] not-italic font-normal leading-[normal]'>Infectious Diseases Forum</p>
+                                    <div>
+                                        <img src={ed} alt="" className='pl-28' />
+                                    </div>
+                                    <div>
+                                        <img src={del} alt="" className='pl-4' />
+                                    </div>
+                                </div>
+                            ))}
                         </div>
                     </div>
-
                 )}
             </div>
-
-
-
         </div>
     );
 };

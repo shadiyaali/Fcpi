@@ -51,7 +51,7 @@ const Aforum = () => {
         <div className='bg-[#f4f4f4] h-[100vh]  p-6 '>
             <div className='bg-white p-6 rounded-[8px]'>
                 <p className='text-[color:var(--Black,#222)] text-[24px] not-italic font-semibold leading-[25px] tracking-[-0.12px]'>Add Forum</p>
-                <div className='flex pt-12 gap-20 p-8'>
+                <div className='flex pt-12 gap-[12rem] p-8'>
                     <div className='flex gap-3'>
                         <button className={`relative p-8 ${personalInfoActive ? 'border-b-2 border-[#00549A]' : ''}`} onClick={togglePersonalInfo}>
                             <div className='flex gap-3'>
@@ -71,7 +71,7 @@ const Aforum = () => {
                         </button>
                     </div>
                 </div>
-                <hr />
+              
                 {personalInfoActive && (
                     <div className='w-[40%]'>
 

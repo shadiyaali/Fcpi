@@ -57,15 +57,15 @@ const Card1 = () => {
             
           </div>
           <div className="flex flex-col w-[99%] h-[550px] rounded-[30px] aspect-[2] bg-card1-background bg-cover responsive-card">
-            <div className="aspect-[2] bg-card2-background bg-cover w-[301px] ml-auto mr-6 mt-auto mb-6 h-[318px] backdrop-blur-xl rounded-[23px]   ">
-              <div className="flex pl-6 pr-6">
+            <div className="aspect-[2] bg-card2-background bg-cover w-[311px] ml-auto mr-6 mt-auto mb-6 h-[328px] backdrop-blur-xl rounded-[23px]   ">
+              <div className="flex pl-5 pr-6">
                 <p className="text-[#00549A] pt-8 text-[26px] not-italic font-semibold leading-[normal]"  >Event Calendar</p>
                 <div className="pl-8 pt-6 ">
                   <img src={Logo25} alt="Logo" className="rounded-[30px]" />
                 </div>
               </div>
-              <div className="pl-7 pr-7 pt-8">
-                <div className="rounded-[180px] bg-[#FFF] w-[245px]">
+              <div className="pl-[1.9rem] pr-[1.9rem] pt-8 justify-center">
+                <div className="rounded-[180px] bg-[#FFF] w-[249px] ">
                   <div className="flex ">
                     <div className="pt-3 pl-3 ">
                       <img src={Logo26} alt="Logo" className="rounded-[30px]" />
@@ -81,8 +81,8 @@ const Card1 = () => {
                   </div>
                 </div>
               </div>
-              <div className="pl-7 pr-7 pt-3">
-                <div className="rounded-[180px] bg-[#FFF] w-[245px] ">
+              <div className="pl-[1.9rem] pr-[1.9rem] pt-3">
+                <div className="rounded-[180px] bg-[#FFF] w-[249px] ">
                   <div className="flex ">
                     <div className="pt-3 pl-3 ">
                       <img src={Logo26} alt="Logo" className="rounded-[30px]" />
@@ -98,8 +98,8 @@ const Card1 = () => {
                   </div>
                 </div>
               </div>
-              <div className="pl-7 pr-7  pt-3">
-                <div className="rounded-[180px] bg-[#FFF] w-[245px] ">
+              <div className="pl-[1.9rem] pr-[1.9rem]  pt-3  pb-6]">
+                <div className="rounded-[180px] bg-[#FFF] w-[249px] ">
                   <div className="flex ">
                     <div className="pt-3 pl-3 ">
                       <img src={Logo26} alt="Logo" className="rounded-[30px]" />

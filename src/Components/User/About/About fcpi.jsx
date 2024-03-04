@@ -10,7 +10,7 @@ const About = () => {
         <div className="w-full h-full bg-[#f4f4f4]">
             <div className="container">
                 <div className="pt-6">
-          <div className="flex gap-44 bg-white rounded-[30px] p-12  pb-20">
+          <div className="flex gap-44 bg-white rounded-[30px] p-12  pb-28">
           <div className="relative p-5 ">
         <img src={Page} alt="Left Arrow" className=" w-[100%] h- rounded-[30px]" />
         <div className="absolute -right-9 -bottom-44 transform -translate-y-1/2 z-20">

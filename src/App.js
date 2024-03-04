@@ -22,6 +22,12 @@ import  ALogin from './Components/Admin/AdminLogin/ALogin';
 import  Adashboard from './Pages/Admin/Adashboard';
 import  AforumPage from './Pages/Admin/AforumPage';
 import  SpeakerPage from './Pages/Admin/SpeakerPage';
+import  AuserPage from './Pages/Admin/AuserPage';
+import  ProfilePage from './Pages/Admin/ProfileEditPage';
+import  UserTypePage from './Pages/Admin/AuserTypePage';
+import  StatuPage from './Pages/Admin/Astatus';
+import StatusPage from './Pages/Admin/Astatus';
+
 
 function App() {
   return (
@@ -30,12 +36,12 @@ function App() {
         <Routes>
           <Route path='/' element={<HomePage />} />
           <Route path='/about-fcpi' element={<AboutfcpiPage />} />
-          <Route path='/board-of-directors' element={<AboutBoardPage />} />
-          <Route path='/forum-members' element={<AboutForumPage />} />
+          <Route path='/about-board' element={<AboutBoardPage />} />
+          <Route path='/about-forum' element={<AboutForumPage />} />
           <Route path='/speciality-forum' element={<SpecialityForum />} />
           <Route path='/events' element={<Events />} />
           <Route path='/details/:id' element={<MemberPage />} />
-          <Route path='/event-detail' element={<DetailPage/>} />
+          <Route path='/events-detail' element={<DetailPage/>} />
           <Route path='/blogs' element={<BlogsPage/>} />
           <Route path='/blogs-detail' element={<BlogDetailPage/>} />
           <Route path='/contact' element={<ContactPage/>} />
@@ -52,6 +58,10 @@ function App() {
            <Route path='/admin-dashboard' element={<Adashboard/>} />
            <Route path='/aforum' element={<AforumPage/>} />
            <Route path='/speaker' element={<SpeakerPage/>} />
+           <Route path='/user' element={<AuserPage/>} />
+           <Route path='/editprofile' element={<ProfilePage/>} />
+           <Route path='/usertype' element={<UserTypePage/>} />
+           <Route path='/status' element={<StatusPage/>} />
         </Routes>
       </Router>
     </div>

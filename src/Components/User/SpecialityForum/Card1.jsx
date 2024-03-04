@@ -205,11 +205,11 @@ const Card1 = () => {
                                     {dropdownVisible.today && (
                                         <div className='flex  '>
                                             <div className=''>
-                                                <div className='flex  pl-5 gap-2 pt-4'>
-                                                    <button className=' px-6 py-1  text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
+                                            <div className='flex  pl-5 gap-2 pt-4'>
+                                                    <div className='px-6 py-1  pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
                                                         <p className=' text-[23px] not-italic font-semibold leading-[normal]' >8 </p>
-                                                        <p className='text-[#1AB78D] text-[16px] not-italic font-normal leading-[normal]'  >Jan</p>
-                                                    </button>
+                                                        <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
+                                                    </div>
                                                     <div className='flex flex-col pl-4 '>
                                                         <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]'  >Infectious Diseases Forum</p>
 
@@ -228,8 +228,8 @@ const Card1 = () => {
                                                 <hr className='w-full mt-4' />
                                                 <div className=''>
                                                 <div className='flex  pl-5 gap-2 pt-4'>
-                                                    <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
-                                                        <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
+                                                    <div className='px-6 py-1 pt-2  text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
+                                                        <p className=' text-[23px] not-italic font-semibold leading-[normal]' >8 </p>
                                                         <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
                                                     </div>
                                                     <div className='flex flex-col pl-4 '>
@@ -249,12 +249,12 @@ const Card1 = () => {
                                                     <p className='text-[#58585A] text-start pt-4 pl-8 text-[16px] not-italic font-normal leading-[23px]'>Lorem Ipsum has been the industry's standard dummy text ever<br /> since the 1500s,  when an unknown  printer took a galley of type <br /> and scrambled </p>
                                                     <hr className='w-full mt-4' />
                                                     <div className=''>
-                                                    <div className='flex  pl-5 gap-2 pt-4'>
-                                                    <div className='px-6 py-1 pt-2 text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
-                                                        <p className=' text-[24px] not-italic font-semibold leading-[normal]' >8 </p>
+                                                    <div className='flex  pl-5 gap-2  pt-4'>
+                                                    <div className='px-6 py-1 pt-2  text-center rounded-[60px] bg-[#DFF9F2] text-[#1AB78D]'>
+                                                        <p className=' text-[23px] not-italic font-semibold leading-[normal]' >8 </p>
                                                         <p className='text-[#1AB78D] text-[18px] not-italic font-normal leading-[normal]'  >Jan</p>
                                                     </div>
-                                                    <div className='flex flex-col pl-4'>
+                                                    <div className='flex flex-col pl-4 '>
                                                         <p className='text-[#222] text-start text-[24px] not-italic font-medium leading-[normal]'  >Infectious Diseases Forum</p>
 
                                                         <div className='flex gap-4 pt-2'>

@@ -23,7 +23,7 @@ const Profile = () => {
     };
     return (
         <div className='bg-[#f4f4f4] h-[100vh] p-6 '>
-            <div className='bg-white p-6'>
+            <div className='bg-white p-6 relative'>
                 <p className='text-[color:var(--Black,#222)] text-[24px] not-italic font-semibold leading-[25px] tracking-[-0.12px]'>My Profile</p>
                 <div className='flex pt-12 gap-16 p-8'>
                 <div className='flex gap-3'>
@@ -45,7 +45,7 @@ const Profile = () => {
                         </button>
                     </div>
                 </div>
-                <hr />
+                <hr  className='absolute top-48 right-0 bg-red-600 z-10'/>
                 {personalInfoActive && (
                     <div>
                     <div className='flex pt-8'>

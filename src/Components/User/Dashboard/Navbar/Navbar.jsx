@@ -3,7 +3,7 @@ import logo3 from "../../../../assets/images/user-story.svg";
 import "./Navbar.css";
 import { Link } from 'react-router-dom';  
 import acc from "../../../../assets/images/user-account.png";
-import acc1 from "../../../../assets/images/user.png";
+import acc1 from "../../../../assets/images/user3.png";
 import acc2 from "../../../../assets/images/square.png";
 import acc3 from "../../../../assets/images/logout.png";
 
