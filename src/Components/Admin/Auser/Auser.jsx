@@ -25,19 +25,19 @@ const User = () => {
     const [userRoleActive, setuserRoleActive] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
     const [error, setError] = useState(null);
-    const [clickedStates, setClickedStates] = useState(Array(3).fill(false)); // Adjust the array size according to the number of boxes
-    const [dropdownStates, setDropdownStates] = useState(Array(3).fill(false)); // Adjust the array size according to the number of dropdowns
+    const [clickedStates, setClickedStates] = useState(Array(3).fill(false)); 
+    const [dropdownStates, setDropdownStates] = useState(Array(3).fill(false)); 
     const [imagePositionY, setImagePositionY] = useState(0);
     const [imagePositionX, setImagePositionX] = useState(0);
 
-    // Function to calculate the position of the three-dot image
+ 
     const calculateImagePosition = (event) => {
         const imageRect = event.target.getBoundingClientRect();
-        setImagePositionY(imageRect.bottom); // Set the top position of the dropdown just below the bottom of the image
-        setImagePositionX(imageRect.left); // Set the left position of the dropdown aligned with the left of the image
+        setImagePositionY(imageRect.bottom); 
+        setImagePositionX(imageRect.left);  
     };
 
-    // Function to toggle the dropdown state
+    
     const handleToggleDropdown = (index) => {
         const newDropdownStates = [...dropdownStates];
         newDropdownStates[index] = !newDropdownStates[index];
@@ -58,9 +58,9 @@ const User = () => {
     };
 
     const handleClick = (index) => {
-        const newClickedStates = [...clickedStates]; // Copy the original array
-        newClickedStates[index] = !newClickedStates[index]; // Toggle the clicked state at the specified index
-        setClickedStates(newClickedStates); // Update the state with the new array
+        const newClickedStates = [...clickedStates];  
+        newClickedStates[index] = !newClickedStates[index]; 
+        setClickedStates(newClickedStates); 
     };
 
     const togglePersonalInfo = () => {
@@ -92,7 +92,7 @@ const User = () => {
                 <p className='text-[color:var(--Black,#222)] text-[24px] not-italic font-semibold leading-[25px] tracking-[-0.12px]'>Add Users</p>
                 <div className='flex pt-6 gap-[12rem] p-6'>
                     <div className='flex gap-3'>
-                        <button className={`relative p-8 ${personalInfoActive ? 'border-b-2 border-[#00549A]' : ''}`} onClick={togglePersonalInfo}>
+                        <button className={`relative p-8 ${personalInfoActive ? 'border-b-2 border-[#00549A]' : 'border-b-2 border-white'}`} onClick={togglePersonalInfo}>
                             <div className='flex gap-3'>
                                 {personalInfoActive && <img src={imag} alt="" />}
                                 <p className={`text-center text-[18px] not-italic font-normal leading-[20px] ${personalInfoActive ? 'text-[#00549A]' : 'text-gray-600'}`}>Add User</p>
@@ -100,7 +100,7 @@ const User = () => {
                         </button>
                     </div>
                     <div className='flex gap-3'>
-                        <button className={`relative p-8 ${mailingAddressActive ? 'border-b-2 border-[#00549A]' : ''}`} onClick={togglemailingAddress}>
+                        <button className={`relative p-8 ${mailingAddressActive ? 'border-b-2 border-[#00549A]' : 'border-b-2 border-white'}`} onClick={togglemailingAddress}>
                             <div className='flex gap-3'>
                                 {mailingAddressActive && <img src={imag1} alt="" />}
                                 <p className={`text-center text-[18px] not-italic font-normal leading-[20px] ${mailingAddressActive ? 'text-[#00549A]' : 'text-gray-600'}`}>Manage User</p>
@@ -108,7 +108,7 @@ const User = () => {
                         </button>
                     </div>
                     <div className='flex gap-3'>
-                        <button className={`relative p-8 ${userRoleActive ? 'border-b-2 border-[#00549A]' : ''}`} onClick={toggleuserRole}>
+                        <button className={`relative p-8 ${userRoleActive ? 'border-b-2 border-[#00549A]' : 'border-b-2 border-white'}`} onClick={toggleuserRole}>
                             <div className='flex gap-3'>
                                 {userRoleActive && <img src={imag1} alt="" />}
                                 <p className={`text-center text-[18px] not-italic font-normal leading-[20px] ${userRoleActive ? 'text-[#00549A]' : 'text-gray-600'}`}>User Role</p>
@@ -234,7 +234,7 @@ const User = () => {
                             {dropdownStates[0] && (
                                 <div className='absolute right-32 top-[20rem] bg-white rounded-[8px] p-6 w-[20%] shadow-2xl'  >
                                     <div className='border border-gray-300 rounded-[8px]'>
-                                        <Link to="/editprofile">
+                                        <Link to="/user-editprofile">
                                         <div className='flex p-4 '>
                                             <img src={edi} alt="" />
                                             <p className='ext-[color:var(--Black,#222)] pl-4 pt-2 text-[14px] not-italic font-semibold leading-[normal]'>Profile Edit</p>
@@ -253,7 +253,7 @@ const User = () => {
                                         </div>
                                         </Link>
                                         <hr />
-                                        <Link to="/status">
+                                        <Link to="/user-status">
                                         <div className='flex p-4 '>
                                             <img src={st} alt="" />
                                             <p className='ext-[color:var(--Black,#222)] pl-4 pt-2 text-[14px] not-italic font-semibold leading-[normal]'>Status</p>

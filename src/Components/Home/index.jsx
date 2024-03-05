@@ -62,12 +62,12 @@ const Home = () => {
     </div>
 </Link>
 
-
-<div
+<Link to=""
+  
     className={`justify-center items-center px-8 py-[16px] rounded-[105px] bg-${location.pathname.startsWith('/about') ? '[#00549a]' : 'white'} text-${location.pathname.startsWith('/about') ? 'white' : '[#222]'} hover:bg-[#00549a] hover:text-white about-us-button`}
     onMouseEnter={handleAboutMouseEnter}
     onMouseLeave={handleAboutMouseLeave}
->
+    >
     <p className="text-[16px] not-italic font-normal leading-[normal]">About Us</p>
     {isAboutDropdownHovered && (
         <div
@@ -94,7 +94,8 @@ const Home = () => {
             </ul>
         </div>
     )}
-</div>
+ 
+</Link>
 
               <Link
                     to="/speciality-forum"

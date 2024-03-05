@@ -78,30 +78,31 @@ const Adashboard = () => {
                 <div className='absolute left-6 bottom-6  '>
 
                     <div className='w-full flex-justify between '>
-                        <div className=''>
+                        <div className='flex'>
                             <p className='text-white relative z-10 text-[32px] not-italic font-bold leading-[normal] uppercase'>FCPI Virtual ID Week</p>
                             <p className='text-white relative z-10 pt-3 pl-2 text-[18px] not-italic font-medium leading-[normal]'>(Day-3)</p>
-                            <p className='text-white relative z-10 text-[21px] not-italic font-normal leading-[normal]'>Infectious Diseases Forum</p>
+
 
                         </div>
+                        <p className='text-white relative z-10 text-[21px] not-italic font-normal leading-[normal]'>Infectious Diseases Forum</p>
 
 
-
-
-                        <div className='relative  z-10'>
-
-
-                            <div>
-                                <img src={grn} alt="" />
-                            </div>
-                            <p className='text-[color:var(--White,#FFF)] relative z-10 text-[21px] not-italic font-semibold leading-[25px] tracking-[-0.105px]'>Live Events</p>
-                            <img src={cam} alt="" />
-                        </div>
 
                     </div>
 
-
                 </div>
+
+
+                <div className='  flex   z-10 gap-3 absolute right-6 bottom-6  '>
+
+
+                    <div>
+                        <img src={grn} alt="" className='pt-2' />
+                    </div>
+                    <p className='text-[color:var(--White,#FFF)] relative z-10 text-[21px] not-italic font-semibold leading-[25px] tracking-[-0.105px]'>Live Events</p>
+                    <img src={cam} alt="" />
+                </div>
+
             </div>
             <div className=''>
                 <div className='flex pt-6 gap-6'>
@@ -164,7 +165,7 @@ const Adashboard = () => {
                                         <hr className='mt-6' />
                                     </React.Fragment>
                                 ))}
-                                <div className='text-end pt-5'>
+                                <div className='text-end pt-4'>
                                     <button className='bg-gray-100 px-4 py-2 rounded-[4px]'>
                                         <p className='text-[color:var(--Blue,#00549A)] text-[14px] not-italic font-medium leading-[normal]'>View all</p>
                                     </button>
@@ -417,23 +418,23 @@ const Adashboard = () => {
                     <hr className='mt-4' />
                     <div className='flex gap-3 pt-4'>
                         <button
-                            className={`border border-[#CBCBCB] rounded-[102px] px-5 py-1 ${activeButton1 === 'today' ? 'border-none bg-[#DFF9F2]' : ''}`}
+                            className={`border border-[#CBCBCB] rounded-[102px] px-5 py-1 ${activeButton1 === 'today' ? 'border-[#DFF9F2] bg-[#DFF9F2]' : ''}`}
                             onClick={() => toggleDropdown1('today')}
                         >
                             <p className={`text-[#58585A] text-[17px] not-italic font-normal leading-[normal] ${activeButton === 'today' ? 'text-[#1AB78D]' : ''}`}>Today</p>
                         </button>
                         <button
-                            className={`border border-[#CBCBCB] rounded-[102px] px-6 py-1 ${activeButton1 === 'thisWeek' ? 'border-none bg-[#DFF9F2]' : ''}`}
+                            className={`border border-[#CBCBCB] rounded-[102px] px-6 py-1 ${activeButton1 === 'thisWeek' ? 'border-[#DFF9F2] bg-[#DFF9F2]' : ''}`}
                             onClick={() => toggleDropdown1('thisWeek')}>
                             <p className={`text-[#58585A] text-[17px] not-italic font-normal leading-[normal] ${activeButton === 'thisWeek' ? 'text-[#1AB78D]' : ''}`}>This Week</p>
                         </button>
                         <button
-                            className={`border border-[#CBCBCB] rounded-[102px] px-6 py-1 ${activeButton1 === 'thisMonth' ? 'border-none bg-[#DFF9F2]' : ''}`}
+                            className={`border border-[#CBCBCB] rounded-[102px] px-6 py-1 ${activeButton1 === 'thisMonth' ? 'border-[#DFF9F2] bg-[#DFF9F2]' : ''}`}
                             onClick={() => toggleDropdown1('thisMonth')}>
                             <p className={`text-[#58585A] text-[17px] not-italic font-normal leading-[normal] ${activeButton === 'thisMonth' ? 'text-[#1AB78D]' : ''}`}>This Month</p>
                         </button>
                         <button
-                            className={`border border-[#CBCBCB] rounded-[102px] px-5 py-1 ${activeButton1 === 'thisYear' ? 'border-none bg-[#DFF9F2]' : ''}`}
+                            className={`border border-[#CBCBCB] rounded-[102px] px-5 py-1 ${activeButton1 === 'thisYear' ? 'border-[#DFF9F2] bg-[#DFF9F2]' : ''}`}
                             onClick={() => toggleDropdown1('thisYear')}>
                             <p className={`text-[#58585A] text-[17px] not-italic font-normal leading-[normal] ${activeButton === 'thisYear' ? 'text-[#1AB78D]' : ''}`}>This Year</p>
                         </button>
@@ -687,24 +688,24 @@ const Adashboard = () => {
                         <div>
                             <p className='text-[color:var(--Black,#222)] text-[26px] not-italic font-semibold leading-[25px] tracking-[-0.12px]'>Users Active Chart</p>
                         </div>
-                  
-                    <div>
-                                <button className={`relative p-3 px-4  rounded-[4px] ${upcomingActive ? ' bg-[#00549A]' : 'bg-gray-100'}`} onClick={toggleUpcoming}>
-                                    <div className='flex gap-3'>
 
-                                        <p className={`text-center text-[18px] not-italic font-normal leading-[20px] ${upcomingActive ? 'text-white' : 'text-gray-600'}`}>Monthly</p>
+                        <div>
+                            <button className={`relative p-3 px-4  rounded-[4px] ${upcomingActive ? ' bg-[#00549A]' : 'bg-gray-100'}`} onClick={toggleUpcoming}>
+                                <div className='flex gap-3'>
 
-                                    </div>
-                                </button>
-                                <button className={`relative p-3 px-4 rounded-[4px] ${PastActive ? ' bg-[#00549A]' : 'bg-gray-100'}`} onClick={togglePast}>
-                                    <div className='flex gap-3'>
+                                    <p className={`text-center text-[18px] not-italic font-normal leading-[20px] ${upcomingActive ? 'text-white' : 'text-gray-600'}`}>Monthly</p>
 
-                                        <p className={`text-center text-[18px] not-italic font-normal leading-[20px] ${PastActive ? 'text-white' : 'text-gray-600'}`}>Weakly</p>
+                                </div>
+                            </button>
+                            <button className={`relative p-3 px-4 rounded-[4px] ${PastActive ? ' bg-[#00549A]' : 'bg-gray-100'}`} onClick={togglePast}>
+                                <div className='flex gap-3'>
 
-                                    </div>
-                                </button>
-                            </div>
-                            </div>
+                                    <p className={`text-center text-[18px] not-italic font-normal leading-[20px] ${PastActive ? 'text-white' : 'text-gray-600'}`}>Weakly</p>
+
+                                </div>
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

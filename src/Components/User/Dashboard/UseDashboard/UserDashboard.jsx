@@ -221,23 +221,23 @@ const UserDashboard = () => {
                         <hr className='mt-4' />
                         <div className='flex gap-3 pt-4'>
                             <button
-                                className={`border border-[#CBCBCB] rounded-[102px] px-5 py-2 ${activeButton1 === 'today' ? 'border-none bg-[#DFF9F2]' : ''}`}
+                                className={`border border-[#CBCBCB] rounded-[102px] px-5 py-2 ${activeButton1 === 'today' ? 'border-[#DFF9F2] bg-[#DFF9F2]' : ''}`}
                                 onClick={() => toggleDropdown1('today')}
                             >
                                 <p className={`text-[#58585A] text-[17px] not-italic font-normal leading-[normal] ${activeButton === 'today' ? 'text-[#1AB78D]' : ''}`}>Today</p>
                             </button>
                             <button
-                                className={`border border-[#CBCBCB] rounded-[102px] px-6 py-2 ${activeButton1 === 'thisWeek' ? 'border-none bg-[#DFF9F2]' : ''}`}
+                                className={`border border-[#CBCBCB] rounded-[102px] px-6 py-2 ${activeButton1 === 'thisWeek' ? 'border-[#DFF9F2] bg-[#DFF9F2]' : ''}`}
                                 onClick={() => toggleDropdown1('thisWeek')}>
                                 <p className={`text-[#58585A] text-[17px] not-italic font-normal leading-[normal] ${activeButton === 'thisWeek' ? 'text-[#1AB78D]' : ''}`}>This Week</p>
                             </button>
                             <button
-                                className={`border border-[#CBCBCB] rounded-[102px] px-6 py-2 ${activeButton1 === 'thisMonth' ? 'border-none bg-[#DFF9F2]' : ''}`}
+                                className={`border border-[#CBCBCB] rounded-[102px] px-6 py-2 ${activeButton1 === 'thisMonth' ? 'border-[#DFF9F2] bg-[#DFF9F2]' : ''}`}
                                 onClick={() => toggleDropdown1('thisMonth')}>
                                 <p className={`text-[#58585A] text-[17px] not-italic font-normal leading-[normal] ${activeButton === 'thisMonth' ? 'text-[#1AB78D]' : ''}`}>This Month</p>
                             </button>
                             <button
-                                className={`border border-[#CBCBCB] rounded-[102px] px-5 py-2 ${activeButton1 === 'thisYear' ? 'border-none bg-[#DFF9F2]' : ''}`}
+                                className={`border border-[#CBCBCB] rounded-[102px] px-5 py-2 ${activeButton1 === 'thisYear' ? 'border-[#DFF9F2] bg-[#DFF9F2]' : ''}`}
                                 onClick={() => toggleDropdown1('thisYear')}>
                                 <p className={`text-[#58585A] text-[17px] not-italic font-normal leading-[normal] ${activeButton === 'thisYear' ? 'text-[#1AB78D]' : ''}`}>This Year</p>
                             </button>
@@ -503,72 +503,71 @@ const UserDashboard = () => {
                         <hr />
                         {isRotated1 && (
                     <div className='flex pt-8'>
-                        {/* Dropdown content */}
-                        
-                           
-                            <div>
-                        <div className='flex justify-between pt-8'>
-                            <div>
-                                <p className='text-[color:var(--Gray,#58585A)] text-[16px] not-italic font-normal leading-[22px] tracking-[-0.07px]'>Full Name:</p>
-                                <p className='text-[color:var(--Black,#222)] text-[18px] pt-1 not-italic font-semibold leading-[22px] tracking-[-0.08px]'>Mammen Paul</p>
-                            </div>
-                            <div>
-                                <p className='text-[color:var(--Gray,#58585A)] text-[16px] not-italic font-normal leading-[22px] tracking-[-0.07px]'>Last Name:</p>
-                                <p className='text-[color:var(--Black,#222)] text-[18px] pt-1 not-italic font-semibold leading-[22px] tracking-[-0.08px]'> Paul</p>
-                            </div>
-                            <div>
-                                <p className='text-[color:var(--Gray,#58585A)] text-[16px] not-italic font-normal leading-[22px] tracking-[-0.07px]'>Date of Birth:</p>
-                                <p className='text-[color:var(--Black,#222)] text-[18px] pt-1 not-italic font-semibold leading-[22px] tracking-[-0.08px]'>24/06/1984</p>
-                            </div>
-                            <div>
-                                <p className='text-[color:var(--Gray,#58585A)] text-[16px] not-italic font-normal leading-[22px] tracking-[-0.07px]'>Primary Position: </p>
-                                <p className='text-[color:var(--Black,#222)] text-[18px] pt-1 not-italic font-semibold leading-[22px] tracking-[-0.08px]'> Clinical pharmacist</p>
-                            </div>
-                            <div>
-                                <p className='text-[color:var(--Gray,#58585A)] text-[16px] not-italic font-normal leading-[22px] tracking-[-0.07px]'>Current Work Institution Name:</p>
-                                <p className='text-[color:var(--Black,#222)] text-[18px] pt-1 not-italic font-semibold leading-[22px] tracking-[-0.08px]'>KMCT</p>
-                            </div>
+                    {/* Dropdown content */}
+                    <div>
+                       
+                       
+                    <div className='flex   pt-8'>
+                        <div >
+                            <p className='text-[color:var(--Gray,#58585A)] text-[16px] not-italic font-normal leading-[22px] tracking-[-0.07px]'>Full Name:</p>
+                            <p className='text-[color:var(--Black,#222)] text-[18px] pt-1 not-italic font-semibold leading-[22px] tracking-[-0.08px]'>Mammen Paul</p>
                         </div>
-                        <div className='flex justify-between pt-16'>
-                            <div>
-                                <p className='text-[color:var(--Gray,#58585A)] text-[16px] not-italic font-normal leading-[22px] tracking-[-0.07px]'>Full Name:</p>
-                                <p className='text-[color:var(--Black,#222)] text-[18px] pt-1 not-italic font-semibold leading-[22px] tracking-[-0.08px]'>Mammen Paul</p>
-                            </div>
-                            <div>
-                                <p className='text-[color:var(--Gray,#58585A)] text-[16px] not-italic font-normal leading-[22px] tracking-[-0.07px]'>Last Name:</p>
-                                <p className='text-[color:var(--Black,#222)] text-[18px] pt-1 not-italic font-semibold leading-[22px] tracking-[-0.08px]'> Paul</p>
-                            </div>
-                            <div>
-                                <p className='text-[color:var(--Gray,#58585A)] text-[16px] not-italic font-normal leading-[22px] tracking-[-0.07px]'>Date of Birth:</p>
-                                <p className='text-[color:var(--Black,#222)] text-[18px] pt-1 not-italic font-semibold leading-[22px] tracking-[-0.08px]'>24/06/1984</p>
-                            </div>
-                            <div>
-                                <p className='text-[color:var(--Gray,#58585A)] text-[16px] not-italic font-normal leading-[22px] tracking-[-0.07px]'>Primary Position: </p>
-                                <p className='text-[color:var(--Black,#222)] text-[18px] pt-1 not-italic font-semibold leading-[22px] tracking-[-0.08px]'> Clinical pharmacist</p>
-                            </div>
-                            <div>
-                                <p className='text-[color:var(--Gray,#58585A)] text-[16px] not-italic font-normal leading-[22px] tracking-[-0.07px]'>Current Work Institution Name:</p>
-                                <p className='text-[color:var(--Black,#222)] text-[18px] pt-1 not-italic font-semibold leading-[22px] tracking-[-0.08px]'>KMCT</p>
-                            </div>
+                        <div className='pl-[10.5rem]'>
+                            <p className='text-[color:var(--Gray,#58585A)] text-[16px] not-italic font-normal leading-[22px] tracking-[-0.07px]'>Last Name:</p>
+                            <p className='text-[color:var(--Black,#222)] text-[18px] pt-1 not-italic font-semibold leading-[22px] tracking-[-0.08px]'> Paul</p>
                         </div>
-                        <div className='flex   pt-16'>
-                            <div>
-                                <p className='text-[color:var(--Gray,#58585A)] text-[16px]  not-italic font-normal leading-[22px] tracking-[-0.07px]'>Secondary<br /> Pharmacy Degree:</p>
-                                <p className='text-[color:var(--Black,#222)] text-[18px] pt-1 not-italic font-semibold leading-[22px] tracking-[-0.08px]'>Doctor of Pharmacy</p>
-                            </div>
-                            <div className='pl-[8rem]'>
-                                <p className='text-[color:var(--Gray,#58585A)] text-[16px] not-italic font-normal leading-[22px] tracking-[-0.07px]'>Name of Pharmacy <br />College Degree:</p>
-                                <p className='text-[color:var(--Black,#222)] text-[18px] pt-1 not-italic font-semibold leading-[22px] tracking-[-0.08px]'> KMCT</p>
-                            </div>
-                            <div className='pl-[7rem]'>
-                                <p className='text-[color:var(--Gray,#58585A)] text-[16px] not-italic font-normal leading-[22px] tracking-[-0.07px]'>Additional Degrees: </p>
-                                <p className='text-[color:var(--Black,#222)] text-[18px] pt-1 not-italic font-semibold leading-[22px] tracking-[-0.08px]'>Yes</p>
-                            </div>
+                        <div className='pl-[10.5rem]'>
+                            <p className='text-[color:var(--Gray,#58585A)] text-[16px] not-italic font-normal leading-[22px] tracking-[-0.07px]'>Date of Birth:</p>
+                            <p className='text-[color:var(--Black,#222)] text-[18px] pt-1 not-italic font-semibold leading-[22px] tracking-[-0.08px]'>24/06/1984</p>
+                        </div>
+                        <div className='pl-[10.5rem]'>
+                            <p className='text-[color:var(--Gray,#58585A)] text-[16px] not-italic font-normal leading-[22px] tracking-[-0.07px]'>Primary Position: </p>
+                            <p className='text-[color:var(--Black,#222)] text-[18px] pt-1 not-italic font-semibold leading-[22px] tracking-[-0.08px]'> Clinical pharmacist</p>
+                        </div>
+                        <div className='pl-[10.5rem]'>
+                            <p className='text-[color:var(--Gray,#58585A)] text-[16px] not-italic font-normal leading-[22px] tracking-[-0.07px]'>Primary Position: </p>
+                            <p className='text-[color:var(--Black,#222)] text-[18px] pt-1 not-italic font-semibold leading-[22px] tracking-[-0.08px]'> Clinical pharmacist</p>
+                        </div>
+                    </div>
 
+                    <div className='flex   pt-16'>
+                        <div>
+                            <p className='text-[color:var(--Gray,#58585A)] text-[16px]  not-italic font-normal leading-[22px] tracking-[-0.07px]'>Secondary<br /> Pharmacy Degree:</p>
+                            <p className='text-[color:var(--Black,#222)] text-[18px] pt-1 not-italic font-semibold leading-[22px] tracking-[-0.08px]'>Doctor of Pharmacy</p>
+                        </div>
+                        <div className='pl-[8rem]'>
+                            <p className='text-[color:var(--Gray,#58585A)] text-[16px] not-italic font-normal leading-[22px] tracking-[-0.07px]'>Name of Pharmacy <br />College Degree:</p>
+                            <p className='text-[color:var(--Black,#222)] text-[18px] pt-1 not-italic font-semibold leading-[22px] tracking-[-0.08px]'> KMCT</p>
+                        </div>
+                        <div className='pl-[7rem]'>
+                            <p className='text-[color:var(--Gray,#58585A)] text-[16px] not-italic font-normal leading-[22px] tracking-[-0.07px]'>Additional Degrees: </p>
+                            <p className='text-[color:var(--Black,#222)] text-[18px] pt-1 not-italic font-semibold leading-[22px] tracking-[-0.08px]'>Yes</p>
+                        </div>
+                        <div className='pl-[7.5rem]'>
+                            <p className='text-[color:var(--Gray,#58585A)] text-[16px] not-italic font-normal leading-[22px] tracking-[-0.07px]'>Additional Degrees: </p>
+                            <p className='text-[color:var(--Black,#222)] text-[18px] pt-1 not-italic font-semibold leading-[22px] tracking-[-0.08px]'>Yes</p>
+                        </div>
+                        <div className='pl-[11.5rem]'>
+                            <p className='text-[color:var(--Gray,#58585A)] text-[16px] not-italic font-normal leading-[22px] tracking-[-0.07px]'>Additional Degrees: </p>
+                            <p className='text-[color:var(--Black,#222)] text-[18px] pt-1 not-italic font-semibold leading-[22px] tracking-[-0.08px]'>Yes</p>
+                        </div>
+                    </div>
+                    <div className='flex   pt-16'>
+                        <div>
+                            <p className='text-[color:var(--Gray,#58585A)] text-[16px]  not-italic font-normal leading-[22px] tracking-[-0.07px]'>Secondary<br /> Pharmacy Degree:</p>
+                            <p className='text-[color:var(--Black,#222)] text-[18px] pt-1 not-italic font-semibold leading-[22px] tracking-[-0.08px]'>Doctor of Pharmacy</p>
+                        </div>
+                        <div className='pl-[8rem]'>
+                            <p className='text-[color:var(--Gray,#58585A)] text-[16px] not-italic font-normal leading-[22px] tracking-[-0.07px]'>Name of Pharmacy <br />College Degree:</p>
+                            <p className='text-[color:var(--Black,#222)] text-[18px] pt-1 not-italic font-semibold leading-[22px] tracking-[-0.08px]'> KMCT</p>
+                        </div>
+                        <div className='pl-[7rem]'>
+                            <p className='text-[color:var(--Gray,#58585A)] text-[16px] not-italic font-normal leading-[22px] tracking-[-0.07px]'>Additional Degrees: </p>
+                            <p className='text-[color:var(--Black,#222)] text-[18px] pt-1 not-italic font-semibold leading-[22px] tracking-[-0.08px]'>Yes</p>
                         </div>
                         </div>
-                        </div>
-                    
+                    </div>
+                </div>
                 )}
                         
                     </div>

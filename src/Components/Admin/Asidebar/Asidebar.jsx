@@ -146,7 +146,7 @@ const Asidebar = () => {
                             className={`button w-full py-3 rounded-[6px] ${location.pathname === '/user' ? 'active' : ''}`}
                         >
                             <div className='flex gap-4 items-center pl-4 '>
-                                {/* Render different icon based on whether the section is active */}
+                            
                                 <img src={location.pathname === '/user' ? log8 : dash5} alt="Logo" className='dashboard-image' />
                                 <p className='button-text text-[18px]'>
                                     Users

@@ -59,9 +59,9 @@ function App() {
            <Route path='/aforum' element={<AforumPage/>} />
            <Route path='/speaker' element={<SpeakerPage/>} />
            <Route path='/user' element={<AuserPage/>} />
-           <Route path='/editprofile' element={<ProfilePage/>} />
+           <Route path='/user-editprofile' element={<ProfilePage/>} />
            <Route path='/usertype' element={<UserTypePage/>} />
-           <Route path='/status' element={<StatusPage/>} />
+           <Route path='/user-status' element={<StatusPage/>} />
         </Routes>
       </Router>
     </div>

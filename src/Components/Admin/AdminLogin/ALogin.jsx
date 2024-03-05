@@ -27,12 +27,15 @@ const ALogin = () => {
         <div className="w-full  ">
             <div className='container'>
                 <div className=' flex  bg-white   '>
-                    <div className='grad overflow-hidden   bg-cover h-[100vh]'>
+                    <div className='grad overflow-hidden relative  bg-cover h-[100vh]'>
                         <img src={adm} alt="" className='h-[100%] w-[100%] rounded-r-[30px] ' />
+                        <p className='absolute bottom-28 left-16 z-10 text-[color:var(--White,#FFF)] text-[44px] not-italic font-semibold leading-[53px]'>Towards Clinical <br/>
+Pharmacy Excellence</p>
+<p className='absolute bottom-16 left-16 z-10 text-[color:var(--Lightgray,#F4F4F4)] text-[14px] not-italic font-normal leading-[normal]'>© 2024 All rights reserved</p>
                     </div>
 
                     <div className=' p-56 '>
-                        <div className="">
+                        <div className=" ">
                             <img src={Log} alt="" className="" /></div>
                         <div className="bg-white rounded-[30px]  ">
                             <div className="text-start pt-8">
