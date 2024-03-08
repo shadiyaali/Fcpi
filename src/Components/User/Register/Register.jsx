@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import reg from "../../../assets/images/reg.png";
 import axios from 'axios';
 import { BASE_URL } from "../../../Utils/Config";
-import { toast, Toaster } from "react-hot-toast";
+import { toast } from "react-hot-toast";
 
 const Register = () => {
     const navigate = useNavigate();  
@@ -35,32 +35,45 @@ const Register = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
     
+        // Client-side validation
+        if (!first_name || !last_name || !phone || !email || !password || !password2) {
+            toast.error("All fields are required.");
+            return;
+        }
+    
         if (password !== password2) {
-          toast.error("Passwords do not match.");
-          return;
+            toast.error("Passwords do not match.");
+            return;
         }
     
         try {
-          const response = await axios.post(`${BASE_URL}/accounts/register/`, {
-            first_name,
-            last_name,
-            email,
-            phone,
-            
-           
-          });
+            // Send request to backend only if validation passes
+            const response = await axios.post(`${BASE_URL}/accounts/register/`, {
+                first_name,
+                last_name,
+                email,
+                phone,
+                password,
+            });
     
-          if (response.status === 201) {
-            toast.success("Registration successful. Please activate your account.");
-          } else {
-            toast.error("Something went wrong during registration.");
-          }
+            if (response.status === 201) {
+                toast.success("Registration successful. Please activate your account.");
+               
+                navigate('/otp');
+            } else {
+                toast.error("Something went wrong during registration.");
+            }
         } catch (error) {
-          console.error(error);
-          toast.error("An error occurred during registration.");
+            console.error(error);
+            if (error.response && error.response.data && error.response.data.errors) {
+                const errorMessages = Object.values(error.response.data.errors).flat();
+                errorMessages.forEach(errorMessage => toast.error(errorMessage));
+            } else {
+                toast.error("An error occurred during registration.");
+            }
         }
-      };
-    
+    };
+    ;
     
 
     
