@@ -1,16 +1,17 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";  
 import reg from "../../../assets/images/reg.png";
-import { Link } from "react-router-dom"
 import axios from 'axios';
 import { BASE_URL } from "../../../Utils/Config";
 import { toast, Toaster } from "react-hot-toast";
-import { convertLength } from "@mui/material/styles/cssUtils";
 
 const Register = () => {
+    const navigate = useNavigate();  
+
     const [formData, setFormData] = useState({
         first_name: '',
         last_name: '',
-        phone_number: '',
+        phone: '',
         email: '',
         password: '',
         password2: ''
@@ -19,51 +20,50 @@ const Register = () => {
     const {
         first_name,
         last_name,
-        phone_number,
+        phone,
         email,
         password,
         password2
-
-
     } = formData;
+
     const handleChange = (e, fieldName) => {
         setFormData({
             ...formData,
             [fieldName]: e.target.value  
         });
     };
-
     const handleSubmit = async (e) => {
-        console.log(BASE_URL)
         e.preventDefault();
-
+    
         if (password !== password2) {
-            toast.error("Passwords do not match.");
-            return;
+          toast.error("Passwords do not match.");
+          return;
         }
-
+    
         try {
-            const response = await axios.post(`${BASE_URL}/accounts/register/`, {
-                first_name,
-                last_name,
-                email,
-                phone_number,
-                password,
-
-            });
-
-            if (response.status === 201) {
-                toast.success("Registration successful. Please activate your account.");
-            } else {
-                toast.error("Something went wrong during registration.");
-            }
+          const response = await axios.post(`${BASE_URL}/accounts/register/`, {
+            first_name,
+            last_name,
+            email,
+            phone,
+            
+           
+          });
+    
+          if (response.status === 201) {
+            toast.success("Registration successful. Please activate your account.");
+          } else {
+            toast.error("Something went wrong during registration.");
+          }
         } catch (error) {
-            console.error(error);
-            toast.error("An error occurred during registration.");
+          console.error(error);
+          toast.error("An error occurred during registration.");
         }
-    };
+      };
+    
+    
 
-
+    
     return (
         <div className="w-full h-full bg-[#f4f4f4]">
             <div className="container">
@@ -101,8 +101,8 @@ const Register = () => {
                                             type="text"
                                             className="border border-gray-300 rounded-[30px] px-[20px] py-4 w-full"
                                             placeholder="Phone Number"
-                                            value={phone_number}
-                                            onChange={(e) => handleChange(e, 'phone_number')}
+                                            value={phone}
+                                            onChange={(e) => handleChange(e, 'phone')}
                                         />
 
                                     </div>
