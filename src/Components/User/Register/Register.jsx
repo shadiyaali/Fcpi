@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import reg from "../../../assets/images/reg.png";
 import axios from 'axios';
 import { BASE_URL } from "../../../Utils/Config";
-import { toast } from "react-hot-toast";
+import { toast,Toaster } from "react-hot-toast";
 
 const Register = () => {
     const navigate = useNavigate();  
@@ -56,10 +56,16 @@ const Register = () => {
                 password,
             });
     
-            if (response.status === 201) {
-                toast.success("Registration successful. Please activate your account.");
-               
-                navigate('/otp');
+            if (response.status === 200) {
+                toast.success("Registration successful. Please check your email for OTP.");
+                // Check if the user has already been verified
+                if (response.data.status === 400 && response.data.error === 'User with this email has already been verified') {
+                    // Handle the error message here, e.g., display an error toast
+                    toast.error("User with this email has already been verified.");
+                } else {
+                    // Navigate to the OTP page only if the user is not already verified
+                    navigate(`/otp?email=${encodeURIComponent(email)}`);
+                }
             } else {
                 toast.error("Something went wrong during registration.");
             }
@@ -73,13 +79,15 @@ const Register = () => {
             }
         }
     };
-    ;
+    
     
 
     
     return (
         <div className="w-full h-full bg-[#f4f4f4]">
+         
             <div className="container">
+            <Toaster position="top-center reverseOrder={false}"/>
                 <div className="pt-6">
                     <div className="flex justify-between bg-white rounded-[30px]">
                         <div>

@@ -5,7 +5,7 @@ import Log from "../../../assets/images/Group.svg";
 import "./Otp.css";
 import { BASE_URL } from "../../../Utils/Config";
 
-const Otp = () => {
+const ResendOtp = () => {
     const [otp, setOtp] = useState('');
     const [userEmail, setUserEmail] = useState('');
     const navigate = useNavigate();
@@ -15,7 +15,13 @@ const Otp = () => {
     useEffect(() => {
         const searchParams = new URLSearchParams(location.search);
         const emailParam = searchParams.get('email');
-        setUserEmail(emailParam); // Set userEmail state with the email from query parameter
+        if (emailParam) {
+            setUserEmail(emailParam);
+        } else {
+            // Handle the case when emailParam is not present or invalid
+            // For example, you could redirect the user to an error page or display an error message
+            console.error('Email parameter not found in URL');
+        }
     }, [location.search]);
 
     const handleChange = (e, index) => {
@@ -35,10 +41,10 @@ const Otp = () => {
     const handleVerify = async () => {
         try {
             console.log('OTP to be verified:', otp);
-            console.log('Email to be verified:', userEmail);  
+            console.log('Email to be verified:', userEmail); // Log the email address
 
             const response = await axios.post(`${BASE_URL}/accounts/verifyOtp/`, {
-                email: userEmail, 
+                email: userEmail, // Include the email along with the OTP
                 otp: otp
             });
 
@@ -59,13 +65,16 @@ const Otp = () => {
         }
     };
 
-   const handleResendOtp = async () => {
+    const handleResendOtp = async () => {
         try {
             const response = await axios.post(`${BASE_URL}/accounts/resendOtp/`, { email: userEmail });
-
+    
             if (response.status === 200 && response.data && response.data.status === 200) {
                 alert('OTP resent successfully. Please check your email.');
-                navigate('/resend-otp'); // Navigate to the resend OTP page
+                // Clear the OTP input fields
+                console.log('OTP resent successfully:', response.data);
+                console.log('Type of OTP resent:', typeof response.data);
+                 // Focus on the first input field
             } else {
                 throw new Error('Failed to resend OTP.');
             }
@@ -113,4 +122,4 @@ const Otp = () => {
     );
 };
 
-export default Otp;
+export default ResendOtp;

@@ -25,8 +25,9 @@ import  SpeakerPage from './Pages/Admin/SpeakerPage';
 import  AuserPage from './Pages/Admin/AuserPage';
 import  ProfilePage from './Pages/Admin/ProfileEditPage';
 import  UserTypePage from './Pages/Admin/AuserTypePage';
-import  StatuPage from './Pages/Admin/Astatus';
+// import  StatuPage from './Pages/Admin/Astatus';
 import StatusPage from './Pages/Admin/Astatus';
+import ResendOtp from './Components/User/Dashboard/ResendOtp';
 
 
 function App() {
@@ -48,6 +49,7 @@ function App() {
           <Route path='/register' element={<RegisterPage/>} />
 {/* ........................................................................... */}
            <Route path='/otp' element={<Otp/>} />
+           <Route path='/resend-otp' element={<ResendOtp/>} />
            <Route path='/login' element={<LoginPage/>} />
            <Route path='/dashboard' element={<UserDashboardPage/>} />
            <Route path='/profile' element={<MyProfilePage/>} />
