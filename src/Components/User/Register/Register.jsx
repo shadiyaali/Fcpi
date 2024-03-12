@@ -47,7 +47,6 @@ const Register = () => {
         }
     
         try {
-            // Send request to backend only if validation passes
             const response = await axios.post(`${BASE_URL}/accounts/register/`, {
                 first_name,
                 last_name,
@@ -58,14 +57,7 @@ const Register = () => {
     
             if (response.status === 200) {
                 toast.success("Registration successful. Please check your email for OTP.");
-                // Check if the user has already been verified
-                if (response.data.status === 400 && response.data.error === 'User with this email has already been verified') {
-                    // Handle the error message here, e.g., display an error toast
-                    toast.error("User with this email has already been verified.");
-                } else {
-                    // Navigate to the OTP page only if the user is not already verified
-                    navigate(`/otp?email=${encodeURIComponent(email)}`);
-                }
+                navigate(`/otp?email=${encodeURIComponent(email)}`); // Redirect to OTP verification
             } else {
                 toast.error("Something went wrong during registration.");
             }
@@ -79,6 +71,7 @@ const Register = () => {
             }
         }
     };
+    
     
     
 

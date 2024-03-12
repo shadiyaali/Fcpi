@@ -59,13 +59,18 @@ const Otp = () => {
         }
     };
 
-   const handleResendOtp = async () => {
+    const handleResendOtp = async () => {
         try {
             const response = await axios.post(`${BASE_URL}/accounts/resendOtp/`, { email: userEmail });
 
             if (response.status === 200 && response.data && response.data.status === 200) {
                 alert('OTP resent successfully. Please check your email.');
-                navigate('/resend-otp'); // Navigate to the resend OTP page
+                // Clear the OTP input fields
+                setOtp('');
+                // Focus on the first input field
+                if (inputRefs.current[0]) {
+                    inputRefs.current[0].focus();
+                }
             } else {
                 throw new Error('Failed to resend OTP.');
             }
@@ -74,6 +79,7 @@ const Otp = () => {
             alert('An error occurred while resending OTP. Please try again later.');
         }
     };
+
     return (
         <div className="w-full h-full bg-[#f4f4f4]">
             <div className="p-[13.7rem] pl-[40rem] ">

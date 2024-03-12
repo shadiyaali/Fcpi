@@ -133,7 +133,7 @@ const Home = () => {
           </div>
 
           <div className="pl-5 pt-6">
-          <Link to="/otp">
+          <Link to="/login">
             <div
                 className={`flex justify-center items-center px-[27px] py-[8px] bg-${location.pathname === '/otp' ? '[1AB78D]' : (hoveredLogin ? '[1AB78D]' : '[f4f4f4]')} text-${location.pathname === '/otp' ? 'white' : (hoveredLogin ? 'white' : '[00549A]')} rounded-[105px] border border-[#00549A] hover:border-[#1AB78D] hover:bg-[#1AB78D]`}
                 onMouseEnter={handleLoginMouseEnter}
