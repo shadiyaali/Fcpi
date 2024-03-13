@@ -39,7 +39,7 @@ function App() {
           <Route path='/about-fcpi' element={<AboutfcpiPage />} />
           <Route path='/about-board' element={<AboutBoardPage />} />
           <Route path='/about-forum' element={<AboutForumPage />} />
-          <Route path='/speciality-forum' element={<SpecialityForum />} />
+          <Route path="/speciality-forum/:forumId" element={<SpecialityForum />} />
           <Route path='/events' element={<Events />} />
           <Route path='/details/:id' element={<MemberPage />} />
           <Route path='/events-detail' element={<DetailPage/>} />

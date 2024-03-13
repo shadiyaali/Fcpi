@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import imag from "../../../assets/images/user-circle.png";
 import imag1 from "../../../assets/images/mail.png";
 import Icon from "../../../assets/images/Icon frame.png";
@@ -6,33 +6,138 @@ import { Link } from "react-router-dom";
 import del from "../../../assets/images/del.png";
 import ed from "../../../assets/images/edit.png";
 import click from "../../../assets/images/click.png";
+import axios from "axios";
+import { BASE_URL } from '../../../Utils/Config';
+// import "./Aforum.css"
+
+
 
 const Aforum = () => {
     const [personalInfoActive, setPersonalInfoActive] = useState(true);
     const [mailingAddressActive, setmailingAddressActive] = useState(false);
     const [selectedImage, setSelectedImage] = useState(null);
     const [error, setError] = useState(null);
+    const [selectedForum, setSelectedForum] = useState(null);
+    const [editFormVisible, setEditFormVisible] = useState(false);
+    const [formData, setFormData] = useState({
+        title: '',
+        description: '',
+        image: null,
+    });
+    const [forums, setForums] = useState([]);
 
-    const handleImageUpload = (event) => {
-        const file = event.target.files[0];
-        if (file && file.type.startsWith('image/')) {
-            if (file.size <= 25 * 1024 * 1024) {
-                setSelectedImage(file);
-                setError(null);
-            } else {
-                setError('File size exceeds 25MB limit.');
+    const handleChange = (e) => {
+        setFormData({ ...formData, [e.target.title]: e.target.value });
+    };
+
+    useEffect(() => {
+        const fetchForums = async () => {
+            try {
+                const response = await axios.get(`${BASE_URL}/admins/forums/`);
+                setForums(response.data);
+            } catch (error) {
+                console.error('Error fetching forums:', error);
             }
-        } else {
-            setError('Please select a valid image file.');
+        };
+
+        fetchForums();
+    }, []);
+
+    const handleImageChange = (e) => {
+        setSelectedImage(e.target.files[0]);
+        setFormData({ ...formData, image: e.target.files[0] });
+    };
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            const postData = new FormData();
+            postData.append('title', formData.title);
+            postData.append('description', formData.description);
+            postData.append('image', formData.image);
+
+            const response = await axios.post(`${BASE_URL}/admins/forums/`, postData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                }
+            });
+
+            console.log(response.data);
+
+            alert('Forum added successfully!');
+
+            setFormData({
+                title: '',
+                description: '',
+                image: null
+            });
+        } catch (error) {
+            console.error('Error adding forum:', error);
+            alert('Failed to add forum. Please try again.');
         }
     };
 
+    const handleDelete = async (forumId) => {
+        const confirmDelete = window.confirm('Are you sure you want to delete this forum?');
 
-    const [clicked, setClicked] = useState(false);
-
-    const handleClick = () => {
-        setClicked(!clicked); // Toggle the clicked state
+        if (confirmDelete) {
+            try {
+                const response = await axios.delete(`${BASE_URL}/admins/forums/${forumId}/delete/`);
+                console.log(response.data);
+                alert('Forum deleted successfully!');
+            } catch (error) {
+                console.error('Error deleting forum:', error);
+                alert('Failed to delete forum. Please try again.');
+            }
+        }
     };
+
+    const handleFormSubmit = async (e) => {
+        e.preventDefault();
+
+        try {
+            const postData = new FormData();
+            postData.append('title', formData.title);
+            postData.append('description', formData.description);
+            postData.append('image', formData.image);
+
+            if (selectedForum) {
+                // Update an existing forum
+                const response = await axios.put(`${BASE_URL}/admins/forums/${selectedForum.id}/update/`, postData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                });
+                console.log(response.data);
+                alert('Forum updated successfully!');
+            } else {
+                // Handle other cases, such as adding a new forum
+            }
+
+            // Clear form data after submission
+            setFormData({
+                title: '',
+                description: '',
+                image: null
+            });
+        } catch (error) {
+            console.error('Error updating forum:', error);
+            alert('Failed to update forum. Please try again.');
+        }
+    };
+
+    const handleEdit = (forum) => {
+        setSelectedForum(forum);
+        setFormData({
+            title: forum.title,
+            description: forum.description,
+            image: forum.image
+        });
+        setEditFormVisible(!editFormVisible); // Toggle edit form visibility
+    };
+
+
     const togglePersonalInfo = () => {
         setPersonalInfoActive(!personalInfoActive);
 
@@ -40,6 +145,7 @@ const Aforum = () => {
             setmailingAddressActive(false);
         }
     };
+
     const togglemailingAddress = () => {
         setmailingAddressActive(!mailingAddressActive);
 
@@ -47,6 +153,7 @@ const Aforum = () => {
             setPersonalInfoActive(false);
         }
     };
+
     return (
         <div className='bg-[#f4f4f4] h-[100vh]  p-6 '>
             <div className='bg-white p-6 rounded-[8px]'>
@@ -71,150 +178,125 @@ const Aforum = () => {
                         </button>
                     </div>
                 </div>
-              
+
                 {personalInfoActive && (
                     <div className='w-[40%]'>
-
-                        <div className="text-start">
-                            <p className='text-[color:var(--Black,#222)] text-[18px] not-italic font-medium leading-[24px]'>Forum Name</p>
-                            <div className="pt-1">
-
-                                <input type="text" className="border border-gray-400  rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]  " placeholder="Forum Name" />
-                            </div>
-                            <p className='text-[color:var(--Black,#222)] text-[18px] not-italic pt-6 font-medium leading-[24px]'>Description</p>
-                            <div className="pt-1">
-                                <div className="relative">
+                        <form onSubmit={handleSubmit}>
+                            <div className="text-start">
+                                <p className='text-[color:var(--Black,#222)] text-[18px] not-italic font-medium leading-[24px]'>Forum Name</p>
+                                <div className="pt-1">
+                                    <input
+                                        type="text"
+                                        className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
+                                        placeholder="Forum Name"
+                                        value={formData.title}
+                                        onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                                    />
+                                </div>
+                                <p className='text-[color:var(--Black,#222)] text-[18px] not-italic pt-6 font-medium leading-[24px]'>Description</p>
+                                <div className="pt-1">
+                                    <textarea
+                                        className="border rounded-[6px] px-[20px] py-4 pb-28 w-full bg-[#F4F4F4]"
+                                        placeholder="Description"
+                                        value={formData.description}
+                                        onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                                    />
+                                </div>
+                                <p className='text-[color:var(--Black,#222)] text-[18px] not-italic pt-6 font-medium leading-[24px]'>Image</p>
+                                <div className="pt-1">
                                     <input
                                         type="file"
-                                        id="imageInput"
                                         accept="image/*"
-                                        className="hidden"
-                                        onChange={handleImageUpload}
+                                        onChange={handleImageChange}
+                                        className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
                                     />
-                                    <label htmlFor="imageInput" className="absolute left-60 px-8 py-6 cursor-pointer">
-                                        {selectedImage ? (
-                                            <img src={URL.createObjectURL(selectedImage)} alt="Selected" className="w-40 h-auto" />
-                                        ) : (
-                                            <img src={Icon} alt="Icon" />
-                                        )}
-                                    </label>
-                                    <div className='absolute left-32 ml-10 mt-20 flex gap-2'>
-                                        <p className='text-[color:var(--Blue,#00549A)] text-[18px] not-italic font-medium leading-[normal]'>Click to Upload</p>
-                                        <p className='text-[#353535] text-[18px] not-italic font-normal leading-[normal]'>or drag and drop</p>
-                                    </div>
-                                    <p className='absolute left-52 mt-28 text-[#353535] text-center text-[16px] not-italic font-normal leading-[normal]'> (Max. File size: 25 MB)</p>
-                                    <textarea className="border rounded-[6px] px-[20px] py-4 pb-20 pl-12 w-full bg-[#F4F4F4]" ></textarea>
-                                    {error && <p className="absolute left-52 mt-28 text-[#FF0000] text-center text-[16px] not-italic font-normal leading-[normal]">{error}</p>}
                                 </div>
-                            </div>
-
-                            <p className='text-[color:var(--Black,#222)] text-[18px] not-italic pt-6 font-medium leading-[24px]'>Description</p>
-                            <div className="pt-1">
-                                <textarea className="border  rounded-[6px] px-[20px] py-4 pb-28 w-full bg-[#F4F4F4]  " placeholder="Message"></textarea>
-                            </div>
-
-                            <div className='pt-8'>
-                                <Link to="/dashboard">
+                                <div className='pt-8'>
                                     <button className='bg-[#00549A] rounded-[10px] w-full py-4'  >
                                         <p className='text-white  text-center text-[20px] not-italic font-semibold leading-[normal]'  >Submit</p>
                                     </button>
-                                </Link>
+                                </div>
                             </div>
-
-                        </div>
-
+                        </form>
                     </div>
                 )}
+
                 {mailingAddressActive && (
-                    <div className=' '>
-                        <div className='bg-gray-100 py-4 w-full flex p-6'>
-                            <div
-                                style={{
-                                    width: '25px',
-                                    height: '25px',
-                                    cursor: 'pointer',
-                                    border: '1px solid #ccc',
-                                    borderRadius: '4px',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    backgroundColor: clicked ? '#424242' : 'transparent',
-                                    color: clicked ? '#fff' : '#000',
-                                }}
-                                onClick={handleClick}
-                            >
-                                <span style={{ color: clicked ? '#fff' : '#000' }}>{clicked && '✔'}</span>
-                            </div>
-
-                          
+                    <div className=' pt-4'>
+                        <div className='bg-gray-100 py-4 w-full flex p-6 gap-[21.5rem]'>
                             <p className='text-[color:var(--Gray,#58585A)] pl-2 text-[18px] not-italic font-semibold leading-[normal]'>Forum Name</p>
-                            <p className='text-[color:var(--Gray,#58585A)] text-[18px] not-italic font-semibold pl-[16rem] leading-[normal]'>Actions</p>
-                           
+                            <p className='text-[color:var(--Gray,#58585A)] text-[18px] not-italic font-semibold   leading-[normal]'>Actions</p>
                         </div>
-                        <div className='  py-4 w-full flex p-6'>
-                            <div
-                                style={{
-                                    width: '25px',
-                                    height: '25px',
-                                    cursor: 'pointer',
-                                    border: '1px solid #ccc',
-                                    borderRadius: '4px',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    backgroundColor: clicked ? '#424242' : 'transparent',
-                                    color: clicked ? '#fff' : '#000',
-                                }}
-                                onClick={handleClick}
-                            >
-                                <span style={{ color: clicked ? '#fff' : '#000' }}>{clicked && '✔'}</span>
+                        {forums.map((forum, index) => (
+
+                            <div key={index} className='w-full '>
+                                <div className='flex pt-4 pb-4 pl-8 '>
+                                    <div className='flex gap-4'>
+                                        <img src={click} alt="" className='' />
+                                        <p className='text-[color:var(--Gray,#58585A)] w-[405px]  text-[16px] not-italic font-normal leading-[normal]'>{forum.title}</p>
+                                    </div>
+                                    <div className='flex gap-6'>
+                                        <div>
+                                            <img src={ed} alt="" className=' ' onClick={() => handleEdit(forum)} />
+                                        </div>
+                                        <div>
+                                            <img src={del} alt="" className=' ' onClick={() => handleDelete(forum.id)} />
+                                        </div>
+                                    </div>
+                                </div>
+                                <hr className=' ' />
                             </div>
-                            <img src={click} alt="" className='pl-5'/>
-                            <p className='text-[color:var(--Gray,#58585A)] pl-5 text-[16px] not-italic font-normal leading-[normal]'>Infectious Diseases Forum</p>
-                            <div>
-                                    <img src={ed} alt="" className='pl-28' />
-                                </div>
-                                <div>
-                                    <img src={del} alt="" className='pl-4' />
-                                </div>
-                        </div>
-                        <hr />
-                        <div className='  py-4 w-full flex p-6'>
-                            <div
-                                style={{
-                                    width: '25px',
-                                    height: '25px',
-                                    cursor: 'pointer',
-                                    border: '1px solid #ccc',
-                                    borderRadius: '4px',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    backgroundColor: clicked ? '#424242' : 'transparent',
-                                    color: clicked ? '#fff' : '#000',
-                                }}
-                                onClick={handleClick}
-                            >
-                                <span style={{ color: clicked ? '#fff' : '#000' }}>{clicked && '✔'}</span>
-                            </div>
-                            <img src={click} alt="" className='pl-5'/>
-                            <p className='text-[color:var(--Gray,#58585A)] pl-5 text-[16px] not-italic font-normal leading-[normal]'>Infectious Diseases Forum</p>
-                            <div>
-                                    <img src={ed} alt="" className='pl-28' />
-                                </div>
-                                <div>
-                                    <img src={del} alt="" className='pl-4' />
-                                </div>
-                        </div>
-                        <hr />
+                        ))}
 
                     </div>
-
                 )}
+
+                {editFormVisible && selectedForum && (
+                    <div className='w-[40%]'>
+                        <form onSubmit={handleFormSubmit}>
+                            <div className="text-start">
+                                <p className='text-[color:var(--Black,#222)] text-[18px] not-italic font-medium leading-[24px]'>Forum Name</p>
+                                <div className="pt-1">
+                                    <input
+                                        type="text"
+                                        className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
+                                        placeholder="Forum Name"
+                                        value={formData.title}
+                                        onChange={(e) => setFormData({ ...formData, title: e.target.value })}
+                                    />
+                                </div>
+                                <p className='text-[color:var(--Black,#222)] text-[18px] not-italic pt-6 font-medium leading-[24px]'>Description</p>
+                                <div className="pt-1">
+                                    <textarea
+                                        className="border rounded-[6px] px-[20px] py-4 pb-28 w-full bg-[#F4F4F4]"
+                                        placeholder="Description"
+                                        value={formData.description}
+                                        onChange={(e) => setFormData({ ...formData, description: e.target.value })}
+                                    />
+                                </div>
+                                <p className='text-[color:var(--Black,#222)] text-[18px] not-italic pt-6 font-medium leading-[24px]'>Previous Image</p>
+
+
+                                <div className="pt-1">
+                                    <input
+                                        type="file"
+                                        accept="image/*"
+                                        onChange={handleImageChange}
+                                        className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
+                                    />
+                                </div>
+                                <img src={selectedImage ? URL.createObjectURL(selectedImage) : selectedForum.image} alt="Old Forum Image" className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]" />
+                                <div className='pt-8'>
+                                    <button className='bg-[#00549A] rounded-[10px] w-full py-4'>
+                                        <p className='text-white  text-center text-[20px] not-italic font-semibold leading-[normal]'>Update</p>
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                )}
+
             </div>
-
-
-
         </div>
     );
 };
