@@ -55,11 +55,11 @@ const ALogin = () => {
 
     return (
         <div className="w-full">
-            <div className='container'>
+            {/* <div className='container'> */}
             <Toaster position="top-center" />
                 <div className=' flex  bg-white'>
                     <div className='grad overflow-hidden relative  bg-cover h-[100vh]'>
-                        <img src={adm} alt="" className='h-[100%] w-[100%] rounded-r-[30px]' />
+                        <img src={adm} alt="" className='h-[100%] w-[800px] rounded-r-[30px]' />
                         <p className='absolute bottom-28 left-16 z-10 text-[color:var(--White,#FFF)] text-[44px] not-italic font-semibold leading-[53px]'>Towards Clinical <br />
                             Pharmacy Excellence</p>
                         <p className='absolute bottom-16 left-16 z-10 text-[color:var(--Lightgray,#F4F4F4)] text-[14px] not-italic font-normal leading-[normal]'>© 2024 All rights reserved</p>
@@ -107,7 +107,7 @@ const ALogin = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        // </div>
     );
 };
 

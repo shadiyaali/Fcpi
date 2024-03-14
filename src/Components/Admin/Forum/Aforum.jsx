@@ -44,9 +44,16 @@ const Aforum = () => {
     }, []);
 
     const handleImageChange = (e) => {
-        setSelectedImage(e.target.files[0]);
-        setFormData({ ...formData, image: e.target.files[0] });
+        const imageFile = e.target.files[0];
+        setSelectedImage(imageFile);
+        setFormData(prevFormData => ({
+            ...prevFormData,
+            image: imageFile
+        }));
     };
+
+
+
 
     const handleSubmit = async (e) => {
         e.preventDefault();
@@ -72,6 +79,7 @@ const Aforum = () => {
                 description: '',
                 image: null
             });
+            // setEditFormVisible(false);
         } catch (error) {
             console.error('Error adding forum:', error);
             alert('Failed to add forum. Please try again.');
@@ -93,16 +101,46 @@ const Aforum = () => {
         }
     };
 
+    const handleEdit = (forum) => {
+        setSelectedForum(forum);
+        setEditFormVisible(!editFormVisible);  
+    
+      
+        setFormData(prevFormData => ({
+            ...prevFormData,
+            title: forum.title,
+            description: forum.description,
+            
+            image: null
+        }));
+       
+    };
+    
+    
+    
+
     const handleFormSubmit = async (e) => {
         e.preventDefault();
-
+    
         try {
             const postData = new FormData();
             postData.append('title', formData.title);
             postData.append('description', formData.description);
-            postData.append('image', formData.image);
-
-            if (selectedForum) {
+            if (formData.image) {
+                // Only append the image if it's selected
+                postData.append('image', formData.image);
+            }
+    
+            if (!selectedForum) {
+                // Add new forum
+                const response = await axios.post(`${BASE_URL}/admins/forums/`, postData, {
+                    headers: {
+                        'Content-Type': 'multipart/form-data'
+                    }
+                });
+                console.log(response.data);
+                alert('Forum added successfully!');
+            } else {
                 // Update an existing forum
                 const response = await axios.put(`${BASE_URL}/admins/forums/${selectedForum.id}/update/`, postData, {
                     headers: {
@@ -111,32 +149,21 @@ const Aforum = () => {
                 });
                 console.log(response.data);
                 alert('Forum updated successfully!');
-            } else {
-                // Handle other cases, such as adding a new forum
             }
-
+    
             // Clear form data after submission
             setFormData({
                 title: '',
                 description: '',
-                image: null
+                image: ''
             });
+            setEditFormVisible(false);
         } catch (error) {
-            console.error('Error updating forum:', error);
-            alert('Failed to update forum. Please try again.');
+            console.error('Error:', error);
+            alert('Failed to submit forum. Please try again.');
         }
     };
-
-    const handleEdit = (forum) => {
-        setSelectedForum(forum);
-        setFormData({
-            title: forum.title,
-            description: forum.description,
-            image: forum.image
-        });
-        setEditFormVisible(!editFormVisible); // Toggle edit form visibility
-    };
-
+    
 
     const togglePersonalInfo = () => {
         setPersonalInfoActive(!personalInfoActive);
@@ -274,9 +301,14 @@ const Aforum = () => {
                                         onChange={(e) => setFormData({ ...formData, description: e.target.value })}
                                     />
                                 </div>
-                                <p className='text-[color:var(--Black,#222)] text-[18px] not-italic pt-6 font-medium leading-[24px]'>Previous Image</p>
+                                
 
-
+                                {selectedForum && (
+                                    <div className="pt-1">
+                                    
+                                        <img src={selectedImage ? URL.createObjectURL(selectedImage) : selectedForum.image} alt="Old Forum Image" className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]" />
+                                    </div>
+                                )}
                                 <div className="pt-1">
                                     <input
                                         type="file"
@@ -285,7 +317,8 @@ const Aforum = () => {
                                         className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
                                     />
                                 </div>
-                                <img src={selectedImage ? URL.createObjectURL(selectedImage) : selectedForum.image} alt="Old Forum Image" className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]" />
+
+
                                 <div className='pt-8'>
                                     <button className='bg-[#00549A] rounded-[10px] w-full py-4'>
                                         <p className='text-white  text-center text-[20px] not-italic font-semibold leading-[normal]'>Update</p>

@@ -1,33 +1,39 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import Logo1 from "../../../assets/images/calendar.png";
 import Logo2 from "../../../assets/images/location-03.png";
 import Logo3 from "../../../assets/images/mail-edit.png";
-import Logo4 from "../../../assets/images/Dr Neeraj Sidharthan.png";
-import "./Event.css"
-import { Carousel } from "flowbite-react";
 import arrow1 from "../../../assets/images/ev.png"
 import arrow2 from "../../../assets/images/ev-1.png"
 import logo1 from "../../../assets/images/user-story.png";
 import logo2 from "../../../assets/images/user-add--01.png";
 import logo3 from "../../../assets/images/user-story.svg";
+import { BASE_URL } from '../../../Utils/Config';
 
 const Detail = () => {
     const [currentPage, setCurrentPage] = useState(1);
-    const [hoveredLogin, setHoveredLogin] = useState(false);
+    const [speakers, setSpeakers] = useState([]);
     const speakersPerPage = 4;
-    const speakers = [
-        { id: 1, name: "Dr Neeraj Sidharthan", image: Logo4 },
-        { id: 2, name: "Dr CCCCCCCCC", image: Logo4 },
-        { id: 3, name: "Dr NNNNNNNNNNNNN", image: Logo4 },
-        { id: 4, name: "Dr PPPPPPPPPPPP", image: Logo4 },
-        { id: 5, name: "Dr QQQQQQQQQQQQ", image: Logo4 },
-        { id: 6, name: "Dr RRRRRRRRRRR", image: Logo4 },
+    const [hoveredLogin, setHoveredLogin] = useState(false);
 
-    ];
+
+    useEffect(() => {
+        const fetchSpeakers = async () => {
+            try {
+                const response = await axios.get(`${BASE_URL}/admins/speakers/`);
+                setSpeakers(response.data);
+            } catch (error) {
+                console.error('Error fetching speakers:', error);
+            }
+        };
+
+        fetchSpeakers();
+    }, []);
 
     const indexOfLastSpeaker = currentPage * speakersPerPage;
     const indexOfFirstSpeaker = indexOfLastSpeaker - speakersPerPage;
     const currentSpeakers = speakers.slice(indexOfFirstSpeaker, indexOfLastSpeaker);
+
     const goToNextPage = () => {
         setCurrentPage(currentPage + 1);
     };
@@ -35,12 +41,6 @@ const Detail = () => {
     const goToPrevPage = () => {
         setCurrentPage(currentPage - 1);
     };
-
-
-
-
-
-
 
     return (
         <div className="w-full h-full bg-[#f4f4f4]">
@@ -90,7 +90,7 @@ const Detail = () => {
                             <div className="grid grid-cols-4 pb-8 pt-8 gap-8">
                                 {currentSpeakers.map(speaker => (
                                     <div key={speaker.id} className='bg-gray-100 rounded-[10px] '>
-                                        <img src={speaker.image} alt={speaker.name} className=" w-[100%] rounded-[10px]  " />
+                                        <img src={speaker.photo} alt= "" className="w-full h-[80%] object-cover   rounded-[10px]  " />
                                         <p className='text-black text-center pt-8 pb-8 text-[18px] not-italic font-semibold leading-[18px]'  >{speaker.name}</p>
                                     </div>
                                 ))}
@@ -130,6 +130,5 @@ const Detail = () => {
         </div>
     );
 };
-
 
 export default Detail;
