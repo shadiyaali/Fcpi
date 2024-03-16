@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import user from "../../../assets/images/user.png"
 import { Link } from "react-router-dom";
+import { toast, Toaster } from "react-hot-toast";
+import axios from 'axios';
+import { BASE_URL } from "../../../Utils/Config";
 
 
 const Profile = () => {
@@ -12,6 +15,68 @@ const Profile = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [displayedPassword, setDisplayedPassword] = useState('');
+    const [formData, setFormData] = useState({
+        first_name:'',
+        last_name:'',
+        dateOfBirth: '',
+        primaryPosition: '',
+        state: '',
+        primaryPharmacyDegree: '',
+        secondaryPharmacyDegree: '',
+        additionalDegrees: '',
+        city: '',
+        country: '',
+        pharmacyCollegeName: '',
+        pharmacyCollegeDegree: ''
+    });
+    const handleInputChange = (event) => {
+        const { name, value } = event.target;
+        setFormData({ ...formData, [name]: value });
+    };
+    const handleSubmit = async (event) => {
+        event.preventDefault();
+        try {
+            const formDataToSend = {
+                date_of_birth: formData.dateOfBirth,
+                primary_position: formData.primaryPosition,
+                state: formData.state,
+                primary_pharmacy_degree: formData.primaryPharmacyDegree,
+                secondary_pharmacy_degree: formData.secondaryPharmacyDegree,
+                additional_degrees: formData.additionalDegrees,
+                city: formData.city,
+                country: formData.country,
+                pharmacy_college_name: formData.pharmacyCollegeName,
+                pharmacy_college_degree: formData.pharmacyCollegeDegree
+            };
+    
+            console.log('Form data to send:', formDataToSend);  
+    
+            const response = await axios.post(`${BASE_URL}/accounts/user-profile/
+            `, formDataToSend);
+            console.log('Form data submitted:', formDataToSend);
+            toast.success('Form submitted successfully!');
+    
+            // Clear form fields after successful submission
+            setFormData({
+                dateOfBirth: '',
+                primaryPosition: '',
+                state: '',
+                primaryPharmacyDegree: '',
+                secondaryPharmacyDegree: '',
+                additionalDegrees: '',
+                city: '',
+                country: '',
+                pharmacyCollegeName: '',
+                pharmacyCollegeDegree: ''
+            });
+        } catch (error) {
+            console.error('Error submitting form:', error);
+            toast.error('Form submission failed!');
+        }
+    };
+    
+    
+
 
     const handleEmailChange = (event) => {
         const value = event.target.value;
@@ -26,7 +91,7 @@ const Profile = () => {
 
 
 
-    // Function to toggle the dropdown state
+
 
 
 
@@ -49,6 +114,7 @@ const Profile = () => {
     return (
         <div className='bg-[#f4f4f4] h-[100vh]  p-6 '>
             <div className='bg-white p-6 rounded-[8px]'>
+                <Toaster position="top-center reverseOrder={false}" />
                 <p className='text-[color:var(--Black,#222)] text-[24px] not-italic font-semibold leading-[25px] tracking-[-0.12px]'>Profile Edit</p>
                 <div className='flex pt-6 gap-[12rem] p-6'>
                     <div className='flex gap-3'>
@@ -68,197 +134,210 @@ const Profile = () => {
                     </div>
 
                 </div>
+                <form onSubmit={handleSubmit}>
+                    {personalInfoActive && (
+                        <div className='flex '>
+                            <div className='pt-6'>
+                                <img src={user} alt="" className='  h-[192px] w-[192px]' />
+                            </div>
+                            <div className='grid grid-cols-2 pt-4 w-full'>
+                                <div className='pl-16'>
+                                    <div className=''>
 
-                {personalInfoActive && (
-                    <div className='flex '>
-                        <div className='pt-6'>
-                            <img src={user} alt="" className='  h-[192px] w-[192px]' />
-                        </div>
-                        <div className='grid grid-cols-2 pt-4 w-full'>
-                            <div className='pl-16'>
-                                <div className= ''>
+                                        <div className="text-start">
+                                            {/* <p className='text-[color:var(--Black,#222)] text-[18px] not-italic font-medium leading-[24px]'>First Name</p>
+                                            <div className="pt-2">
+                                                <input
+                                                    type="text"
+                                                    name="first_name"
+                                                    value={formData.first_name}
+                                                    onChange={handleInputChange}
+                                                    className="border border-gray-400  rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
+                                                    placeholder="First Name"
+                                                />
+                                            </div> */}
+                                            <p className='text-[color:var(--Black,#222)] pt-8 text-[18px] not-italic font-medium leading-[24px]'>Date of Birth</p>
+                                            <div className="pt-2">
+                                                <input
+                                                    type="text"
+                                                    name="dateOfBirth"
+                                                    value={formData.dateOfBirth}
+                                                    onChange={handleInputChange}
+                                                    className="border border-gray-400  rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
+                                                    placeholder="Date of Birth"
+                                                />
+                                            </div>
 
-                                    <div className="text-start">
-                                        <p className='text-[color:var(--Black,#222)] text-[18px] not-italic font-medium leading-[24px]'>First Name</p>
-                                        <div className="pt-2">
+                                            <p className='text-[color:var(--Black,#222)] text-[18px] not-italic font-medium pt-8 leading-[24px]'>State</p>
+                                            <input
+                                                type="text"
+                                                name="state"
+                                                value={formData.state}
+                                                onChange={handleInputChange}
+                                                className="border border-gray-400  rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
+                                                placeholder="state"
+                                            />
 
-                                            <input type="text" className="border border-gray-400  rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]  " placeholder="First Name" />
-                                        </div>
-                                        <p className='text-[color:var(--Black,#222)] pt-8 text-[18px] not-italic font-medium leading-[24px]'>Date of Birth</p>
-                                        <div className="pt-2">
-                                            <input type="text" className="border border-gray-400  rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]" placeholder="Date of Birth" />
-                                        </div>
-                                        <p className='text-[color:var(--Black,#222)] text-[18px] not-italic font-medium pt-8 leading-[24px]'>Primary Position</p>
-                                        <div className="pt-2 relative">
-                                            <div className="relative">
-                                                <input type="text" className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4] pr-[30px]" placeholder="yes" />
-                                                <select className="absolute inset-y-0 right-0 top-0 bottom-0 bg-transparent border-none cursor-pointer appearance-none">
-                                                    <option value="" disabled selected></option>
-                                                    {/* Add your dropdown options here */}
+
+
+                                            <p className='text-[color:var(--Black,#222)] pt-8 text-[18px] not-italic font-medium leading-[24px]'>Primary Pharmacy Degree</p>
+                                            <div className="relative pt-2">
+                                                <select
+                                                    className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
+                                                    name="primaryPharmacyDegree"
+                                                    value={formData.primaryPharmacyDegree}
+                                                    onChange={handleInputChange}
+                                                >
+                                                    <option value="" disabled selected>Select Primary Pharmacy Degree</option>
+                                                    <option value="Bachelors in Pharmacy">Bachelors in Pharmacy</option>
+                                                    <option value="Doctor of Pharmacy">Doctor of Pharmacy</option>
+
+                                                    {/* Add more options as needed */}
                                                 </select>
                                             </div>
 
-                                        </div>
-                                        <p className='text-[color:var(--Black,#222)] text-[18px] not-italic font-medium pt-8 leading-[24px]'>State</p>
-                                        <div className="relative pt-2">
-                                                <input type="text" className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4] pr-[30px]" placeholder="Kerala" />
-                                                <select className="absolute inset-y-0 right-0 top-0 bottom-0 bg-transparent border-none cursor-pointer appearance-none">
-                                                    <option value="" disabled selected></option>
-                                                    {/* Add your dropdown options here */}
+                                            <p className='text-[color:var(--Black,#222)] pt-8 text-[18px] not-italic font-medium leading-[24px]'>Secondary Pharmacy Degree</p>
+                                            <div className="relative pt-2">
+                                                <select
+                                                    className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
+                                                    name="secondaryPharmacyDegree"
+                                                    value={formData.secondaryPharmacyDegree}
+                                                    onChange={handleInputChange}
+                                                >
+                                                    <option value="" disabled selected>Select secondaryPharmacyDegree</option>
+                                                    <option value="Doctor of Pharmacy Post Baccalaureate"> Doctor of Pharmacy Post Baccalaureate</option>
+                                                    <option value="Masters in Pharmacy">Masters in Pharmacy</option>
+
+                                                    {/* Add more options as needed */}
                                                 </select>
                                             </div>
-                        
-
-
-
-                                        <p className='text-[color:var(--Black,#222)] pt-8 text-[18px] not-italic font-medium leading-[24px]'>Primary Pharmacy Degree</p>
-                                        <div className="relative pt-2">
-                                                <input type="text" className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4] pr-[30px]" placeholder="Doctor of Pharmacy" />
-                                                <select className="absolute inset-y-0 right-0 top-0 bottom-0 bg-transparent border-none cursor-pointer appearance-none">
-                                                    <option value="" disabled selected></option>
-                                                    {/* Add your dropdown options here */}
-                                                </select>
-                                            </div>
-                                        <p className='text-[color:var(--Black,#222)] pt-8 text-[18px] not-italic font-medium leading-[24px]'>Secondary Pharmacy Degree</p>
-                                        <div className="pt-2 relative">
-                                            <div className="relative">
-                                                <input type="text" className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4] pr-[30px]" placeholder="Masters in Pharmacy" />
-                                                <select className="absolute inset-y-0 right-0 top-0 bottom-0 bg-transparent border-none cursor-pointer appearance-none">
-                                                    <option value="" disabled selected></option>
-                                                    {/* Add your dropdown options here */}
-                                                </select>
+                                            <p className='text-[color:var(--Black,#222)] pt-8 text-[18px] not-italic font-medium leading-[24px]'>Additional Degrees</p>
+                                            <div className="pt-2">
+                                                <input
+                                                    type="text"
+                                                    name="additionalDegrees"
+                                                    value={formData.additionalDegrees}
+                                                    onChange={handleInputChange}
+                                                    className="border border-gray-400  rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
+                                                    placeholder="additionalDegrees"
+                                                />
                                             </div>
 
-                                        </div>
-                                        <p className='text-[color:var(--Black,#222)] pt-8 text-[18px] not-italic font-medium leading-[24px]'>Additional Degrees</p>
-                                        <div className="pt-2">
-                                            <input type="text" className="border border-gray-400  rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]" placeholder="Yes" />
-                                        </div>
 
-                                       
+
+                                        </div>
 
                                     </div>
-
                                 </div>
-                            </div>
-                            <div className='pl-16'>
-                                <div className= ''>
+                                <div className='pl-16'>
+                                    <div className=''>
 
-                                    <div className="text-start">
-                                        <p className='text-[color:var(--Black,#222)] text-[18px] not-italic font-medium leading-[24px]'>Last Name</p>
-                                        <div className="pt-2">
+                                        <div className="text-start">
+                                            {/* <p className='text-[color:var(--Black,#222)] text-[18px] not-italic font-medium leading-[24px]'>Last Name</p>
+                                            <div className="pt-2">
 
-                                            <input type="text" className="border border-gray-400  rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]  " placeholder="Last Name" />
-                                        </div>
-                                         
-                                        <p className='text-[color:var(--Black,#222)] text-[18px] not-italic font-medium pt-8 leading-[24px]'>Primary Position</p>
-                                        <div className="pt-2 relative">
-                                            <div className="relative">
-                                                <input type="text" className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4] pr-[30px]" placeholder="Primary Position" />
-                                                <select className="absolute inset-y-0 right-0 top-0 bottom-0 bg-transparent border-none cursor-pointer appearance-none">
-                                                    <option value="" disabled selected></option>
-                                                    {/* Add your dropdown options here */}
+                                                <input
+                                                    type="text"
+                                                    name="last_name"
+                                                    value={formData.last_name}
+                                                    onChange={handleInputChange}
+                                                    className="border border-gray-400  rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
+                                                    placeholder="last_name"
+                                                />
+                                            </div> */}
+
+                                            <p className='text-[color:var(--Black,#222)] text-[18px] not-italic font-medium pt-8 leading-[24px]'>Primary Position</p>
+                                            <div className="pt-2 relative">
+                                            <div className="relative pt-2">
+                                                <select
+                                                    className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
+                                                    name="primaryPosition"
+                                                    value={formData.primaryPosition}
+                                                    onChange={handleInputChange}
+                                                >
+                                                    <option value="" disabled selected>Select Primary Pharmacy Degree</option>
+                                                    <option value="student">student</option>
+                                                    <option value="clinical pharmacist">clinical pharmacist</option>
+                                                    <option value="pharmacist">pharmacist</option>
+                                                    <option value="faculty">faculty</option>
+                                        
+                                                    {/* Add more options as needed */}
                                                 </select>
                                             </div>
 
-                                        </div>
-                                        <p className='text-[color:var(--Black,#222)] text-[18px] not-italic font-medium pt-8 leading-[24px]'>City</p>
-                                        <div className="relative pt-2">
-                                                <input type="text" className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4] pr-[30px]" placeholder="Calicut" />
-                                                <select className="absolute inset-y-0 right-0 top-0 bottom-0 bg-transparent border-none cursor-pointer appearance-none">
-                                                    <option value="" disabled selected></option>
-                                                    {/* Add your dropdown options here */}
-                                                </select>
                                             </div>
-                        
-
-
-
-                                        <p className='text-[color:var(--Black,#222)] pt-8 text-[18px] not-italic font-medium leading-[24px]'>Country</p>
-                                        <div className="relative pt-2">
-                                                <input type="text" className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4] pr-[30px]" placeholder="India" />
-                                                <select className="absolute inset-y-0 right-0 top-0 bottom-0 bg-transparent border-none cursor-pointer appearance-none">
-                                                    <option value="" disabled selected></option>
-                                                    {/* Add your dropdown options here */}
-                                                </select>
-                                            </div>
-                                        <p className='text-[color:var(--Black,#222)] pt-8 text-[18px] not-italic font-medium leading-[24px]'>Name of Pharmacy College</p>
-                                        <div className="pt-2 relative">
-                                            <div className="relative">
-                                                <input type="text" className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4] pr-[30px]" placeholder="Doctor of Pharmacy" />
-                                                <select className="absolute inset-y-0 right-0 top-0 bottom-0 bg-transparent border-none cursor-pointer appearance-none">
-                                                    <option value="" disabled selected></option>
-                                                    {/* Add your dropdown options here */}
-                                                </select>
+                                            <p className='text-[color:var(--Black,#222)] text-[18px] not-italic font-medium pt-8 leading-[24px]'>City</p>
+                                            <div className="relative pt-2">
+                                                <input
+                                                    type="text"
+                                                    name="city"
+                                                    value={formData.city}
+                                                    onChange={handleInputChange}
+                                                    className="border border-gray-400  rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
+                                                    placeholder="city"
+                                                />
                                             </div>
 
+
+
+
+                                            <p className='text-[color:var(--Black,#222)] pt-8 text-[18px] not-italic font-medium leading-[24px]'>Country</p>
+                                            <div className="relative pt-2">
+                                                <input
+                                                    type="text"
+                                                    name="country"
+                                                    value={formData.country}
+                                                    onChange={handleInputChange}
+                                                    className="border border-gray-400  rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
+                                                    placeholder="country"
+                                                />
+                                            </div>
+                                            <p className='text-[color:var(--Black,#222)] pt-8 text-[18px] not-italic font-medium leading-[24px]'>Name of Pharmacy College</p>
+                                            <div className="pt-2 relative">
+                                                <div className="relative">
+                                                    <input
+                                                        type="text"
+                                                        name="pharmacyCollegeName"
+                                                        value={formData.pharmacyCollegeName}
+                                                        onChange={handleInputChange}
+                                                        className="border border-gray-400  rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
+                                                        placeholder="pharmacyCollegeName"
+                                                    />
+                                                </div>
+
+                                            </div>
+                                            <p className='text-[color:var(--Black,#222)] pt-8 text-[18px] not-italic font-medium leading-[24px]'>Name of Pharmacy College Degree</p>
+                                            <div className=" relative pt-2">
+
+                                                <input
+                                                    type="text"
+                                                    name="pharmacyCollegeDegree"
+                                                    value={formData.pharmacyCollegeDegree}
+                                                    onChange={handleInputChange}
+                                                    className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
+                                                    placeholder="pharmacyCollegeDegree"
+                                                />
+                                            </div>
+
+                                            <div className='pt-16'>
+
+                                                <button className='bg-[#00549A] rounded-[10px] w-full py-4'  >
+                                                    <p className='text-white  text-center text-[20px] not-italic font-semibold leading-[normal]'  >Submit</p>
+                                                </button>
+
+                                            </div>
+
+
                                         </div>
-                                        <p className='text-[color:var(--Black,#222)] pt-8 text-[18px] not-italic font-medium leading-[24px]'>Name of Pharmacy College Degree</p>
-                                        <div className="pt-2">
-                                            <input type="text" className="border border-gray-400  rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]" placeholder="Masters in Pharmacy" />
-                                        </div>
-
-                                        <div className='pt-16'>
-
-                                            <button className='bg-[#00549A] rounded-[10px] w-full py-4'  >
-                                                <p className='text-white  text-center text-[20px] not-italic font-semibold leading-[normal]'  >Submit</p>
-                                            </button>
-
-                                        </div>
-
 
                                     </div>
-
                                 </div>
                             </div>
+
                         </div>
+                    )}
 
-                    </div>
-                )}
-
-                {mailingAddressActive && (
-                    <div className=' '>
-                         
-                         <div className="  rounded-[30px] w-[38%]    ">
-                            <div className="text-start">
-                             
-                                <p className="text-gray-600  pt-4 text-[18px] not-italic font-semibold leading-[24px]">New Password</p>
-                                <div className="relative pt-4">
-                                    <input
-                                        type="password"
-                                        value={password}
-                                        onChange={handlePasswordChange}
-                                        className="border rounded-[10px] px-[20px] py-4 w-full pt-6 bg-white"
-                                        style={{ font: 'normal 1em Arial' }}
-                                        placeholder="************"
-                                    />
-                                </div>
-                                <p className="text-[#444150] pt-4 text-[18px] not-italic font-semibold leading-[24px]">Confirmed Password</p>
-                                <div className="relative pt-4">
-                                    <input
-                                        type="password"
-                                        value={password}
-                                        onChange={handlePasswordChange}
-                                        className="border rounded-[10px] px-[20px] py-4 w-full pt-6 bg-white"
-                                        style={{ font: 'normal 1em Arial' }}
-                                        placeholder="************"
-                                    />
-                                </div>
-
-                                <div className='pt-8'>
-                                   
-                                        <button className='bg-[#00549A] rounded-[10px] w-full py-4'  >
-                                            <p className='text-white  text-center text-[20px] not-italic font-semibold leading-[normal]'  >Submit</p>
-                                        </button>
-                                   
-                                </div>
-                                 
-
-                            </div>
-                        </div>
-                        
-                    </div>
-                )}
+                </form>
 
 
 
