@@ -127,12 +127,12 @@ const Aforum = () => {
             postData.append('title', formData.title);
             postData.append('description', formData.description);
             if (formData.image) {
-                // Only append the image if it's selected
+        
                 postData.append('image', formData.image);
             }
     
             if (!selectedForum) {
-                // Add new forum
+          
                 const response = await axios.post(`${BASE_URL}/admins/forums/`, postData, {
                     headers: {
                         'Content-Type': 'multipart/form-data'
