@@ -61,13 +61,13 @@ const User = () => {
         for (let i = 0; i < length; i++) {
             newPassword += charset.charAt(Math.floor(Math.random() * charset.length));
         }
-         
+
         setFormData({
             ...formData,
             password: newPassword,
             password2: newPassword
         });
-        setGeneratedPassword(newPassword); 
+        setGeneratedPassword(newPassword);
     };
     const handleRoleSelect = (e) => {
         setSelectedRole(e.target.value);
@@ -81,7 +81,7 @@ const User = () => {
     const handleChange = (e) => {
         const { name, value } = e.target;
         console.log(name)
-    
+
         if (name !== 'userrole') {
             setFormData({
                 ...formData,
@@ -96,9 +96,9 @@ const User = () => {
             });
         }
     };
-    
-    
-    
+
+
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -117,17 +117,17 @@ const User = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-    
+
         if (!first_name || !last_name || !phone || !email || !password || !password2 || !selectedRole) {
             toast.error("All fields are required.");
             return;
         }
-    
+
         if (password.trim() !== password2.trim()) {
             toast.error("Passwords do not match.");
             return;
         }
-    
+
         try {
             const response = await axios.post(`${BASE_URL}/accounts/add_user/`, {
                 first_name,
@@ -153,13 +153,13 @@ const User = () => {
             }
         }
     };
-    
-    
+
+
     useEffect(() => {
         const fetchUserData = async () => {
             try {
                 const response = await axios.get(`${BASE_URL}/accounts/userlist/`);
-                
+
                 const fetchedUserData = response.data;
                 setUserData(fetchedUserData);
             } catch (error) {
@@ -337,18 +337,18 @@ const User = () => {
                                     />
                                 </div>
                                 <div className="pt-2 relative">
-    <select
-        className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4] pr-[30px]"
-        name="userrole"
-        value={selectedRole} // Bind selectedRole to the value of the select element
-        onChange={handleChange} // Update the handleChange function to handle changes
-    >
-        <option value="" disabled selected>Choose a role</option>
-        {userRoles.map(role => (
-            <option key={role.id} value={role.id}>{role.name}</option>
-        ))}
-    </select>
-</div>
+                                    <select
+                                        className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4] pr-[30px]"
+                                        name="userrole"
+                                        value={selectedRole} // Bind selectedRole to the value of the select element
+                                        onChange={handleChange} // Update the handleChange function to handle changes
+                                    >
+                                        <option value="" disabled selected>Choose a role</option>
+                                        {userRoles.map(role => (
+                                            <option key={role.id} value={role.id}>{role.name}</option>
+                                        ))}
+                                    </select>
+                                </div>
 
                                 <div className='pt-8'>
                                     <button className='bg-[#00549A] rounded-[10px] w-full py-4'>
@@ -361,105 +361,105 @@ const User = () => {
                 )}
 
 
-{mailingAddressActive && (
-    <div className=' '>
-        <div>
-            {/* Search bar */}
-            <button className='border border-gray-300 px-4 py-3 w-[40%] rounded-[6px]'>
-                <div className='flex justify-between'>
-                    <div className='flex gap-2'>
-                        <img src={search} alt="" />
-                        <p className='text-[color:var(--Gray,#58585A)] pl-2 text-[15px] not-italic font-normal leading-[normal]'>Search by data...</p>
-                    </div>
-                    <div>
-                        <img src={cls} alt="" className='pl-[20rem]' />
-                    </div>
-                </div>
-            </button>
-        </div>
-        <div className='pt-8'>
-            <div className='bg-gray-100 py-4 w-full flex p-6 gap-2 pl-8 pr-8 '>
-                <p className='text-[color:var(--Gray,#58585A)]   text-[18px] not-italic font-semibold leading-[normal]'>#ID</p>
-                <div className=''>
-                <p className='text-[color:var(--Gray,#58585A)] text-[18px] not-italic font-semibold pl-8  leading-[normal]'>Name</p>
-                </div>
-                <div>
-                <p className='text-[color:var(--Gray,#58585A)] pl-[13rem] text-[18px] not-italic font-semibold leading-[normal]'>Email</p>
-                </div>
-                <div>
-                <p className='text-[color:var(--Gray,#58585A)]  text-[18px] not-italic font-semibold pl-[18.5rem]  leading-[normal]'>Contact</p>
-                </div>
-                <div>
-                <p className='text-[color:var(--Gray,#58585A)] pl-[8rem] text-[18px] not-italic font-semibold leading-[normal]'>User Type</p>
-                </div>
-                <p className='text-[color:var(--Gray,#58585A)] text-[18px] pl-[9rem] not-italic font-semibold   leading-[normal]'>Status</p>
-            </div>
-        </div>
-        {userData.map((user, index) => (
-    <div key={index} className='py-4 w-full flex p-6 items-center pl-8 pr-8'>
-        <div className='w-[3%]'>
-        <p className='text-[color:var(--Gray,#58585A)] text-[18px]   not-italic font-normal leading-[normal]'>{user.id}</p>
-        </div>
-        <img src={click} alt="" className=' pl-8' />
-        <div className='w-[25%] pl-4'>
-        <p className='text-[color:var(--Gray,#58585A)]  text-[18px] not-italic font-normal leading-[normal]'>{`${user.first_name} ${user.last_name}`}</p>
-        </div>
-        <div className='w-[36%]'>
-        <p className='text-[color:var(--Gray,#58585A)]   text-[18px] not-italic font-normal leading-[normal]'>{user.email}</p>
-        </div>
-        <div className='w-[15%]'>
-        <p className='text-[color:var(--Gray,#58585A)]   text-[18px] not-italic font-normal leading-[normal]'>{user.phone}</p>
-        </div>
-        <div className='w-[15%]'>
-        <p className='text-[color:var(--Gray,#58585A)]   text-[18px] not-italic font-normal leading-[normal]'>{user?.userrole?.name}</p>
-        </div>
-        <div className='pl-16'>
-            <img src={eye} alt="" className='w-[100%]' />
-        </div>
-        <div className='pl-[4rem]'>
-            <button className='px-6 py-1 rounded-[4px]' style={{ background: "rgba(26, 183, 141, 0.10)" }}>
-                <p className='text-[color:var(--Green,#1AB78D)] text-[16px] not-italic font-medium leading-[normal]'>Active</p>
-            </button>
-        </div>
-        <img src={img} alt="" className='pl-[5rem]' onClick={() => handleToggleDropdown(index)} />
-        {dropdownStates[0] && (
-                                <div className='absolute right-32 top-[20rem] bg-white rounded-[8px] p-6 w-[20%] shadow-2xl'  >
-                                    <div className='border border-gray-300 rounded-[8px]'>
-                                        <Link to="/user-editprofile">
-                                            <div className='flex p-4 '>
-                                                <img src={edi} alt="" />
-                                                <p className='ext-[color:var(--Black,#222)] pl-4 pt-2 text-[14px] not-italic font-semibold leading-[normal]'>Profile Edit</p>
-                                            </div>
-                                        </Link>
-                                        <hr />
-                                        <div className='flex p-4 '>
-                                            <img src={dil} alt="" />
-                                            <p className='ext-[color:var(--Black,#222)] pl-4 pt-2 text-[14px] not-italic font-semibold leading-[normal]'>Delete</p>
-                                        </div>
-                                        <hr />
-                                        <Link to="/usertype">
-                                            <div className='flex p-4 '>
-                                                <img src={ch} alt="" />
-                                                <p className='ext-[color:var(--Black,#222)] pl-4 pt-2 text-[14px] not-italic font-semibold leading-[normal]'>Change User Type</p>
-                                            </div>
-                                        </Link>
-                                        <hr />
-                                        <Link to="/user-status">
-                                            <div className='flex p-4 '>
-                                                <img src={st} alt="" />
-                                                <p className='ext-[color:var(--Black,#222)] pl-4 pt-2 text-[14px] not-italic font-semibold leading-[normal]'>Status</p>
-                                            </div>
-                                        </Link>
-                                        <hr />
+                {mailingAddressActive && (
+                    <div className=' '>
+                        <div>
+                            {/* Search bar */}
+                            <button className='border border-gray-300 px-4 py-3 w-[40%] rounded-[6px]'>
+                                <div className='flex justify-between'>
+                                    <div className='flex gap-2'>
+                                        <img src={search} alt="" />
+                                        <p className='text-[color:var(--Gray,#58585A)] pl-2 text-[15px] not-italic font-normal leading-[normal]'>Search by data...</p>
+                                    </div>
+                                    <div>
+                                        <img src={cls} alt="" className='pl-[20rem]' />
                                     </div>
                                 </div>
-                            )}
-    </div>
-))}
+                            </button>
+                        </div>
+                        <div className='pt-8'>
+                            <div className='bg-gray-100 py-4 w-full flex p-6 gap-2 pl-8 pr-8 '>
+                                <p className='text-[color:var(--Gray,#58585A)]   text-[18px] not-italic font-semibold leading-[normal]'>#ID</p>
+                                <div className=''>
+                                    <p className='text-[color:var(--Gray,#58585A)] text-[18px] not-italic font-semibold pl-8  leading-[normal]'>Name</p>
+                                </div>
+                                <div>
+                                    <p className='text-[color:var(--Gray,#58585A)] pl-[13rem] text-[18px] not-italic font-semibold leading-[normal]'>Email</p>
+                                </div>
+                                <div>
+                                    <p className='text-[color:var(--Gray,#58585A)]  text-[18px] not-italic font-semibold pl-[18.5rem]  leading-[normal]'>Contact</p>
+                                </div>
+                                <div>
+                                    <p className='text-[color:var(--Gray,#58585A)] pl-[8rem] text-[18px] not-italic font-semibold leading-[normal]'>User Type</p>
+                                </div>
+                                <p className='text-[color:var(--Gray,#58585A)] text-[18px] pl-[9rem] not-italic font-semibold   leading-[normal]'>Status</p>
+                            </div>
+                        </div>
+                        {userData.map((user, index) => (
+                            <div key={index} className='py-4 w-full flex p-6 items-center pl-8 pr-8'>
+                                <div className='w-[3%]'>
+                                    <p className='text-[color:var(--Gray,#58585A)] text-[18px]   not-italic font-normal leading-[normal]'>{user.id}</p>
+                                </div>
+                                <img src={click} alt="" className=' pl-8' />
+                                <div className='w-[25%] pl-4'>
+                                    <p className='text-[color:var(--Gray,#58585A)]  text-[18px] not-italic font-normal leading-[normal]'>{`${user.first_name} ${user.last_name}`}</p>
+                                </div>
+                                <div className='w-[36%]'>
+                                    <p className='text-[color:var(--Gray,#58585A)]   text-[18px] not-italic font-normal leading-[normal]'>{user.email}</p>
+                                </div>
+                                <div className='w-[15%]'>
+                                    <p className='text-[color:var(--Gray,#58585A)]   text-[18px] not-italic font-normal leading-[normal]'>{user.phone}</p>
+                                </div>
+                                <div className='w-[15%]'>
+                                    <p className='text-[color:var(--Gray,#58585A)]   text-[18px] not-italic font-normal leading-[normal]'>{user?.userrole?.name}</p>
+                                </div>
+                                <div className='pl-16'>
+                                    <img src={eye} alt="" className='w-[100%]' />
+                                </div>
+                                <div className='pl-[4rem]'>
+                                    <button className='px-6 py-1 rounded-[4px]' style={{ background: "rgba(26, 183, 141, 0.10)" }}>
+                                        <p className='text-[color:var(--Green,#1AB78D)] text-[16px] not-italic font-medium leading-[normal]'>Active</p>
+                                    </button>
+                                </div>
+                                <img src={img} alt="" className='pl-[5rem]' onClick={() => handleToggleDropdown(index)} />
+                                {dropdownStates[0] && (
+                                    <div className='absolute right-32 top-[20rem] bg-white rounded-[8px] p-6 w-[20%] shadow-2xl'  >
+                                        <div className='border border-gray-300 rounded-[8px]'>
+                                            <Link to="/user-editprofile">
+                                                <div className='flex p-4 '>
+                                                    <img src={edi} alt="" />
+                                                    <p className='ext-[color:var(--Black,#222)] pl-4 pt-2 text-[14px] not-italic font-semibold leading-[normal]'>Profile Edit</p>
+                                                </div>
+                                            </Link>
+                                            <hr />
+                                            <div className='flex p-4 '>
+                                                <img src={dil} alt="" />
+                                                <p className='ext-[color:var(--Black,#222)] pl-4 pt-2 text-[14px] not-italic font-semibold leading-[normal]'>Delete</p>
+                                            </div>
+                                            <hr />
+                                            <Link to="/usertype">
+                                                <div className='flex p-4 '>
+                                                    <img src={ch} alt="" />
+                                                    <p className='ext-[color:var(--Black,#222)] pl-4 pt-2 text-[14px] not-italic font-semibold leading-[normal]'>Change User Type</p>
+                                                </div>
+                                            </Link>
+                                            <hr />
+                                            <Link to="/user-status">
+                                                <div className='flex p-4 '>
+                                                    <img src={st} alt="" />
+                                                    <p className='ext-[color:var(--Black,#222)] pl-4 pt-2 text-[14px] not-italic font-semibold leading-[normal]'>Status</p>
+                                                </div>
+                                            </Link>
+                                            <hr />
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        ))}
 
-    </div>
-)}
-        {userRoleActive && (
+                    </div>
+                )}
+                {userRoleActive && (
                     <div className=' '>
 
                         <p className='text-[color:var(--Black,#222)] text-[18px] not-italic font-medium leading-[24px]'>Role Name</p>

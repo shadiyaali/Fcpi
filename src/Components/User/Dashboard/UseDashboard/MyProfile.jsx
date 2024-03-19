@@ -1,11 +1,33 @@
-import React, { useState } from 'react';
+import React, { useState,useEffect } from 'react';
 import imag from "../../../../assets/images/user-circle.png";
 import imag1 from "../../../../assets/images/mail.png"; 
 import log from "../../../../assets/images/Frame.png"; 
+import edit from "../../../../assets/images/edit-user.png"
+import { BASE_URL } from '../../../../Utils/Config';
+import axios from 'axios';
+import { toast, Toaster } from "react-hot-toast";
+
 
 const Profile = () => {
     const [personalInfoActive, setPersonalInfoActive] = useState(true);
     const [mailingAddressActive, setmailingAddressActive] = useState(false);
+    const [userData,setUserData] = useState('')
+
+    useEffect(() => {
+        const fetchUserData = async () => {
+            try {
+                const response = await axios.get(`${BASE_URL}/accounts/userlist/`);
+
+                const fetchedUserData = response.data;
+                setUserData(fetchedUserData);
+            } catch (error) {
+                console.error('Error fetching user data:', error);
+                toast.error("Error fetching user data");
+            }
+        };
+
+        fetchUserData();
+    }, []); 
 
     const togglePersonalInfo = () => {
         setPersonalInfoActive(!personalInfoActive);
@@ -49,13 +71,15 @@ const Profile = () => {
                 {personalInfoActive && (
                     <div>
                     <div className='flex pt-8'>
-                        <div>
-                            <img src={log} alt="" className='h-[100%] rounded-[8px]' />
+                        <div className='relative'>
+                            <img src={log} alt="" className='h-[90%] w-[100%] rounded-[8px]' />
+                            <img src={edit} alt="" className= '  absolute -right-4 bottom-0 z-10 ' />
                         </div>
+                       
                         <div className='w-[100%] pl-8 rounded-[8px] rounded-l-none h-[192px] p-8'>
                             <div>
                                 <div className='flex pt-3 gap-8'>
-                                    <p className='text-[color:var(--Black,#222)] text-[20px] not-italic font-semibold leading-[normal]'>Mammen Paul</p>
+                                    <p className='text-[color:var(--Black,#222)] text-[20px] not-italic font-semibold leading-[normal]'>{userData?.name}</p>
                                     <button className='bg-[#EAFCEC] border border-[#64A15E] px-3 rounded-[30px]'>
                                         <p className='text-[#64A15E] text-[14px] not-italic font-semibold leading-[17px]'>Active</p>
                                     </button>

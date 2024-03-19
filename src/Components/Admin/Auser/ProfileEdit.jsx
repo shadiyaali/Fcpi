@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import user from "../../../assets/images/user.png"
 import { Link } from "react-router-dom";
 import { toast, Toaster } from "react-hot-toast";
@@ -16,66 +16,60 @@ const Profile = () => {
     const [password, setPassword] = useState('');
     const [displayedPassword, setDisplayedPassword] = useState('');
     const [formData, setFormData] = useState({
-        first_name:'',
-        last_name:'',
-        dateOfBirth: '',
-        primaryPosition: '',
+        first_name: '',
+        last_name: '',
+        date_of_birth: '',
+        primary_position: '',
         state: '',
-        primaryPharmacyDegree: '',
-        secondaryPharmacyDegree: '',
-        additionalDegrees: '',
+        primary_pharmacy_degree: '',
+        secondary_pharmacy_degree: '',
+        additional_degrees: '',
         city: '',
         country: '',
-        pharmacyCollegeName: '',
-        pharmacyCollegeDegree: ''
+        pharmacy_college_name: '',
+        pharmacy_college_degree: ''
     });
+
+
+    useEffect(() => {
+        const fetchUserProfileData = async () => {
+            try {
+                const response = await axios.get(`${BASE_URL}/accounts/userlist/`);
+                console.log(response.data)
+                const userProfileData = response.data;
+                setFormData(userProfileData);
+            } catch (error) {
+                console.error('Error fetching user profile data:', error);
+                toast.error('Failed to fetch user profile data!');
+            }
+        };
+
+        fetchUserProfileData();
+    }, []);
+
     const handleInputChange = (event) => {
         const { name, value } = event.target;
-        setFormData({ ...formData, [name]: value });
+        setFormData(prevFormData => ({
+            ...prevFormData,
+            [name]: value
+        }));
     };
+    
+    
+
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            const formDataToSend = {
-                date_of_birth: formData.dateOfBirth,
-                primary_position: formData.primaryPosition,
-                state: formData.state,
-                primary_pharmacy_degree: formData.primaryPharmacyDegree,
-                secondary_pharmacy_degree: formData.secondaryPharmacyDegree,
-                additional_degrees: formData.additionalDegrees,
-                city: formData.city,
-                country: formData.country,
-                pharmacy_college_name: formData.pharmacyCollegeName,
-                pharmacy_college_degree: formData.pharmacyCollegeDegree
-            };
-    
-            console.log('Form data to send:', formDataToSend);  
-    
-            const response = await axios.post(`${BASE_URL}/accounts/user-profile/
-            `, formDataToSend);
-            console.log('Form data submitted:', formDataToSend);
+            console.log(formData)
+            const response = await axios.post(`${BASE_URL}/accounts/userprofile/`, formData);
+            console.log('Form data submitted:', response.data);
             toast.success('Form submitted successfully!');
-    
-            // Clear form fields after successful submission
-            setFormData({
-                dateOfBirth: '',
-                primaryPosition: '',
-                state: '',
-                primaryPharmacyDegree: '',
-                secondaryPharmacyDegree: '',
-                additionalDegrees: '',
-                city: '',
-                country: '',
-                pharmacyCollegeName: '',
-                pharmacyCollegeDegree: ''
-            });
         } catch (error) {
             console.error('Error submitting form:', error);
             toast.error('Form submission failed!');
         }
     };
-    
-    
+
 
 
     const handleEmailChange = (event) => {
@@ -145,7 +139,7 @@ const Profile = () => {
                                     <div className=''>
 
                                         <div className="text-start">
-                                            {/* <p className='text-[color:var(--Black,#222)] text-[18px] not-italic font-medium leading-[24px]'>First Name</p>
+                                            <p className='text-[color:var(--Black,#222)] text-[18px] not-italic font-medium leading-[24px]'>First Name</p>
                                             <div className="pt-2">
                                                 <input
                                                     type="text"
@@ -155,17 +149,18 @@ const Profile = () => {
                                                     className="border border-gray-400  rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
                                                     placeholder="First Name"
                                                 />
-                                            </div> */}
+                                            </div>
                                             <p className='text-[color:var(--Black,#222)] pt-8 text-[18px] not-italic font-medium leading-[24px]'>Date of Birth</p>
                                             <div className="pt-2">
                                                 <input
-                                                    type="text"
-                                                    name="dateOfBirth"
-                                                    value={formData.dateOfBirth}
+                                                    type="date"
+                                                    name="date_of_birth"
+                                                    value={formData.date_of_birth}
                                                     onChange={handleInputChange}
-                                                    className="border border-gray-400  rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
+                                                    className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
                                                     placeholder="Date of Birth"
                                                 />
+
                                             </div>
 
                                             <p className='text-[color:var(--Black,#222)] text-[18px] not-italic font-medium pt-8 leading-[24px]'>State</p>
@@ -184,39 +179,39 @@ const Profile = () => {
                                             <div className="relative pt-2">
                                                 <select
                                                     className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
-                                                    name="primaryPharmacyDegree"
-                                                    value={formData.primaryPharmacyDegree}
+                                                    name="primary_pharmacy_degree"
+                                                    defaultValue={formData.primary_pharmacy_degree}
                                                     onChange={handleInputChange}
                                                 >
-                                                    <option value="" disabled selected>Select Primary Pharmacy Degree</option>
+                                                    <option value="" disabled>Select Primary Pharmacy Degree</option>
                                                     <option value="Bachelors in Pharmacy">Bachelors in Pharmacy</option>
                                                     <option value="Doctor of Pharmacy">Doctor of Pharmacy</option>
-
                                                     {/* Add more options as needed */}
                                                 </select>
+
                                             </div>
 
                                             <p className='text-[color:var(--Black,#222)] pt-8 text-[18px] not-italic font-medium leading-[24px]'>Secondary Pharmacy Degree</p>
                                             <div className="relative pt-2">
                                                 <select
                                                     className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
-                                                    name="secondaryPharmacyDegree"
-                                                    value={formData.secondaryPharmacyDegree}
+                                                    name="secondary_pharmacy_degree"
+                                                    value={formData.secondary_pharmacy_degree}
                                                     onChange={handleInputChange}
                                                 >
-                                                    <option value="" disabled selected>Select secondaryPharmacyDegree</option>
-                                                    <option value="Doctor of Pharmacy Post Baccalaureate"> Doctor of Pharmacy Post Baccalaureate</option>
+                                                    <option value="" disabled>Select secondaryPharmacyDegree</option>
+                                                    <option value="Doctor of Pharmacy Post Baccalaureate">Doctor of Pharmacy Post Baccalaureate</option>
                                                     <option value="Masters in Pharmacy">Masters in Pharmacy</option>
-
                                                     {/* Add more options as needed */}
                                                 </select>
+
                                             </div>
                                             <p className='text-[color:var(--Black,#222)] pt-8 text-[18px] not-italic font-medium leading-[24px]'>Additional Degrees</p>
                                             <div className="pt-2">
                                                 <input
                                                     type="text"
-                                                    name="additionalDegrees"
-                                                    value={formData.additionalDegrees}
+                                                    name="additional_degrees"
+                                                    value={formData.additional_degrees}
                                                     onChange={handleInputChange}
                                                     className="border border-gray-400  rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
                                                     placeholder="additionalDegrees"
@@ -233,7 +228,7 @@ const Profile = () => {
                                     <div className=''>
 
                                         <div className="text-start">
-                                            {/* <p className='text-[color:var(--Black,#222)] text-[18px] not-italic font-medium leading-[24px]'>Last Name</p>
+                                            <p className='text-[color:var(--Black,#222)] text-[18px] not-italic font-medium leading-[24px]'>Last Name</p>
                                             <div className="pt-2">
 
                                                 <input
@@ -244,26 +239,26 @@ const Profile = () => {
                                                     className="border border-gray-400  rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
                                                     placeholder="last_name"
                                                 />
-                                            </div> */}
+                                            </div>
 
                                             <p className='text-[color:var(--Black,#222)] text-[18px] not-italic font-medium pt-8 leading-[24px]'>Primary Position</p>
                                             <div className="pt-2 relative">
-                                            <div className="relative pt-2">
-                                                <select
-                                                    className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
-                                                    name="primaryPosition"
-                                                    value={formData.primaryPosition}
-                                                    onChange={handleInputChange}
-                                                >
-                                                    <option value="" disabled selected>Select Primary Pharmacy Degree</option>
-                                                    <option value="student">student</option>
-                                                    <option value="clinical pharmacist">clinical pharmacist</option>
-                                                    <option value="pharmacist">pharmacist</option>
-                                                    <option value="faculty">faculty</option>
-                                        
-                                                    {/* Add more options as needed */}
-                                                </select>
-                                            </div>
+                                                <div className="relative pt-2">
+                                                    <select
+                                                        className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
+                                                        name="primary_position"
+                                                        value={formData.primary_position}
+                                                        onChange={handleInputChange}
+                                                    >
+                                                        <option value="" disabled selected>Select Primary Pharmacy Degree</option>
+                                                        <option value="student">student</option>
+                                                        <option value="clinical pharmacist">clinical pharmacist</option>
+                                                        <option value="pharmacist">pharmacist</option>
+                                                        <option value="faculty">faculty</option>
+
+                                                        {/* Add more options as needed */}
+                                                    </select>
+                                                </div>
 
                                             </div>
                                             <p className='text-[color:var(--Black,#222)] text-[18px] not-italic font-medium pt-8 leading-[24px]'>City</p>
@@ -297,8 +292,8 @@ const Profile = () => {
                                                 <div className="relative">
                                                     <input
                                                         type="text"
-                                                        name="pharmacyCollegeName"
-                                                        value={formData.pharmacyCollegeName}
+                                                        name="pharmacy_college_name"
+                                                        value={formData.pharmacy_college_name}
                                                         onChange={handleInputChange}
                                                         className="border border-gray-400  rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
                                                         placeholder="pharmacyCollegeName"
@@ -311,8 +306,8 @@ const Profile = () => {
 
                                                 <input
                                                     type="text"
-                                                    name="pharmacyCollegeDegree"
-                                                    value={formData.pharmacyCollegeDegree}
+                                                    name="pharmacy_college_degree"
+                                                    value={formData.pharmacy_college_degree}
                                                     onChange={handleInputChange}
                                                     className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
                                                     placeholder="pharmacyCollegeDegree"
@@ -321,7 +316,7 @@ const Profile = () => {
 
                                             <div className='pt-16'>
 
-                                                <button className='bg-[#00549A] rounded-[10px] w-full py-4'  >
+                                                <button type="submit" className='bg-[#00549A] rounded-[10px] w-full py-4'  >
                                                     <p className='text-white  text-center text-[20px] not-italic font-semibold leading-[normal]'  >Submit</p>
                                                 </button>
 
