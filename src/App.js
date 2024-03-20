@@ -27,6 +27,7 @@ import  ProfilePage from './Pages/Admin/ProfileEditPage';
 import  UserTypePage from './Pages/Admin/AuserTypePage';
 // import  StatuPage from './Pages/Admin/Astatus';
 import StatusPage from './Pages/Admin/Astatus';
+import EventsPage from './Pages/Admin/AEventsPage';
  
 
 
@@ -64,6 +65,8 @@ function App() {
            <Route path='/user-editprofile' element={<ProfilePage/>} />
            <Route path='/usertype' element={<UserTypePage/>} />
            <Route path='/user-status' element={<StatusPage/>} />
+           <Route path='/add-event' element={<EventsPage/>} />
+
         </Routes>
       </Router>
     </div>

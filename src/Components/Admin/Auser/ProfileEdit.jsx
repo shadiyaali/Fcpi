@@ -33,21 +33,7 @@ const Profile = () => {
     });
 
  
-    // useEffect(() => {
-    //     const fetchUserProfileData = async () => {
-    //         try {
-    //             const response = await axios.get(`${BASE_URL}/accounts/userlist/`);
-    //             console.log(response.data)
-    //             const userProfileData = response.data;
-    //             setFormData(userProfileData);
-    //         } catch (error) {
-    //             console.error('Error fetching user profile data:', error);
-    //             toast.error('Failed to fetch user profile data!');
-    //         }
-    //     };
-
-    //     fetchUserProfileData();
-    // }, []);
+    
 
     const handleInputChange = (event) => {
         const { name, value } = event.target;
@@ -70,11 +56,13 @@ const Profile = () => {
 
         fetchUserProfileData();
     }, []);
+
+   
 const handleDelete = async () => {
     try {
         await axios.delete(`${BASE_URL}/accounts/userprofile/${formData.id}/`);
         toast.success('User profile deleted successfully!');
-        // Optionally, you can reset form data or redirect after deletion
+ 
     } catch (error) {
         console.error('Error deleting user profile:', error);
         toast.error('Failed to delete user profile!');
@@ -83,26 +71,13 @@ const handleDelete = async () => {
 const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-        if (formData.id) {
-            // If the form data contains an 'id' field, send a PUT request
-            const response = await axios.put(`${BASE_URL}/accounts/userprofile/${formData.id}/`, formData);
-            console.log('Form data updated:', response.data);
-            toast.success('Form updated successfully!');
-            setEditMode(false); // Disable edit mode after successful update
-        } else {
-            // If 'id' field is not present, send a POST request
-            const response = await axios.post(`${BASE_URL}/accounts/userprofile/`, formData);
-            console.log('Form data submitted:', response.data);
-            toast.success('Form submitted successfully!');
-        }
+ 
+        const response = await axios.post(`${BASE_URL}/accounts/userprofile/`, formData);
+        console.log('Form data submitted:', response.data);
+        toast.success('Form submitted successfully!');
     } catch (error) {
-        if (error.response && error.response.data) {
-            const errorMessage = error.response.data.detail || 'Form submission failed!';
-            toast.error(errorMessage);
-        } else {
-            console.error('Error submitting form:', error);
-            toast.error('Form submission failed!');
-        }
+        console.error('Error submitting form:', error);
+        toast.error('Form submission failed!');
     }
 };
 
