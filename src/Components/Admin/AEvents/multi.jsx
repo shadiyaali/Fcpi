@@ -10,6 +10,7 @@ import click from "../../../assets/images/click.png";
 import add from "../../../assets/images/add1.png";
 import axios from "axios";
 import { BASE_URL } from '../../../Utils/Config';
+
 // import "./Aforum.css"
 
 
@@ -21,6 +22,7 @@ const AEvents = () => {
     const [selectedSpeaker, setSelectedSpeaker] = useState('');
     const [filteredSpeakers, setFilteredSpeakers] = useState([]);
     const [selectedSpeakers, setSelectedSpeakers] = useState([]);
+  
     const [formData, setFormData] = useState({
         days:'',
         forum: '',
@@ -34,11 +36,7 @@ const AEvents = () => {
         ending_time: '',
         topics: ''
     });
-    const [scheduleSections, setScheduleSections] = useState([]);
-    const [formData1, setFormData1] = useState({
-        numDays: 1,
-         
-    });
+   
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData(prevState => ({
@@ -47,13 +45,14 @@ const AEvents = () => {
         }));
     };
     const [scheduleFormData, setScheduleFormData] = useState([]);
+
     const handleScheduleChange = (e, index) => {
         const { name, value } = e.target;
         const updatedSchedule = [...scheduleFormData];
-        updatedSchedule[index] = {
-            ...updatedSchedule[index],
-            [name]: value,
-        };
+        if (!updatedSchedule[index]) {
+            updatedSchedule[index] = {};  
+        }
+        updatedSchedule[index][name] = value;
         setScheduleFormData(updatedSchedule);
     };
     
@@ -66,15 +65,17 @@ const AEvents = () => {
             speaker.name.toLowerCase().includes(searchQuery.toLowerCase())
         );
         setFilteredSpeakers(filtered);
-        setSpeakerList(true); // Show the speaker list when searching
+        setSpeakerList(true);  
     };
 
     const [forums, setForums] = useState([]);
     useEffect(() => {
         const fetchForums = async () => {
             try {
+                
                 const response = await axios.get(`${BASE_URL}/admins/forums/`);
                 setForums(response.data);
+                console.log(response.data)
             } catch (error) {
                 console.error('Error fetching forums:', error);
             }
@@ -138,31 +139,29 @@ const AEvents = () => {
         fetchspeakers();
     }, []);
 
+  
+
     const handleMultiSubmit = async (e) => {
         e.preventDefault();
-
+    
         try {
             const requestData = {
-                days:formData.days,
+                days: formData.days,
                 forum: formData.forum,
                 event_name: formData.event_name,
                 date: formData.date,
                 speakers: selectedSpeakers,
-                single_speaker: formData.single_speaker,
-                youtube_link: formData.youtube_link,
-                points: formData.points,
-                starting_time: formData.starting_time,
-                ending_time: formData.ending_time,
-                topics: formData.topics
+                schedules: scheduleFormData,
             };
-
-            console.log('Request Data:', requestData);  
-
+    
+            console.log('Request Data:', requestData);
+    
             const response = await axios.post(`${BASE_URL}/admins/eventspeakers/`, requestData);
             console.log(response.data);
             alert('Event added successfully!');
+            
             setFormData({
-                days:'',
+                days: '',
                 forum: '',
                 event_name: '',
                 date: '',
@@ -172,23 +171,25 @@ const AEvents = () => {
                 points: '',
                 starting_time: '',
                 ending_time: '',
-                topics: ''
+                topics: '',
             });
-            setSelectedSpeakers([]); 
+            setSelectedSpeakers([]);
+            setScheduleFormData([
+                {
+                    youtube_link: '',
+                    points: '',
+                    starting_time: '',
+                    ending_time: '',
+                    topics: '',
+                    selectedSpeakers: [],
+                },
+            ]);
         } catch (error) {
             console.error('Error adding event:', error);
             alert('Failed to add event. Please try again.');
         }
     };
-
-        
-
-     
-
-
     
-
-
 
     const togglePersonalInfo = () => {
         setPersonalInfoActive(!personalInfoActive);
@@ -249,11 +250,11 @@ const AEvents = () => {
                                 </div>
 
                             </div>
-                            <div className='pt-8 w-[15%] '>
+                            {/* <div className='pt-8 w-[15%] '>
                                 <button type='submit' className='bg-[#00549A] rounded-[10px] w-full py-4'  >
                                     <p className='text-white  text-center text-[20px] not-italic font-semibold leading-[normal]'  >Submit</p>
                                 </button>
-                            </div>
+                            </div> */}
                             
                             </div>
                         <div className='  flex pt-8 gap-8'>
@@ -293,8 +294,8 @@ const AEvents = () => {
                                 </div>
 
                             </div>
-                            <div className='w-full'>
-                                <p className='text-[color:var(--Black,#222)]   text-[18px] not-italic font-medium leading-[24px]'>Event Date</p>
+                            <div>
+            <p className='text-[color:var(--Black,#222)]   text-[18px] not-italic font-medium leading-[24px]'>Event Date</p>
                                 <div className="pt-2">
                                     <input
                                         type="date"
@@ -306,6 +307,9 @@ const AEvents = () => {
                                     />
 
                                 </div>
+                                </div>
+                            <div className='w-full'>
+                               
                             </div>
                         </div>
                         <div className='flex gap-8'>
@@ -376,6 +380,7 @@ const AEvents = () => {
         <div className='pt-8'>
             <p className='text-[color:var(--Black,#222)] text-[24px] not-italic font-semibold leading-[25px] tracking-[-0.12px]'>Schedule - Day {index + 1}</p>
             <div className=' flex gap-8 pt-6'>
+               
                 <div className="relative w-[40%]">
                     <p className='text-[color:var(--Black,#222)]  text-[18px] not-italic font-medium  leading-[24px]'>YouTube Link </p>
                     <div className="pt-2">
