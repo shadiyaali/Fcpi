@@ -89,9 +89,24 @@ const Asidebar = () => {
                                 </div>
                             </button>
                         </Link>
-                    </div>
-                    <Link to="">
-    <button
+                     </div>  
+                     <div className='pt-1'>
+                        <Link to="/aevents">
+                            <button
+                                className={`button  w-full py-3 rounded-[6px] ${location.pathname === '/aevents' ? 'active' : ''}`}
+                            >
+                                <div className='flex gap-4 items-center pl-4 '>
+
+                                    <img src={location.pathname === '/aevents' ? log5 : dash3} alt="Logo" className='dashboard-image' />
+                                    <p className='button-text text-[18px]'>
+                                        Events
+                                    </p>
+                                </div>
+                            </button>
+                        </Link>
+                     </div>  
+                    {/* <Link to="">   */}
+    {/* <button
         onClick={() => setDropdownOpen(!dropdownOpen)}
         className={`button w-full py-3 rounded-[6px] ${location.pathname === '' ? 'active' : ''}`}
     >
@@ -101,12 +116,12 @@ const Asidebar = () => {
                 Events
             </p>
         </div>
-    </button>
+    </button> */}
     {/* Dropdown menu */}
-    {dropdownOpen && (
-        <div className="  w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
-            <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu">
-                <Link to="/add-event">
+    {/* {dropdownOpen && ( */}
+        {/* <div className="  w-56 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5">
+            <div className="py-1" role="menu" aria-orientation="vertical" aria-labelledby="options-menu"> */}
+                {/* <Link to="/add-event">
                     <button
                         className={`button w-full py-3 rounded-[6px] ${location.pathname === '/add-event' ? 'active' : ''}`}
                         onMouseEnter={() => setHoveredAddButton(true)}
@@ -121,8 +136,8 @@ const Asidebar = () => {
                             </div>
                         </div>
                     </button>
-                </Link>
-                <div className='pt-1'>
+                </Link> */}
+                {/* <div className='pt-1'>
                 <Link to="/manage-event">
                     <button
                        className={`button w-full py-3  rounded-[6px] ${location.pathname === '/manage-event' ? 'active' : ''}`}
@@ -140,11 +155,11 @@ const Asidebar = () => {
                         </div>
                     </button>
                 </Link>
-                </div>
-            </div>
-        </div>
-    )}
-</Link>
+                </div> */}
+            {/* </div>
+        </div> */}
+    {/* )} */}
+{/* </Link> */}
 
                     
                     <div className='pt-1'>

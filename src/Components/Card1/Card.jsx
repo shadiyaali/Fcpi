@@ -5,11 +5,13 @@ import { Carousel } from "flowbite-react";
 import Logo25 from "../../../src/assets/images/Frame 10.svg";
 import Logo26 from "../../../src/assets/images/Frame 82.svg";
 import "./Card1.css"; 
- 
+import { toast, Toaster } from "react-hot-toast"; 
+import axios from "axios";
+import { BASE_URL } from '../../Utils/Config' 
 
 const Card1 = () => {
   const [selectedImage, setSelectedImage] = useState(Logo3);
-
+  const [eventData, setEventData] = useState([])
   useEffect(() => {
     const interval = setInterval(() => {
       setSelectedImage((prevImage) =>
@@ -19,7 +21,21 @@ const Card1 = () => {
 
     return () => clearInterval(interval);
   }, []);
+  useEffect(() => {
+    const fetchEventData = async () => {
+        try {
+            const response = await axios.get(`${BASE_URL}/admins/events/`);
 
+            const fetchedEventData = response.data;
+            setEventData(fetchedEventData);
+        } catch (error) {
+            console.error('Error fetching user data:', error);
+            toast.error("Error fetching user data");
+        }
+    };
+
+    fetchEventData();
+}, []);
   return (
     <div className="w-full h-full bg-[#f4f4f4]">
       <div className="container">
@@ -64,57 +80,26 @@ const Card1 = () => {
                   <img src={Logo25} alt="Logo" className="rounded-[30px]" />
                 </div>
               </div>
-              <div className="pl-[1.9rem] pr-[1.9rem] pt-8 justify-center">
+              {eventData.map((event, index) => (
+              <div  key={index} className="pl-[1.9rem] pr-[1.9rem] pt-8 justify-center">
                 <div className="rounded-[180px] bg-[#FFF] w-[249px] ">
                   <div className="flex ">
                     <div className="pt-3 pl-3 ">
                       <img src={Logo26} alt="Logo" className="rounded-[30px]" />
                     </div>
                     <div className="p-1 ">
-                      <p className="text-[#222] text-[16px] not-italic font-normal leading-[normal]" >Ischemic stroke (Part-3)</p>
+                      <p className="text-[#222] text-[16px] not-italic font-normal leading-[normal]" >{event?.event_name}</p>
                       <div className="justify-start mr-28 pt-1">
                         <button className="bg-blue-50 inline-flex gap-[10px] p-[3px] rounded-[14px] ">
-                          <p className="text-[#00549A] text-[12px] not-italic font-normal leading-[normal]"  >12-01-2024</p>
+                          <p className="text-[#00549A] text-[12px] not-italic font-normal leading-[normal]">{event?.date}</p>
                         </button>
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-              <div className="pl-[1.9rem] pr-[1.9rem] pt-3">
-                <div className="rounded-[180px] bg-[#FFF] w-[249px] ">
-                  <div className="flex ">
-                    <div className="pt-3 pl-3 ">
-                      <img src={Logo26} alt="Logo" className="rounded-[30px]" />
-                    </div>
-                    <div className="p-1 ">
-                      <p className="text-[#222] text-[16px] not-italic font-normal leading-[normal]" >Ischemic stroke (Part-3)</p>
-                      <div className="justify-start mr-28 pt-1">
-                        <button className="bg-blue-50 inline-flex gap-[10px] p-[3px] rounded-[14px] ">
-                          <p className="text-[#00549A] text-[12px] not-italic font-normal leading-[normal]" >12-01-2024</p>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div className="pl-[1.9rem] pr-[1.9rem]  pt-3  pb-6]">
-                <div className="rounded-[180px] bg-[#FFF] w-[249px] ">
-                  <div className="flex ">
-                    <div className="pt-3 pl-3 ">
-                      <img src={Logo26} alt="Logo" className="rounded-[30px]" />
-                    </div>
-                    <div className="p-1">
-                      <p className="text-[#222] text-[16px] not-italic font-normal leading-[normal]" >Ischemic stroke (Part-3)</p>
-                      <div className="justify-start mr-28 pt-1">
-                        <button className="bg-blue-50 inline-flex gap-[10px] p-[3px] rounded-[14px] ">
-                          <p className="text-[#00549A] text-[12px] not-italic font-normal leading-[normal]" >12-01-2024</p>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+             ))}
+              
             </div>
           </div>
         </div>

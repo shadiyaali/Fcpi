@@ -143,7 +143,7 @@ const Speaker = () => {
             }
 
             if (!selectedSpeaker) {
-                // Add new forum
+            
                 const response = await axios.post(`${BASE_URL}/admins/speakers/`, postData, {
                     headers: {
                         'Content-Type': 'multipart/form-data'
@@ -152,7 +152,7 @@ const Speaker = () => {
                 console.log(response.data);
                 alert('Speaker added successfully!');
             } else {
-                // Update an existing forum
+             
                 const response = await axios.put(`${BASE_URL}/admins/speakers/${selectedSpeaker.id}/update/`, postData, {
                     headers: {
                         'Content-Type': 'multipart/form-data'
@@ -162,7 +162,7 @@ const Speaker = () => {
                 alert('Speaker updated successfully!');
             }
 
-            // Clear form data after submission
+    
             setFormData({
                 name: '',
                 qualification: '',

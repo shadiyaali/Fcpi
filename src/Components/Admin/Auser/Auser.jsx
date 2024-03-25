@@ -34,6 +34,7 @@ const User = () => {
     const [userRoles, setUserRoles] = useState([]);
     const [imagePositionX, setImagePositionX] = useState(0);
     const [userData, setUserData] = useState()
+    
     const [selectedRole, setSelectedRole] = useState("");
     const [formData, setFormData] = useState({
         first_name: '',

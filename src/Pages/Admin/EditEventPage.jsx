@@ -1,11 +1,11 @@
 import React from "react";
 import Asidebar from "../../Components/Admin/Asidebar/Asidebar";
 import Anavbar from "../../Components/Admin/Anavbar/Anavbar"; 
-import AEvents from "../../Components/Admin/AEvents/AddEvents";
+import EditEvents from "../../Components/Admin/AEvents/Edit";
  
 import "./Adashboard.css";
 
-const  EventsPage = () => {
+const  EditPage = () => {
     return (
        
         <div className="">
@@ -15,7 +15,7 @@ const  EventsPage = () => {
 
             <div className="anavdiv apos">          
             <Anavbar />
-           <AEvents/>
+           <EditEvents/>
             </div>
                   
                   
@@ -29,4 +29,4 @@ const  EventsPage = () => {
     );
 }
 
-export default EventsPage;
+export default EditPage;
