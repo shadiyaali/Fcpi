@@ -141,7 +141,7 @@ const Aforum = () => {
                 console.log(response.data);
                 alert('Forum added successfully!');
             } else {
-                // Update an existing forum
+               
                 const response = await axios.put(`${BASE_URL}/admins/forums/${selectedForum.id}/update/`, postData, {
                     headers: {
                         'Content-Type': 'multipart/form-data'
@@ -151,7 +151,7 @@ const Aforum = () => {
                 alert('Forum updated successfully!');
             }
     
-            // Clear form data after submission
+             
             setFormData({
                 title: '',
                 description: '',

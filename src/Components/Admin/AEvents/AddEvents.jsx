@@ -26,6 +26,7 @@ import st from "../../../assets/images/status.png";
 
 
 const AEvents = () => {
+    
     const [personalInfoActive, setPersonalInfoActive] = useState(true);
     const [mailingAddressActive, setmailingAddressActive] = useState(false);
     const [selectedForum, setSelectedForum] = useState('');
@@ -34,7 +35,9 @@ const AEvents = () => {
     const [selectedSpeakers, setSelectedSpeakers] = useState([]);
     const [eventData, setEventData] = useState()
     const [selectedImage, setSelectedImage] = useState(null);
-    const { eventId } = useParams();
+    const [ImageFile,  setImageFile] = useState(null);
+    const[ImageFileName, setImageFileName] = useState(null);
+    const[ImageFileUrl, setImageFileUrl] = useState(null);
 
     const [formData, setFormData] = useState({
         days: '',
@@ -80,13 +83,13 @@ const AEvents = () => {
 
     const handleImageChange = (e) => {
         const bannerFile = e.target.files[0];
-        setSelectedImage(bannerFile);
         setFormData(prevFormData => ({
             ...prevFormData,
-            banner: bannerFile
+            banner: bannerFile   
         }));
     };
-
+    
+    
 
     const [dropdownStates, setDropdownStates] = useState([]);
 
@@ -208,7 +211,7 @@ const AEvents = () => {
         fetchspeakers();
     }, []);
 
-
+ 
 
     const handleMultiSubmit = async (e) => {
         e.preventDefault();
@@ -223,7 +226,7 @@ const AEvents = () => {
                 date: formData.date,
                 speakers: selectedSpeakers,
                 schedules: scheduleFormData,
-                banner: formData.banner
+                banner: formData.banner  
             };
 
             console.log('Request Data:', requestData);
@@ -653,7 +656,7 @@ const AEvents = () => {
                                     <div className='absolute right-32 top-[20rem] bg-white rounded-[8px] p-6 w-[20%] shadow-2xl'  >
                                         <div className='border border-gray-300 rounded-[8px]'>
 
-                                            <Link to={`/events/${eventId}`}>
+                                            <Link to={`/events/${event.id}`}>
                                                 <div className='flex p-4'>
                                                     <img src={edi} alt="" />
                                                     <p className='text-[color:var(--Black,#222)] pl-4 pt-2 text-[14px] not-italic font-semibold leading-[normal]'>Edit</p>
