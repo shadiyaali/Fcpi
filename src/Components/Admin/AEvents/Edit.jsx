@@ -55,8 +55,10 @@ const EditEvents = () => {
     useEffect(() => {
         const fetchEventData = async () => {
             try {
-                const response = await axios.get(`${BASE_URL}/admins/events/${eventId}/update/`);
+
+                const response = await axios.get(`${BASE_URL}/admins/events/${eventId}/list/`);
                 const eventData = response.data;
+               
                 setFormData({
                     days: eventData.days.toString(),
                     forum: eventData.forum.toString(),
@@ -72,7 +74,7 @@ const EditEvents = () => {
 
 
                 });
-                console.log(response.data)
+                // console.log(response.data)
                 setScheduleFormData(eventData.single_events || []);
                 setSelectedSpeakers(eventData.speakers);
             } catch (error) {
@@ -149,23 +151,39 @@ const EditEvents = () => {
 
     const handleSpeakerChange = (e) => {
         const value = e.target.value;
-        setSelectedSpeaker(value);
         setFormData(prevState => ({
             ...prevState,
-            single_speaker: value // Set the single_speaker field in the formData state
+            single_speaker: value // Update the single_speaker field in the formData state
         }));
     };
     
+    
     const handleChange = (e, index) => {
         const { name, value } = e.target;
-        const updatedSchedule = [...scheduleFormData];
-        updatedSchedule[index] = {
-            ...updatedSchedule[index],
-            [name]: value
-        };
-        setScheduleFormData(updatedSchedule); // Update the state with the modified data
+    
+        // Update scheduleFormData
+        const updatedSchedule = scheduleFormData.map((item, i) => {
+            if (i === index) {
+                return {
+                    ...item,
+                    [name]: value
+                };
+            }
+            return item;
+        });
+        setScheduleFormData(updatedSchedule);
+    
+        // Update formData including single_speaker
+        setFormData(prevState => ({
+            ...prevState,
+            single_speaker: updatedSchedule[index].single_speaker // Update single_speaker with the new value
+        }));
     };
-
+    
+    
+    
+    
+    
 
 
 
@@ -181,18 +199,8 @@ const EditEvents = () => {
         setScheduleFormData(updatedSchedule);
     };
 
-const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-        await handleUpdateEvent();
-    } catch (error) {
-        console.error('Error updating event:', error);
-        toast.error('Failed to update event. Please try again.');
-    }
-};
-
-
-    const handleUpdateEvent = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault();
         try {
             const updatedEventData = {
                 days: formData.days,
@@ -200,33 +208,36 @@ const handleSubmit = async (e) => {
                 event_name: formData.event_name,
                 date: formData.date,
                 speakers: selectedSpeakers,
-                schedules: scheduleFormData,
-                banner: formData.banner,
                 single_speaker: formData.single_speaker,
-                youtube_link: formData.youtube_link,
-                points: formData.points,
-                starting_time: formData.starting_time,
-                ending_time: formData.ending_time,
-                topics: formData.topics
+                schedules: scheduleFormData.map(schedule => ({
+                    youtube_link: schedule.youtube_link || '',
+                    points: schedule.points || '',
+                    starting_time: schedule.starting_time || '',
+                    ending_time: schedule.ending_time || '',
+                    topics: schedule.topics || '',
+                })),
+                banner: null, // Ensure banner is null
             };
-
+    
+            console.log('Updated Event Data:', updatedEventData);
+    
             const response = await axios.put(`${BASE_URL}/admins/events/${eventId}/update/`, updatedEventData);
-
+    
             if (response.status === 200) {
                 console.log('Event updated:', response.data);
-                alert('Event updated successfully!');
+                // Update the event data in the component state
+                setEventData(response.data);
+                toast.success('Event updated successfully!');
             } else {
                 console.error('Error updating event. Status:', response.status);
-                alert('Failed to update event. Please try again.'); // Alert when update fails
+                toast.error('Failed to update event. Please try again.');
             }
         } catch (error) {
             console.error('Error updating event:', error);
-            alert('Failed to update event. Please try again.'); // Alert when update fails
+            toast.error('Failed to update event. Please try again.');
         }
     };
-
-
-
+    
     return (
         <div className='bg-[#f4f4f4] h-[100vh] p-6'>
             <div className='bg-white p-6 rounded-[8px]'>
@@ -436,15 +447,22 @@ const handleSubmit = async (e) => {
                                                         <p className='text-[color:var(--Black,#222)] text-[18px] not-italic font-medium leading-[24px]'>Selected Speakers</p>
                                                         <div className="relative pt-2">
                                                         <select
-    className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
-    value={formData.single_speaker} // Update this line to use formData.single_speaker
-    onChange={(e) => handleSpeakerChange(e)}
->
-    <option value="" disabled>Select a speaker</option>
-    {speakers.map(speaker => (
-        <option key={speaker.id} value={speaker.id}>{speaker.name}</option>
-    ))}
-</select>
+                                                        className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
+                                                        value={scheduleFormData[index]?.single_speaker || ''}
+                                                        onChange={(e) => handleSpeakerChangeForSection(e, index)}
+                                                    >
+                                                        <option value="" disabled>Select a speaker</option>
+                                                        {selectedSpeakers.map(speakerId => {
+                                                            const speaker = speakers.find(s => s.id === speakerId);
+                                                            return (
+                                                                <option key={speaker.id} value={speaker.id}>
+                                                                    {speaker.name}
+                                                                </option>
+                                                            );
+                                                        })}
+                                                    </select>
+
+
                                                         </div>
                                                     </div>
 

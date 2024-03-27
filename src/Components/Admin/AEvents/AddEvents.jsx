@@ -212,13 +212,11 @@ const AEvents = () => {
     }, []);
 
  
-
+     
     const handleMultiSubmit = async (e) => {
         e.preventDefault();
-
+    
         try {
-
-
             const requestData = {
                 days: formData.days,
                 forum: formData.forum,
@@ -226,15 +224,23 @@ const AEvents = () => {
                 date: formData.date,
                 speakers: selectedSpeakers,
                 schedules: scheduleFormData,
-                banner: formData.banner  
             };
-
+    
+            if (formData.banner) {
+                requestData.banner = formData.banner;
+            }
+    
             console.log('Request Data:', requestData);
-
-            const response = await axios.post(`${BASE_URL}/admins/eventspeakers/`, requestData);
+    
+            const response = await axios.post(`${BASE_URL}/admins/eventspeakers/`, requestData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data' 
+                }
+            });
+    
             console.log(response.data);
             alert('Event added successfully!');
-
+    
             setFormData({
                 days: '',
                 forum: '',
@@ -265,6 +271,7 @@ const AEvents = () => {
             alert('Failed to add event. Please try again.');
         }
     };
+    
 
 
     const togglePersonalInfo = () => {
