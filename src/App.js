@@ -29,12 +29,16 @@ import  UserTypePage from './Pages/Admin/AuserTypePage';
 import StatusPage from './Pages/Admin/Astatus';
 import EventsPage from './Pages/Admin/AEventsPage';
 import EditPage from './Pages/Admin/EditEventPage';
+// import { Provider } from 'react-redux';
+// import store from './Redux/Store';
  
 
 
 function App() {
   return (
+    // <Provider store={store}> 
     <div className="App">
+      
       <Router>
         <Routes>
           <Route path='/' element={<HomePage />} />
@@ -73,7 +77,9 @@ function App() {
 
         </Routes>
       </Router>
+     
     </div>
+    //  </Provider>
   );
 }
 

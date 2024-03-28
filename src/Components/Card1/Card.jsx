@@ -80,25 +80,26 @@ const Card1 = () => {
                   <img src={Logo25} alt="Logo" className="rounded-[30px]" />
                 </div>
               </div>
-              {eventData.map((event, index) => (
-              <div  key={index} className="pl-[1.9rem] pr-[1.9rem] pt-8 justify-center">
-                <div className="rounded-[180px] bg-[#FFF] w-[249px] ">
-                  <div className="flex ">
-                    <div className="pt-3 pl-3 ">
-                      <img src={Logo26} alt="Logo" className="rounded-[30px]" />
-                    </div>
-                    <div className="p-1 ">
-                      <p className="text-[#222] text-[16px] not-italic font-normal leading-[normal]" >{event?.event_name}</p>
-                      <div className="justify-start mr-28 pt-1">
-                        <button className="bg-blue-50 inline-flex gap-[10px] p-[3px] rounded-[14px] ">
-                          <p className="text-[#00549A] text-[12px] not-italic font-normal leading-[normal]">{event?.date}</p>
-                        </button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-             ))}
+              {eventData.slice(0, 3).map((event, index) => (
+  <div key={index} className="pl-[1.9rem] pr-[1.9rem] pt-8 justify-center">
+    <div className="rounded-[180px] bg-[#FFF] w-[249px]">
+      <div className="flex">
+        <div className="pt-3 pl-3">
+          <img src={Logo26} alt="Logo" className="rounded-[30px]" />
+        </div>
+        <div className="p-1">
+          <p className="text-[#222] text-[16px] not-italic font-normal leading-[normal]">{event?.event_name}</p>
+          <div className="justify-start mr-28 pt-1">
+            <button className="bg-blue-50 inline-flex gap-[10px] p-[3px] rounded-[14px]">
+              <p className="text-[#00549A] text-[12px] not-italic font-normal leading-[normal]">{event?.date}</p>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+))}
+
               
             </div>
           </div>

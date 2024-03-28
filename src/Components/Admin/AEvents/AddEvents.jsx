@@ -26,7 +26,7 @@ import st from "../../../assets/images/status.png";
 
 
 const AEvents = () => {
-    
+
     const [personalInfoActive, setPersonalInfoActive] = useState(true);
     const [mailingAddressActive, setmailingAddressActive] = useState(false);
     const [selectedForum, setSelectedForum] = useState('');
@@ -35,9 +35,9 @@ const AEvents = () => {
     const [selectedSpeakers, setSelectedSpeakers] = useState([]);
     const [eventData, setEventData] = useState()
     const [selectedImage, setSelectedImage] = useState(null);
-    const [ImageFile,  setImageFile] = useState(null);
-    const[ImageFileName, setImageFileName] = useState(null);
-    const[ImageFileUrl, setImageFileUrl] = useState(null);
+    const [ImageFile, setImageFile] = useState(null);
+    const [ImageFileName, setImageFileName] = useState(null);
+    const [ImageFileUrl, setImageFileUrl] = useState(null);
 
     const [formData, setFormData] = useState({
         days: '',
@@ -61,6 +61,7 @@ const AEvents = () => {
                 const response = await axios.get(`${BASE_URL}/admins/events/`);
 
                 const fetchedEventData = response.data;
+                console.log(response.data)
                 setEventData(fetchedEventData);
             } catch (error) {
                 console.error('Error fetching user data:', error);
@@ -70,6 +71,7 @@ const AEvents = () => {
 
         fetchEventData();
     }, []);
+
 
 
 
@@ -85,21 +87,30 @@ const AEvents = () => {
         const bannerFile = e.target.files[0];
         setFormData(prevFormData => ({
             ...prevFormData,
-            banner: bannerFile   
+            banner: bannerFile
         }));
     };
-    
-    
+
+
 
     const [dropdownStates, setDropdownStates] = useState([]);
 
 
     useEffect(() => {
-        if (eventData && eventData.length > 0) {
+        setScheduleFormData(
+            Array.from({ length: formData.days }, () => [])
+        );
+    }, [formData.days]);
+    
+   
 
-            setDropdownStates(Array(eventData.length).fill(false));
-        }
-    }, [eventData]);
+    
+    
+    
+    
+    
+    
+    
 
 
     const handleToggleDropdown = (index) => {
@@ -179,6 +190,20 @@ const AEvents = () => {
         setSelectedSpeakers(prevSpeakers => prevSpeakers.filter(id => id !== speakerId));
     };
 
+    
+    const handleAddSchedule = (dayIndex) => {
+        setScheduleFormData((prevFormData) => {
+            const newFormData = [...prevFormData];  
+            newFormData[dayIndex] = [...newFormData[dayIndex], {}];  
+            return newFormData;  
+        });
+    };
+    
+    
+
+ 
+    
+
 
     const handleSpeakerChange = (e) => {
         const value = e.target.value;
@@ -211,11 +236,11 @@ const AEvents = () => {
         fetchspeakers();
     }, []);
 
- 
-     
+
+
     const handleMultiSubmit = async (e) => {
         e.preventDefault();
-    
+
         try {
             const requestData = {
                 days: formData.days,
@@ -225,28 +250,29 @@ const AEvents = () => {
                 speakers: selectedSpeakers,
                 schedules: scheduleFormData,
             };
-    
+
             if (formData.banner) {
                 requestData.banner = formData.banner;
             }
-    
+
             console.log('Request Data:', requestData);
-    
+
             const response = await axios.post(`${BASE_URL}/admins/eventspeakers/`, requestData, {
                 headers: {
-                    'Content-Type': 'multipart/form-data' 
+                    'Content-Type': 'multipart/form-data'
                 }
             });
-    
+
             console.log(response.data);
             alert('Event added successfully!');
-    
+
+            // Reset form data and selected speakers after successful submission
             setFormData({
                 days: '',
                 forum: '',
                 event_name: '',
                 date: '',
-                speakers: [],
+                speakers: [], // Reset selected speakers
                 banner: '',
                 single_speaker: '',
                 youtube_link: '',
@@ -255,7 +281,7 @@ const AEvents = () => {
                 ending_time: '',
                 topics: '',
             });
-            setSelectedSpeakers([]);
+            setSelectedSpeakers([]); // Reset selected speakers
             setScheduleFormData([
                 {
                     youtube_link: '',
@@ -263,6 +289,7 @@ const AEvents = () => {
                     starting_time: '',
                     ending_time: '',
                     topics: '',
+                    single_speaker: '', // Reset single_speaker attribute
                     selectedSpeakers: [],
                 },
             ]);
@@ -271,7 +298,9 @@ const AEvents = () => {
             alert('Failed to add event. Please try again.');
         }
     };
-    
+
+
+
 
 
     const togglePersonalInfo = () => {
@@ -480,106 +509,119 @@ const AEvents = () => {
 
 
 
-                            {[...Array(Number(formData.days))].map((_, index) => (
-                                <div key={index}>
-                                    <div className='pt-8'>
-                                        <p className='text-[color:var(--Black,#222)] text-[24px] not-italic font-semibold leading-[25px] tracking-[-0.12px]'>Schedule - Day {index + 1}</p>
-                                        <div className=' flex gap-8 pt-6'>
+{[...Array(Number(formData.days))].map((_, dayIndex) => (
+    <div key={dayIndex}>
+        <div className='pt-8'>
+            <p className='text-[color:var(--Black,#222)] text-[24px] not-italic font-semibold leading-[25px] tracking-[-0.12px]'>Schedule - Day {dayIndex + 1}</p>
+            <div className=' gap-8 pt-6'>
+            {/* {scheduleFormData[dayIndex] && scheduleFormData[dayIndex].length > 0 && scheduleFormData[dayIndex].map((schedule, scheduleIndex) => (
+                    <div key={scheduleIndex} className='pt-12'> */}
+                        <div className='flex gap-8'>
+                        <div className="relative w-[40%]">
+                            <p className='text-[color:var(--Black,#222)] text-[18px] not-italic font-medium leading-[24px]'>YouTube Link </p>
+                            <div className="pt-2">
+                                <input
+                                    type="text"
+                                    name="youtube_link"
+                                    value={scheduleFormData[dayIndex]?.youtube_link || ''}
+                                    onChange={(e) => handleScheduleChange(e, dayIndex)}
+                                    className="border border-gray-400 rounded-[6px] px-[26px] py-4 w-full bg-[#F4F4F4]"
+                                    placeholder="Basic Module in Infectious Diseases"
+                                />
+                            </div>
+                        </div>
+                        <div className="relative w-[8%]">
+                            <p className='text-[color:var(--Black,#222)] text-[18px] not-italic font-medium leading-[24px]'>Points</p>
+                            <div className="pt-2">
+                                <input
+                                    type="text"
+                                    name="points"
+                                    value={scheduleFormData[dayIndex]?.points || ''}
+                                    onChange={(e) => handleScheduleChange(e, dayIndex)}
+                                    className="border border-gray-400 rounded-[6px] px-[26px] py-4 w-full bg-[#F4F4F4]"
+                                    placeholder="5.00"
+                                />
+                            </div>
+                        </div>
+                        </div>
+                        <div className='flex gap-8'>
+                        <div className="pt-6 relative w-[8%]">
+                            <p className='text-[color:var(--Black,#222)] text-[18px] not-italic font-medium leading-[24px]'>Starting Time</p>
+                            <div className="pt-2">
+                                <input
+                                    type="text"
+                                    name="starting_time"
+                                    value={scheduleFormData[dayIndex]?.starting_time || ''}
+                                    onChange={(e) => handleScheduleChange(e, dayIndex)}
+                                    className="border border-gray-400 rounded-[6px] px-[26px] py-4 w-full bg-[#F4F4F4]"
+                                    placeholder="5:00 PM"
+                                />
+                            </div>
+                        </div>
+                        <div className="pt-6 relative w-[8%]">
+                            <p className='text-[color:var(--Black,#222)] text-[18px] not-italic font-medium leading-[24px]'>Ending Time</p>
+                            <div className="pt-2">
+                                <input
+                                    type="text"
+                                    name="ending_time"
+                                    value={scheduleFormData[dayIndex]?.ending_time || ''}
+                                    onChange={(e) => handleScheduleChange(e, dayIndex)}
+                                    className="border border-gray-400 rounded-[6px] px-[26px] py-4 w-full bg-[#F4F4F4]"
+                                    placeholder="5:00 PM"
+                                />
+                            </div>
+                        </div>
+                        <div className="pt-6 relative w-[35%]">
+                            <p className='text-[color:var(--Black,#222)] text-[18px] not-italic font-medium leading-[24px]'>Topics</p>
+                            <div className="pt-2">
+                                <input
+                                    type="text"
+                                    name="topics"
+                                    value={scheduleFormData[dayIndex]?.topics || ''}
+                                    onChange={(e) => handleScheduleChange(e, dayIndex)}
+                                    className="border border-gray-400 rounded-[6px] px-[26px] py-4 w-full bg-[#F4F4F4]"
+                                    placeholder="Challenging Cases In Transplant ID"
+                                />
+                            </div>
+                        </div>
+                        <div className='w-[28%] pt-6'>
+                            <p className='text-[color:var(--Black,#222)] text-[18px] not-italic font-medium leading-[24px]'>Selected Speakers</p>
+                            <div className="relative pt-2">
+                                <select
+                                    className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
+                                    value={scheduleFormData[dayIndex]?.single_speaker || ''}
+                                    onChange={(e) => handleSpeakerChangeForSection(e, dayIndex)}
+                                >
+                                    <option value="" disabled>Select a speaker</option>
+                                    {selectedSpeakers.map(speakerId => {
+                                        const speaker = speakers.find(s => s.id === speakerId);
+                                        return (
+                                            <option key={speaker.id} value={speaker.id}>
+                                                {speaker.name}
+                                            </option>
+                                        );
+                                    })}
+                                </select>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+                {/* ))} */}
+            {/* </div> */}
+        </div>
+        <div className='pt-14 w-[10%]'>
+        <button onClick={() => handleAddSchedule(dayIndex)} type='button' className='bg-gray-400 rounded-[10px] w-full py-4'>
+    <p className='text-white  text-center text-[20px] not-italic font-semibold leading-[normal]'>Add</p>
+</button>
+        </div>
+        
+    </div>
+))}
 
-                                            <div className="relative w-[40%]">
-                                                <p className='text-[color:var(--Black,#222)]  text-[18px] not-italic font-medium  leading-[24px]'>YouTube Link </p>
-                                                <div className="pt-2">
-                                                    <input
-                                                        type="text"
-                                                        name="youtube_link"
-                                                        value={scheduleFormData[index]?.youtube_link || ''}
-                                                        onChange={(e) => handleScheduleChange(e, index)}
-                                                        className="border border-gray-400  rounded-[6px] px-[26px] py-4 w-full  bg-[#F4F4F4]"
-                                                        placeholder="Basic Module in Infectious Diseases"
-                                                    />
-                                                </div>
-                                            </div>
-                                            <div className="relative w-[8%]">
-                                                <p className='text-[color:var(--Black,#222)]  text-[18px] not-italic font-medium  leading-[24px]'>Points</p>
-                                                <div className="pt-2">
-                                                    <input
-                                                        type="text"
-                                                        name="points"
-                                                        value={scheduleFormData[index]?.points || ''}
-                                                        onChange={(e) => handleScheduleChange(e, index)}
-                                                        className="border border-gray-400  rounded-[6px] px-[26px] py-4 w-full bg-[#F4F4F4]"
-                                                        placeholder="5.00"
-                                                    />
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div className='pt-8'>
-                                        <div className='flex gap-8'>
-                                            <div className=" pt-6 relative w-[8%]">
-                                                <p className='text-[color:var(--Black,#222)]  text-[18px] not-italic font-medium  leading-[24px]'>Starting Time</p>
-                                                <div className="pt-2">
-                                                    <input
-                                                        type="text"
-                                                        name="starting_time"
-                                                        value={scheduleFormData[index]?.starting_time || ''}
-                                                        onChange={(e) => handleScheduleChange(e, index)}
-                                                        className="border border-gray-400  rounded-[6px] px-[26px] py-4 w-full bg-[#F4F4F4]"
-                                                        placeholder="5:00 PM"
-                                                    />
-                                                </div>
-                                            </div>
-                                            <div className=" pt-6 relative w-[8%]">
-                                                <p className='text-[color:var(--Black,#222)]  text-[18px] not-italic font-medium  leading-[24px]'>Ending Time</p>
-                                                <div className="pt-2">
-                                                    <input
-                                                        type="text"
-                                                        name="ending_time"
-                                                        value={scheduleFormData[index]?.ending_time || ''}
-                                                        onChange={(e) => handleScheduleChange(e, index)}
-                                                        className="border border-gray-400  rounded-[6px] px-[26px] py-4 w-full bg-[#F4F4F4]"
-                                                        placeholder="5:00 PM"
-                                                    />
-                                                </div>
-                                            </div>
-                                            <div className=" pt-6 relative w-[35%]">
-                                                <p className='text-[color:var(--Black,#222)]  text-[18px] not-italic font-medium  leading-[24px]'>Topics</p>
-                                                <div className="pt-2">
-                                                    <input
-                                                        type="text"
-                                                        name="topics"
-                                                        value={scheduleFormData[index]?.topics || ''}
-                                                        onChange={(e) => handleScheduleChange(e, index)}
-                                                        className="border border-gray-400  rounded-[6px] px-[26px] py-4 w-full bg-[#F4F4F4]"
-                                                        placeholder="Challenging Cases In Transplant ID"
-                                                    />
-                                                </div>
-                                            </div>
-                                            <div className='w-[28%] pt-6'>
-                                                <p className='text-[color:var(--Black,#222)] text-[18px] not-italic font-medium leading-[24px]'>Selected Speakers</p>
-                                                <div className="relative pt-2">
-                                                    <select
-                                                        className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
-                                                        value={scheduleFormData[index]?.single_speaker || ''}
-                                                        onChange={(e) => handleSpeakerChangeForSection(e, index)}
-                                                    >
-                                                        <option value="" disabled>Select a speaker</option>
-                                                        {selectedSpeakers.map(speakerId => {
-                                                            const speaker = speakers.find(s => s.id === speakerId);
-                                                            return (
-                                                                <option key={speaker.id} value={speaker.id}>
-                                                                    {speaker.name}
-                                                                </option>
-                                                            );
-                                                        })}
-                                                    </select>
-                                                </div>
-                                            </div>
 
-                                        </div>
-                                    </div>
-                                </div>
-                            ))}
+
+
+
 
 
                             <div className='pt-8 w-[15%] '>
@@ -636,7 +678,9 @@ const AEvents = () => {
                                 <div className='w-[3%]'>
                                     <p className='text-[color:var(--Gray,#58585A)] text-[18px]   not-italic font-normal leading-[normal]'>{event?.id}</p>
                                 </div>
-                                <img src={event?.banner} alt="" className=' pl-8' />
+                                <div className='bg-red-400'> cccccc
+                                    <img src={event.banner} alt="" className='pl-8 w-[5%]' />
+                                </div>
                                 <div className='w-[28%] pl-4'>
                                     <p className='text-[color:var(--Gray,#58585A)]  text-[18px] not-italic font-normal leading-[normal]'>{event?.event_name}</p>
                                 </div>

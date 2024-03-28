@@ -6,6 +6,10 @@ import del from '../../../assets/images/delete-02.png';
 import { toast, Toaster } from "react-hot-toast";
 
 const EditEvents = () => {
+    
+    const [filteredSpeakers, setFilteredSpeakers] = useState([]); 
+    const [scheduleFormData, setScheduleFormData] = useState([]); 
+    const [selectedImage, setSelectedImage] = useState(null);
     const [formData, setFormData] = useState({
         days: '',
         forum: '',
@@ -17,25 +21,33 @@ const EditEvents = () => {
         points: '',
         starting_time: '',
         ending_time: '',
-        topics: ''
+        topics: '',
+        banner: null
     });
-
-
-
-    const [scheduleFormData, setScheduleFormData] = useState([
-        { youtube_link: '', points: '', starting_time: '', ending_time: '', topics: '' }
-    ]);
-
-
-
-
-
-    const [speakers, setSpeakers] = useState([]);
-    const [speakerList, setSpeakerList] = useState([]);
-    const [selectedSpeaker, setSelectedSpeaker] = useState('');
+    const handleRemoveSpeaker = (speakerId) => { // Added handleRemoveSpeaker function
+        setSelectedSpeakers(prevSpeakers => prevSpeakers.filter(id => id !== speakerId));
+    };
+    const [speakerList, setSpeakerList] = useState([]); // Added speakerList state variable
     const [selectedSpeakers, setSelectedSpeakers] = useState([]);
+    const [selectedSpeaker, setSelectedSpeake] = useState([]);
+    const [speakers, setSpeakers] = useState([]);
     const [forums, setForums] = useState([]);
-    const [eventData, setEventData] = useState([])
+    const { eventId } = useParams();
+
+    useEffect(() => {
+        const fetchEventData = async () => {
+            try {
+                const response = await axios.get(`${BASE_URL}/admins/events/${eventId}/list/`);
+                const eventData = response.data;
+                setFormData(eventData);
+                setSelectedSpeakers(eventData.speakers);
+            } catch (error) {
+                console.error('Error fetching event data:', error);
+                toast.error('Failed to fetch event data.');
+            }
+        };
+        fetchEventData();
+    }, [eventId]);
 
     useEffect(() => {
         const fetchSpeakers = async () => {
@@ -49,184 +61,31 @@ const EditEvents = () => {
         fetchSpeakers();
     }, []);
 
-    const { eventId } = useParams();
-    console.log("eventId:", eventId);
-
     useEffect(() => {
-        const fetchEventData = async () => {
-            try {
-
-                const response = await axios.get(`${BASE_URL}/admins/events/${eventId}/list/`);
-                const eventData = response.data;
-               
-                setFormData({
-                    days: eventData.days.toString(),
-                    forum: eventData.forum.toString(),
-                    event_name: eventData.event_name,
-                    date: eventData.date,
-                    speakers: eventData.speakers,
-                    single_speaker: eventData.single_speaker,
-                    youtube_link: eventData.youtube_link,
-                    points: eventData.points,
-                    starting_time: eventData.starting_time,
-                    ending_time: eventData.ending_time,
-                    topics: eventData.topics
-
-
-                });
-                // console.log(response.data)
-                setScheduleFormData(eventData.single_events || []);
-                setSelectedSpeakers(eventData.speakers);
-            } catch (error) {
-                console.error('Error fetching event data:', error);
-                toast.error('Failed to fetch event data.');
-            }
-        };
-
-        fetchEventData();
-    }, [eventId]);
-
-
-    useEffect(() => {
-        const fetchForumData = async () => {
+        const fetchForums = async () => {
             try {
                 const response = await axios.get(`${BASE_URL}/admins/forums/`);
                 setForums(response.data);
             } catch (error) {
-                console.error('Error fetching forum data:', error);
-                toast.error('Failed to fetch forum data.');
+                console.error('Error fetching forums:', error);
             }
         };
-
-        const fetchScheduleData = async () => {
-
-        };
-
-        fetchForumData();
-        fetchScheduleData();
+        fetchForums();
     }, []);
 
-    const handleSpeakerSearch = (searchQuery) => {
-        const filtered = speakers.filter(speaker =>
-            speaker.name.toLowerCase().includes(searchQuery.toLowerCase())
-        );
-        setSpeakerList(filtered);
-    };
-
-    const handleCheckboxChange = (e, speakerId) => {
-        const isChecked = e.target.checked;
-        if (isChecked) {
-            setSelectedSpeakers(prevSelected => [...prevSelected, speakerId]);
-        } else {
-            setSelectedSpeakers(prevSelected => prevSelected.filter(id => id !== speakerId));
-        }
-    };
-
-    useEffect(() => {
-        const fetchspeakers = async () => {
-            try {
-                const response = await axios.get(`${BASE_URL}/admins/speakers/`);
-                setSpeakers(response.data);
-            } catch (error) {
-                console.error('Error fetching  spekers:', error);
-            }
-        };
-
-        fetchspeakers();
-    }, []);
-
-    const handleAddSpeaker = () => {
-        if (selectedSpeaker) {
-            setFormData(prevState => ({
-                ...prevState,
-                speakers: [...prevState.speakers, selectedSpeaker]
-            }));
-            setSelectedSpeaker('');
-        }
-    };
-
-    const handleRemoveSpeaker = (speakerId) => {
-        setSelectedSpeakers(prevSpeakers => prevSpeakers.filter(id => id !== speakerId));
-    };
-
-    const handleSpeakerChange = (e) => {
-        const value = e.target.value;
-        setFormData(prevState => ({
-            ...prevState,
-            single_speaker: value // Update the single_speaker field in the formData state
-        }));
-    };
-    
-    
-    const handleChange = (e, index) => {
+    const handleChange = (e) => {
         const { name, value } = e.target;
-    
-        // Update scheduleFormData
-        const updatedSchedule = scheduleFormData.map((item, i) => {
-            if (i === index) {
-                return {
-                    ...item,
-                    [name]: value
-                };
-            }
-            return item;
-        });
-        setScheduleFormData(updatedSchedule);
-    
-        // Update formData including single_speaker
         setFormData(prevState => ({
             ...prevState,
-            single_speaker: updatedSchedule[index].single_speaker // Update single_speaker with the new value
+            [name]: value
         }));
-    };
-    
-    
-    
-    
-    
-
-
-
-
-
-    const handleSpeakerChangeForSection = (e, index) => {
-        const value = e.target.value;
-        const updatedSchedule = [...scheduleFormData];
-        updatedSchedule[index] = {
-            ...updatedSchedule[index],
-            single_speaker: value
-        };
-        setScheduleFormData(updatedSchedule);
     };
 
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            const updatedEventData = {
-                days: formData.days,
-                forum: formData.forum,
-                event_name: formData.event_name,
-                date: formData.date,
-                speakers: selectedSpeakers,
-                single_speaker: formData.single_speaker,
-                schedules: scheduleFormData.map(schedule => ({
-                    youtube_link: schedule.youtube_link || '',
-                    points: schedule.points || '',
-                    starting_time: schedule.starting_time || '',
-                    ending_time: schedule.ending_time || '',
-                    topics: schedule.topics || '',
-                })),
-                banner: null, // Ensure banner is null
-            };
-    
-            console.log('Updated Event Data:', updatedEventData);
-    
-            const response = await axios.put(`${BASE_URL}/admins/events/${eventId}/update/`, updatedEventData);
-    
+            const response = await axios.put(`${BASE_URL}/admins/events/${eventId}/update/`, formData);
             if (response.status === 200) {
-                console.log('Event updated:', response.data);
-                // Update the event data in the component state
-                setEventData(response.data);
                 toast.success('Event updated successfully!');
             } else {
                 console.error('Error updating event. Status:', response.status);
@@ -238,6 +97,45 @@ const EditEvents = () => {
         }
     };
     
+    const handleSpeakerChangeForSection = (e, index) => {
+        const value = e.target.value;
+        const updatedSchedule = [...scheduleFormData];
+        updatedSchedule[index] = {
+            ...updatedSchedule[index],
+            single_speaker: value
+        };
+        setScheduleFormData(updatedSchedule);
+    };
+    const handleCheckboxChange = (e, speakerId) => {
+        const isChecked = e.target.checked;
+        if (isChecked) {
+            setSelectedSpeakers(prevSelected => [...prevSelected, speakerId]);
+        } else {
+            setSelectedSpeakers(prevSelected => prevSelected.filter(id => id !== speakerId));
+        }
+    };
+    const handleImageChange = (e) => {
+        const imageFile = e.target.files[0];
+        setSelectedImage(imageFile);
+        setFormData(prevFormData => ({
+            ...prevFormData,
+            image: imageFile
+        }));
+    };
+    const handleSpeakerSearch = (searchQuery) => {
+        const filtered = speakers.filter(speaker =>
+            speaker.name.toLowerCase().includes(searchQuery.toLowerCase())
+        );
+        setSpeakerList(filtered);
+    };
+    
+
+    const setSelectedSpeaker = (speaker) => { // Corrected declaration of setSelectedSpeaker function
+        setFormData(prevState => ({
+            ...prevState,
+            single_speaker: speaker
+        }));
+    };
     return (
         <div className='bg-[#f4f4f4] h-[100vh] p-6'>
             <div className='bg-white p-6 rounded-[8px]'>
@@ -307,73 +205,85 @@ const EditEvents = () => {
                             </div>
                             <div className='w-full'></div>
                         </div>
-                        <div className='flex gap-8'>
-                            <div className='w-[40%] pt-8'>
-                                <p className='text-[color:var(--Black,#222)] text-[18px] not-italic font-medium  leading-[24px]'>Speakers</p>
-                                <div className="  relative">
-                                    <div className="relative pt-2">
-                                        <input
-                                            type="text"
-                                            name="speaker_search"
-                                            value={selectedSpeaker}
-                                            onChange={(e) => {
-                                                handleSpeakerSearch(e.target.value);
-                                                setSelectedSpeaker(e.target.value);
-                                                handleChange(e);
-                                            }}
-                                            className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
-                                            placeholder="Search for a speaker"
-                                        />
-                                        <div className="bg-white border border-gray-400 rounded-[6px] w-full mt-1 z-10" style={{ maxHeight: '200px', overflowY: 'auto' }}>
-                                            {speakerList.map(speaker => (
-                                                <div key={speaker.id} className="flex items-center px-4 py-2 cursor-pointer hover:bg-gray-200">
-                                                    <input
-                                                        type="checkbox"
-                                                        id={speaker.id}
-                                                        value={speaker.id}
-                                                        checked={selectedSpeakers.includes(speaker.id)}
-                                                        onChange={(e) => handleCheckboxChange(e, speaker.id)}
-                                                        className="mr-2"
-                                                    />
-                                                    <label htmlFor={speaker.id}>{speaker.name}</label>
-                                                </div>
-                                            ))}
-                                        </div>
-                                    </div>
-                                </div>
+                     
+        <div className='flex gap-8'>
+            <div className='w-[40%] pt-8'>
+                <p className='text-[color:var(--Black,#222)] text-[18px] not-italic font-medium leading-[24px]'>Speakers</p>
+                <div className="relative pt-2">
+                    <input
+                        type="text"
+                        name="speaker_search"
+                        value={selectedSpeaker}
+                        onChange={(e) => {
+                            setSelectedSpeaker(e.target.value);
+                            handleSpeakerSearch(e.target.value);
+                        }}
+                        className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
+                        placeholder="Search for a speaker"
+                    />
+                    <div className="bg-white border border-gray-400 rounded-[6px] w-full mt-1 z-10" style={{ maxHeight: '200px', overflowY: 'auto' }}>
+                        {filteredSpeakers.map(speaker => (
+                            <div key={speaker?.id} className="flex items-center px-4 py-2 cursor-pointer hover:bg-gray-200">
+                                <input
+                                    type="checkbox"
+                                    id={speaker.id}
+                                    value={speaker.id}
+                                    checked={selectedSpeakers.includes(speaker.id)}
+                                    onChange={(e) => handleCheckboxChange(e, speaker.id)}
+                                    className="mr-2"
+                                />
+                                <label htmlFor={speaker.id}>{speaker.name}</label>
                             </div>
-                            <div className='w-[40%] pt-16'>
-                                {selectedSpeakers.map(speakerId => (
-                                    <div key={speakerId} className="pt-2 flex relative">
-                                        <img src={speakers.find(speaker => speaker.id === speakerId)?.photo} alt="" className='absolute left-6 top-4 w-[8%] rounded-[30px]' />
-                                        <div
-                                            className="border border-gray-400 rounded-[6px]  pl-20  py-4 w-full bg-[#F4F4F4] flex items-center"
-                                        >
-                                            {speakers.find(speaker => speaker.id === speakerId)?.name}
-                                            <img
-                                                src={del}
-                                                alt=""
-                                                className='ml-auto cursor-pointer pr-8 '
-                                                onClick={() => handleRemoveSpeaker(speakerId)}
-                                            />
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+            <div className='w-[40%] pt-16'>
+                
+                {selectedSpeakers.map(speakerId => (
+                    <div key={speakerId} className="pt-2 flex relative">
+                        <img src={speakers.find(speaker => speaker.id === speakerId)?.photo} alt="" className='absolute left-6 top-4 w-[8%] rounded-[30px]' />
+                        <div
+                            className="border border-gray-400 rounded-[6px] pl-20 py-4 w-full bg-[#F4F4F4] flex items-center"
+                        >
+                            {speakers.find(speaker => speaker.id === speakerId)?.name}
+                            <img
+                                src={del}
+                                alt=""
+                                className='ml-auto cursor-pointer pr-8 '
+                                onClick={() => handleRemoveSpeaker(speakerId)}
+                            />
                         </div>
+                    </div>
+                ))}
+            </div>
+        </div>
+                        <p className='text-[color:var(--Black,#222)] text-[18px] not-italic pt-6 font-medium leading-[24px]'>Image</p>
+                        <div className="pt-1">
+                            <input
+                                type="file"
+                                accept="image/*"
+                                onChange={handleImageChange}
+                                className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]"
+                            />
+                        </div>
+                        {selectedImage && (
+                            <div className="pt-1">
+                                <img src={URL.createObjectURL(selectedImage)} alt="Selected Image" className="border border-gray-400 rounded-[6px] px-[20px] py-4 w-full bg-[#F4F4F4]" />
+                            </div>
+                        )}
 
-
-                        <div className="pt-8"> {/* Start of container div for Event Schedules */}
+                        <div className="pt-8">  
                             <p className="text-[color:var(--Black,#222)] text-[24px] not-italic font-semibold leading-[25px] tracking-[-0.12px]">Event Schedules</p>
                             <div>
-                                {/* Render schedule sections dynamically */}
+                            
                                 {scheduleFormData.map((schedule, index) => (
                                     <div key={index}>
-                                        {/* Render schedule section content here */}
+                                      
                                         <div className="pt-8">
                                             <p className="text-[color:var(--Black,#222)] text-[24px] not-italic font-semibold leading-[25px] tracking-[-0.12px]">Schedule - Day {index + 1}</p>
                                             <div className="flex gap-8 pt-6">
-                                                {/* YouTube Link field */}
+                                             
                                                 <div className="relative w-[40%]">
                                                     <p className="text-[color:var(--Black,#222)]  text-[18px] not-italic font-medium  leading-[24px]">YouTube Link</p>
                                                     <div className="pt-2">
@@ -387,7 +297,7 @@ const EditEvents = () => {
                                                         />
                                                     </div>
                                                 </div>
-                                                {/* Points field */}
+                                        
                                                 <div className="relative w-[8%]">
                                                     <p className="text-[color:var(--Black,#222)]  text-[18px] not-italic font-medium  leading-[24px]">Points</p>
                                                     <div className="pt-2">
